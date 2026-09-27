@@ -11,6 +11,12 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0001](0001-astro-static-site.md) | Astro static site, no site-wide UI framework | accepted | stack | 2026-09-27 |
 | [ADR-0002](0002-public-repo-hidden-site.md) | Public repository, site hidden from search | accepted | hosting | 2026-09-27 |
 | [ADR-0003](0003-search-hiding-with-noindex.md) | Hide the site from search with noindex, not robots.txt | accepted | hosting | 2026-09-27 |
+| [ADR-0004](0004-static-hosting-configurable-base-path.md) | Static hosting on GitHub Pages with a configurable base path | accepted | hosting | 2026-09-27 |
+| [ADR-0005](0005-content-model-case-studies-of-blocks.md) | Content model — case studies made of blocks, data-driven disciplines | accepted | content | 2026-09-27 |
+| [ADR-0006](0006-notion-as-content-source.md) | Notion as the content source; never hotlink Notion files | accepted | content | 2026-09-27 |
+| [ADR-0007](0007-image-pipeline.md) | Image pipeline — automatic web versions, full resolution on Google Drive | accepted | media | 2026-09-27 |
+| [ADR-0008](0008-video-drive-thumbnail-now-youtube-later.md) | Video — Drive thumbnail links now, YouTube embeds later | accepted | media | 2026-09-27 |
+| [ADR-0009](0009-carousel-and-mobile-first-interaction.md) | Peek-behind carousel and mobile-first interaction baseline | accepted | design | 2026-09-27 |
 
 ## Adding or changing a decision
 
