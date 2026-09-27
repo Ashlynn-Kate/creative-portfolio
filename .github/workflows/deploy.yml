@@ -31,6 +31,9 @@ jobs:
 
       - run: npm ci
 
+      # Fails if AGENTS.md or docs/adr/README.md is out of sync with the ADRs.
+      - run: npm run adr:check
+
       # Validates every content file against the schema before building.
       - run: npm run check
 

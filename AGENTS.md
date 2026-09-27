@@ -1,11 +1,31 @@
 # Portfolio — Project Context
 
-A portfolio website showcasing all of [NAME]'s creative work. It must be beautiful, easy to extend, and maintainable by a non-technical owner.
+A portfolio website showcasing all of Ashlynn Kate's creative work. It must be beautiful, easy to extend, and maintainable by a non-technical owner.
 
 ## People
-- **Owner:** [NAME], an artistic director and multidisciplinary artist. She is non-technical and will maintain the site through the **Codex desktop app** (plain-language requests), not by editing code.
+- **Owner:** Ashlynn Kate, an artistic director and multidisciplinary artist. She is non-technical and will maintain the site through the **Codex desktop app** (plain-language requests), not by editing code.
 - **Developer:** her husband, who does the initial setup and technical support (uses Claude Code on WSL).
 - **Owner's machine: regular Windows, not WSL.** Give her Windows (PowerShell) commands and paths, never Linux/macOS ones.
+
+## Decisions
+
+<!-- adr-registry:begin -->
+<!-- GENERATED from docs/adr/*.md by scripts/adr-registry.mjs. Do not edit here: edit the ADR, then run `npm run adr`. -->
+
+**These are binding constraints, not background.** Before changing anything, check the change against this list.
+If it touches a decision, say so and classify it: *consistent*, *amends*, or *contradicts*. Amending or contradicting
+a decision needs a new ADR, and the developer must agree first. Open the linked file when you need the *why*.
+
+- **ADR-0001** · `stack` · Astro static site, no site-wide UI framework
+  The site is an Astro static build: pages are `.astro` files (HTML/CSS plus small vanilla JS), TypeScript only for logic (content schemas, Notion sync). Never add a site-wide UI framework (React, Vue, etc.); if one interactive piece truly needs one, it is a single Astro island on that page only. Never switch frameworks without a new ADR.
+  → `docs/adr/0001-astro-static-site.md`
+- **ADR-0002** · `hosting` · Public repository, site hidden from search
+  The GitHub repository is public, so anything committed (text, images, links) is publicly visible and can appear in GitHub and search-engine results even though the site itself is hidden from search. Never commit anything the owner hasn't approved for public view (unreleased work, private notes, raw exports, secrets).
+  → `docs/adr/0002-public-repo-hidden-site.md`
+- **ADR-0003** · `hosting` · Hide the site from search with noindex, not robots.txt
+  Every page must carry `<meta name="robots" content="noindex, nofollow">` (set once in `src/layouts/BaseLayout.astro`). Never add a sitemap, and never block crawlers in `robots.txt`. Keep title, description, and Open Graph tags so shared links still preview.
+  → `docs/adr/0003-search-hiding-with-noindex.md`
+<!-- adr-registry:end -->
 
 ## Content scope
 The site covers every creative discipline, now and in the future:
@@ -21,12 +41,7 @@ The site covers every creative discipline, now and in the future:
 - A custom domain (e.g. herName.com) will likely be added later. **Make the base path configurable**: `/creative-portfolio/` now, `/` after the custom domain is attached.
 - The site is static only: no server, no database. Any forms must use a third-party service (e.g. Formspree).
 - Deploy through GitHub Actions to Pages.
-- The site must **not** be discoverable through search engines. It is public to anyone with the link, but hidden from search results.
-  - Every page includes `<meta name="robots" content="noindex, nofollow">` (set once in the shared layout).
-  - Do not generate a sitemap.
-  - Do not block crawlers in `robots.txt`. Crawlers must be able to load a page to see its `noindex` tag, and a blocked URL can still appear in results.
-  - Still include a good `<title>`, meta description, and Open Graph tags so shared links show a proper preview.
-  - Hiding from search is not privacy. Anyone with the link can view the site.
+- The site is public to anyone with the link but hidden from search engines (ADR-0003). The repository itself is public (ADR-0002).
 
 ## Content source: Notion as the CMS
 - Her content lives in Notion. The developer has **guest access** to her pages.
@@ -51,9 +66,7 @@ The site covers every creative discipline, now and in the future:
 - **Later:** she may wireframe in **Figma**. Figma is not used yet. Once it is, implement design changes from Figma frames when referenced.
 
 ## Tech stack
-- **Framework: Astro** (decided 2026-09-27). Pages and components are `.astro` files: plain HTML and CSS, plus small vanilla JS scripts for interactivity (e.g. the carousel).
-- **TypeScript** for logic only: the Notion sync script and content schemas. Markup and styles stay plain HTML/CSS.
-- **No site-wide UI framework** (React, Vue, etc.). If one interactive piece truly needs it, add it as a single Astro island on that page only.
+- **Astro 7**, static output (ADR-0001). Node 22.12 or newer.
 - Code should be readable and well commented so Codex can make safe edits later.
 - **Local preview:** `npm run dev` (live, `http://localhost:4321/creative-portfolio/`); `npm run build` then `npm run preview` for the final check. Human-facing steps live in `README.md`.
 
@@ -67,42 +80,16 @@ The site covers every creative discipline, now and in the future:
 - `src/components/Carousel.astro`: the peek-behind carousel.
 - Run `npm run check` and `npm run build` after changes; both must pass with no errors.
 
-### Decision record: why Astro
-**Context.** A content-heavy static site on GitHub Pages, with a build step that pulls from Notion and resizes images. The only interactive piece today is the carousel. Future interactivity is unknown. The owner is non-technical and edits through Codex.
-
-**Options considered.**
-- *Raw HTML/CSS/JS:* no dependencies, but we would hand-build the Notion pull, image resizing, per-project page generation, and base-path handling.
-- *React (JSX/TSX, e.g. Next.js or Vite):* very flexible, but ships a JS runtime on every page and adds concepts (state, hooks, hydration) that make AI edits riskier for a non-technical owner. Overkill for a content site.
-- *Astro (chosen).*
-
-**Pros.**
-- Outputs plain static files, which is exactly what GitHub Pages serves.
-- Built-in image pipeline (WebP, resizing) covers the media rules with no manual work.
-- Content collections make categories and projects data-driven.
-- One `base` setting handles `/creative-portfolio/` now and `/` after the custom domain.
-- `.astro` files read like HTML, so Codex can edit them safely.
-- Ships zero JS by default, so pages load fast.
-- Leaves room to grow: islands allow a React/Svelte/Vue component on one page only; View Transitions give app-like page changes; GSAP/Motion work for richer animation.
-
-**Cons / trade-offs.**
-- Needs Node.js and a build step. The site can't be edited by opening an HTML file directly.
-- Dependencies need occasional upgrades (Astro major versions).
-- Smaller ecosystem than React for ready-made complex UI components.
-- One more thing to learn compared to raw HTML.
-
-**Revisit this decision if:**
-- The site needs server features (logins, a database, saving user data). GitHub Pages can't do that. Move hosting to Netlify/Vercel first; Astro supports server rendering there, so a rewrite is likely unnecessary.
-- Most pages become heavily interactive, app-like experiences. A React-based framework may then fit better.
-- Astro's build or image handling can't keep up with the media library size or the Notion sync.
-- Maintaining Node and dependencies becomes a real burden relative to the site's needs.
-
 ## Documentation split
 - `README.md` is for **humans**: setup, how to view the site locally, how to make changes, how publishing works. Plain language, no jargon.
-- `AGENTS.md` (this file) is for **agents**: project context, coding rules, design rules, decisions.
+- `AGENTS.md` (this file) is for **agents**: project context, coding rules, design rules, and the decision constraints.
+- `docs/adr/` holds one file per decision with the full *why*. `docs/adr/README.md` is the human index.
 - When setup steps, commands, or the publishing flow change, update `README.md` in the same change.
 
 ## Guidance for AI agents working in this repo
 - The owner is non-technical. When she asks for a change, make it, explain it briefly in plain language, and avoid jargon.
 - Don't restructure the content pipeline or change the base path without being asked.
+- **Record decisions as ADRs.** When a choice is made that a future change could violate, copy `docs/adr/_template.md` to the next number and fill it in (the `constraint` is the rule, written as "X must / must never Y"). To change a decision, write a new ADR and mark the old one `superseded`; don't rewrite it.
+- **After ANY change under `docs/adr/`** (new, edited, renamed, or superseded ADR), run `npm run adr` in the same change. Never edit the Decisions block above or `docs/adr/README.md` by hand; both are generated. The pre-commit hook regenerates them if you forget, and the deploy fails if they're stale.
 - Preview changes locally before committing when possible.
 - **After every change, remind the human how to see it:** give the exact command (`npm run dev`) and the link (`http://localhost:4321/creative-portfolio/`), and name the page to look at. If a dev server is already running, just say which page to refresh. Before a push, suggest the final check (`npm run build`, then `npm run preview`).

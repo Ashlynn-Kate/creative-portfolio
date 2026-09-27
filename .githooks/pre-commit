@@ -1,0 +1,41 @@
+#!/bin/sh
+# Keeps the decision registry (the Decisions block in AGENTS.md and
+# docs/adr/README.md) in sync with the ADR files in docs/adr/.
+#
+# Works on a snapshot of the STAGED files, so it checks exactly what is being
+# committed, not unstaged edits sitting in the working tree.
+#
+# - An invalid ADR blocks the commit (the script prints what's wrong).
+# - A stale registry is regenerated and added to this commit automatically,
+#   unless AGENTS.md or docs/adr/README.md has unstaged edits of its own; then
+#   the commit is blocked so those edits aren't swept in by accident.
+#
+# Installed by `npm install` (see scripts/install-hooks.mjs).
+
+GENERATED="AGENTS.md docs/adr/README.md"
+SCRIPT="scripts/adr-registry.mjs"
+
+snap=$(mktemp -d) || exit 1
+trap 'rm -rf "$snap"' EXIT
+
+# Copy the staged versions of the ADRs and the generated files into the snapshot.
+git ls-files -z -- docs/adr AGENTS.md | xargs -0 git checkout-index --prefix="$snap/" -- || exit 1
+
+node "$SCRIPT" --root "$snap" --check >/dev/null 2>&1 && exit 0
+node "$SCRIPT" --root "$snap" --validate || exit 1
+
+# Stale: regenerate inside the snapshot, then move the results into this commit.
+node "$SCRIPT" --root "$snap" >/dev/null || exit 1
+
+for f in $GENERATED; do
+  if ! git diff --quiet -- "$f"; then
+    echo "pre-commit: the decision registry is out of date, and $f has unstaged edits."
+    echo "Stage or discard those edits, then commit again (or run: npm run adr)."
+    exit 1
+  fi
+done
+
+for f in $GENERATED; do
+  cp "$snap/$f" "$f" && git add "$f" || exit 1
+done
+echo "pre-commit: updated the decision registry (AGENTS.md, docs/adr/README.md) and added it to this commit."

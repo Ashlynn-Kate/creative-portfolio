@@ -63,7 +63,8 @@ When you're happy with a change, ask Codex to "commit and push." GitHub then reb
 
 ## For the developer
 
-- Project rules, design rules, and technical decisions for AI agents live in [`AGENTS.md`](AGENTS.md).
+- Project rules and design rules for AI agents live in [`AGENTS.md`](AGENTS.md). `CLAUDE.md` just imports it, so Claude Code gets the same rules.
+- Decisions live in [`docs/adr/`](docs/adr/) (index: [`docs/adr/README.md`](docs/adr/README.md)). Each ADR's one-line `constraint` is copied into `AGENTS.md` by `npm run adr`; A pre-commit hook (`.githooks/pre-commit`, installed automatically by `npm install`) regenerates them in the same commit, or blocks the commit if an ADR is invalid. CI runs `npm run adr:check` as a backstop for commits made without the hook (e.g. GitHub's web editor or `--no-verify`).
 - Stack: Astro 7 static site, deployed to GitHub Pages by `.github/workflows/deploy.yml` on every push to `main` (repo Settings → Pages → Source must be "GitHub Actions").
 - `npm run check` type-checks the project, including every content file against the schema in `src/content.config.ts`.
 - `notion-export-*/` holds one-time Notion exports and is git-ignored.
