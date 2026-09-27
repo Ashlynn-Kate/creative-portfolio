@@ -1,0 +1,40 @@
+---
+/** One case study as it appears on the home page: header, then its blocks. */
+import type { Case } from '../lib/content';
+import { pad } from '../lib/content';
+import Blocks from './Blocks.astro';
+import DisciplineTags from './DisciplineTags.astro';
+
+interface Props {
+  entry: Case;
+  number: number;
+}
+const { entry, number } = Astro.props;
+const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
+---
+
+<article class="case" id={entry.id} aria-labelledby={`${entry.id}-title`}>
+  <header class="case__header">
+    <p class="case__num" aria-hidden="true">{pad(number)}</p>
+    <div class="case__heading">
+      <p class="case__kicker">
+        <span>Case {number}</span>
+        {kicker && <span>{kicker}</span>}
+        {status && <span class="badge">{status}</span>}
+      </p>
+      <h2 class="case__title" id={`${entry.id}-title`}>{title}</h2>
+      {meta && <p class="case__meta">{meta}</p>}
+      <DisciplineTags disciplines={disciplines} />
+    </div>
+    {role && (
+      <dl class="case__role">
+        <dt>My role</dt>
+        <dd>{role}</dd>
+      </dl>
+    )}
+  </header>
+
+  <div class="flow">
+    <Blocks blocks={blocks} />
+  </div>
+</article>

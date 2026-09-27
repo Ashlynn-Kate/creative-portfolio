@@ -1,0 +1,35 @@
+case: prince-of-egypt
+order: 3
+title: "Opening Scene: Physical Labor"
+summary: A set that conveys exhausting, repetitive labor on a monumental scale.
+cover:
+  src: prince-of-egypt/deliver-us.png
+  alt: Dancers bent low under dim light before tall panels, with scaffolding at stage right.
+
+blocks:
+  - type: text
+    body: |
+      For the opening scene, I wanted the set to convey exhausting, repetitive labor on a monumental scale. I gathered references for stone, scaffolding, and heavy rope to communicate the environment and the scale of the work.
+
+  - type: heading
+    text: Visual references
+    sub: Stone · Scaffolding · Rope
+  - type: grid
+    images:
+      - src: prince-of-egypt/stone-blocks.png
+        alt: Weathered sandstone blocks stacked in rows.
+      - src: prince-of-egypt/scaffolding.jpg
+        alt: Product image of several frame scaffolding systems.
+      - src: prince-of-egypt/rope.png
+        alt: A thick coil of natural fiber rope.
+
+  - type: heading
+    text: Onstage
+  - type: text
+    body: |
+      The scene begins in darkness before transitioning to low light. Select the image below to watch a clip of the opening scene.
+  - type: video
+    url: https://drive.google.com/file/d/1MjcR0QJEARC-q0XQT0gGWDhp1KWGepoh
+    thumbnail:
+      src: prince-of-egypt/deliver-us.png
+      alt: Dancers bent low under dim light before tall panels, with scaffolding at stage right.

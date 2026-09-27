@@ -1,0 +1,27 @@
+case: prince-of-egypt
+order: 4
+title: More Performance Photos
+summary: Scenes from the full production.
+cover:
+  src: prince-of-egypt/burning-bush.png
+  alt: Dancers in flowing pale costumes before a warm pink backdrop.
+
+blocks:
+  - type: carousel
+    label: Performance photos
+    images:
+      - src: prince-of-egypt/burning-bush.png
+        alt: Dancers in flowing pale costumes before a warm pink backdrop.
+        caption: Burning Bush
+      - src: prince-of-egypt/plagues.png
+        alt: Dancers crouched low before a pale lavender backdrop, with the throne at stage left.
+        caption: Plagues
+      - src: prince-of-egypt/playing-with-the-big-boys.png
+        alt: Dancers in dark costumes against deep red panels.
+        caption: Playing with the Big Boys
+      - src: prince-of-egypt/sand.png
+        alt: A solo dancer mid-leap before tall pale panels and a desert backdrop.
+        caption: Sand
+      - src: prince-of-egypt/heavens-eyes.png
+        alt: A large ensemble in a line across the stage under bright light.
+        caption: Heaven’s Eyes

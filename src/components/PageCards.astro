@@ -1,0 +1,32 @@
+---
+/** Cards linking to a case's detail pages (e.g. "Throne Inspiration"). */
+import { getEntry } from 'astro:content';
+import { url } from '../lib/site';
+import MediaImage from './MediaImage.astro';
+
+interface Props {
+  items: string[];
+}
+
+const entries = await Promise.all(
+  Astro.props.items.map(async (id) => {
+    const entry = await getEntry('pages', id);
+    if (!entry) throw new Error(`Page not found: "${id}". Check src/content/pages/.`);
+    return entry;
+  }),
+);
+const visible = entries.filter((e) => e.data.published);
+---
+
+<ul class="cards">
+  {visible.map((page, i) => (
+    <li class="card">
+      <a href={url(`work/${page.id}`)} class="card__link">
+        <MediaImage image={{ ...page.data.cover, highRes: undefined }} showCaption={false} sizes="(min-width: 900px) 30vw, 90vw" class="card__image" />
+        <span class="card__num">{String(i + 1).padStart(2, '0')}</span>
+        <span class="card__title">{page.data.title}</span>
+        <span class="card__summary">{page.data.summary}</span>
+      </a>
+    </li>
+  ))}
+</ul>

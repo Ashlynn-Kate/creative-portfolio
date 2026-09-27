@@ -1,0 +1,158 @@
+---
+/**
+ * The peek-behind swipe carousel.
+ *
+ * The current image sits in front; the previous and next images peek out
+ * behind it. Visitors can swipe or drag, use the arrow buttons, use the
+ * keyboard arrow keys, or click a peeking image. Loops around at the ends.
+ * Animations are turned off for people who ask for reduced motion.
+ */
+import { getImage } from '../lib/images';
+import { mdInline, } from '../lib/site';
+import MediaImage from './MediaImage.astro';
+
+interface Props {
+  label: string;
+  images: { src: string; alt: string; caption?: string; highRes?: string }[];
+}
+
+const { label, images } = Astro.props;
+const count = images.length;
+
+// Stage shape: follows the widest image, kept between square-ish and cinematic.
+const widest = Math.max(...images.map((i) => { const m = getImage(i.src); return m.width / m.height; }));
+const ratio = Math.min(Math.max(widest, 1.25), 1.9).toFixed(3);
+const pad = (n: number) => String(n).padStart(2, '0');
+---
+
+<section class="carousel" data-carousel aria-roledescription="carousel" aria-label={label} style={`--ratio: ${ratio}`}>
+  <div class="carousel__stage" data-stage tabindex="0" aria-label={`${label}. Use the left and right arrow keys to browse.`}>
+    {images.map((image, i) => (
+      <div
+        class="carousel__slide"
+        data-slide
+        data-caption={image.caption ? mdInline(image.caption) : ''}
+        aria-roledescription="slide"
+        aria-label={`${i + 1} of ${count}`}
+      >
+        <MediaImage image={image} showCaption={false} sizes="(min-width: 1240px) 900px, 80vw" />
+      </div>
+    ))}
+  </div>
+
+  <div class="carousel__bar">
+    <p class="carousel__caption" data-caption-text aria-live="polite" set:html={images[0]?.caption ? mdInline(images[0].caption) : ''} />
+    {count > 1 && (
+      <div class="carousel__controls">
+        <button type="button" class="carousel__btn" data-prev aria-label="Previous image">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+        </button>
+        <span class="carousel__count"><span data-index>01</span> / {pad(count)}</span>
+        <button type="button" class="carousel__btn" data-next aria-label="Next image">
+          <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.5"></path></svg>
+        </button>
+      </div>
+    )}
+  </div>
+</section>
+
+<script>
+  // Runs once per page and wires up every carousel on it.
+  function setup(root: HTMLElement) {
+    const stage = root.querySelector<HTMLElement>('[data-stage]')!;
+    const slides = [...root.querySelectorAll<HTMLElement>('[data-slide]')];
+    const caption = root.querySelector<HTMLElement>('[data-caption-text]')!;
+    const indexLabel = root.querySelector<HTMLElement>('[data-index]');
+    const n = slides.length;
+    let current = 0;
+
+    // Gives each slide a position: 0 = front, -1 = peeking left, 1 = peeking right.
+    function render() {
+      slides.forEach((slide, i) => {
+        const diff = (i - current + n) % n;
+        const pos = diff === 0 ? 0 : diff === 1 ? 1 : diff === n - 1 ? -1 : null;
+        slide.dataset.pos = pos === null ? 'hidden' : String(pos);
+        const isCurrent = pos === 0;
+        // Hidden slides are fully inert. Peeking slides stay clickable (to bring
+        // them forward) but are skipped by screen readers and the Tab key.
+        slide.toggleAttribute('inert', pos === null);
+        slide.setAttribute('aria-hidden', String(!isCurrent));
+        slide.querySelectorAll('a, button').forEach((el) => {
+          if (isCurrent) el.removeAttribute('tabindex');
+          else el.setAttribute('tabindex', '-1');
+        });
+      });
+      caption.innerHTML = slides[current].dataset.caption ?? '';
+      if (indexLabel) indexLabel.textContent = String(current + 1).padStart(2, '0');
+    }
+
+    function go(step: number) {
+      current = (current + step + n) % n;
+      render();
+    }
+
+    root.querySelector('[data-prev]')?.addEventListener('click', () => go(-1));
+    root.querySelector('[data-next]')?.addEventListener('click', () => go(1));
+
+    stage.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+    });
+
+    // Swipe / drag. The front image follows the finger, then snaps.
+    let startX = 0;
+    let dx = 0;
+    let dragging = false;
+    let moved = false;
+
+    stage.addEventListener('pointerdown', (e) => {
+      if (n < 2 || (e.pointerType === 'mouse' && e.button !== 0)) return;
+      dragging = true;
+      moved = false;
+      startX = e.clientX;
+      dx = 0;
+    });
+
+    stage.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
+      dx = e.clientX - startX;
+      if (!moved && Math.abs(dx) > 6) {
+        moved = true;
+        // Capture only once a real drag starts, so plain clicks still reach the images.
+        stage.setPointerCapture(e.pointerId);
+      }
+      if (!moved) return;
+      const front = slides[current];
+      front.style.transition = 'none';
+      front.style.transform = `translateX(${dx}px) rotate(${dx / 80}deg)`;
+    });
+
+    function endDrag() {
+      if (!dragging) return;
+      dragging = false;
+      const front = slides[current];
+      front.style.transition = '';
+      front.style.transform = '';
+      if (moved && Math.abs(dx) > Math.min(80, stage.clientWidth * 0.12)) go(dx < 0 ? 1 : -1);
+    }
+    stage.addEventListener('pointerup', endDrag);
+    stage.addEventListener('pointercancel', endDrag);
+
+    // A click after a drag is not a click. A click on a peeking image brings it forward.
+    stage.addEventListener(
+      'click',
+      (e) => {
+        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; return; }
+        const slide = (e.target as HTMLElement).closest<HTMLElement>('[data-slide]');
+        const pos = slide?.dataset.pos;
+        if (pos === '1' || pos === '-1') { e.preventDefault(); go(Number(pos)); }
+      },
+      true,
+    );
+
+    render();
+    root.classList.add('is-ready');
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-carousel]').forEach(setup);
+</script>

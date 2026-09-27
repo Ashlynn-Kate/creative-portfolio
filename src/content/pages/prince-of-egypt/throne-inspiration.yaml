@@ -1,0 +1,29 @@
+case: prince-of-egypt
+order: 1
+title: Throne Inspiration
+sub: The throne, from concept to stage
+summary: A throne built to convey power through scale, and to move with the choreography.
+cover:
+  src: prince-of-egypt/throne-closeup.png
+  alt: Three performers onstage in front of the finished golden throne.
+
+blocks:
+  - type: text
+    body: |
+      I wanted the throne to convey power through its scale, particularly when the villain takes over in Act II. I shared a size reference and that dramatic purpose with the set builder. It also needed to function as a chair and a movable set piece, so it was built on a rolling platform for transitions on and offstage and for movement within the choreography.
+
+  - type: carousel
+    label: The throne, from inspiration to stage
+    images:
+      - src: prince-of-egypt/throne-inspiration.png
+        alt: Illustration of an Egyptian queen seated on an ornate, towering golden throne.
+        caption: "**01 · Inspiration.** The reference image shared with the set builder."
+      - src: prince-of-egypt/throne-construction.png
+        alt: A person standing beside the unfinished wooden throne in a workshop.
+        caption: "**02 · During construction.** Built on a rolling platform."
+      - src: prince-of-egypt/throne-closeup.png
+        alt: Three performers onstage in front of the finished golden throne.
+        caption: "**03 · Finished product,** close-up."
+      - src: prince-of-egypt/throne-wide.png
+        alt: Wide view of the palace set with the throne at stage left and dancers in white.
+        caption: "**04 · Finished product,** wide shot."

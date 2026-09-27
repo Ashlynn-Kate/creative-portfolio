@@ -1,0 +1,64 @@
+order: 3
+title: Dance Film
+kicker: Set to an acoustic cover of “Crazy”
+status: In production
+meta: Filming October 24, 2026
+role: Concept creator, creative lead, co-choreographer, and production coordinator.
+summary: A dance film about a woman who discovers, and eventually accepts, the unpredictable world inside her mind.
+disciplines: [Choreography, Film, Creative Direction]
+cover:
+  src: dance-film/empty-chairs.png
+  alt: Dozens of black bentwood chairs scattered across a white space, one figure seated among them.
+
+blocks:
+  - type: heading
+    text: Concept
+  - type: text
+    body: |
+      Set to an acoustic cover of “Crazy,” the film follows a woman as she discovers and eventually accepts the unpredictable world inside her mind. It asks what may be happening behind someone’s eyes that others cannot see.
+
+  - type: heading
+    text: Creative approach
+  - type: text
+    body: |
+      - **Movement:** Her quick, unusual movements contrast with the ensemble’s quieter, fluid motion.
+      - **Space:** An open set and recurring chairs create an exposed inner world.
+      - **Camera:** Shifting perspectives bring viewers closer to her experience.
+
+  - type: heading
+    text: Visual references
+  - type: carousel
+    label: Dance film visual references
+    images:
+      - src: dance-film/empty-chairs.png
+        alt: Dozens of black bentwood chairs scattered across a white space, one figure seated among them.
+        caption: Empty chairs arranged across an open, bare space.
+      - src: dance-film/solitary-position.png
+        alt: A dancer in black crouched low with head bowed, arms wrapped over the head.
+        caption: A simple, solitary, and unsettling position representing the emptiness of the mind.
+      - src: dance-film/ensemble-shape.jpeg
+        alt: A group of dancers in cream clothing leaning into one another to form a single shape.
+        caption: A dancer ensemble connecting into one loose, organic shape.
+      - src: dance-film/chair-movement.png
+        alt: A grid of black-and-white photos of a dancer moving over, under, and around a wooden chair.
+        caption: Unusual ways of moving with a chair, turning a familiar object into part of the character’s inner, empty world.
+
+  - type: heading
+    text: Production schedule
+  - type: text
+    body: |
+      - **Concept and collaboration:** I originated the idea, then developed the choreography and visual direction with my co-creator.
+      - **Rehearsal planning:** Scheduled four dancer rehearsals and two planning meetings with the visual and camera team.
+      - **Shoot preparation:** Researched the venue and aligned the shot ideas with the film director and two camera operators for the October 24 shoot.
+  - type: details
+    summary: Rehearsal and shoot schedule
+    blocks:
+      - type: text
+        body: |
+          - **September 28:** Meeting with the visual and camera crew
+          - **October 4:** Dancer rehearsal
+          - **October 5:** Dancer rehearsal
+          - **October 8:** Meeting with the visual and camera crew
+          - **October 18:** Dancer rehearsal
+          - **October 22:** Dancer rehearsal
+          - ***October 24: Filming***

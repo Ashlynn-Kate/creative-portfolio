@@ -1,0 +1,68 @@
+---
+/**
+ * Renders a list of content blocks. This is where each block type from
+ * src/content.config.ts gets its markup. To add a new block type, add it to
+ * the schema there and a branch here.
+ */
+import type { Block } from '../content.config';
+import { md, mdInline } from '../lib/site';
+import MediaImage from './MediaImage.astro';
+import Carousel from './Carousel.astro';
+import VideoLink from './VideoLink.astro';
+import PageCards from './PageCards.astro';
+
+interface Props {
+  blocks: Block[];
+}
+const { blocks } = Astro.props;
+---
+
+{
+  blocks.map((block) => {
+    switch (block.type) {
+      case 'heading':
+        return (
+          <div class="block-heading">
+            <h3 set:html={mdInline(block.text)} />
+            {block.sub && <p class="block-heading__sub">{block.sub}</p>}
+          </div>
+        );
+      case 'text':
+        return <div class="prose" set:html={md(block.body)} />;
+      case 'image':
+        return (
+          <MediaImage
+            image={block}
+            class={`size-${block.size}`}
+            sizes={block.size === 'text' ? '(min-width: 760px) 680px, 100vw' : '(min-width: 1240px) 1160px, 100vw'}
+          />
+        );
+      case 'grid':
+        return (
+          <div class="grid wide" style={`--cols: ${Math.min(block.images.length, 3)}`}>
+            {block.images.map((image, i) => (
+              <div class="grid__item">
+                {block.labels?.[i] && <p class="grid__label">{block.labels[i]}</p>}
+                <MediaImage image={image} sizes={`(min-width: 900px) ${Math.round(100 / Math.min(block.images.length, 3))}vw, 100vw`} />
+              </div>
+            ))}
+          </div>
+        );
+      case 'carousel':
+        return <div class="wide"><Carousel label={block.label} images={block.images} /></div>;
+      case 'video':
+        return <div class="wide"><VideoLink thumbnail={block.thumbnail} url={block.url} caption={block.caption} /></div>;
+      case 'pages':
+        return <div class="wide"><PageCards items={block.items} /></div>;
+      case 'details':
+        return (
+          <details class="details">
+            <summary set:html={mdInline(block.summary)} />
+            <div class="details__body">
+              <Astro.self blocks={block.blocks} />
+            </div>
+          </details>
+        );
+    }
+  })
+}

@@ -1,0 +1,44 @@
+---
+/** Home page: introduction, an index of the case studies, then each case in full. */
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CaseSection from '../components/CaseSection.astro';
+import { getCases, getDisciplines, pad } from '../lib/content';
+import { SITE, url } from '../lib/site';
+
+const cases = await getCases();
+const disciplines = await getDisciplines();
+---
+
+<BaseLayout>
+  <section class="hero">
+    <p class="eyebrow">Artistic director · Choreographer · Multidisciplinary artist</p>
+    <h1 class="hero__name">{SITE.name}</h1>
+    <p class="hero__tagline">{SITE.tagline}</p>
+  </section>
+
+  <nav class="index" id="work" aria-label="Case studies">
+    <p class="eyebrow">Selected work</p>
+    <ol class="index__list">
+      {cases.map((c, i) => (
+        <li>
+          <a href={`#${c.id}`} class="index__item">
+            <span class="index__num">{pad(i + 1)}</span>
+            <span class="index__title">{c.data.title}</span>
+            <span class="index__meta">{c.data.kicker}{c.data.status && ` · ${c.data.status}`}</span>
+          </a>
+        </li>
+      ))}
+    </ol>
+
+    <div class="index__disciplines" id="disciplines">
+      <p class="eyebrow">Browse by discipline</p>
+      <ul class="tags tags--large">
+        {disciplines.map((d) => (
+          <li><a href={url(`discipline/${d.slug}`)}>{d.name}</a></li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+
+  {cases.map((c, i) => <CaseSection entry={c} number={i + 1} />)}
+</BaseLayout>

@@ -1,0 +1,76 @@
+---
+/**
+ * Shared page shell: <head> tags, header, and footer.
+ *
+ * The site is deliberately hidden from search engines (see AGENTS.md):
+ * every page gets a "noindex, nofollow" robots tag, and there is no sitemap.
+ * Title, description, and Open Graph tags are still set so shared links
+ * show a proper preview.
+ */
+import { getImage as optimize } from 'astro:assets';
+import { getImage } from '../lib/images';
+import { SITE, url } from '../lib/site';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Image path (as used in content files) for link previews. */
+  image?: string;
+}
+
+const { title, description = SITE.description, image = 'prince-of-egypt/promo.png' } = Astro.props;
+const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} · Portfolio`;
+const pageUrl = new URL(Astro.url.pathname, Astro.site);
+const preview = await optimize({ src: getImage(image), width: 1200, format: 'jpg' });
+const previewUrl = new URL(preview.src, Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+
+    <!-- Keep this site out of search results. Do not remove. -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Link previews (Messages, Instagram, email, etc.) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:image" content={previewUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/svg+xml" href={url('favicon.svg').replace(/\/$/, '')} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap"
+    />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <a class="wordmark" href={url()}>{SITE.name}</a>
+      <nav aria-label="Main">
+        <a href={url('#work')}>Work</a>
+        <a href={url('#disciplines')}>Disciplines</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <p class="site-footer__name">{SITE.name}</p>
+      <p>© {new Date().getFullYear()} · All work shown is by {SITE.name} and collaborators.</p>
+    </footer>
+  </body>
+</html>

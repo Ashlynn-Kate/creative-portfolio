@@ -1,0 +1,53 @@
+order: 1
+title: The Prince of Egypt
+kicker: Full-length production
+meta: Full-length contemporary ballet · Fuzion School of the Arts · May 2024
+role: Creator and director; primary story writer, choreographer, and casting director. Led costume and makeup decisions and served as the central point of contact across the production teams.
+summary: A full-length contemporary ballet of 28 pieces, created and directed from story and early concepts through the finished stage production.
+disciplines: [Choreography, Creative Direction, Set Design, Costume & Makeup]
+cover:
+  src: prince-of-egypt/palace.png
+  alt: Dancers in white on a palace set lit in pale blue, with a golden throne at stage left.
+
+blocks:
+  - type: image
+    size: wide
+    src: prince-of-egypt/promo.png
+    alt: Promotional image reading "Prince of Egypt" over a stage lit in deep blue with tall columns and stone blocks.
+
+  - type: heading
+    text: Project overview
+
+  - type: text
+    body: |
+      I created and directed *The Prince of Egypt*, a full-length contemporary ballet for Fuzion School of the Arts. The production comprised 28 pieces, 23 of which I choreographed. I guided the project from its story and early concepts through the finished stage production.
+
+  - type: image
+    size: full
+    src: prince-of-egypt/palace.png
+    alt: Dancers in white on a palace set lit in pale blue, with a golden throne at stage left.
+
+  - type: details
+    summary: Creative direction
+    blocks:
+      - type: text
+        body: |
+          I wrote the primary story, cast the performers, and selected and edited the music. I led costume and makeup decisions and collaborated with the relevant teams on set and lighting ideas. The throne, sandy backdrop, and opening scene examples below show how those ideas developed into what audiences saw onstage.
+
+  - type: details
+    summary: Production and handoffs
+    blocks:
+      - type: text
+        body: |
+          Turning those ideas into a full-length production required keeping people informed as details evolved. I planned rehearsals, tracked changes to music and costume decisions, and sent collaborators the current files they needed for their work. I kept the studio owner updated on the production’s progress throughout.
+
+  - type: heading
+    text: Selected materials
+    sub: Click through each page below.
+
+  - type: pages
+    items:
+      - prince-of-egypt/throne-inspiration
+      - prince-of-egypt/desert-backdrop
+      - prince-of-egypt/opening-scene
+      - prince-of-egypt/performance-photos

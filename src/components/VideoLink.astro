@@ -1,0 +1,31 @@
+---
+/**
+ * A video. For v1 this is a thumbnail that opens the video on Google Drive.
+ * Later this becomes an unlisted YouTube embed. Only this file needs to change.
+ */
+import { Image } from 'astro:assets';
+import { getImage } from '../lib/images';
+import { mdInline } from '../lib/site';
+
+interface Props {
+  thumbnail: { src: string; alt: string };
+  url: string;
+  caption?: string;
+}
+
+const { thumbnail, url, caption } = Astro.props;
+const meta = getImage(thumbnail.src);
+const maxWidth = Math.min(meta.width, 2000);
+const widths = [...new Set([480, 800, 1200, maxWidth].filter((w) => w <= maxWidth))];
+---
+
+<figure class="video">
+  <a class="video__link" href={url} target="_blank" rel="noopener">
+    <Image src={meta} alt={thumbnail.alt} widths={widths} sizes="(min-width: 1240px) 1160px, 100vw" format="webp" quality={82} loading="lazy" />
+    <span class="video__play" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5.5v13l11-6.5z" fill="currentColor"></path></svg>
+    </span>
+    <span class="video__label">Watch the clip <span aria-hidden="true">↗</span><span class="sr-only"> (opens Google Drive in a new tab)</span></span>
+  </a>
+  {caption && <figcaption set:html={mdInline(caption)} />}
+</figure>

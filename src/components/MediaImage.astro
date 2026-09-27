@@ -1,0 +1,52 @@
+---
+/**
+ * One image: resized to WebP automatically, lazy-loaded, with an optional caption.
+ * If the content gives a `highRes` Google Drive link, clicking the image opens it.
+ */
+import { Image } from 'astro:assets';
+import { getImage } from '../lib/images';
+import { mdInline } from '../lib/site';
+
+interface Props {
+  image: { src: string; alt: string; caption?: string; highRes?: string };
+  /** Tells the browser how wide the image is displayed, so it downloads the right size. */
+  sizes?: string;
+  /** Load immediately instead of lazily (use for the first image on a page). */
+  eager?: boolean;
+  showCaption?: boolean;
+  class?: string;
+}
+
+const {
+  image,
+  sizes = '(min-width: 1240px) 1160px, 100vw',
+  eager = false,
+  showCaption = true,
+  class: className,
+} = Astro.props;
+
+const meta = getImage(image.src);
+// Web versions: never larger than the original, never larger than 2000px.
+const maxWidth = Math.min(meta.width, 2000);
+const widths = [...new Set([480, 800, 1200, 1600, maxWidth].filter((w) => w <= maxWidth))];
+---
+
+<figure class:list={['media', className]}>
+  {
+    image.highRes ? (
+      <a
+        class="media__link"
+        href={image.highRes}
+        target="_blank"
+        rel="noopener"
+        title="Open full-resolution image"
+      >
+        <Image src={meta} alt={image.alt} widths={widths} sizes={sizes} format="webp" quality={82} loading={eager ? 'eager' : 'lazy'} draggable="false" />
+        <span class="media__badge" aria-hidden="true">Full res ↗</span>
+      </a>
+    ) : (
+      <Image src={meta} alt={image.alt} widths={widths} sizes={sizes} format="webp" quality={82} loading={eager ? 'eager' : 'lazy'} draggable="false" />
+    )
+  }
+  {showCaption && image.caption && <figcaption set:html={mdInline(image.caption)} />}
+</figure>

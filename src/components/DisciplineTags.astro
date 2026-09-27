@@ -1,0 +1,15 @@
+---
+/** Discipline tags that link to their discipline page. */
+import { slugify, url } from '../lib/site';
+
+interface Props {
+  disciplines: string[];
+}
+const { disciplines } = Astro.props;
+---
+
+<ul class="tags" aria-label="Disciplines">
+  {disciplines.map((d) => (
+    <li><a href={url(`discipline/${slugify(d)}`)}>{d}</a></li>
+  ))}
+</ul>

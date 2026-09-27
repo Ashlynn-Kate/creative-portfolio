@@ -1,0 +1,21 @@
+case: prince-of-egypt
+order: 2
+title: Desert Backdrop
+summary: One backdrop that lighting reshapes for different moments in the story.
+cover:
+  src: prince-of-egypt/desert-mockup.png
+  alt: Painted mockup of a desert landscape under a sunset sky, split into vertical panels.
+
+blocks:
+  - type: text
+    body: |
+      I wanted a desert backdrop that could serve multiple moments in the story. My concept was to use lighting to change how much of the sky or sandy landscape was visible, depending on the scene. I shared that direction with the artist, who created the mockup below.
+
+  - type: grid
+    labels: [Artist’s mockup, Onstage]
+    images:
+      - src: prince-of-egypt/desert-mockup.png
+        alt: Painted mockup of a desert landscape under a sunset sky, split into vertical panels.
+      - src: prince-of-egypt/desert-onstage.png
+        alt: The backdrop onstage behind white panels, lit so the sandy landscape glows and the sky recedes.
+        caption: For this scene, the lighting drew attention to the desert landscape while the upper portion remained less prominent.
