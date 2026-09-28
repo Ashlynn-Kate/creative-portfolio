@@ -21,6 +21,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0011](0011-publish-through-pull-requests.md) | Publish through branches and pull requests | accepted | hosting | 2026-09-27 |
 | [ADR-0012](0012-cli-for-repository-operations.md) | Use CLI commands for repository operations | accepted | workflow | 2026-09-27 |
 | [ADR-0013](0013-delete-merged-branches.md) | Delete merged work branches | accepted | workflow | 2026-09-27 |
+| [ADR-0014](0014-design-lab-explore-before-implementing.md) | Design lab — explore layouts in throwaway prototypes before implementing | accepted | workflow | 2026-09-27 |
 
 ## Adding or changing a decision
 

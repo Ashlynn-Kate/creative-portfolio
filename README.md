@@ -50,6 +50,18 @@ Ask Codex in plain language, for example:
 
 Codex will make the change, explain what it did, and tell you where to look to see it.
 
+### Trying out design ideas (the design lab)
+
+For bigger ideas (a new home page, a different layout, a new way to show photos), try them in the **design lab** first. It's much faster than changing the real site.
+
+1. Ask Codex, for example: *"In the design lab, make three versions of the home page opening: one big full-screen photo, one split with my name on the left, one that starts with the carousel."* A phone photo of a quick sketch helps a lot.
+2. Open **http://localhost:4321/creative-portfolio/lab/** (the preview needs to be running; ask Codex to "show me the design lab").
+3. Click the idea to see all versions **side by side**. Use the **Desktop / Phone** buttons to check both sizes. Click a version to see it full size.
+4. Say what you'd change: *"B, but bigger type and the photo on the left."* The page updates by itself.
+5. When you love one, say **"make it real."** Codex builds it into the site properly and opens a pull request.
+
+Lab ideas stay on your computer only: they're never published and never uploaded to GitHub.
+
 **Adding a new project:** for now, ask Codex, for example: "Add a new case study called ___ with these photos," and drop the photos into the project folder or point Codex to them. Later, the plan is that you add the project in Notion and the site picks it up automatically.
 
 **Where the content lives (for reference):**
