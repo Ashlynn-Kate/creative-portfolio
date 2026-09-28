@@ -59,7 +59,7 @@ Codex will make the change, explain what it did, and tell you where to look to s
 
 ## Publishing
 
-When you're happy with a change, ask Codex to "put this on a branch and open a pull request." A pull request is a review page where you can see the proposed changes before publishing. Once it is merged into `main`, GitHub rebuilds the site and publishes it automatically. The live site updates within a few minutes.
+When you're happy with a change, ask Codex to "put this on a branch and open a pull request." A pull request is a review page where you can see the proposed changes before publishing. Once it is merged into `main`, GitHub rebuilds the site and publishes it automatically. The live site updates within a few minutes. Codex then removes the finished branch and updates your local `main` copy.
 
 ## For the developer
 
