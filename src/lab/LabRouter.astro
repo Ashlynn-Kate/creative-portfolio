@@ -1,0 +1,273 @@
+---
+/**
+ * Serves the design lab (dev server only; see integration.mjs):
+ *   /lab/                   list of all prototypes
+ *   /lab/<topic>/           all variants of a topic side by side
+ *   /lab/<topic>/<variant>/ one prototype, full page
+ */
+import '../styles/global.css';
+import { url } from '../lib/site';
+
+type Proto = { topic: string; variant: string; Component: any };
+
+// Every lab/<topic>/<variant>.astro file. Files or folders starting with "_" are helpers, not prototypes.
+const files = import.meta.glob<{ default: any }>('/lab/*/*.astro', { eager: true });
+const protos: Proto[] = Object.entries(files)
+  .map(([path, mod]) => {
+    const [, , topic, file] = path.split('/');
+    return { topic, variant: file.replace(/\.astro$/, ''), Component: mod.default };
+  })
+  .filter((p) => !p.topic.startsWith('_') && !p.variant.startsWith('_'))
+  .sort((a, b) => (a.topic + a.variant).localeCompare(b.topic + b.variant));
+
+const topics = [...new Set(protos.map((p) => p.topic))];
+
+export function getStaticPaths() {
+  const found = Object.keys(import.meta.glob('/lab/*/*.astro'))
+    .map((p) => p.split('/'))
+    .filter(([, , topic, file]) => !topic.startsWith('_') && !file.startsWith('_'))
+    .map(([, , topic, file]) => [topic, file.replace(/\.astro$/, '')]);
+  const topicSet = [...new Set(found.map(([t]) => t))];
+  return [
+    { params: { path: undefined } },
+    ...topicSet.map((t) => ({ params: { path: t } })),
+    ...found.map(([t, v]) => ({ params: { path: `${t}/${v}` } })),
+  ];
+}
+
+const [topic, variant] = (Astro.params.path ?? '').split('/').filter(Boolean);
+const proto = variant ? protos.find((p) => p.topic === topic && p.variant === variant) : undefined;
+const siblings = protos.filter((p) => p.topic === topic);
+const view = proto ? 'proto' : topic ? 'compare' : 'index';
+const title = proto ? `${topic} / ${variant}` : topic ? `${topic} (compare)` : 'Design lab';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Lab · {title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500&display=swap"
+    />
+  </head>
+  <body class:list={['lab', `lab--${view}`]}>
+    {view === 'proto' && proto && (
+      <>
+        <proto.Component />
+        <nav class="lab-badge" data-lab-badge aria-label="Design lab">
+          <a href={url('lab')}>Lab</a>
+          <span>·</span>
+          <a href={url(`lab/${topic}`)}>{topic}</a>
+          <span>·</span>
+          {siblings.map((s) => (
+            <a href={url(`lab/${topic}/${s.variant}`)} aria-current={s.variant === variant ? 'page' : undefined}>{s.variant}</a>
+          ))}
+        </nav>
+      </>
+    )}
+
+    {view === 'compare' && (
+      <main class="lab-compare">
+        <header class="lab-bar">
+          <a href={url('lab')}>← All prototypes</a>
+          <h1>{topic}</h1>
+          <div class="lab-sizes" role="group" aria-label="Preview size">
+            <button type="button" data-size="1440" aria-pressed="true">Desktop</button>
+            <button type="button" data-size="390" aria-pressed="false">Phone</button>
+          </div>
+        </header>
+        <div class="lab-frames">
+          {siblings.map((s) => (
+            <figure class="lab-frame">
+              <figcaption><a href={url(`lab/${topic}/${s.variant}`)}>{s.variant} ↗</a></figcaption>
+              <div class="lab-frame__box" data-box>
+                <iframe src={`${url(`lab/${topic}/${s.variant}`)}?bare`} title={`${topic} ${s.variant}`} loading="lazy"></iframe>
+              </div>
+            </figure>
+          ))}
+        </div>
+      </main>
+    )}
+
+    {view === 'index' && (
+      <main class="lab-index">
+        <p class="eyebrow">Only on your computer · never published</p>
+        <h1>Design lab</h1>
+        <p class="lab-index__intro">
+          Quick, throwaway layout ideas. Compare the versions, pick one, then ask Codex to "make it real".
+        </p>
+        {topics.length === 0 ? (
+          <p>No prototypes yet. Ask Codex: “Make three versions of … in the design lab.”</p>
+        ) : (
+          <ul class="lab-index__list">
+            {topics.map((t) => (
+              <li>
+                <a class="lab-index__topic" href={url(`lab/${t}`)}>{t}</a>
+                <span class="lab-index__variants">
+                  {protos.filter((p) => p.topic === t).map((p) => (
+                    <a href={url(`lab/${t}/${p.variant}`)}>{p.variant}</a>
+                  ))}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </main>
+    )}
+
+    <script>
+      // Inside a comparison frame, hide the floating lab badge.
+      if (location.search.includes('bare')) document.querySelector('[data-lab-badge]')?.remove();
+
+      // Comparison view: render each frame at a real screen width, scaled down to fit.
+      const boxes = [...document.querySelectorAll<HTMLElement>('[data-box]')];
+      let width = 1440;
+      const fit = () => {
+        const height = width < 600 ? 844 : 900;
+        for (const box of boxes) {
+          const frame = box.querySelector('iframe')!;
+          const scale = Math.min(1, box.clientWidth / width);
+          frame.style.width = `${width}px`;
+          frame.style.height = `${height}px`;
+          frame.style.transform = `scale(${scale})`;
+          box.style.height = `${height * scale}px`;
+        }
+      };
+      document.querySelectorAll<HTMLButtonElement>('[data-size]').forEach((btn) =>
+        btn.addEventListener('click', () => {
+          width = Number(btn.dataset.size);
+          document.querySelectorAll('[data-size]').forEach((b) => b.setAttribute('aria-pressed', String(b === btn)));
+          fit();
+        }),
+      );
+      if (boxes.length) {
+        fit();
+        addEventListener('resize', fit);
+      }
+    </script>
+
+    <style is:global>
+      .lab-badge {
+        position: fixed;
+        right: 12px;
+        bottom: 12px;
+        z-index: 9999;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgb(28 26 23 / 0.88);
+        color: #f3eee6;
+        font: 400 12px/1.2 var(--font-body);
+        letter-spacing: 0.08em;
+        backdrop-filter: blur(6px);
+      }
+      .lab-badge a {
+        color: inherit;
+        text-decoration: none;
+        opacity: 0.7;
+      }
+      .lab-badge a:hover,
+      .lab-badge a[aria-current='page'] {
+        opacity: 1;
+        text-decoration: underline;
+      }
+      .lab-index {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 72px 16px;
+      }
+      .lab-index h1 {
+        font-size: clamp(48px, 8vw, 88px);
+        margin: 12px 0 16px;
+      }
+      .lab-index__intro {
+        color: var(--ink-soft);
+        margin-bottom: 40px;
+      }
+      .lab-index__list {
+        list-style: none;
+        padding: 0;
+        border-top: 1px solid var(--ink);
+      }
+      .lab-index__list li {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 8px 24px;
+        padding: 18px 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .lab-index__topic {
+        font-family: var(--font-display);
+        font-size: 30px;
+        text-decoration: none;
+      }
+      .lab-index__variants {
+        display: flex;
+        gap: 14px;
+      }
+      .lab-compare {
+        padding: 0 16px 40px;
+      }
+      .lab-bar {
+        position: sticky;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 12px 24px;
+        padding: 16px 0;
+        background: var(--paper);
+      }
+      .lab-bar h1 {
+        font-size: 32px;
+        flex: 1;
+      }
+      .lab-sizes button {
+        padding: 6px 14px;
+        border: 1px solid var(--ink);
+        background: transparent;
+        font: inherit;
+        cursor: pointer;
+      }
+      .lab-sizes button[aria-pressed='true'] {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      .lab-frames {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+        gap: 20px;
+      }
+      .lab-frame {
+        margin: 0;
+      }
+      .lab-frame figcaption {
+        margin-bottom: 8px;
+        font-size: 13px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+      .lab-frame__box {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        background: #fff;
+      }
+      .lab-frame__box iframe {
+        border: 0;
+        transform-origin: top left;
+        display: block;
+        margin: 0 auto;
+      }
+    </style>
+  </body>
+</html>

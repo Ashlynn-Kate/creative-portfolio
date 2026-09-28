@@ -58,6 +58,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0013** · `workflow` · Delete merged work branches
   After a pull request is merged, Codex must delete its finished branch on GitHub and locally, after verifying the merge and that no ongoing work needs the branch. Keep main as the local checkout for the next task.
   → `docs/adr/0013-delete-merged-branches.md`
+- **ADR-0014** · `workflow` · Design lab — explore layouts in throwaway prototypes before implementing
+  Layout and visual ideas are explored first as throwaway prototypes in `lab/<topic>/<version>.astro`, served only by `npm run dev` through `src/lab/integration.mjs`. Lab pages must never be built, deployed, or linked from the site, nothing in `src/` may import from `lab/`, and prototypes stay git-ignored (only `lab/README.md` and `lab/example/` are tracked). Exploring is not deciding: when the owner chooses a version ("make it real"), rebuild it properly in `src/` under all other ADRs, record the design decision in an ADR, run the full checks, and open a pull request.
+  → `docs/adr/0014-design-lab-explore-before-implementing.md`
 <!-- adr-registry:end -->
 
 ## Content scope
@@ -75,7 +78,8 @@ The site covers every creative discipline, now and in the future: dance and chor
 ## Design
 - Goal: **as beautiful as possible**. Editorial and distinctive, not templated. It is a portfolio for an artistic director, so the site itself demonstrates her taste.
 - Current look: warm paper background, near-black ink, desert-sienna accent; Cormorant Garamond for display, Jost for text. Tokens are at the top of `src/styles/global.css`.
-- **Design scratchpad (now): Notion.** She sketches ideas, references, and layout notes there. Treat those notes as design direction.
+- **Design lab:** local throwaway prototypes, shown at `http://localhost:4321/creative-portfolio/lab/` while `npm run dev` runs. This is where layout ideas get tried before anything is built for real. How it works: `lab/README.md`.
+- **Notion:** she keeps references, mood boards, and notes there. Treat those notes as design direction.
 - **Later:** she may wireframe in **Figma**. Figma is not used yet. Once it is, implement design changes from Figma frames when referenced.
 
 ## Tech stack
@@ -90,6 +94,7 @@ The site covers every creative discipline, now and in the future: dance and chor
 - `src/components/VideoLink.astro`: all video markup. `src/components/Carousel.astro`: the peek-behind carousel.
 - `src/layouts/BaseLayout.astro`: the shared `<head>` (robots and Open Graph tags), header, and footer.
 - `src/pages/`: home, `work/[...slug]` detail pages, `discipline/[slug]` pages, 404.
+- `lab/<topic>/<version>.astro`: design-lab prototypes (git-ignored except `lab/example/`). `src/lab/`: the dev-only integration and router that serve them.
 - `docs/adr/`: decisions. `scripts/adr-registry.mjs`: generates the Decisions block above. `.githooks/`: the pre-commit hook.
 
 ## Documentation split
@@ -119,5 +124,6 @@ The site covers every creative discipline, now and in the future: dance and chor
 - The owner is non-technical. When she asks for a change, make it, explain it briefly in plain language, and avoid jargon.
 - Don't restructure the content pipeline without being asked.
 - Keep code readable and well commented so later edits (by Codex or anyone else) are safe.
-- Run `npm run check` and `npm run build` after changes; both must pass with no errors. Preview changes locally before committing when possible.
-- **After every change, remind the human how to see it:** give the exact command (`npm run dev`) and the link (`http://localhost:4321/creative-portfolio/`), and name the page to look at. If a dev server is already running, just say which page to refresh. Before a push, suggest the final check (`npm run build`, then `npm run preview`).
+- **Design requests start in the lab.** When she asks for a new look, layout, or UI idea, make two or three quick versions in `lab/<topic>/` rather than changing the site, and send her the side-by-side link. Keep lab work fast: no checks, builds, content-schema changes, or ADRs for exploration. Build it into the site only when she says "make it real" (or clearly picks a version and asks for it on the site). Small, specific fixes to the real site ("fix this typo", "swap these two photos") skip the lab.
+- **Iterate with the dev server running** (`npm run dev`); pages update as files change. Don't run `npm run check` or `npm run build` after every edit. Run both once before committing; both must pass with no errors.
+- **After every change, remind the human how to see it:** give the exact command (`npm run dev`) and the link, and name the page to look at: `http://localhost:4321/creative-portfolio/` for the site, or `http://localhost:4321/creative-portfolio/lab/<topic>/` for a lab comparison. If a dev server is already running, just say which page to refresh. Before a push, suggest the final check (`npm run build`, then `npm run preview`).

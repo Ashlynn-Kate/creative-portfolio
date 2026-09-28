@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
 import { fileURLToPath } from 'node:url';
+import designLab from './src/lab/integration.mjs';
 
 // Where the site lives. Today it is a GitHub Pages project site:
 //   https://ashlynn-kate.github.io/creative-portfolio/
@@ -13,6 +14,8 @@ export default defineConfig({
   site,
   base,
   trailingSlash: 'always',
+  // Design lab: /lab/ prototypes under `npm run dev` only; never built.
+  integrations: [designLab()],
   vite: {
     resolve: {
       // Astro's content loader imports picomatch through Vite. Its CommonJS entry

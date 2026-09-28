@@ -16,3 +16,8 @@ dist/
 # OS / editor clutter
 .DS_Store
 Thumbs.db
+
+# Design lab: throwaway prototypes stay local (see lab/README.md)
+lab/*
+!lab/README.md
+!lab/example/

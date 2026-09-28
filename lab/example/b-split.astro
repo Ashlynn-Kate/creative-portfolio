@@ -1,0 +1,49 @@
+---
+/**
+ * EXAMPLE PROTOTYPE (kept in git as a reference).
+ * Home hero, version B: name on the left, a portrait on the right.
+ */
+import MediaImage from '../../src/components/MediaImage.astro';
+---
+
+<section class="hero-b">
+  <div class="hero-b__text">
+    <p class="eyebrow">Artistic director · Choreographer</p>
+    <h1>Ashlynn<br /><em>Kate</em></h1>
+    <p class="hero-b__line">Live performance, editorial portraits, and film.</p>
+  </div>
+  <MediaImage image={{ src: 'object-translations/feather-bag-portrait.jpeg', alt: '' }} showCaption={false} eager sizes="50vw" class="hero-b__image" />
+</section>
+
+<style>
+  .hero-b {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--gutter);
+    padding: var(--gutter);
+  }
+  .hero-b h1 {
+    font-size: clamp(56px, 9vw, 150px);
+    font-weight: 400;
+    line-height: 0.9;
+    margin: 16px 0 24px;
+  }
+  .hero-b__line {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 24px;
+    color: var(--ink-soft);
+  }
+  .hero-b :global(.hero-b__image img) {
+    max-height: 88vh;
+    width: auto;
+    margin-left: auto;
+  }
+  @media (max-width: 720px) {
+    .hero-b {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
