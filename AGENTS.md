@@ -55,6 +55,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0012** · `workflow` · Use CLI commands for repository operations
   Codex must use Git and GitHub CLI commands for repository tasks such as branching, commits, pushes, pull requests, and merges. Do not use computer-use or browser automation for those tasks.
   → `docs/adr/0012-cli-for-repository-operations.md`
+- **ADR-0013** · `workflow` · Delete merged work branches
+  After a pull request is merged, Codex must delete its finished branch on GitHub and locally, after verifying the merge and that no ongoing work needs the branch. Keep main as the local checkout for the next task.
+  → `docs/adr/0013-delete-merged-branches.md`
 <!-- adr-registry:end -->
 
 ## Content scope
