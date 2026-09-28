@@ -42,7 +42,8 @@ const files = readdirSync(join(ROOT, ADR_DIR))
 
 const adrs = files.map((file) => {
   const text = readFileSync(join(ROOT, ADR_DIR, file), 'utf8');
-  const match = text.match(/^---\n([\s\S]*?)\n---\n/);
+  // Git may check files out with CRLF on Windows; accept either line ending.
+  const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n/);
   if (!match) {
     problems.push(`${file}: missing frontmatter (--- block at the top)`);
     return null;

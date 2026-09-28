@@ -46,6 +46,15 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0009** · `design` · Peek-behind carousel and mobile-first interaction baseline
   Every layout must work mobile-first, with no horizontal page scroll at phone widths. The signature peek-behind carousel (`src/components/Carousel.astro`) must keep working with touch swipe, mouse drag, keyboard arrow keys, the prev/next buttons, and clicking a peeking image, and must respect `prefers-reduced-motion`. Any new motion or animation must also respect reduced motion.
   → `docs/adr/0009-carousel-and-mobile-first-interaction.md`
+- **ADR-0010** · `stack` · ESM bridge for the local preview's picomatch dependency
+  Astro's Vite configuration must route picomatch imports through the tracked ESM bridge while its CommonJS entry fails in the Windows module runner. Do not patch node_modules by hand or require the owner to run extra setup steps.
+  → `docs/adr/0010-picomatch-windows-preview-bridge.md`
+- **ADR-0011** · `hosting` · Publish through branches and pull requests
+  Changes must be committed and pushed on a separate branch, then merged into main through a pull request after review. Do not push commits directly to main.
+  → `docs/adr/0011-publish-through-pull-requests.md`
+- **ADR-0012** · `workflow` · Use CLI commands for repository operations
+  Codex must use Git and GitHub CLI commands for repository tasks such as branching, commits, pushes, pull requests, and merges. Do not use computer-use or browser automation for those tasks.
+  → `docs/adr/0012-cli-for-repository-operations.md`
 <!-- adr-registry:end -->
 
 ## Content scope

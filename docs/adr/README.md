@@ -17,6 +17,9 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0007](0007-image-pipeline.md) | Image pipeline — automatic web versions, full resolution on Google Drive | accepted | media | 2026-09-27 |
 | [ADR-0008](0008-video-drive-thumbnail-now-youtube-later.md) | Video — Drive thumbnail links now, YouTube embeds later | accepted | media | 2026-09-27 |
 | [ADR-0009](0009-carousel-and-mobile-first-interaction.md) | Peek-behind carousel and mobile-first interaction baseline | accepted | design | 2026-09-27 |
+| [ADR-0010](0010-picomatch-windows-preview-bridge.md) | ESM bridge for the local preview's picomatch dependency | accepted | stack | 2026-09-27 |
+| [ADR-0011](0011-publish-through-pull-requests.md) | Publish through branches and pull requests | accepted | hosting | 2026-09-27 |
+| [ADR-0012](0012-cli-for-repository-operations.md) | Use CLI commands for repository operations | accepted | workflow | 2026-09-27 |
 
 ## Adding or changing a decision
 
