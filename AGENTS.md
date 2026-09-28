@@ -52,6 +52,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0011** · `hosting` · Publish through branches and pull requests
   Changes must be committed and pushed on a separate branch, then merged into main through a pull request after review. Do not push commits directly to main.
   → `docs/adr/0011-publish-through-pull-requests.md`
+- **ADR-0012** · `workflow` · Use CLI commands for repository operations
+  Codex must use Git and GitHub CLI commands for repository tasks such as branching, commits, pushes, pull requests, and merges. Do not use computer-use or browser automation for those tasks.
+  → `docs/adr/0012-cli-for-repository-operations.md`
 <!-- adr-registry:end -->
 
 ## Content scope
