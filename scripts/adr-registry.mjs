@@ -29,6 +29,7 @@ const INDEX = `${ADR_DIR}/README.md`;
 const BEGIN = '<!-- adr-registry:begin -->';
 const END = '<!-- adr-registry:end -->';
 const STATUSES = ['proposed', 'accepted', 'superseded'];
+const normalizeLineEndings = (text) => text.replace(/\r\n/g, '\n');
 
 const check = process.argv.includes('--check');
 const validateOnly = process.argv.includes('--validate');
@@ -170,8 +171,8 @@ const indexNext = indexFile();
 
 if (check) {
   const stale = [
-    agentsNow !== agentsNext && AGENTS,
-    indexNow !== indexNext && INDEX,
+    normalizeLineEndings(agentsNow) !== normalizeLineEndings(agentsNext) && AGENTS,
+    normalizeLineEndings(indexNow) !== normalizeLineEndings(indexNext) && INDEX,
   ].filter(Boolean);
   if (stale.length) {
     console.error(`Decision registry is out of date: ${stale.join(', ')}. Run \`npm run adr\` and commit the result.`);
@@ -179,7 +180,7 @@ if (check) {
   }
   console.log(`Decision registry is up to date (${adrs.length} ADRs).`);
 } else {
-  writeFileSync(agentsPath, agentsNext);
+  writeFileSync(agentsPath, normalizeLineEndings(agentsNext));
   writeFileSync(indexPath, indexNext);
   console.log(`Wrote ${AGENTS} and ${INDEX} (${adrs.length} ADRs).`);
 }
