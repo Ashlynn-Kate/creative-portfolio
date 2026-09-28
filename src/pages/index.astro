@@ -11,13 +11,13 @@ const disciplines = await getDisciplines();
 
 <BaseLayout>
   <section class="hero">
-    <p class="eyebrow">Artistic director · Choreographer · Multidisciplinary artist</p>
+    <p class="eyebrow">Artistic director · Choreographer · Multidisciplinary performing artist</p>
     <h1 class="hero__name">{SITE.name}</h1>
     <p class="hero__tagline">{SITE.tagline}</p>
   </section>
 
   <nav class="index" id="work" aria-label="Case studies">
-    <p class="eyebrow">Selected work</p>
+    <p class="eyebrow">Selected works</p>
     <ol class="index__list">
       {cases.map((c, i) => (
         <li>
