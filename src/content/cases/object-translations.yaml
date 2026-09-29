@@ -2,91 +2,139 @@ order: 2
 title: Object Translations
 kicker: Editorial portraits
 meta: Independent series
-summary: Everyday objects translated into human-form editorial portraits through color, shape, texture, wardrobe, pose, and light.
-disciplines: [Photography, Creative Direction, Styling]
+summary: Everyday objects translated into human-form editorial portraits through
+  color, shape, texture, wardrobe, pose, and light.
+disciplines:
+  - Photography
+  - Creative Direction
+  - Styling
 cover:
   src: object-translations/feather-bag-portrait.jpeg
-  alt: A woman in a black halter top and full black tulle skirt, mid-turn against a pale backdrop.
-
+  alt: A woman in a black halter top and full black tulle skirt, mid-turn against
+    a pale backdrop.
 blocks:
   - type: text
-    body: |
-      For this independent series, I start with an object and draw from elements such as its color, shape, texture, or character, and translate that into a human-form editorial portrait. I develop a visual concept around it, then make choices about wardrobe, pose, framing, and light to carry that idea through to the finished image. Each group below shows the object that sparked the concept alongside the final portrait.
-
-  # --- Feather bag ---
-  - type: heading
-    text: Feather bag
+    body: >
+      For this independent series, I start with an object and draw from elements
+      such as its color, shape, texture, or character, and translate that into a
+      human-form editorial portrait. I develop a visual concept around it, then
+      make choices about wardrobe, pose, framing, and light to carry that idea
+      through to the finished image. Each group below shows the object that
+      sparked the concept alongside the final portrait.
+  - type: page-link
+    item: object-translations/all-concepts
+    label: See all concepts
+  - type: details
+    summary: Feather bag
     sub: Volume · Texture · Gold
-  - type: grid
-    labels: [Object, Portrait]
-    images:
-      - src: object-translations/feather-bag-object.jpeg
-        alt: A black feather-trimmed evening bag with a gold frame, ball clasp, and slim gold strap.
-      - src: object-translations/feather-bag-portrait.jpeg
-        alt: A woman in a black halter top and full black tulle skirt, mid-turn against a pale backdrop.
-  - type: details
-    summary: Behind the translation
     blocks:
-      - type: text
-        body: |
-          I echoed the bag’s full, feathery bottom and its minimal, empty strap, and wanted to play on that contrast and shape in my translation. The volume of the outfit lessens as you move from the skirt to the head.
+      - type: grid
+        labels:
+          - Object
+          - Portrait
+        images:
+          - src: object-translations/feather-bag-object.jpeg
+            alt: A black feather-trimmed evening bag with a gold frame, ball clasp, and slim
+              gold strap.
+          - src: object-translations/feather-bag-portrait.jpeg
+            alt: A woman in a black halter top and full black tulle skirt, mid-turn against
+              a pale backdrop.
+      - type: details
+        summary: Behind the translation
+        blocks:
+          - type: text
+            body: >
+              I echoed the bag’s full, feathery bottom and its minimal, empty
+              strap, and wanted to play on that contrast and shape in my
+              translation. The volume of the outfit lessens as you move from the
+              skirt to the head.
+      - type: details
+        summary: Additional photos
+        blocks:
+          - type: carousel
+            label: Additional Feather Bag photos
+            images:
+              - src: object-translations/feather-bag-detail.jpeg
+                alt: Seated with hands on hips, the black tulle skirt fanned out in a circle on
+                  the floor.
+                caption: Hair draws from the bag’s ball clasp, while the skirt fans out like its
+                  feathers.
+              - src: object-translations/feather-bag-02.png
+                alt: Additional portrait from the Feather Bag concept.
+              - src: object-translations/feather-bag-03.png
+                alt: Additional portrait from the Feather Bag concept.
   - type: details
-    summary: Additional photo
-    blocks:
-      - type: image
-        size: text
-        src: object-translations/feather-bag-detail.jpeg
-        alt: Seated with hands on hips, the black tulle skirt fanned out in a circle on the floor.
-        caption: Hair drawing off the ball clasp of the bag, and the skirt fanned out in a similar fashion to the feathers. A gold ball detail on the shirt at the chest mimics the gold ball clasp.
-
-  # --- Vintage lamp ---
-  - type: heading
-    text: Vintage lamp
+    summary: Vintage lamp
     sub: Shape · Colors · Light
-  - type: grid
-    labels: [Object, Portrait]
-    images:
-      - src: object-translations/lamp-object.png
-        alt: A vintage table lamp with a scalloped cream shade trimmed in gold and a smoky green glass base.
-      - src: object-translations/lamp-portrait.jpeg
-        alt: A woman in a white blouse and olive satin trousers, head tilted down, one hand in her hair, in warm light.
-  - type: details
-    summary: Behind the translation
     blocks:
-      - type: text
-        body: |
-          I translated not only the colors of the overall image and lamp, but also the rounded, unusual standing shape of the lamp, and a downward gaze inspired by the downward direction of the shade.
+      - type: grid
+        labels:
+          - Object
+          - Portrait
+        images:
+          - src: object-translations/lamp-object.png
+            alt: A vintage table lamp with a scalloped cream shade trimmed in gold and a
+              smoky green glass base.
+          - src: object-translations/lamp-portrait.jpeg
+            alt: A woman in a white blouse and olive satin trousers, head tilted down, one
+              hand in her hair, in warm light.
+      - type: details
+        summary: Behind the translation
+        blocks:
+          - type: text
+            body: >
+              I translated not only the colors of the overall image and lamp,
+              but also the rounded, unusual standing shape of the lamp, and a
+              downward gaze inspired by the downward direction of the shade.
+      - type: details
+        summary: Additional photos
+        blocks:
+          - type: carousel
+            label: Additional Vintage Lamp photos
+            images:
+              - src: object-translations/lamp-detail.jpeg
+                alt: Close portrait in a white blouse with layered gold necklaces, lit by warm
+                  directional light.
+                caption: A layered necklace echoes the lamp shade’s gold detailing, lit as if by
+                  the lamp.
+              - src: object-translations/lamp-02.png
+                alt: Additional portrait from the Vintage Lamp concept.
   - type: details
-    summary: Additional photo
-    blocks:
-      - type: image
-        size: text
-        src: object-translations/lamp-detail.jpeg
-        alt: Close portrait in a white blouse with layered gold necklaces, lit by warm directional light.
-        caption: A layered, detailed necklace mimics the gold detailing of the lamp shade. Directional warm light, as if coming from the lamp.
-
-  # --- Sharpie ---
-  - type: heading
-    text: Sharpie
+    summary: Sharpie
     sub: Color · Contrast · Sharp Lines
-  - type: grid
-    labels: [Object, Portrait]
-    images:
-      - src: object-translations/sharpie-object.png
-        alt: A pink Sharpie highlighter.
-      - src: object-translations/sharpie-portrait.jpeg
-        alt: A woman in a white blazer and pink heels seated on a black cube, casting crisp shadows on a white wall.
-  - type: details
-    summary: Behind the translation
     blocks:
-      - type: text
-        body: |
-          The pink heels pick up the highlighter’s color; the white blazer, black cube, and crisp shadows give the portrait its graphic feel. The idea was to draw out a corporate, focused, attention-to-detail feeling.
-  - type: details
-    summary: Additional photo
-    blocks:
-      - type: image
-        size: text
-        src: object-translations/sharpie-detail.jpeg
-        alt: Close-up from above of a woman in a white blazer holding black glasses, wearing straight black earrings.
-        caption: A closer detail photo showing the straight black earrings, drawn from the minimal black word “Sharpie” on the highlighter. A highlighter is meant to bring quick, clear focus, and the earrings draw on both of those ideas.
+      - type: grid
+        labels:
+          - Object
+          - Portrait
+        images:
+          - src: object-translations/sharpie-object.png
+            alt: A pink Sharpie highlighter.
+          - src: object-translations/sharpie-portrait.jpeg
+            alt: A woman in a white blazer and pink heels seated on a black cube, casting
+              crisp shadows on a white wall.
+      - type: details
+        summary: Behind the translation
+        blocks:
+          - type: text
+            body: >
+              The pink heels pick up the highlighter’s color; the white blazer,
+              black cube, and crisp shadows give the portrait its graphic feel.
+              The idea was to draw out a corporate, focused, attention-to-detail
+              feeling.
+      - type: details
+        summary: Additional photos
+        blocks:
+          - type: carousel
+            label: Additional Sharpie photos
+            images:
+              - src: object-translations/sharpie-detail.jpeg
+                alt: Close-up from above of a woman in a white blazer holding black glasses,
+                  wearing straight black earrings.
+                caption: The straight black earrings draw from the highlighter’s minimal
+                  wordmark and its quick, clear focus.
+              - src: object-translations/sharpie-02.png
+                alt: Additional portrait from the Sharpie concept.
+  - type: page-link
+    item: object-translations/all-concepts
+    label: See more concepts

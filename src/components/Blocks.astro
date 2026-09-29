@@ -10,6 +10,7 @@ import MediaImage from './MediaImage.astro';
 import Carousel from './Carousel.astro';
 import VideoLink from './VideoLink.astro';
 import PageCards from './PageCards.astro';
+import { url } from '../lib/site';
 
 interface Props {
   blocks: Block[];
@@ -54,10 +55,15 @@ const { blocks } = Astro.props;
         return <div class="wide"><VideoLink thumbnail={block.thumbnail} url={block.url} caption={block.caption} /></div>;
       case 'pages':
         return <div class="wide"><PageCards items={block.items} /></div>;
+      case 'page-link':
+        return <p class="page-link"><a href={url(`work/${block.item}`)}>{block.label}</a></p>;
       case 'details':
         return (
           <details class="details">
-            <summary set:html={mdInline(block.summary)} />
+            <summary>
+              <span set:html={mdInline(block.summary)} />
+              {block.sub && <span class="details__sub">{block.sub}</span>}
+            </summary>
             <div class="details__body">
               <Astro.self blocks={block.blocks} />
             </div>
