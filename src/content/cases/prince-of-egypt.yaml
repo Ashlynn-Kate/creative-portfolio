@@ -1,7 +1,7 @@
 order: 1
 title: The Prince of Egypt
 kicker: Full-length production
-meta: Full-length contemporary ballet · Fuzion School of the Arts · May 2024
+meta: Full-length contemporary ballet · May 2024
 role: Creator and director; primary story writer, choreographer, and casting director. Led costume and makeup decisions and served as the central point of contact across the production teams.
 summary: A full-length contemporary ballet of 28 pieces, created and directed from story and early concepts through the finished stage production.
 disciplines: [Choreography, Creative Direction, Set Design, Costume & Makeup]
@@ -12,7 +12,7 @@ cover:
 blocks:
   - type: image
     size: wide
-    src: prince-of-egypt/promo.png
+    src: prince-of-egypt/promo-no-fuzion.png
     alt: Promotional image reading "Prince of Egypt" over a stage lit in deep blue with tall columns and stone blocks.
 
   - type: heading
@@ -20,7 +20,7 @@ blocks:
 
   - type: text
     body: |
-      I created and directed *The Prince of Egypt*, a full-length contemporary ballet for Fuzion School of the Arts. The production comprised 28 pieces, 23 of which I choreographed. I guided the project from its story and early concepts through the finished stage production.
+      I created and directed *The Prince of Egypt*, a full-length contemporary ballet for an arts studio serving ages 3–18. The production comprised 28 pieces, 23 of which I choreographed, and included collaborations with professional guest artists. I guided the project from its story and early concepts through the finished stage production.
 
   - type: image
     size: full

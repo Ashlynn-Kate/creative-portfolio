@@ -61,6 +61,15 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0014** · `workflow` · Design lab — explore layouts in throwaway prototypes before implementing
   Layout and visual ideas are explored first as throwaway prototypes in `lab/<topic>/<version>.astro`, served only by `npm run dev` through `src/lab/integration.mjs`. Lab pages must never be built, deployed, or linked from the site, nothing in `src/` may import from `lab/`, and prototypes stay git-ignored (only `lab/README.md` and `lab/example/` are tracked). Exploring is not deciding: when the owner chooses a version ("make it real"), rebuild it properly in `src/` under all other ADRs, record the design decision in an ADR, run the full checks, and open a pull request.
   → `docs/adr/0014-design-lab-explore-before-implementing.md`
+- **ADR-0015** · `content` · Mindspace is the title of the dance film
+  The dance film case study must be titled “Mindspace” and presented as a dance film; it must not use the song title “Crazy” as the work's title.
+  → `docs/adr/0015-mindspace-film-title.md`
+- **ADR-0016** · `design` · Object Translations uses a summary and all-concepts page
+  Object Translations must keep its first three concepts on the case-study page and link to a dedicated all-concepts page containing the complete series; each concept's additional photos must open as an inline, scrollable gallery.
+  → `docs/adr/0016-object-translations-all-concepts.md`
+- **ADR-0017** · `design` · Object Translations concepts begin as disclosures
+  Each Object Translations concept must begin as a closed, named disclosure; opening it reveals its object-and-portrait pair, translation notes, and additional-photo gallery.
+  → `docs/adr/0017-object-translations-concept-disclosures.md`
 <!-- adr-registry:end -->
 
 ## Content scope

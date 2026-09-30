@@ -6,7 +6,7 @@
  *   - pages/  detail pages that belong to a case, e.g. pages/prince-of-egypt/throne-inspiration.yaml
  *
  * Every case and page is a list of "blocks" (heading, text, image, grid,
- * carousel, details, video, pages). This mirrors how Notion structures content,
+ * carousel, details, video, pages, page-link). This mirrors how Notion structures content,
  * so a future Notion sync can map Notion blocks straight onto these.
  *
  * Image paths are relative to src/assets/images/, e.g. "prince-of-egypt/palace.png".
@@ -72,6 +72,14 @@ const pages = z.object({
   items: z.array(z.string()).min(1),
 });
 
+const pageLink = z.object({
+  type: z.literal('page-link'),
+  /** Page id, e.g. "object-translations/all-concepts". */
+  item: z.string(),
+  /** Visible call to action. */
+  label: z.string(),
+});
+
 // `details` holds other blocks, so it is defined lazily (a block can contain blocks).
 type Block =
   | z.infer<typeof heading>
@@ -81,7 +89,8 @@ type Block =
   | z.infer<typeof carousel>
   | z.infer<typeof video>
   | z.infer<typeof pages>
-  | { type: 'details'; summary: string; blocks: Block[] };
+  | z.infer<typeof pageLink>
+  | { type: 'details'; summary: string; sub?: string; blocks: Block[] };
 
 const block: z.ZodType<Block> = z.lazy(() =>
   z.discriminatedUnion('type', [
@@ -92,10 +101,13 @@ const block: z.ZodType<Block> = z.lazy(() =>
     carousel,
     video,
     pages,
+    pageLink,
     z.object({
       type: z.literal('details'),
       /** The clickable line; the blocks inside are hidden until opened. */
       summary: z.string(),
+      /** Optional supporting line shown beside the clickable title. */
+      sub: z.string().optional(),
       blocks: z.array(block),
     }),
   ]),
