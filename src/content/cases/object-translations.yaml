@@ -26,7 +26,7 @@ blocks:
     label: See all concepts
   - type: details
     summary: Feather bag
-    sub: Volume · Texture · Gold
+    sub: Volume · Texture · Drama
     blocks:
       - type: grid
         labels:
