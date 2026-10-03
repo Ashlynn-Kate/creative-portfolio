@@ -2,19 +2,16 @@
 /** Home page: introduction, an index of the case studies, then each case in full. */
 import BaseLayout from '../layouts/BaseLayout.astro';
 import CaseSection from '../components/CaseSection.astro';
+import HomeHero from '../components/HomeHero.astro';
 import { getCases, getDisciplines, pad } from '../lib/content';
-import { SITE, url } from '../lib/site';
+import { url } from '../lib/site';
 
 const cases = await getCases();
 const disciplines = await getDisciplines();
 ---
 
 <BaseLayout>
-  <section class="hero">
-    <p class="eyebrow">Artistic director · Choreographer · Multidisciplinary performing artist</p>
-    <h1 class="hero__name">{SITE.name}</h1>
-    <p class="hero__tagline">{SITE.tagline}</p>
-  </section>
+  <HomeHero />
 
   <nav class="index" id="work" aria-label="Case studies">
     <p class="eyebrow">Selected works</p>

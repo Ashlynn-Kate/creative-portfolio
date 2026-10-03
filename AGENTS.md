@@ -109,6 +109,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0036** · `design` · Prince selected-material overlay tiles
   The Prince of Egypt selected-material links must use four evenly spaced, compact square image tiles with each material's identifying text overlaid on the image; the layout must stack to two columns on mobile.
   → `docs/adr/0036-prince-material-overlay-tiles.md`
+- **ADR-0037** · `design` · Home photographic hero sequence
+  The home-page hero must present owner-approved photographs as a subtle, full-width asynchronous sequence behind the existing copy, with varied scale and placement, cream-feathered edges, offscreen pausing, and a static reduced-motion presentation.
+  → `docs/adr/0037-home-photographic-hero-sequence.md`
 <!-- adr-registry:end -->
 
 ## Content scope
