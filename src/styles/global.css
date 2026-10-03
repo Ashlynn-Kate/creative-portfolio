@@ -294,7 +294,7 @@ main:has(.home-back-to-top) + .site-footer {
 }
 
 .about__header h1 {
-  font-size: clamp(68px, 13vw, 180px);
+  font-size: clamp(68px, calc(13vw - 50px), 130px);
   font-weight: 400;
   line-height: 0.84;
   letter-spacing: -0.035em;
@@ -328,7 +328,7 @@ main:has(.home-back-to-top) + .site-footer {
 
 .about__lead {
   font-family: var(--font-display);
-  font-size: clamp(26px, 2.7vw, 36px);
+  font-size: clamp(26px, calc(2.7vw - 6px), 30px);
   line-height: 1.18;
 }
 
@@ -347,7 +347,7 @@ main:has(.home-back-to-top) + .site-footer {
 }
 
 .about__contact p:last-child {
-  font-size: clamp(18px, 1.4vw, 23px);
+  font-size: clamp(17px, calc(1.4vw - 1px), 22px);
   line-height: 1.55;
 }
 
