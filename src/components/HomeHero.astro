@@ -41,6 +41,12 @@ const imageOpacity = (kind: string) => {
   if (kind === 'outdoor') return '.27';
   return '.25';
 };
+const imageMaxWidth = (kind: string) => {
+  if (kind === 'portrait') return '420px';
+  if (kind === 'movement') return '480px';
+  if (kind === 'outdoor') return '620px';
+  return '440px';
+};
 const panels = [
   { position: 'left', offset: -10, images: rotate(0) },
   { position: 'center', offset: -6.67, images: rotate(3) },
@@ -66,7 +72,7 @@ const panels = [
               loading="eager"
               decoding="async"
               draggable="false"
-              style={`--delay: ${panel.offset + index * 10}s; --photo-opacity: ${imageOpacity(photo.kind)}; --scale: ${position.scale}; --image-width: ${position.width}%; --shift-x: ${position.x}; --shift-y: ${position.y};`}
+              style={`--delay: ${panel.offset + index * 10}s; --photo-opacity: ${imageOpacity(photo.kind)}; --scale: ${position.scale}; --image-width: ${position.width}%; --image-max-width: ${imageMaxWidth(photo.kind)}; --shift-x: ${position.x}; --shift-y: ${position.y};`}
             />
           );
         })}
@@ -96,7 +102,7 @@ const panels = [
   .home-hero__panel--left { left: 0; -webkit-mask-image: linear-gradient(90deg, #000 0 63%, transparent 100%); mask-image: linear-gradient(90deg, #000 0 63%, transparent 100%); }
   .home-hero__panel--center { left: 25%; width: 50%; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 31%, #000 69%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 31%, #000 69%, transparent 100%); }
   .home-hero__panel--right { right: 0; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 37%, #000 100%); mask-image: linear-gradient(90deg, transparent 0, #000 37%, #000 100%); }
-  .home-hero__image { position: absolute; top: 50%; left: 50%; display: block; width: var(--image-width); height: auto; max-height: 90%; opacity: 0; filter: grayscale(1); transform: translate(-50%, -50%) translate(var(--shift-x), var(--shift-y)) scale(var(--scale)); -webkit-mask-image: radial-gradient(ellipse 78% 82% at 50% 50%, #000 53%, rgb(0 0 0 / .75) 72%, transparent 100%); mask-image: radial-gradient(ellipse 78% 82% at 50% 50%, #000 53%, rgb(0 0 0 / .75) 72%, transparent 100%); animation: home-hero-crossfade 90s cubic-bezier(.45, 0, .55, 1) infinite; animation-delay: var(--delay); }
+  .home-hero__image { position: absolute; top: 50%; left: 50%; display: block; width: min(var(--image-width), var(--image-max-width)); height: auto; max-height: 90%; opacity: 0; filter: grayscale(1); transform: translate(-50%, -50%) translate(var(--shift-x), var(--shift-y)) scale(var(--scale)); -webkit-mask-image: radial-gradient(ellipse 78% 82% at 50% 50%, #000 53%, rgb(0 0 0 / .75) 72%, transparent 100%); mask-image: radial-gradient(ellipse 78% 82% at 50% 50%, #000 53%, rgb(0 0 0 / .75) 72%, transparent 100%); animation: home-hero-crossfade 90s cubic-bezier(.45, 0, .55, 1) infinite; animation-delay: var(--delay); }
   .home-hero__image--outdoor { -webkit-mask-image: radial-gradient(ellipse 82% 66% at 50% 50%, #000 42%, rgb(0 0 0 / .7) 68%, transparent 100%); mask-image: radial-gradient(ellipse 82% 66% at 50% 50%, #000 42%, rgb(0 0 0 / .7) 68%, transparent 100%); }
   .home-hero__wash { z-index: 1; background: rgb(243 238 230 / 72%); }
   .home-hero__copy { position: relative; z-index: 2; max-width: calc(var(--wide) + 2 * var(--gutter)); padding: clamp(90px, 14vw, 170px) var(--gutter); margin: 0 auto; }
@@ -110,7 +116,7 @@ const panels = [
     .home-hero { min-height: 570px; }
     .home-hero__panel { display: none; width: 100%; }
     .home-hero__panel--center { display: block; left: 0; }
-    .home-hero__panel--center .home-hero__image { width: min(var(--image-width), 92%); }
+    .home-hero__panel--center .home-hero__image { width: min(var(--image-width), 92%, var(--image-max-width)); }
     .home-hero__wash { background: linear-gradient(180deg, rgb(243 238 230 / 94%), rgb(243 238 230 / 76%)); }
     .home-hero__copy { padding-top: 62px; }
     .home-hero__copy h1 { font-size: clamp(58px, 17vw, 96px); }
