@@ -44,6 +44,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0034](0034-prince-artistic-portfolio-narrative.md) | Prince artistic portfolio narrative | accepted | design | 2026-10-02 |
 | [ADR-0035](0035-home-back-to-top-placement.md) | Home back-to-top placement | accepted | design | 2026-10-02 |
 | [ADR-0036](0036-prince-material-overlay-tiles.md) | Prince selected-material overlay tiles | accepted | design | 2026-10-03 |
+| [ADR-0037](0037-home-photographic-hero-sequence.md) | Home photographic hero sequence | accepted | design | 2026-10-03 |
 
 ## Adding or changing a decision
 
