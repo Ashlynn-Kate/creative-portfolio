@@ -1,0 +1,64 @@
+---
+/** Editorial directory for the portfolio's data-driven Works navigation page. */
+import { getEntry } from 'astro:content';
+import MediaImage from './MediaImage.astro';
+import { url } from '../lib/site';
+
+interface DirectoryItem {
+  type: 'case' | 'page';
+  id: string;
+}
+
+interface Props {
+  categories: Array<{
+    title: string;
+    type: 'case' | 'group';
+    item?: DirectoryItem;
+    groups?: Array<{ title: string; items: DirectoryItem[] }>;
+  }>;
+}
+
+const { categories } = Astro.props;
+
+const resolveItem = async (item: DirectoryItem) => {
+  if (item.type === 'case') {
+    const entry = await getEntry('cases', item.id);
+    return entry && { title: entry.data.title, meta: entry.data.kicker ?? '', cover: entry.data.cover, href: url(`#${entry.id}`) };
+  }
+
+  const entry = await getEntry('pages', item.id);
+  return entry && { title: entry.data.title, meta: 'Original choreography', cover: entry.data.cover, href: url(`choreographic-works/${entry.id.split('/').at(-1)}`) };
+};
+
+const groups = await Promise.all(categories.map(async (category) => ({
+  ...category,
+  item: category.item ? await resolveItem(category.item) : undefined,
+  groups: await Promise.all((category.groups ?? []).map(async (group) => ({
+    ...group,
+    items: (await Promise.all(group.items.map(resolveItem))).filter((item): item is NonNullable<typeof item> => Boolean(item)),
+  }))),
+})));
+---
+
+<nav class="works-directory" aria-label="Works directory">
+  {groups.map((category, index) => category.type === 'case' && category.item ? (
+    <a class="works-directory__category" href={category.item.href}>
+      <span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong><b aria-hidden="true">→</b>
+    </a>
+  ) : (
+    <section class="works-directory__live">
+      <p><span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong></p>
+      {category.groups?.map((group) => (
+        <details>
+          <summary>{group.title}<b aria-hidden="true">+</b></summary>
+          {group.items.map((item) => (
+            <a class="works-directory__piece" href={item.href}>
+              <MediaImage image={{ ...item.cover, highRes: undefined }} showCaption={false} sizes="(max-width: 680px) 100vw, 24vw" />
+              <span><em>{item.title}</em><small>{item.meta}</small></span><b aria-hidden="true">→</b>
+            </a>
+          ))}
+        </details>
+      ))}
+    </section>
+  ))}
+</nav>

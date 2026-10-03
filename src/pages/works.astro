@@ -1,0 +1,16 @@
+---
+/** Top-level directory for navigating the portfolio by medium. */
+import { getEntry } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WorksDirectory from '../components/WorksDirectory.astro';
+
+const directory = await getEntry('workDirectories', 'works');
+if (!directory) throw new Error('Missing Works directory content.');
+---
+
+<BaseLayout title="Works" description="Explore Ashlynn Kate's work in film, live performance, and photography.">
+  <article class="works-directory-page">
+    <header class="works-directory-page__header"><p class="eyebrow">Browse the portfolio</p><h1>Works</h1></header>
+    <WorksDirectory categories={directory.data.categories} />
+  </article>
+</BaseLayout>

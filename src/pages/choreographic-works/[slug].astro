@@ -1,0 +1,32 @@
+---
+/** Individual original choreography pages, e.g. /choreographic-works/knock-on-wood/. */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Blocks from '../../components/Blocks.astro';
+import { getDetailPages, type DetailPage } from '../../lib/content';
+import { url } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const works = await getDetailPages('choreographic-works');
+  return works.map((work) => ({ params: { slug: work.id.split('/').at(-1) }, props: { work } }));
+}
+
+const { work } = Astro.props as { work: DetailPage };
+---
+
+<BaseLayout title={work.data.title} description={work.data.summary} image={work.data.cover.src}>
+  <article class="detail detail--choreographic-work">
+    <header class="detail__header">
+      <a class="back" href={url('choreographic-works')}><span aria-hidden="true">←</span> Choreographic Works</a>
+      <h1 class="detail__title">{work.data.title}</h1>
+      {work.data.sub && <p class="detail__sub">{work.data.sub}</p>}
+    </header>
+    <div class="flow"><Blocks blocks={work.data.blocks} /></div>
+    <nav class="pager" aria-label="Choreographic works navigation">
+      <span />
+      <a class="pager__link pager__link--next" href={url('choreographic-works')}>
+        <span class="pager__dir">Back to →</span>
+        <span class="pager__title">Choreographic Works</span>
+      </a>
+    </nav>
+  </article>
+</BaseLayout>

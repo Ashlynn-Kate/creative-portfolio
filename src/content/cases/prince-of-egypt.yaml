@@ -1,51 +1,41 @@
-order: 1
+order: 3
 title: The Prince of Egypt
-kicker: Full-length production
-meta: Full-length contemporary ballet · May 2024
-role: Creator and director; primary story writer, choreographer, and casting director. Led costume and makeup decisions and served as the central point of contact across the production teams.
+kicker: Stage production
+meta: Full-length contemporary ballet
 summary: A full-length contemporary ballet of 28 pieces, created and directed from story and early concepts through the finished stage production.
-disciplines: [Choreography, Creative Direction, Set Design, Costume & Makeup]
+disciplines: [Direction, Choreography, Visual Direction, Costume, Live Performance]
 cover:
   src: prince-of-egypt/palace.png
   alt: Dancers in white on a palace set lit in pale blue, with a golden throne at stage left.
 
 blocks:
-  - type: image
-    size: wide
-    src: prince-of-egypt/promo-no-fuzion.png
-    alt: Promotional image reading "Prince of Egypt" over a stage lit in deep blue with tall columns and stone blocks.
-
-  - type: heading
-    text: Project overview
-
   - type: text
     body: |
-      I created and directed *The Prince of Egypt*, a full-length contemporary ballet for an arts studio serving ages 3–18. The production comprised 28 pieces, 23 of which I choreographed, and included collaborations with professional guest artists. I guided the project from its story and early concepts through the finished stage production.
+      The Prince of Egypt brings its story to the stage through contemporary ballet, combining an ensemble of young dancers with professional guest artists.
 
-  - type: image
-    size: full
-    src: prince-of-egypt/palace.png
-    alt: Dancers in white on a palace set lit in pale blue, with a golden throne at stage left.
+      As creator and director, I developed the production’s narrative and choreographed 23 of its 28 pieces. My direction extended across casting, music selection and editing, costumes, and makeup, with collaborative development of the set and lighting.
 
-  - type: details
-    summary: Creative direction
-    blocks:
-      - type: text
-        body: |
-          I wrote the primary story, cast the performers, and selected and edited the music. I led costume and makeup decisions and collaborated with the relevant teams on set and lighting ideas. The throne, sandy backdrop, and opening scene examples below show how those ideas developed into what audiences saw onstage.
+  - type: credits
+    lines:
+      - Creation, Direction, & Choreography · Ashlynn Kate
 
-  - type: details
-    summary: Production and handoffs
-    blocks:
-      - type: text
-        body: |
-          Turning those ideas into a full-length production required keeping people informed as details evolved. I planned rehearsals, tracked changes to music and costume decisions, and sent collaborators the current files they needed for their work. I kept the studio owner updated on the production’s progress throughout.
+  - type: image-feature
+    image:
+      src: prince-of-egypt/deliver-us-image-3.png
+      alt: Dancers in earth-toned costumes reaching forward onstage before a desert backdrop.
+    heading: Shaping the Production
+    body: |
+      Movement, music, costumes, makeup, and the stage environment developed together around the story. I worked with collaborators on set and lighting ideas, shaping a shared visual direction for the production.
+
+      The throne, sandy backdrop, and opening scene shown below trace that process from reference images and early concepts to the finished stage.
+
+      I also guided the rehearsal process and coordinated the production’s evolving details with the studio and creative team.
 
   - type: heading
     text: Selected materials
-    sub: Click through each page below.
 
   - type: pages
+    layout: compact-overlay
     items:
       - prince-of-egypt/throne-inspiration
       - prince-of-egypt/desert-backdrop

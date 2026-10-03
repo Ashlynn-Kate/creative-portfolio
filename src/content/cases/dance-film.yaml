@@ -1,9 +1,8 @@
-order: 3
+order: 2
 title: Mindspace
 kicker: Dance film
 status: In production
 meta: Filming October 24, 2026
-role: Concept creator, creative lead, co-choreographer, and production coordinator.
 summary: A dance film about a woman who discovers, and eventually accepts, the unpredictable world inside her mind.
 disciplines: [Choreography, Film, Creative Direction]
 cover:
@@ -17,13 +16,9 @@ blocks:
     body: |
       Set to a soft acoustic cover, the film follows a woman as she discovers and eventually accepts the unpredictable world inside her mind. It asks what may be happening behind someone’s eyes that others cannot see.
 
-  - type: heading
-    text: Creative approach
-  - type: text
-    body: |
-      - **Movement:** Her quick, unusual movements contrast with the ensemble’s quieter, fluid motion.
-      - **Space:** An open set and recurring chairs create an exposed inner world.
-      - **Camera:** Shifting perspectives bring viewers closer to her experience.
+  - type: role
+    label: My role
+    body: Concept creator, creative lead, co-choreographer, and production coordinator.
 
   - type: heading
     text: Visual references
@@ -44,21 +39,11 @@ blocks:
         caption: Unusual ways of moving with a chair, turning a familiar object into part of the character’s inner, empty world.
 
   - type: heading
-    text: Production schedule
+    text: Creative Process
   - type: text
     body: |
-      - **Concept and collaboration:** I originated the idea, then developed the choreography and visual direction with my co-creator.
-      - **Rehearsal planning:** Scheduled four dancer rehearsals and two planning meetings with the visual and camera team.
-      - **Shoot preparation:** Researched the venue and aligned the shot ideas with the film director and two camera operators for the October 24 shoot.
-  - type: details
-    summary: Rehearsal and shoot schedule
-    blocks:
-      - type: text
-        body: |
-          - **September 28:** Meeting with the visual and camera crew
-          - **October 4:** Dancer rehearsal
-          - **October 5:** Dancer rehearsal
-          - **October 8:** Meeting with the visual and camera crew
-          - **October 18:** Dancer rehearsal
-          - **October 22:** Dancer rehearsal
-          - ***October 24: Filming***
+      I originated the concept and invited Breana to co-create the work. Together, we developed the choreography and visual direction, exploring how movement could reveal the central character’s inner life.
+
+      Rehearsals and conversations with the visual team shape how the work translates to camera, from the choice of location to framing and camera movement.
+  - type: status-line
+    text: Filming October 24, 2026

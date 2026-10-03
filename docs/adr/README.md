@@ -23,8 +23,27 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0013](0013-delete-merged-branches.md) | Delete merged work branches | accepted | workflow | 2026-09-27 |
 | [ADR-0014](0014-design-lab-explore-before-implementing.md) | Design lab — explore layouts in throwaway prototypes before implementing | accepted | workflow | 2026-09-27 |
 | [ADR-0015](0015-mindspace-film-title.md) | Mindspace is the title of the dance film | accepted | content | 2026-09-28 |
-| [ADR-0016](0016-object-translations-all-concepts.md) | Object Translations uses a summary and all-concepts page | accepted | design | 2026-09-29 |
+| [ADR-0016](0016-object-translations-all-concepts.md) | Object Translations uses a summary and all-concepts page | superseded by ADR-0022 | design | 2026-09-29 |
 | [ADR-0017](0017-object-translations-concept-disclosures.md) | Object Translations concepts begin as disclosures | accepted | design | 2026-09-29 |
+| [ADR-0018](0018-site-menu-and-about-page.md) | Site menu and About page | accepted | design | 2026-09-30 |
+| [ADR-0019](0019-object-translations-concept-thumbnails.md) | Object Translations concept thumbnails | accepted | design | 2026-10-01 |
+| [ADR-0020](0020-object-translations-inline-portrait-galleries.md) | Object Translations inline portrait galleries | accepted | design | 2026-10-01 |
+| [ADR-0021](0021-object-translations-portrait-preview.md) | Object Translations portrait preview | accepted | design | 2026-10-01 |
+| [ADR-0022](0022-object-translations-all-concepts-only.md) | Object Translations all-concepts-only summary | accepted | design | 2026-10-01 |
+| [ADR-0023](0023-prince-of-egypt-text-led-opening.md) | Prince of Egypt text-led opening | superseded by ADR-0034 | design | 2026-10-01 |
+| [ADR-0024](0024-prince-of-egypt-compact-materials.md) | Prince of Egypt compact supporting materials | accepted | design | 2026-10-01 |
+| [ADR-0025](0025-home-page-case-order.md) | Home page case order | accepted | content | 2026-10-01 |
+| [ADR-0026](0026-footer-back-to-top-control.md) | Footer back-to-top control | superseded by ADR-0035 | design | 2026-10-01 |
+| [ADR-0027](0027-choreographic-works-collection.md) | Choreographic Works collection | superseded by ADR-0033 | design | 2026-10-02 |
+| [ADR-0028](0028-object-translations-wide-introduction.md) | Object Translations wide introduction | accepted | design | 2026-10-02 |
+| [ADR-0029](0029-wide-case-narrative-alignment.md) | Wide case narrative alignment | superseded by ADR-0030 | design | 2026-10-02 |
+| [ADR-0030](0030-mindspace-role-after-concept.md) | Mindspace role after concept | accepted | design | 2026-10-02 |
+| [ADR-0031](0031-choreographic-work-detail-rhythm.md) | Choreographic work detail rhythm | superseded by ADR-0032 | design | 2026-10-02 |
+| [ADR-0032](0032-choreographic-work-video-narrative.md) | Choreographic work video narrative | accepted | design | 2026-10-02 |
+| [ADR-0033](0033-works-directory-navigation.md) | Works directory navigation | accepted | design | 2026-10-02 |
+| [ADR-0034](0034-prince-artistic-portfolio-narrative.md) | Prince artistic portfolio narrative | accepted | design | 2026-10-02 |
+| [ADR-0035](0035-home-back-to-top-placement.md) | Home back-to-top placement | accepted | design | 2026-10-02 |
+| [ADR-0036](0036-prince-material-overlay-tiles.md) | Prince selected-material overlay tiles | accepted | design | 2026-10-03 |
 
 ## Adding or changing a decision
 

@@ -1,0 +1,25 @@
+---
+/** A video thumbnail paired with the first narrative section of a work page. */
+import { md, mdInline } from '../lib/site';
+import VideoLink from './VideoLink.astro';
+
+interface Props {
+  thumbnail: { src: string; alt: string };
+  url: string;
+  caption?: string;
+  heading: string;
+  body: string;
+}
+
+const { thumbnail, url, caption, heading, body } = Astro.props;
+---
+
+<section class="video-feature">
+  <VideoLink thumbnail={thumbnail} url={url} caption={caption} />
+  <div class="video-feature__copy">
+    <div class="block-heading">
+      <h3 set:html={mdInline(heading)} />
+    </div>
+    <div class="prose" set:html={md(body)} />
+  </div>
+</section>

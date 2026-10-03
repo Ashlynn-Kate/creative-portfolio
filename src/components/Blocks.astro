@@ -9,17 +9,27 @@ import { md, mdInline } from '../lib/site';
 import MediaImage from './MediaImage.astro';
 import Carousel from './Carousel.astro';
 import VideoLink from './VideoLink.astro';
+import VideoFeature from './VideoFeature.astro';
+import ImageFeature from './ImageFeature.astro';
 import PageCards from './PageCards.astro';
+import WorkListing from './WorkListing.astro';
 import { url } from '../lib/site';
 
 interface Props {
   blocks: Block[];
 }
 const { blocks } = Astro.props;
+
+type GridBlock = Extract<Block, { type: 'grid' }>;
+type DetailsBlock = Extract<Block, { type: 'details' }>;
+type CarouselBlock = Extract<Block, { type: 'carousel' }>;
+const isGrid = (block: Block): block is GridBlock => block.type === 'grid';
+const isDetails = (block: Block): block is DetailsBlock => block.type === 'details';
+const isCarousel = (block: Block): block is CarouselBlock => block.type === 'carousel';
 ---
 
 {
-  blocks.map((block) => {
+  [...blocks].sort((a, b) => ('order' in a ? a.order ?? Infinity : Infinity) - ('order' in b ? b.order ?? Infinity : Infinity)).map((block) => {
     switch (block.type) {
       case 'heading':
         return (
@@ -51,21 +61,80 @@ const { blocks } = Astro.props;
         );
       case 'carousel':
         return <div class="wide"><Carousel label={block.label} images={block.images} /></div>;
+      case 'preview-gallery':
+        return (
+          <div class="preview-gallery wide" aria-label={block.label}>
+            {block.images.map((image) => <MediaImage image={image} showCaption={false} sizes="(min-width: 900px) 25vw, 50vw" />)}
+          </div>
+        );
+      case 'role':
+        return (
+          <dl class="role-block">
+            <dt>{block.label}</dt>
+            <dd>{block.body}</dd>
+          </dl>
+        );
+      case 'image-details':
+        return (
+          <section class="image-details wide">
+            <MediaImage image={block.image} showCaption={false} sizes="(min-width: 900px) 50vw, 100vw" />
+            <div class="image-details__items">
+              {block.details.map((detail) => (
+                <details>
+                  <summary>{detail.summary}<span aria-hidden="true">+</span></summary>
+                  <div class="prose" set:html={md(detail.body)} />
+                </details>
+              ))}
+            </div>
+          </section>
+        );
+      case 'image-feature':
+        return <ImageFeature image={block.image} heading={block.heading} body={block.body} />;
+      case 'credits':
+        return <div class="project-credits">{block.lines.map((line) => <p>{line}</p>)}</div>;
+      case 'status-line':
+        return <p class="status-line">{block.text}</p>;
       case 'video':
         return <div class="wide"><VideoLink thumbnail={block.thumbnail} url={block.url} caption={block.caption} /></div>;
+      case 'video-feature':
+        return <VideoFeature thumbnail={block.thumbnail} url={block.url} caption={block.caption} heading={block.heading} body={block.body} />;
       case 'pages':
-        return <div class="wide"><PageCards items={block.items} /></div>;
+        return <div class="wide"><PageCards items={block.items} layout={block.layout} /></div>;
       case 'page-link':
         return <p class="page-link"><a href={url(`work/${block.item}`)}>{block.label}</a></p>;
+      case 'work-listing':
+        return <WorkListing items={block.items} route={block.route} linkLabel={block.linkLabel} />;
       case 'details':
+        // Object Translations concepts keep their object beside one portrait gallery.
+        // The first Object/Portrait grid supplies the object and lead portrait; the
+        // nested Additional photos carousel supplies the remaining images.
+        const objectPortrait = block.blocks.find((child): child is GridBlock => isGrid(child) && child.images.length === 2);
+        const additionalPhotos = block.blocks.find((child): child is DetailsBlock => isDetails(child) && child.summary === 'Additional photos');
+        const additionalCarousel = additionalPhotos?.blocks.find(isCarousel);
+        const hasPortraitGallery = objectPortrait && additionalCarousel;
         return (
           <details class="details">
             <summary>
+              {block.thumbnail && <MediaImage image={block.thumbnail} class="details__thumbnail" showCaption={false} sizes="64px" />}
               <span set:html={mdInline(block.summary)} />
               {block.sub && <span class="details__sub">{block.sub}</span>}
             </summary>
             <div class="details__body">
-              <Astro.self blocks={block.blocks} />
+              {hasPortraitGallery ? (
+                <>
+                  <div class="pair-gallery wide">
+                    <div class="pair-gallery__object">
+                      <p class="grid__label">Object</p>
+                      <MediaImage image={objectPortrait.images[0]} sizes="(min-width: 900px) 38vw, 100vw" />
+                    </div>
+                    <div class="pair-gallery__portraits">
+                      <p class="grid__label">Portraits</p>
+                      <Carousel label={`${block.summary} portraits`} images={[objectPortrait.images[1], ...additionalCarousel.images]} />
+                    </div>
+                  </div>
+                  <Astro.self blocks={block.blocks.filter((child) => child !== objectPortrait && child !== additionalPhotos)} />
+                </>
+              ) : <Astro.self blocks={block.blocks} />}
             </div>
           </details>
         );

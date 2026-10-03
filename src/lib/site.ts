@@ -3,7 +3,7 @@ import { marked } from 'marked';
 
 export const SITE = {
   name: 'Ashlynn Kate',
-  tagline: 'Creative production work spanning live performance, editorial portraits, and a dance film in development.',
+  tagline: 'Creative production work spanning conceptual portraits, live performance, and film.',
   description:
     'Portfolio of Ashlynn Kate: artistic director, choreographer, and multidisciplinary artist.',
 };
