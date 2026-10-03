@@ -1,0 +1,33 @@
+case: choreographic-works
+order: 1
+title: Knock on Wood
+summary: A cautionary tale exploring superstition and the fragility of good fortune.
+cover:
+  src: choreographic-works/knock-on-wood.jpg
+  alt: Dancers performing Knock on Wood on a blue-lit stage.
+blocks:
+  - type: video-feature
+    thumbnail:
+      src: choreographic-works/knock-on-wood.jpg
+      alt: Dancers performing Knock on Wood on a blue-lit stage.
+    url: https://drive.google.com/file/d/1uP8NmEGIM9x9x9Cf0ARwIT6B0niOHSVZ/view?usp=sharing
+    caption: Full performance video.
+    heading: Behind the work
+    body: >
+      Knock on Wood draws on the superstition of knocking on wood to protect
+      good fortune after expressing a positive outcome. The piece explores what
+      happens when that ritual is overlooked, forming a cautionary tale about
+      good fortune and its reversal.
+  - type: heading
+    text: Choreographic approach
+  - type: text
+    body: >
+      Retrogradation, or movement performed in reverse order, shapes individual
+      sequences and the work as a whole, connecting the choreography to the
+      narrative’s reversal of fortune.
+  - type: heading
+    text: Presentation details
+  - type: text
+    body: >
+      Presented at The Ailey School’s Global Harmony Showcase in February 2020.
+      Selected as one of 10 works from 45 submissions.

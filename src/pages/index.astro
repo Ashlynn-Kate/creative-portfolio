@@ -23,12 +23,14 @@ const disciplines = await getDisciplines();
         <li>
           <a href={`#${c.id}`} class="index__item">
             <span class="index__num">{pad(i + 1)}</span>
-            <span class="index__title">{c.data.title}</span>
+            <span class="index__title">{c.data.indexTitle ?? c.data.title}</span>
             <span class="index__meta">{c.data.kicker}{c.data.status && ` · ${c.data.status}`}</span>
           </a>
         </li>
       ))}
     </ol>
+
+    <p class="page-link index__works-link"><a href={url('works')}>See all works</a></p>
 
     <div class="index__disciplines" id="disciplines">
       <p class="eyebrow">Browse by discipline</p>
@@ -41,4 +43,5 @@ const disciplines = await getDisciplines();
   </nav>
 
   {cases.map((c, i) => <CaseSection entry={c} number={i + 1} />)}
+  <a class="home-back-to-top" href="#main"><span>Back to top</span><b aria-hidden="true">↑</b></a>
 </BaseLayout>

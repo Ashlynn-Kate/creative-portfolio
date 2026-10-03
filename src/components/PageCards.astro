@@ -6,6 +6,7 @@ import MediaImage from './MediaImage.astro';
 
 interface Props {
   items: string[];
+  layout?: 'default' | 'compact' | 'compact-overlay';
 }
 
 const entries = await Promise.all(
@@ -16,16 +17,19 @@ const entries = await Promise.all(
   }),
 );
 const visible = entries.filter((e) => e.data.published);
+const { layout = 'default' } = Astro.props;
 ---
 
-<ul class="cards">
+<ul class:list={['cards', { 'cards--compact': layout === 'compact', 'cards--compact-overlay': layout === 'compact-overlay' }]}>
   {visible.map((page, i) => (
     <li class="card">
       <a href={url(`work/${page.id}`)} class="card__link">
         <MediaImage image={{ ...page.data.cover, highRes: undefined }} showCaption={false} sizes="(min-width: 900px) 30vw, 90vw" class="card__image" />
-        <span class="card__num">{String(i + 1).padStart(2, '0')}</span>
-        <span class="card__title">{page.data.title}</span>
-        <span class="card__summary">{page.data.summary}</span>
+        <span class="card__copy">
+          <span class="card__num">{String(i + 1).padStart(2, '0')}</span>
+          <span class="card__title">{page.data.title}</span>
+          <span class="card__summary">{page.data.summary}</span>
+        </span>
       </a>
     </li>
   ))}

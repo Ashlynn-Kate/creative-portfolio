@@ -1,0 +1,34 @@
+---
+/** A restrained editorial listing of image-led work pages within a category. */
+import { getEntry } from 'astro:content';
+import MediaImage from './MediaImage.astro';
+import { url } from '../lib/site';
+
+interface Props {
+  items: string[];
+  route: string;
+  linkLabel?: string;
+}
+
+const { items, route, linkLabel } = Astro.props;
+const entries = await Promise.all(items.map((id) => getEntry('pages', id)));
+const works = entries.filter((entry): entry is NonNullable<typeof entry> => Boolean(entry?.data.published));
+const hrefFor = (id: string) => `${route}/${id.split('/').at(-1)}`;
+---
+
+<section class="work-listing" aria-label="Choreographic works">
+  <ul class="work-listing__items">
+    {works.map((work) => (
+      <li class="work-listing__item">
+        <MediaImage image={{ ...work.data.cover, highRes: undefined }} class="work-listing__image" showCaption={false} sizes="(min-width: 760px) 48vw, 100vw" />
+        <div class="work-listing__copy">
+          {work.data.sub && <p class="eyebrow">{work.data.sub}</p>}
+          <h3>{work.data.title}</h3>
+          <p>{work.data.summary}</p>
+          <a class="work-listing__link" href={url(hrefFor(work.id))}>View work <span aria-hidden="true">→</span></a>
+        </div>
+      </li>
+    ))}
+  </ul>
+  {linkLabel && <p class="page-link"><a href={url(route)}>{linkLabel}</a></p>}
+</section>

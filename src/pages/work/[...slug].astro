@@ -7,7 +7,11 @@ import { url } from '../../lib/site';
 
 export async function getStaticPaths() {
   const pages = await getDetailPages();
-  return pages.map((page) => ({ params: { slug: page.id }, props: { page } }));
+  // Choreographic Works has its own root-level routes so it does not appear
+  // as both /work/choreographic-works/... and /choreographic-works/....
+  return pages
+    .filter((page) => page.data.case !== 'choreographic-works')
+    .map((page) => ({ params: { slug: page.id }, props: { page } }));
 }
 
 const { page } = Astro.props as { page: DetailPage };

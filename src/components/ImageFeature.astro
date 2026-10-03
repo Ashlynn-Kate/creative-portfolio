@@ -1,0 +1,21 @@
+---
+/** An image paired with an always-visible editorial text section. */
+import { md, mdInline } from '../lib/site';
+import MediaImage from './MediaImage.astro';
+
+interface Props {
+  image: { src: string; alt: string; caption?: string; highRes?: string };
+  heading: string;
+  body: string;
+}
+
+const { image, heading, body } = Astro.props;
+---
+
+<section class="image-feature wide">
+  <MediaImage image={image} showCaption={false} sizes="(min-width: 900px) 50vw, 100vw" />
+  <div class="image-feature__copy">
+    <p class="eyebrow" set:html={mdInline(heading)} />
+    <div class="prose" set:html={md(body)} />
+  </div>
+</section>

@@ -1,13 +1,14 @@
 ---
 id: ADR-0016
 title: Object Translations uses a summary and all-concepts page
-status: accepted
+status: superseded
 date: 2026-09-29
 area: design
 constraint: >
   Object Translations must keep its first three concepts on the case-study page and
   link to a dedicated all-concepts page containing the complete series; each concept's
   additional photos must open as an inline, scrollable gallery.
+superseded_by: ADR-0022
 ---
 
 # Object Translations uses a summary and all-concepts page

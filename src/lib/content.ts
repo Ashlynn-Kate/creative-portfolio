@@ -7,7 +7,7 @@ export type DetailPage = CollectionEntry<'pages'>;
 
 /** Published cases, in home-page order. */
 export async function getCases(): Promise<Case[]> {
-  const all = await getCollection('cases', (c) => c.data.published);
+  const all = await getCollection('cases', (c) => c.data.published && c.data.home);
   return all.sort((a, b) => a.data.order - b.data.order);
 }
 

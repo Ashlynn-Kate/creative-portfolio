@@ -1,0 +1,22 @@
+categories:
+  - title: Film
+    type: case
+    item:
+      type: case
+      id: dance-film
+  - title: Live performance
+    type: group
+    groups:
+      - title: Full-length productions
+        items:
+          - type: case
+            id: prince-of-egypt
+      - title: Individual pieces
+        items:
+          - type: page
+            id: choreographic-works/knock-on-wood
+  - title: Photography
+    type: case
+    item:
+      type: case
+      id: object-translations

@@ -1,0 +1,19 @@
+order: 4
+home: false
+title: Choreographic Works
+kicker: Original choreography
+meta: Narrative · Concept · Movement
+summary: Original choreography exploring narrative, concept, and movement.
+disciplines:
+  - Choreography
+  - Costume & Makeup
+  - Creative Direction
+cover:
+  src: choreographic-works/knock-on-wood.jpg
+  alt: Dancers performing Knock on Wood on a blue-lit stage.
+blocks:
+  - type: work-listing
+    route: choreographic-works
+    items:
+      - choreographic-works/knock-on-wood
+    linkLabel: Explore more Choreographic Works

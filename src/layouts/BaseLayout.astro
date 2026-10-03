@@ -58,17 +58,24 @@ const previewUrl = new URL(preview.src, Astro.site);
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <a class="wordmark" href={url()}>{SITE.name}</a>
-      <nav aria-label="Main">
-        <a href={url('#work')}>Work</a>
-        <a href={url('#disciplines')}>Disciplines</a>
-      </nav>
+      <details class="site-menu">
+        <summary aria-label="Open menu">
+          <span class="site-menu__icon" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span class="sr-only">Open menu</span>
+        </summary>
+        <nav aria-label="Main">
+          <a href={url('works')}><span>01</span> Works <b aria-hidden="true">↗</b></a>
+          <a href={url('#disciplines')}><span>02</span> Disciplines <b aria-hidden="true">↗</b></a>
+          <a href={url('about')}><span>03</span> About <b aria-hidden="true">↗</b></a>
+        </nav>
+      </details>
     </header>
 
     <main id="main">
       <slot />
     </main>
 
-    <footer class="site-footer">
+    <footer class="site-footer" id="footer">
       <p class="site-footer__name">{SITE.name}</p>
       <p>© {new Date().getFullYear()} · All work shown is by {SITE.name} and collaborators.</p>
     </footer>

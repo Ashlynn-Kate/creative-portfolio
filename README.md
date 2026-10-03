@@ -2,10 +2,10 @@
 
 A website showcasing all of Ashlynn's creative work: dance and choreography, set design, video and directing, photography, acting, and whatever comes next.
 
-- **Live site:** https://ashlynn-kate.github.io/creative-portfolio/
+- **Live site:** https://byashlynnkate.com/
 - **Hidden from search:** the site won't show up on Google, but anyone you send the link to can view it.
 
-> **Status:** version 1 is built and can be previewed locally. It has **not** been published yet.
+> **Status:** version 1 is live at the link above and can also be previewed locally.
 
 ## Where things live
 
@@ -32,7 +32,7 @@ Do this once per computer. After that, you never need to think about it again.
 **By hand:** open a terminal in the project folder and run:
 
 1. `npm run dev`
-2. Open http://localhost:4321/creative-portfolio/ in your browser.
+2. Open http://localhost:4321/ in your browser.
 3. The page updates by itself as changes are made.
 4. When you're done, press `Ctrl+C` in the terminal to stop it.
 
@@ -55,7 +55,7 @@ Codex will make the change, explain what it did, and tell you where to look to s
 For bigger ideas (a new home page, a different layout, a new way to show photos), try them in the **design lab** first. It's much faster than changing the real site.
 
 1. Ask Codex, for example: *"In the design lab, make three versions of the home page opening: one big full-screen photo, one split with my name on the left, one that starts with the carousel."* A phone photo of a quick sketch helps a lot.
-2. Open **http://localhost:4321/creative-portfolio/lab/** (the preview needs to be running; ask Codex to "show me the design lab").
+2. Open **http://localhost:4321/lab/** (the preview needs to be running; ask Codex to "show me the design lab").
 3. Click the idea to see all versions **side by side**. Use the **Desktop / Phone** buttons to check both sizes. Click a version to see it full size.
 4. Say what you'd change: *"B, but bigger type and the photo on the left."* The page updates by itself.
 5. When you love one, say **"make it real."** Codex builds it into the site properly and opens a pull request.

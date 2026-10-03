@@ -15,7 +15,11 @@ blocks:
       complete series below.
   - type: details
     summary: Feather bag
+    order: 1
     sub: Volume · Texture · Drama
+    thumbnail:
+      src: object-translations/feather-bag-object.jpeg
+      alt: A black feather-trimmed evening bag.
     blocks:
       - type: grid
         labels:
@@ -50,11 +54,17 @@ blocks:
                   feathers.
               - src: object-translations/feather-bag-02.png
                 alt: Additional portrait from the Feather Bag concept.
+              - src: object-translations/feather-bag-04.png
+                alt: Full-length Feather Bag portrait in a black tulle gown.
               - src: object-translations/feather-bag-03.png
                 alt: Additional portrait from the Feather Bag concept.
   - type: details
     summary: Vintage lamp
+    order: 7
     sub: Shape · Colors · Light
+    thumbnail:
+      src: object-translations/lamp-object.png
+      alt: A vintage table lamp.
     blocks:
       - type: grid
         labels:
@@ -89,8 +99,12 @@ blocks:
               - src: object-translations/lamp-02.png
                 alt: Additional portrait from the Vintage Lamp concept.
   - type: details
-    summary: Sharpie
+    summary: Sharpie Highlighter
+    order: 5
     sub: Color · Contrast · Sharp Lines
+    thumbnail:
+      src: object-translations/sharpie-object.png
+      alt: A pink Sharpie highlighter.
     blocks:
       - type: grid
         labels:
@@ -126,7 +140,11 @@ blocks:
                 alt: Additional portrait from the Sharpie concept.
   - type: details
     summary: Disco Ball
+    order: 2
     sub: Perspective · Energy · Bold Colors
+    thumbnail:
+      src: object-translations/disco-ball-object.jpeg
+      alt: A disco ball.
     blocks:
       - type: grid
         labels:
@@ -163,7 +181,11 @@ blocks:
                 alt: Additional portrait from the Disco Ball concept.
   - type: details
     summary: Bronze Heel
+    order: 9
     sub: Subtlety · Elegance · Stillness
+    thumbnail:
+      src: object-translations/bronze-heel-thumbnail.png
+      alt: A bronze slingback heel.
     blocks:
       - type: grid
         labels:
@@ -193,7 +215,11 @@ blocks:
                 alt: Additional portrait from the Bronze Heel concept.
   - type: details
     summary: Lemonade Pitcher
+    order: 8
     sub: Softness · Curvature · Grace
+    thumbnail:
+      src: object-translations/lemonade-pitcher-object.jpeg
+      alt: A pale yellow lemonade pitcher.
     blocks:
       - type: grid
         labels:
@@ -225,7 +251,11 @@ blocks:
                 alt: Additional portrait from the Lemonade Pitcher concept.
   - type: details
     summary: Floral Heel
+    order: 6
     sub: Contrast · Femininity · Structure
+    thumbnail:
+      src: object-translations/floral-heel-thumbnail.png
+      alt: A black and white floral heel.
     blocks:
       - type: grid
         labels:
@@ -260,8 +290,58 @@ blocks:
               - src: object-translations/floral-heel-03.png
                 alt: Additional portrait from the Floral Heel concept.
   - type: details
+    summary: Louboutin Floral Handbag
+    order: 4
+    sub: Pastel · Structure · Softness
+    thumbnail:
+      src: object-translations/louboutin-floral-handbag/object.jpeg
+      alt: A pale pink Louboutin handbag.
+    blocks:
+      - type: grid
+        labels:
+          - Object
+          - Portrait
+        images:
+          - src: object-translations/louboutin-floral-handbag/object.jpeg
+            alt: A pale pink Louboutin handbag with green handles and floral details.
+          - src: object-translations/louboutin-floral-handbag/01.png
+            alt: A close-up portrait in a pink look with sheer sage-green gloves.
+      - type: details
+        summary: Behind the translation
+        blocks:
+          - type: text
+            body: >
+              Drawing on the colors of the bag, I focused on the contrast between
+              its structured shape and the softness of the floral design, bringing
+              those elements together through the styling. The close-ups emphasize
+              the delicate quality of the colors and details.
+      - type: details
+        summary: Additional photos
+        blocks:
+          - type: carousel
+            label: Additional Louboutin Floral Handbag photos
+            images:
+              - src: object-translations/louboutin-floral-handbag/02.png
+                alt: A close-up portrait looking to the side in a pink look with sheer
+                  sage-green gloves.
+              - src: object-translations/louboutin-floral-handbag/03.png
+                alt: A close-up portrait with hands gathered beneath the chin in sheer
+                  sage-green gloves.
+              - src: object-translations/louboutin-floral-handbag/04.jpeg
+                alt: A full-body portrait in a pale pink dress with sheer sage-green gloves.
+              - src: object-translations/louboutin-floral-handbag/05.jpeg
+                alt: A full-body portrait in a pale pink dress looking to the side.
+              - src: object-translations/louboutin-floral-handbag/06.png
+                alt: A full-body portrait in a pale pink dress with one hand raised.
+              - src: object-translations/louboutin-floral-handbag/07.png
+                alt: A full-body portrait in a pale pink dress with hands gathered at the waist.
+  - type: details
     summary: Tiffany & Co. Vintage Paperweight
+    order: 3
     sub: Elegance · Color · Restraint
+    thumbnail:
+      src: object-translations/tiffany-paperweight-object.jpeg
+      alt: A Tiffany and Co. vintage paperweight.
     blocks:
       - type: grid
         labels:

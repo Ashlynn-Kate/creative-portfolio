@@ -15,11 +15,11 @@ constraint: >
 # Static hosting on GitHub Pages with a configurable base path
 
 ## Context
-The site is hosted on GitHub Pages as a **project site**, served at `https://ashlynn-kate.github.io/creative-portfolio/`, so every URL lives under `/creative-portfolio/`. A custom domain (e.g. her name as a `.com`) will likely be attached later, and then the site moves to `/`. GitHub Pages serves static files only.
+The site is hosted on GitHub Pages at the custom domain `https://byashlynnkate.com/`, so public URLs begin at `/`. GitHub Pages serves static files only.
 
 ## Decision
 - Static output only. Anything interactive runs in the browser; anything needing a server uses a third-party service.
-- The base path and site URL are set in one place, `astro.config.mjs`, with defaults for today and environment overrides (`SITE_BASE`, `SITE_URL`) for the custom domain.
+- The base path and site URL are set in one place, `astro.config.mjs`, with custom-domain defaults and environment overrides (`SITE_BASE`, `SITE_URL`) for a project-path build when needed.
 - All internal links go through the `url()` helper, which prefixes the base path.
 - Deploys run from GitHub Actions on every push to `main` (repo Settings → Pages → Source must be "GitHub Actions"; a branch deploy runs Jekyll on the raw source and fails).
 
@@ -40,4 +40,4 @@ The site is hosted on GitHub Pages as a **project site**, served at `https://ash
 
 ## Revisit if
 - A feature truly needs a server. Move hosting first (ADR-0001 notes Astro supports this).
-- The custom domain is attached: set `SITE_URL` to the domain and `SITE_BASE` to `/`, add the domain in Pages settings, and update this ADR's context.
+- The public domain changes or the site moves back to a GitHub project path.

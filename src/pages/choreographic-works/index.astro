@@ -1,0 +1,19 @@
+---
+/** The index for original choreographic works. Content remains data-driven in src/content/pages. */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorkListing from '../../components/WorkListing.astro';
+import { getDetailPages } from '../../lib/content';
+
+const works = await getDetailPages('choreographic-works');
+---
+
+<BaseLayout title="Choreographic Works" description="Original choreography exploring narrative, concept, and movement.">
+  <section class="works-page">
+    <header class="works-page__header">
+      <p class="eyebrow">Choreography</p>
+      <h1>Choreographic Works</h1>
+      <p>Original choreography exploring narrative, concept, and movement.</p>
+    </header>
+    <WorkListing items={works.map((work) => work.id)} route="choreographic-works" />
+  </section>
+</BaseLayout>

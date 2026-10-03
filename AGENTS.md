@@ -64,19 +64,58 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0015** · `content` · Mindspace is the title of the dance film
   The dance film case study must be titled “Mindspace” and presented as a dance film; it must not use the song title “Crazy” as the work's title.
   → `docs/adr/0015-mindspace-film-title.md`
-- **ADR-0016** · `design` · Object Translations uses a summary and all-concepts page
-  Object Translations must keep its first three concepts on the case-study page and link to a dedicated all-concepts page containing the complete series; each concept's additional photos must open as an inline, scrollable gallery.
-  → `docs/adr/0016-object-translations-all-concepts.md`
 - **ADR-0017** · `design` · Object Translations concepts begin as disclosures
   Each Object Translations concept must begin as a closed, named disclosure; opening it reveals its object-and-portrait pair, translation notes, and additional-photo gallery.
   → `docs/adr/0017-object-translations-concept-disclosures.md`
+- **ADR-0018** · `design` · Site menu and About page
+  The site header must use a three-line menu control that reveals links to Work, Disciplines, and About, and the About page must present Ashlynn Kate's biography with a primary portrait in an editorial layout.
+  → `docs/adr/0018-site-menu-and-about-page.md`
+- **ADR-0019** · `design` · Object Translations concept thumbnails
+  Closed disclosures on the Object Translations all-concepts page must show a compact, consistently sized inspiration-object thumbnail without changing the full-size images inside.
+  → `docs/adr/0019-object-translations-concept-thumbnails.md`
+- **ADR-0020** · `design` · Object Translations inline portrait galleries
+  Each Object Translations concept must show its inspiration object beside a light-background, peek-behind gallery whose first image is the primary portrait and whose remaining images are the additional portraits; it must not use a separate Additional Photos disclosure.
+  → `docs/adr/0020-object-translations-inline-portrait-galleries.md`
+- **ADR-0021** · `design` · Object Translations portrait preview
+  The Object Translations summary page must place a compact, static four-portrait teaser between its introduction and the All Concepts link, showing all four images without scrolling.
+  → `docs/adr/0021-object-translations-portrait-preview.md`
+- **ADR-0022** · `design` · Object Translations all-concepts-only summary
+  The Object Translations summary page must introduce the series with its portrait preview and one All Concepts link; individual concept disclosures must appear only on the dedicated all-concepts page.
+  → `docs/adr/0022-object-translations-all-concepts-only.md`
+- **ADR-0024** · `design` · Prince of Egypt compact supporting materials
+  The Prince of Egypt stage image must appear as a compact image beside its creative-process disclosures, and its Selected Materials links must use a compact four-across image-led layout.
+  → `docs/adr/0024-prince-of-egypt-compact-materials.md`
+- **ADR-0025** · `content` · Home page case order
+  The home page and Selected Works index must present Object Translations first, Mindspace second, and The Prince of Egypt third.
+  → `docs/adr/0025-home-page-case-order.md`
+- **ADR-0028** · `design` · Object Translations wide introduction
+  The Object Translations introduction must align to the left edge of its portrait preview gallery and use a wider reading measure, while its existing numbered case header remains unchanged.
+  → `docs/adr/0028-object-translations-wide-introduction.md`
+- **ADR-0030** · `design` · Mindspace role after concept
+  Post-tag narrative content in the home-page case studies must align to the wide content column used by Object Translations; Mindspace’s role statement must appear directly after its Concept paragraph in that narrative flow.
+  → `docs/adr/0030-mindspace-role-after-concept.md`
+- **ADR-0032** · `design` · Choreographic work video narrative
+  Individual Choreographic Works pages must begin their narrative with an uncropped half-width performance-video thumbnail floated left of the Behind the work section on desktop, with the copy wrapping beneath it when needed and stacking below it on mobile.
+  → `docs/adr/0032-choreographic-work-video-narrative.md`
+- **ADR-0033** · `design` · Works directory navigation
+  The primary menu's Works link must open a dedicated, data-driven Works page organized into Film, Live Performance, and Photography; Live Performance must group full-length productions and individual pieces in closed disclosures, while the home page must retain only its three core case studies.
+  → `docs/adr/0033-works-directory-navigation.md`
+- **ADR-0034** · `design` · Prince artistic portfolio narrative
+  The Prince of Egypt case study must open with an unheaded two-paragraph artistic introduction and understated credits, followed by an always-visible stage image and Shaping the Production narrative; it must not use role boxes or production-detail accordions.
+  → `docs/adr/0034-prince-artistic-portfolio-narrative.md`
+- **ADR-0035** · `design` · Home back-to-top placement
+  The home page must place its centered Back to top link immediately after the final case-study content and before the footer; the shared footer must not contain a Back to top control.
+  → `docs/adr/0035-home-back-to-top-placement.md`
+- **ADR-0036** · `design` · Prince selected-material overlay tiles
+  The Prince of Egypt selected-material links must use four evenly spaced, compact square image tiles with each material's identifying text overlaid on the image; the layout must stack to two columns on mobile.
+  → `docs/adr/0036-prince-material-overlay-tiles.md`
 <!-- adr-registry:end -->
 
 ## Content scope
 The site covers every creative discipline, now and in the future: dance and choreography, set design, video and directing, photography, acting, and whatever she adds next. v1 has three case studies: *The Prince of Egypt*, *Object Translations*, and the *Dance Film* (in production).
 
 ## Hosting and URL
-- GitHub Pages project site: repo `Ashlynn-Kate/creative-portfolio`, served at `https://ashlynn-kate.github.io/creative-portfolio/`.
+- GitHub Pages custom domain: repo `Ashlynn-Kate/creative-portfolio`, served at `https://byashlynnkate.com/`.
 - A custom domain (e.g. her name as a `.com`) will likely be added later.
 - The owner is the only repo admin; Pages settings and repository secrets need her.
 
@@ -87,13 +126,13 @@ The site covers every creative discipline, now and in the future: dance and chor
 ## Design
 - Goal: **as beautiful as possible**. Editorial and distinctive, not templated. It is a portfolio for an artistic director, so the site itself demonstrates her taste.
 - Current look: warm paper background, near-black ink, desert-sienna accent; Cormorant Garamond for display, Jost for text. Tokens are at the top of `src/styles/global.css`.
-- **Design lab:** local throwaway prototypes, shown at `http://localhost:4321/creative-portfolio/lab/` while `npm run dev` runs. This is where layout ideas get tried before anything is built for real. How it works: `lab/README.md`.
+- **Design lab:** local throwaway prototypes, shown at `http://localhost:4321/lab/` while `npm run dev` runs. This is where layout ideas get tried before anything is built for real. How it works: `lab/README.md`.
 - **Notion:** she keeps references, mood boards, and notes there. Treat those notes as design direction.
 - **Later:** she may wireframe in **Figma**. Figma is not used yet. Once it is, implement design changes from Figma frames when referenced.
 
 ## Tech stack
 - **Astro 7**, static output. Node 22.12 or newer.
-- **Local preview:** `npm run dev` (live, `http://localhost:4321/creative-portfolio/`); `npm run build` then `npm run preview` for the final check. Human-facing steps live in `README.md`.
+- **Local preview:** `npm run dev` (live, `http://localhost:4321/`); `npm run build` then `npm run preview` for the final check. Human-facing steps live in `README.md`.
 
 ### Project structure
 - `src/content/cases/*.yaml`: one case study each, shown on the home page by `order`. `src/content/pages/<case>/*.yaml`: detail pages under a case (`/work/<case>/<page>/`).
@@ -135,4 +174,4 @@ The site covers every creative discipline, now and in the future: dance and chor
 - Keep code readable and well commented so later edits (by Codex or anyone else) are safe.
 - **Design requests start in the lab.** When she asks for a new look, layout, or UI idea, make two or three quick versions in `lab/<topic>/` rather than changing the site, and send her the side-by-side link. Keep lab work fast: no checks, builds, content-schema changes, or ADRs for exploration. Build it into the site only when she says "make it real" (or clearly picks a version and asks for it on the site). Small, specific fixes to the real site ("fix this typo", "swap these two photos") skip the lab.
 - **Iterate with the dev server running** (`npm run dev`); pages update as files change. Don't run `npm run check` or `npm run build` after every edit. Run both once before committing; both must pass with no errors.
-- **After every change, remind the human how to see it:** give the exact command (`npm run dev`) and the link, and name the page to look at: `http://localhost:4321/creative-portfolio/` for the site, or `http://localhost:4321/creative-portfolio/lab/<topic>/` for a lab comparison. If a dev server is already running, just say which page to refresh. Before a push, suggest the final check (`npm run build`, then `npm run preview`).
+- **After every change, remind the human how to see it:** give the exact command (`npm run dev`) and the link, and name the page to look at: `http://localhost:4321/` for the site, or `http://localhost:4321/lab/<topic>/` for a lab comparison. If a dev server is already running, just say which page to refresh. Before a push, suggest the final check (`npm run build`, then `npm run preview`).
