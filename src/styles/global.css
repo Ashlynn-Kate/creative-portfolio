@@ -360,6 +360,10 @@ main:has(.about) + .site-footer {
   color: var(--accent);
 }
 
+.about__contact strong {
+  color: #525252;
+}
+
 /* ---------- Home: hero & index ---------- */
 
 .hero {
