@@ -37,10 +37,10 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
       {meta ? (
         <div class="case__meta-row">
           <p class="case__meta">{meta}</p>
-          <DisciplineTags disciplines={disciplines} />
+          <DisciplineTags disciplines={disciplines} variant="metadata" />
         </div>
       ) : (
-        <DisciplineTags disciplines={disciplines} />
+        <DisciplineTags disciplines={disciplines} variant="metadata" />
       )}
     </div>
     {role && (

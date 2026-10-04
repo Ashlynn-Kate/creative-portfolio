@@ -49,6 +49,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0039](0039-home-hero-copy-upper-center.md) | Home hero copy upper-center placement | accepted | design | 2026-10-03 |
 | [ADR-0040](0040-cool-grey-paper-palette.md) | Cool grey paper palette | superseded by ADR-0041 | design | 2026-10-03 |
 | [ADR-0041](0041-balanced-neutral-paper-palette.md) | Balanced neutral paper palette | accepted | design | 2026-10-04 |
+| [ADR-0042](0042-editorial-interaction-hierarchy.md) | Editorial interaction hierarchy | accepted | design | 2026-10-04 |
 
 ## Adding or changing a decision
 

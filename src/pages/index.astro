@@ -31,7 +31,7 @@ const disciplines = await getDisciplines();
 
     <div class="index__disciplines" id="disciplines">
       <p class="eyebrow">Browse by discipline</p>
-      <ul class="tags tags--large">
+      <ul class="tags tags--filters tags--large">
         {disciplines.map((d) => (
           <li><a href={url(`discipline/${d.slug}`)}>{d.name}</a></li>
         ))}

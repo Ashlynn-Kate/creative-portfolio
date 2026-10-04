@@ -118,6 +118,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0041** · `design` · Balanced neutral paper palette
   The site background must use the balanced neutral-grey paper palette, with matching neutral surface, rule, and hero-feather colors rather than the superseded cool-grey palette.
   → `docs/adr/0041-balanced-neutral-paper-palette.md`
+- **ADR-0042** · `design` · Editorial interaction hierarchy
+  The interface must reserve rounded pills for discipline filters, present project disciplines as plain linked metadata, use restrained rectangular labels for status, and reserve outlined controls for explicit actions.
+  → `docs/adr/0042-editorial-interaction-hierarchy.md`
 <!-- adr-registry:end -->
 
 ## Content scope
