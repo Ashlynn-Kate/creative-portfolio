@@ -118,6 +118,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0044** · `design` · Photo-specific lower-edge feathering in the home hero
   High-contrast home-hero photographs must receive non-destructive, photo-specific lower-edge fades layered with their existing perimeter feathers. These fades must not change image aspect ratios, source pixels, collage positions, or transparency away from the edges.
   → `docs/adr/0044-photo-specific-hero-bottom-feathers.md`
+- **ADR-0045** · `design` · Feather the suspended dancer's upper image edge
+  The black-unitard suspended-dancer photo in the home hero must have a short, photo-specific top-edge feather that reaches full opacity before the raised hands, while retaining its bottom and perimeter masks and unchanged crop.
+  → `docs/adr/0045-suspended-photo-top-feather.md`
 <!-- adr-registry:end -->
 
 ## Content scope

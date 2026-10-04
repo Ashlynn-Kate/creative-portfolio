@@ -130,7 +130,11 @@ const panels = [
   .home-hero__image--portrait-black { --bottom-fade-start: 64%; }
   .home-hero__image--portrait-side { --bottom-fade-start: 68%; }
   .home-hero__image--portrait-profile { --bottom-fade-start: 68%; }
-  .home-hero__image--dance-suspended { --bottom-fade-start: 72%; }
+  /* Its raised hands begin just below the top edge, so finish this extra feather by 7%. */
+  .home-hero__image--dance-suspended {
+    -webkit-mask-image: var(--perimeter-mask), linear-gradient(to bottom, transparent 0, #000 7% 72%, transparent 98%);
+    mask-image: var(--perimeter-mask), linear-gradient(to bottom, transparent 0, #000 7% 72%, transparent 98%);
+  }
   .home-hero__image--dance-outdoor-veil { --bottom-fade-start: 72%; }
   .home-hero__wash { z-index: 1; background: linear-gradient(to bottom, rgb(var(--paper-rgb) / .08), transparent 14%, transparent 58%, rgb(var(--paper-rgb) / .24) 76%, rgb(var(--paper-rgb) / .58) 100%), linear-gradient(90deg, rgb(var(--paper-rgb) / .12), transparent 15% 85%, rgb(var(--paper-rgb) / .12)), rgb(var(--paper-rgb) / 66%); }
   .home-hero__copy { position: relative; z-index: 2; display: grid; align-content: center; min-height: clamp(580px, 76vw, 810px); max-width: calc(var(--wide) + 2 * var(--gutter)); padding: 0 var(--gutter); margin: 0 auto; transform: translateY(clamp(-190px, -15vw, -110px)); }
