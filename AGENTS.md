@@ -85,9 +85,6 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0024** · `design` · Prince of Egypt compact supporting materials
   The Prince of Egypt stage image must appear as a compact image beside its creative-process disclosures, and its Selected Materials links must use a compact four-across image-led layout.
   → `docs/adr/0024-prince-of-egypt-compact-materials.md`
-- **ADR-0025** · `content` · Home page case order
-  The home page and Selected Works index must present Object Translations first, Mindspace second, and The Prince of Egypt third.
-  → `docs/adr/0025-home-page-case-order.md`
 - **ADR-0028** · `design` · Object Translations wide introduction
   The Object Translations introduction must align to the left edge of its portrait preview gallery and use a wider reading measure, while its existing numbered case header remains unchanged.
   → `docs/adr/0028-object-translations-wide-introduction.md`
@@ -97,15 +94,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0032** · `design` · Choreographic work video narrative
   Individual Choreographic Works pages must begin their narrative with an uncropped half-width performance-video thumbnail floated left of the Behind the work section on desktop, with the copy wrapping beneath it when needed and stacking below it on mobile.
   → `docs/adr/0032-choreographic-work-video-narrative.md`
-- **ADR-0033** · `design` · Works directory navigation
-  The primary menu's Works link must open a dedicated, data-driven Works page organized into Film, Live Performance, and Photography; Live Performance must group full-length productions and individual pieces in closed disclosures, while the home page must retain only its three core case studies.
-  → `docs/adr/0033-works-directory-navigation.md`
 - **ADR-0034** · `design` · Prince artistic portfolio narrative
   The Prince of Egypt case study must open with an unheaded two-paragraph artistic introduction and understated credits, followed by an always-visible stage image and Shaping the Production narrative; it must not use role boxes or production-detail accordions.
   → `docs/adr/0034-prince-artistic-portfolio-narrative.md`
-- **ADR-0035** · `design` · Home back-to-top placement
-  The home page must place its centered Back to top link immediately after the final case-study content and before the footer; the shared footer must not contain a Back to top control.
-  → `docs/adr/0035-home-back-to-top-placement.md`
 - **ADR-0036** · `design` · Prince selected-material overlay tiles
   The Prince of Egypt selected-material links must use four evenly spaced, compact square image tiles with each material's identifying text overlaid on the image; the layout must stack to two columns on mobile.
   → `docs/adr/0036-prince-material-overlay-tiles.md`
@@ -121,6 +112,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0042** · `design` · Editorial interaction hierarchy
   The interface must reserve rounded pills for discipline filters, present project disciplines as plain linked metadata, use restrained rectangular labels for status, and reserve outlined controls for explicit actions.
   → `docs/adr/0042-editorial-interaction-hierarchy.md`
+- **ADR-0043** · `design` · Category-first home page with standalone case studies
+  The home page must introduce data-driven areas of work over the photographic hero and link each area into the Works directory; full case-study narratives must live on dedicated routes rather than inline on the home page. Home and Works must draw category order and labels from the same content entry. The former home-page Back to top control must not appear on the shorter category-first landing page.
+  → `docs/adr/0043-category-first-homepage.md`
 <!-- adr-registry:end -->
 
 ## Content scope
@@ -147,7 +141,7 @@ The site covers every creative discipline, now and in the future: dance and chor
 - **Local preview:** `npm run dev` (live, `http://localhost:4321/`); `npm run build` then `npm run preview` for the final check. Human-facing steps live in `README.md`.
 
 ### Project structure
-- `src/content/cases/*.yaml`: one case study each, shown on the home page by `order`. `src/content/pages/<case>/*.yaml`: detail pages under a case (`/work/<case>/<page>/`).
+- `src/content/cases/*.yaml`: one case study each; full narratives have their own `/work/<case>/` route, ordered by `order`. `src/content/pages/<case>/*.yaml`: detail pages under a case (`/work/<case>/<page>/`).
 - `src/content.config.ts`: the content schema and block types. `src/components/Blocks.astro`: renders the blocks.
 - `src/assets/images/<case>/`: original images, referenced from content by that relative path. `src/components/MediaImage.astro`: renders one image.
 - `src/lib/site.ts`: site name, tagline, and the `url()` link helper. `src/lib/content.ts`: shared content queries.

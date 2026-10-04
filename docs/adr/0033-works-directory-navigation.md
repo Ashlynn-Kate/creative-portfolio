@@ -1,7 +1,7 @@
 ---
 id: ADR-0033
 title: Works directory navigation
-status: accepted
+status: superseded
 date: 2026-10-02
 area: design
 constraint: >
@@ -9,6 +9,7 @@ constraint: >
   organized into Film, Live Performance, and Photography; Live Performance
   must group full-length productions and individual pieces in closed
   disclosures, while the home page must retain only its three core case studies.
+superseded_by: ADR-0043
 ---
 
 # Works directory navigation

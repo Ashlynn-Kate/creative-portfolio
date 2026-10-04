@@ -1,12 +1,13 @@
 ---
 id: ADR-0025
 title: Home page case order
-status: accepted
+status: superseded
 date: 2026-10-01
 area: content
 constraint: >
   The home page and Selected Works index must present Object Translations first, Mindspace second,
   and The Prince of Egypt third.
+superseded_by: ADR-0043
 ---
 
 # Home page case order

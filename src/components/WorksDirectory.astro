@@ -2,7 +2,7 @@
 /** Editorial directory for the portfolio's data-driven Works navigation page. */
 import { getEntry } from 'astro:content';
 import MediaImage from './MediaImage.astro';
-import { url } from '../lib/site';
+import { slugify, url } from '../lib/site';
 
 interface DirectoryItem {
   type: 'case' | 'page';
@@ -23,7 +23,7 @@ const { categories } = Astro.props;
 const resolveItem = async (item: DirectoryItem) => {
   if (item.type === 'case') {
     const entry = await getEntry('cases', item.id);
-    return entry && { title: entry.data.title, meta: entry.data.kicker ?? '', cover: entry.data.cover, href: url(`#${entry.id}`) };
+    return entry && { title: entry.data.title, meta: entry.data.kicker ?? '', cover: entry.data.cover, href: url(`work/${entry.id}`) };
   }
 
   const entry = await getEntry('pages', item.id);
@@ -42,11 +42,11 @@ const groups = await Promise.all(categories.map(async (category) => ({
 
 <nav class="works-directory" aria-label="Works directory">
   {groups.map((category, index) => category.type === 'case' && category.item ? (
-    <a class="works-directory__category" href={category.item.href}>
+    <a class="works-directory__category" id={slugify(category.title)} href={category.item.href}>
       <span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong><b aria-hidden="true">→</b>
     </a>
   ) : (
-    <section class="works-directory__live">
+    <section class="works-directory__live" id={slugify(category.title)}>
       <p><span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong></p>
       {category.groups?.map((group) => (
         <details>

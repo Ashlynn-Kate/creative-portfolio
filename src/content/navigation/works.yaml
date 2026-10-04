@@ -1,10 +1,18 @@
 categories:
+  - title: Portrait concepts
+    indexLabel: Ongoing series
+    type: case
+    item:
+      type: case
+      id: object-translations
   - title: Film
+    indexLabel: Films
     type: case
     item:
       type: case
       id: dance-film
   - title: Live performance
+    indexLabel: Productions & pieces
     type: group
     groups:
       - title: Full-length productions
@@ -15,8 +23,3 @@ categories:
         items:
           - type: page
             id: choreographic-works/knock-on-wood
-  - title: Photography
-    type: case
-    item:
-      type: case
-      id: object-translations

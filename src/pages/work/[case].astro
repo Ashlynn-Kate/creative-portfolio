@@ -1,0 +1,20 @@
+---
+/** Standalone case-study pages keep the full narratives off the home page. */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CaseSection from '../../components/CaseSection.astro';
+import { getCases, type Case } from '../../lib/content';
+
+export async function getStaticPaths() {
+  const cases = await getCases();
+  return cases.map((entry, index) => ({
+    params: { case: entry.id },
+    props: { entry, number: index + 1 },
+  }));
+}
+
+const { entry, number } = Astro.props as { entry: Case; number: number };
+---
+
+<BaseLayout title={entry.data.title} description={entry.data.summary} image={entry.data.cover.src}>
+  <CaseSection entry={entry} number={number} standalone />
+</BaseLayout>

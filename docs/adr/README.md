@@ -32,7 +32,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0022](0022-object-translations-all-concepts-only.md) | Object Translations all-concepts-only summary | accepted | design | 2026-10-01 |
 | [ADR-0023](0023-prince-of-egypt-text-led-opening.md) | Prince of Egypt text-led opening | superseded by ADR-0034 | design | 2026-10-01 |
 | [ADR-0024](0024-prince-of-egypt-compact-materials.md) | Prince of Egypt compact supporting materials | accepted | design | 2026-10-01 |
-| [ADR-0025](0025-home-page-case-order.md) | Home page case order | accepted | content | 2026-10-01 |
+| [ADR-0025](0025-home-page-case-order.md) | Home page case order | superseded by ADR-0043 | content | 2026-10-01 |
 | [ADR-0026](0026-footer-back-to-top-control.md) | Footer back-to-top control | superseded by ADR-0035 | design | 2026-10-01 |
 | [ADR-0027](0027-choreographic-works-collection.md) | Choreographic Works collection | superseded by ADR-0033 | design | 2026-10-02 |
 | [ADR-0028](0028-object-translations-wide-introduction.md) | Object Translations wide introduction | accepted | design | 2026-10-02 |
@@ -40,9 +40,9 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0030](0030-mindspace-role-after-concept.md) | Mindspace role after concept | accepted | design | 2026-10-02 |
 | [ADR-0031](0031-choreographic-work-detail-rhythm.md) | Choreographic work detail rhythm | superseded by ADR-0032 | design | 2026-10-02 |
 | [ADR-0032](0032-choreographic-work-video-narrative.md) | Choreographic work video narrative | accepted | design | 2026-10-02 |
-| [ADR-0033](0033-works-directory-navigation.md) | Works directory navigation | accepted | design | 2026-10-02 |
+| [ADR-0033](0033-works-directory-navigation.md) | Works directory navigation | superseded by ADR-0043 | design | 2026-10-02 |
 | [ADR-0034](0034-prince-artistic-portfolio-narrative.md) | Prince artistic portfolio narrative | accepted | design | 2026-10-02 |
-| [ADR-0035](0035-home-back-to-top-placement.md) | Home back-to-top placement | accepted | design | 2026-10-02 |
+| [ADR-0035](0035-home-back-to-top-placement.md) | Home back-to-top placement | superseded by ADR-0043 | design | 2026-10-02 |
 | [ADR-0036](0036-prince-material-overlay-tiles.md) | Prince selected-material overlay tiles | accepted | design | 2026-10-03 |
 | [ADR-0037](0037-home-photographic-hero-sequence.md) | Home photographic hero sequence | accepted | design | 2026-10-03 |
 | [ADR-0038](0038-home-hero-copy-alignment.md) | Home hero copy alignment | superseded by ADR-0039 | design | 2026-10-03 |
@@ -50,6 +50,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0040](0040-cool-grey-paper-palette.md) | Cool grey paper palette | superseded by ADR-0041 | design | 2026-10-03 |
 | [ADR-0041](0041-balanced-neutral-paper-palette.md) | Balanced neutral paper palette | accepted | design | 2026-10-04 |
 | [ADR-0042](0042-editorial-interaction-hierarchy.md) | Editorial interaction hierarchy | accepted | design | 2026-10-04 |
+| [ADR-0043](0043-category-first-homepage.md) | Category-first home page with standalone case studies | accepted | design | 2026-10-04 |
 
 ## Adding or changing a decision
 

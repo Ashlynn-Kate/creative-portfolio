@@ -26,7 +26,7 @@ const next = siblings[index + 1];
   <article class="detail">
     <header class="detail__header">
       {parent && (
-        <a class="back" href={url(`#${parent.id}`)}>
+        <a class="back" href={url(`work/${parent.id}`)}>
           <span aria-hidden="true">←</span> {parent.data.title}
         </a>
       )}
@@ -51,7 +51,7 @@ const next = siblings[index + 1];
           <span class="pager__title">{next.data.title}</span>
         </a>
       ) : parent && (
-        <a class="pager__link pager__link--next" href={url(`#${parent.id}`)}>
+        <a class="pager__link pager__link--next" href={url(`work/${parent.id}`)}>
           <span class="pager__dir">Back to →</span>
           <span class="pager__title">{parent.data.title}</span>
         </a>

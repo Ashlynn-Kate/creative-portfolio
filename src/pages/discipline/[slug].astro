@@ -19,7 +19,7 @@ const others = (await getDisciplines()).filter((d) => d.name !== name);
 
 <BaseLayout title={name} description={`${name} work by Ashlynn Kate.`}>
   <section class="detail__header discipline__header">
-    <a class="back" href={url('#disciplines')}><span aria-hidden="true">←</span> All work</a>
+    <a class="back" href={url('works')}><span aria-hidden="true">←</span> All work</a>
     <p class="eyebrow">Discipline</p>
     <h1 class="detail__title">{name}</h1>
   </section>
@@ -27,7 +27,7 @@ const others = (await getDisciplines()).filter((d) => d.name !== name);
   <ul class="discipline__list">
     {matches.map((c) => (
       <li>
-        <a class="discipline__item" href={url(`#${c.id}`)}>
+        <a class="discipline__item" href={url(`work/${c.id}`)}>
           <MediaImage image={{ ...c.data.cover, highRes: undefined }} showCaption={false} sizes="(min-width: 900px) 45vw, 100vw" />
           <div>
             <p class="case__kicker"><span>Case {pad(all.indexOf(c) + 1)}</span>{c.data.status && <span class="badge">{c.data.status}</span>}</p>
