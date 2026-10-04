@@ -489,7 +489,7 @@ main:has(.about) + .site-footer {
   display: inline-block;
   padding: 2px 10px;
   border-radius: 999px;
-  background: var(--accent);
+  background: #c9c9c9;
   color: var(--paper);
   letter-spacing: 0.12em;
 }
