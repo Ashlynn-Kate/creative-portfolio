@@ -382,7 +382,9 @@ main:has(.home-back-to-top) + .site-footer {
 
 .index {
   max-width: calc(var(--wide) + 2 * var(--gutter));
-  margin: 0 auto;
+  position: relative;
+  z-index: 3;
+  margin: -104px auto 0;
   padding: 0 var(--gutter);
   scroll-margin-top: 80px;
 }
@@ -1978,6 +1980,12 @@ main:has(.home-back-to-top) + .site-footer {
   .index__meta {
     grid-column: 2;
     text-align: left;
+  }
+}
+
+@media (min-width: 721px) {
+  .index {
+    margin-top: clamp(-220px, -18vw, -150px);
   }
 }
 
