@@ -115,6 +115,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0043** · `design` · Category-first home page with standalone case studies
   The home page must introduce data-driven areas of work over the photographic hero and link each area into the Works directory; full case-study narratives must live on dedicated routes rather than inline on the home page. Home and Works must draw category order and labels from the same content entry. The former home-page Back to top control must not appear on the shorter category-first landing page.
   → `docs/adr/0043-category-first-homepage.md`
+- **ADR-0044** · `design` · Photo-specific lower-edge feathering in the home hero
+  High-contrast home-hero photographs must receive non-destructive, photo-specific lower-edge fades layered with their existing perimeter feathers. These fades must not change image aspect ratios, source pixels, collage positions, or transparency away from the edges.
+  → `docs/adr/0044-photo-specific-hero-bottom-feathers.md`
 <!-- adr-registry:end -->
 
 ## Content scope

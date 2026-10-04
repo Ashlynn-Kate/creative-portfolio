@@ -51,6 +51,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0041](0041-balanced-neutral-paper-palette.md) | Balanced neutral paper palette | accepted | design | 2026-10-04 |
 | [ADR-0042](0042-editorial-interaction-hierarchy.md) | Editorial interaction hierarchy | accepted | design | 2026-10-04 |
 | [ADR-0043](0043-category-first-homepage.md) | Category-first home page with standalone case studies | accepted | design | 2026-10-04 |
+| [ADR-0044](0044-photo-specific-hero-bottom-feathers.md) | Photo-specific lower-edge feathering in the home hero | accepted | design | 2026-10-04 |
 
 ## Adding or changing a decision
 
