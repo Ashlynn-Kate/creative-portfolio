@@ -121,6 +121,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0045** · `design` · Feather the suspended dancer's upper image edge
   The black-unitard suspended-dancer photo in the home hero must have a short, photo-specific top-edge feather that reaches full opacity before the raised hands, while retaining its bottom and perimeter masks and unchanged crop.
   → `docs/adr/0045-suspended-photo-top-feather.md`
+- **ADR-0046** · `design` · Feather the black portrait's upper side edges
+  The black-turtleneck portrait in the home collage must have a photo-specific upper-side feather that removes visible wall boundaries near the head while preserving the face, lower arms, existing bottom fade, and image geometry.
+  → `docs/adr/0046-black-portrait-upper-side-feather.md`
 <!-- adr-registry:end -->
 
 ## Content scope

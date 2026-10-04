@@ -127,7 +127,22 @@ const panels = [
     mask-image: var(--perimeter-mask), linear-gradient(to bottom, #000 0 var(--bottom-fade-start), transparent 98%);
     mask-composite: intersect;
   }
-  .home-hero__image--portrait-black { --bottom-fade-start: 64%; }
+  /* Fade the wall beside her head, then release that extra side fade before the arms. */
+  .home-hero__image--portrait-black {
+    --bottom-fade-start: 64%;
+    -webkit-mask-image:
+      var(--perimeter-mask),
+      linear-gradient(to bottom, #000 0 var(--bottom-fade-start), transparent 98%),
+      linear-gradient(to right, transparent, #000 18% 82%, transparent),
+      linear-gradient(to bottom, transparent 0 43%, #000 63%);
+    -webkit-mask-composite: source-in, source-in, source-over;
+    mask-image:
+      var(--perimeter-mask),
+      linear-gradient(to bottom, #000 0 var(--bottom-fade-start), transparent 98%),
+      linear-gradient(to right, transparent, #000 18% 82%, transparent),
+      linear-gradient(to bottom, transparent 0 43%, #000 63%);
+    mask-composite: intersect, intersect, add;
+  }
   .home-hero__image--portrait-side { --bottom-fade-start: 68%; }
   .home-hero__image--portrait-profile { --bottom-fade-start: 68%; }
   /* Its raised hands begin just below the top edge, so finish this extra feather by 7%. */
