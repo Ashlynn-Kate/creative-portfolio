@@ -47,6 +47,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0037](0037-home-photographic-hero-sequence.md) | Home photographic hero sequence | accepted | design | 2026-10-03 |
 | [ADR-0038](0038-home-hero-copy-alignment.md) | Home hero copy alignment | superseded by ADR-0039 | design | 2026-10-03 |
 | [ADR-0039](0039-home-hero-copy-upper-center.md) | Home hero copy upper-center placement | accepted | design | 2026-10-03 |
+| [ADR-0040](0040-cool-grey-paper-palette.md) | Cool grey paper palette | accepted | design | 2026-10-03 |
 
 ## Adding or changing a decision
 

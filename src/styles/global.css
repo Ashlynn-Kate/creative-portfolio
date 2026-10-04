@@ -10,12 +10,13 @@
 
 :root {
   /* Color */
-  --paper: #f3eee6;
-  --paper-deep: #e9e2d6;
+  --paper: #eef0f2;
+  --paper-rgb: 238 240 242;
+  --paper-deep: #e2e5e8;
   --ink: #1c1a17;
   --ink-soft: #4a453e;
   --muted: #7a7166;
-  --line: #d6cdbf;
+  --line: #cbd0d5;
   --accent: #9c4a24;
   --stage: #141210; /* dark backdrop behind carousels and video */
 
