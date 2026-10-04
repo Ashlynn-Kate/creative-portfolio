@@ -785,7 +785,8 @@ main:has(.about) + .site-footer {
 .works-directory-page__header .eyebrow { margin-bottom: 18px; }
 
 .works-directory-page__header h1 {
-  margin: 0 0 clamp(26px, 4vw, 50px);
+  margin: 0 0 18px;
+  padding-top: 22px;
   font-size: clamp(72px, calc(13vw - 50px), 130px);
   font-weight: 400;
   letter-spacing: -0.045em;
@@ -817,7 +818,8 @@ main:has(.about) + .site-footer {
 .works-directory summary {
   display: flex;
   justify-content: space-between;
-  padding: 14px 0;
+  align-items: center;
+  padding: 14px 0 14px 50px;
   cursor: pointer;
   color: var(--ink-soft);
   font-size: 12px;
