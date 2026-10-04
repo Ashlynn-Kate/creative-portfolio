@@ -7,13 +7,13 @@ export type DetailPage = CollectionEntry<'pages'>;
 
 /** Published cases, in home-page order. */
 export async function getCases(): Promise<Case[]> {
-  const all = await getCollection('cases', (c) => c.data.published && c.data.home);
+  const all = await getCollection('cases', (c) => c.data.published !== false && c.data.home !== false);
   return all.sort((a, b) => a.data.order - b.data.order);
 }
 
 /** Published detail pages, optionally only those belonging to one case. */
 export async function getDetailPages(caseId?: string): Promise<DetailPage[]> {
-  const all = await getCollection('pages', (p) => p.data.published && (!caseId || p.data.case === caseId));
+  const all = await getCollection('pages', (p) => p.data.published !== false && (!caseId || p.data.case === caseId));
   return all.sort((a, b) => a.data.order - b.data.order);
 }
 
