@@ -425,7 +425,7 @@ main:has(.about) + .site-footer {
 
 .index__title {
   font-family: var(--font-display);
-  font-size: clamp(28px, 4vw, 52px);
+  font-size: clamp(28px, calc(4vw - 6px), 46px);
   line-height: 1.05;
 }
 
