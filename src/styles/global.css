@@ -389,7 +389,7 @@ main:has(.about) + .site-footer {
   max-width: calc(var(--wide) + 2 * var(--gutter));
   position: relative;
   z-index: 3;
-  margin: -104px auto 0;
+  margin: -72px auto 0;
   padding: 0 var(--gutter);
   scroll-margin-top: 80px;
 }
