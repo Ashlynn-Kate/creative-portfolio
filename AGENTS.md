@@ -112,6 +112,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0037** · `design` · Home photographic hero sequence
   The home-page hero must present owner-approved photographs as a subtle, full-width asynchronous sequence behind the existing copy, with varied scale and placement, cream-feathered edges, offscreen pausing, and a static reduced-motion presentation.
   → `docs/adr/0037-home-photographic-hero-sequence.md`
+- **ADR-0038** · `design` · Home hero copy alignment
+  The home-page hero copy must remain left aligned and sit vertically centered within the photographic collage at every responsive size.
+  → `docs/adr/0038-home-hero-copy-alignment.md`
 <!-- adr-registry:end -->
 
 ## Content scope
