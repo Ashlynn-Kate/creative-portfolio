@@ -1,7 +1,7 @@
 /*
  * Global styles.
  *
- * Look and feel: editorial and theatrical. Warm paper background, near-black
+ * Look and feel: editorial and theatrical. Neutral-grey paper background, near-black
  * ink, a desert-sienna accent, a high-contrast serif for display type
  * (Cormorant Garamond), and a clean geometric sans for reading (Jost).
  *
@@ -10,13 +10,13 @@
 
 :root {
   /* Color */
-  --paper: #eef0f2;
-  --paper-rgb: 238 240 242;
-  --paper-deep: #e2e5e8;
+  --paper: #efefed;
+  --paper-rgb: 239 239 237;
+  --paper-deep: #e3e3e1;
   --ink: #1c1a17;
   --ink-soft: #4a453e;
   --muted: #7a7166;
-  --line: #cbd0d5;
+  --line: #cccac7;
   --accent: #9c4a24;
   --stage: #141210; /* dark backdrop behind carousels and video */
 

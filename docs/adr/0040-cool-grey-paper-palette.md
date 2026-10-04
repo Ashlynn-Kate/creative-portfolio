@@ -1,9 +1,10 @@
 ---
 id: ADR-0040
 title: Cool grey paper palette
-status: accepted
+status: superseded
 date: 2026-10-03
 area: design
+superseded_by: ADR-0041
 constraint: >
   The site background must use the airy cool-grey paper palette, with matching
   cool-grey surface, rule, and hero-feather colors rather than a warm cream.

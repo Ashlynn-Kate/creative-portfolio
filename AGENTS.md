@@ -115,9 +115,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0039** · `design` · Home hero copy upper-center placement
   The home-page hero copy must remain left aligned and sit slightly above the vertical center of the photographic collage, with a responsive upward offset.
   → `docs/adr/0039-home-hero-copy-upper-center.md`
-- **ADR-0040** · `design` · Cool grey paper palette
-  The site background must use the airy cool-grey paper palette, with matching cool-grey surface, rule, and hero-feather colors rather than a warm cream.
-  → `docs/adr/0040-cool-grey-paper-palette.md`
+- **ADR-0041** · `design` · Balanced neutral paper palette
+  The site background must use the balanced neutral-grey paper palette, with matching neutral surface, rule, and hero-feather colors rather than the superseded cool-grey palette.
+  → `docs/adr/0041-balanced-neutral-paper-palette.md`
 <!-- adr-registry:end -->
 
 ## Content scope
