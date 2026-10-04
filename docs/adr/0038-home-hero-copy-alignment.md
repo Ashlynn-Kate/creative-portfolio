@@ -1,12 +1,13 @@
 ---
 id: ADR-0038
 title: Home hero copy alignment
-status: accepted
+status: superseded
 date: 2026-10-03
 area: design
 constraint: >
   The home-page hero copy must remain left aligned and sit vertically centered
   within the photographic collage at every responsive size.
+superseded_by: ADR-0039
 ---
 
 # Home hero copy alignment
