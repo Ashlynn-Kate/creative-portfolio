@@ -297,8 +297,8 @@ main:has(.about) + .site-footer {
 .about__portrait,
 .about__portrait.media {
   float: left;
-  width: min(48%, 510px);
-  margin: 0 clamp(32px, 6vw, 96px) 0 0;
+  width: min(44%, 470px);
+  margin: 0 clamp(32px, 9.5vw, 140px) 0 0;
 }
 
 .about__portrait img {
