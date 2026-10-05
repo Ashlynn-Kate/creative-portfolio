@@ -29,8 +29,8 @@ photograph other people.
 
 Use a concise home-page role line naming creative and artistic direction,
 choreography, and performance. Keep the About introduction focused on the media
-of her work, with a general statement about performing onstage and on screen;
-do not tie the biography to Mindspace's temporary production status. Credit
+of her work, and integrate performance into her existing stage-experience
+sentence; do not tie the biography to Mindspace's temporary production status. Credit
 Object Translations as an entirely self-created series, including photography
 and appearing in the portraits. Credit Mindspace's original concept and lead
 performance to Ashlynn, and its direction and choreography as shared with
