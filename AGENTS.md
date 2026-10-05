@@ -124,6 +124,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0046** · `design` · Feather the black portrait's upper side edges
   The black-turtleneck portrait in the home collage must have a photo-specific upper-side feather that removes visible wall boundaries near the head while preserving the face, lower arms, existing bottom fade, and image geometry.
   → `docs/adr/0046-black-portrait-upper-side-feather.md`
+- **ADR-0047** · `content` · Role language and project attribution
+  The site's professional introduction must include creative director, artistic director, choreographer, and performer. The About biography must describe performance in evergreen terms, while case studies must distinguish Ashlynn's sole contributions from co-direction and work developed with collaborators. Photography in Object Translations must be credited as her contribution without presenting photography of others as a service she offers.
+  → `docs/adr/0047-role-language-and-project-attribution.md`
 <!-- adr-registry:end -->
 
 ## Content scope

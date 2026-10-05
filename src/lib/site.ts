@@ -5,7 +5,7 @@ export const SITE = {
   name: 'Ashlynn Kate',
   tagline: 'Creative production work spanning conceptual portraits, live performance, and film.',
   description:
-    'Portfolio of Ashlynn Kate: artistic director, choreographer, and multidisciplinary artist.',
+    'Portfolio of Ashlynn Kate: creative and artistic director, choreographer, and performer.',
 };
 
 /** Builds a link that works with the site's base path (e.g. "/creative-portfolio/"). */
