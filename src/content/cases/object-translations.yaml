@@ -1,12 +1,11 @@
 order: 1
 title: Object Translations
 indexTitle: Object Translations Portfolio
-kicker: Editorial portraits
+kicker: Conceptual portraits
 meta: Independent series
-summary: Everyday objects translated into human-form editorial portraits through
+summary: Everyday objects translated into portraits through
   color, shape, texture, wardrobe, pose, and light.
 disciplines:
-  - Photography
   - Creative Direction
   - Styling
 cover:
@@ -16,11 +15,10 @@ cover:
 blocks:
   - type: text
     body: >
-      For this independent series, I start with an object and draw from elements
-      such as its color, shape, texture, or character, and translate that into a
-      human-form editorial portrait. I develop and direct each concept, select
-      and style the wardrobe, photograph and edit the images, and appear in every
-      portrait. Each group below shows the object that
+      For this independent series, I start with an object and translate its color,
+      shape, texture, or character into a portrait. I develop and direct each
+      concept, select and style the wardrobe, photograph and edit the images,
+      and appear in every portrait. Each group below shows the object that
       sparked the concept alongside the final portrait.
   - type: preview-gallery
     label: Object Translations portrait preview gallery

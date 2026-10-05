@@ -1,7 +1,7 @@
 ---
 id: ADR-0047
 title: Role language and project attribution
-status: accepted
+status: superseded
 date: 2026-10-05
 area: content
 constraint: >
@@ -11,6 +11,7 @@ constraint: >
   sole contributions from co-direction and work developed with collaborators.
   Photography in Object Translations must be credited as her contribution without
   presenting photography of others as a service she offers.
+superseded_by: ADR-0048
 ---
 
 # Role language and project attribution
