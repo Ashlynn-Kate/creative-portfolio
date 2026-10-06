@@ -1230,14 +1230,14 @@ main:has(.about) + .site-footer {
   }
 
   .details--concept[open] summary:has(.details__thumbnail) {
-    grid-template-columns: 112px minmax(0, 1fr) auto;
+    grid-template-columns: 129px minmax(0, 1fr) auto;
     align-items: center;
     gap: 14px;
   }
 
   .details--concept[open] summary:has(.details__thumbnail) .details__thumbnail {
-    width: 112px;
-    height: 112px;
+    width: 129px;
+    height: 129px;
   }
 
   .details--concept[open] .details__concept-copy {
@@ -1286,6 +1286,12 @@ main:has(.about) + .site-footer {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(12px, 2vw, 28px);
   margin-top: 14px;
+}
+
+@media (min-width: 900px) {
+  .details--concept .pair-gallery {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 13fr);
+  }
 }
 
 .pair-gallery__object > .media img {
