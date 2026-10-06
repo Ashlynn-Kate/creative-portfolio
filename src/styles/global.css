@@ -1186,6 +1186,10 @@ main:has(.about) + .site-footer {
   grid-template-columns: 64px minmax(0, 1fr) minmax(140px, .85fr) auto;
 }
 
+.details__concept-copy {
+  display: contents;
+}
+
 @media (min-width: 900px) {
   .details--concept summary:has(.details__thumbnail) {
     grid-template-columns: 64px minmax(0, 1fr) max-content auto;
@@ -1223,6 +1227,51 @@ main:has(.about) + .site-footer {
 
   .details--concept summary:has(.details__thumbnail) {
     grid-template-columns: 64px minmax(0, 1fr) auto;
+  }
+
+  .details--concept[open] summary:has(.details__thumbnail) {
+    grid-template-columns: 112px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .details--concept[open] summary:has(.details__thumbnail) .details__thumbnail {
+    width: 112px;
+    height: 112px;
+  }
+
+  .details--concept[open] .details__concept-copy {
+    display: grid;
+    justify-items: start;
+    gap: 7px;
+    min-width: 0;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  .details--concept[open] .details__sub {
+    display: block;
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: .1em;
+  }
+
+  .details--concept[open] .details__body {
+    padding-top: 0;
+    padding-bottom: 18px;
+  }
+
+  .details--concept[open] .pair-gallery {
+    margin-top: 0;
+  }
+
+  .details--concept[open] .pair-gallery__object {
+    display: none;
+  }
+
+  .details--concept[open] .pair-gallery__portraits .grid__label {
+    margin-bottom: 6px;
   }
 }
 

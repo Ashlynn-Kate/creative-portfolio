@@ -109,9 +109,11 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
         return (
           <details class:list={['details', { 'details--concept': hasPortraitGallery }]}>
             <summary>
-              {block.thumbnail && <MediaImage image={block.thumbnail} class="details__thumbnail" showCaption={false} sizes="64px" />}
-              <span set:html={mdInline(block.summary)} />
-              {block.sub && <span class="details__sub">{block.sub}</span>}
+              {block.thumbnail && <MediaImage image={block.thumbnail} showCaption={false} class="details__thumbnail" sizes="(max-width: 560px) 112px, 64px" />}
+              <span class="details__concept-copy">
+                <span set:html={mdInline(block.summary)} />
+                {block.sub && <span class="details__sub">{block.sub}</span>}
+              </span>
             </summary>
             <div class="details__body">
               {hasPortraitGallery ? (
