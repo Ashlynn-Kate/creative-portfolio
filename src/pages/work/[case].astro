@@ -6,10 +6,10 @@ import { getCases, type Case } from '../../lib/content';
 
 export async function getStaticPaths() {
   const cases = await getCases();
-  return cases.map((entry, index) => ({
+  return cases.flatMap((entry, index) => entry.data.landingPage ? [] : [{
     params: { case: entry.id },
     props: { entry, number: index + 1 },
-  }));
+  }]);
 }
 
 const { entry, number } = Astro.props as { entry: Case; number: number };

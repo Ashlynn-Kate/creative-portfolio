@@ -3,7 +3,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import MediaImage from '../../components/MediaImage.astro';
 import DisciplineTags from '../../components/DisciplineTags.astro';
-import { getCases, getDisciplines, pad } from '../../lib/content';
+import { casePath, getCases, getDisciplines, pad } from '../../lib/content';
 import { slugify, url } from '../../lib/site';
 
 export async function getStaticPaths() {
@@ -27,7 +27,7 @@ const others = (await getDisciplines()).filter((d) => d.name !== name);
   <ul class="discipline__list">
     {matches.map((c) => (
       <li>
-        <a class="discipline__item" href={url(`work/${c.id}`)}>
+        <a class="discipline__item" href={url(casePath(c))}>
           <MediaImage image={{ ...c.data.cover, highRes: undefined }} showCaption={false} sizes="(min-width: 900px) 45vw, 100vw" />
           <div>
             <p class="case__kicker"><span>Case {pad(all.indexOf(c) + 1)}</span>{c.data.status && <span class="badge">{c.data.status}</span>}</p>

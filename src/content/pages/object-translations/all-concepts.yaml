@@ -1,7 +1,7 @@
 case: object-translations
 order: 1
-title: All Concepts
-sub: Object Translations
+title: Object Translations
+sub: Conceptual portraits · Independent series
 summary: The complete Object Translations series, from everyday objects to
   conceptual portraits.
 cover:
@@ -10,9 +10,11 @@ cover:
 blocks:
   - type: text
     body: >
-      Each concept begins with an object and translates its color, shape,
-      texture, or character into a portrait. Explore the
-      complete series below.
+      For this independent series, I start with an object and translate its color,
+      shape, texture, or character into a portrait. I develop and direct each
+      concept, select and style the wardrobe, photograph and edit the images,
+      and appear in every portrait. Each group below shows the object that
+      sparked the concept alongside the final portrait.
   - type: details
     summary: Feather bag
     order: 1

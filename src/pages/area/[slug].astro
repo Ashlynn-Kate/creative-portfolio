@@ -1,0 +1,29 @@
+---
+/** Focused destinations for categories that contain several works. */
+import { getEntry, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WorksDirectory from '../../components/WorksDirectory.astro';
+import { slugify } from '../../lib/site';
+
+type Category = CollectionEntry<'workDirectories'>['data']['categories'][number];
+
+export async function getStaticPaths() {
+  const directory = await getEntry('workDirectories', 'works');
+  if (!directory) throw new Error('Missing Works directory content.');
+  return directory.data.categories
+    .filter((category) => category.type === 'group')
+    .map((category) => ({ params: { slug: slugify(category.title) }, props: { category } }));
+}
+
+const { category } = Astro.props as { category: Category };
+---
+
+<BaseLayout title={category.title} description={`Explore Ashlynn Kate's ${category.title.toLowerCase()} work.`}>
+  <article class="works-directory-page">
+    <header class="works-directory-page__header">
+      <p class="eyebrow">Areas of work</p>
+      <h1>{category.title}</h1>
+    </header>
+    <WorksDirectory categories={[category]} focused />
+  </article>
+</BaseLayout>

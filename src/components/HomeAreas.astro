@@ -1,6 +1,8 @@
 ---
-/** The home page introduces growing bodies of work; category details live in Works. */
+/** Home areas lead directly to a case or a focused group page. */
 import type { CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
+import { casePath } from '../lib/content';
 import { slugify, url } from '../lib/site';
 
 interface Props {
@@ -8,6 +10,13 @@ interface Props {
 }
 
 const { categories } = Astro.props;
+const destinations = await Promise.all(categories.map(async (category) => {
+  if (category.type === 'group') return url(`area/${slugify(category.title)}`);
+  if (!category.item) throw new Error(`Missing case for ${category.title}.`);
+  const entry = await getEntry('cases', category.item.id);
+  if (!entry) throw new Error(`Missing case ${category.item.id}.`);
+  return url(casePath(entry));
+}));
 ---
 
 <section class="home-areas" id="disciplines" aria-labelledby="home-areas-title">
@@ -17,9 +26,9 @@ const { categories } = Astro.props;
 
   <nav aria-label="Areas of work">
     <ul class="home-areas__index">
-      {categories.map((category) => (
+      {categories.map((category, index) => (
         <li>
-          <a href={`${url('works')}#${slugify(category.title)}`}>
+          <a href={destinations[index]}>
             <strong>{category.title}</strong>
             {category.indexLabel && <span>{category.indexLabel}</span>}
             <b aria-hidden="true">↗</b>

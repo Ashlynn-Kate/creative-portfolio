@@ -28,14 +28,14 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0018](0018-site-menu-and-about-page.md) | Site menu and About page | accepted | design | 2026-09-30 |
 | [ADR-0019](0019-object-translations-concept-thumbnails.md) | Object Translations concept thumbnails | accepted | design | 2026-10-01 |
 | [ADR-0020](0020-object-translations-inline-portrait-galleries.md) | Object Translations inline portrait galleries | accepted | design | 2026-10-01 |
-| [ADR-0021](0021-object-translations-portrait-preview.md) | Object Translations portrait preview | accepted | design | 2026-10-01 |
-| [ADR-0022](0022-object-translations-all-concepts-only.md) | Object Translations all-concepts-only summary | accepted | design | 2026-10-01 |
+| [ADR-0021](0021-object-translations-portrait-preview.md) | Object Translations portrait preview | superseded by ADR-0049 | design | 2026-10-01 |
+| [ADR-0022](0022-object-translations-all-concepts-only.md) | Object Translations all-concepts-only summary | superseded by ADR-0049 | design | 2026-10-01 |
 | [ADR-0023](0023-prince-of-egypt-text-led-opening.md) | Prince of Egypt text-led opening | superseded by ADR-0034 | design | 2026-10-01 |
 | [ADR-0024](0024-prince-of-egypt-compact-materials.md) | Prince of Egypt compact supporting materials | accepted | design | 2026-10-01 |
 | [ADR-0025](0025-home-page-case-order.md) | Home page case order | superseded by ADR-0043 | content | 2026-10-01 |
 | [ADR-0026](0026-footer-back-to-top-control.md) | Footer back-to-top control | superseded by ADR-0035 | design | 2026-10-01 |
 | [ADR-0027](0027-choreographic-works-collection.md) | Choreographic Works collection | superseded by ADR-0033 | design | 2026-10-02 |
-| [ADR-0028](0028-object-translations-wide-introduction.md) | Object Translations wide introduction | accepted | design | 2026-10-02 |
+| [ADR-0028](0028-object-translations-wide-introduction.md) | Object Translations wide introduction | superseded by ADR-0049 | design | 2026-10-02 |
 | [ADR-0029](0029-wide-case-narrative-alignment.md) | Wide case narrative alignment | superseded by ADR-0030 | design | 2026-10-02 |
 | [ADR-0030](0030-mindspace-role-after-concept.md) | Mindspace role after concept | accepted | design | 2026-10-02 |
 | [ADR-0031](0031-choreographic-work-detail-rhythm.md) | Choreographic work detail rhythm | superseded by ADR-0032 | design | 2026-10-02 |
@@ -50,12 +50,13 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0040](0040-cool-grey-paper-palette.md) | Cool grey paper palette | superseded by ADR-0041 | design | 2026-10-03 |
 | [ADR-0041](0041-balanced-neutral-paper-palette.md) | Balanced neutral paper palette | accepted | design | 2026-10-04 |
 | [ADR-0042](0042-editorial-interaction-hierarchy.md) | Editorial interaction hierarchy | accepted | design | 2026-10-04 |
-| [ADR-0043](0043-category-first-homepage.md) | Category-first home page with standalone case studies | accepted | design | 2026-10-04 |
+| [ADR-0043](0043-category-first-homepage.md) | Category-first home page with standalone case studies | superseded by ADR-0049 | design | 2026-10-04 |
 | [ADR-0044](0044-photo-specific-hero-bottom-feathers.md) | Photo-specific lower-edge feathering in the home hero | accepted | design | 2026-10-04 |
 | [ADR-0045](0045-suspended-photo-top-feather.md) | Feather the suspended dancer's upper image edge | accepted | design | 2026-10-04 |
 | [ADR-0046](0046-black-portrait-upper-side-feather.md) | Feather the black portrait's upper side edges | accepted | design | 2026-10-04 |
 | [ADR-0047](0047-role-language-and-project-attribution.md) | Role language and project attribution | superseded by ADR-0048 | content | 2026-10-05 |
 | [ADR-0048](0048-conceptual-portrait-category-and-role-tags.md) | Conceptual portrait category and curated role tags | accepted | content | 2026-10-05 |
+| [ADR-0049](0049-direct-area-destinations.md) | Direct destinations from areas of work | accepted | design | 2026-10-05 |
 
 ## Adding or changing a decision
 

@@ -1,13 +1,14 @@
 ---
 id: ADR-0028
 title: Object Translations wide introduction
-status: accepted
+status: superseded
 date: 2026-10-02
 area: design
 constraint: >
   The Object Translations introduction must align to the left edge of its
   portrait preview gallery and use a wider reading measure, while its existing
   numbered case header remains unchanged.
+superseded_by: ADR-0049
 ---
 
 # Object Translations wide introduction

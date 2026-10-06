@@ -438,11 +438,6 @@ main:has(.about) + .site-footer {
   margin-bottom: 0;
 }
 
-/* Keep Object Translations' tags directly connected to its opening statement. */
-.case--object-translations .case__header {
-  margin-bottom: clamp(18px, 2.5vw, 28px);
-}
-
 .case__meta-row {
   display: flex;
   flex-wrap: wrap;
@@ -450,17 +445,11 @@ main:has(.about) + .site-footer {
   gap: 10px 18px;
 }
 
-/* The Object Translations introduction shares the gallery's wide left edge. */
-.case--object-translations .flow > .prose {
-  grid-column: wide;
-  max-width: 1010px;
-}
-
 .case--prince-of-egypt .case__header {
   margin-bottom: clamp(20px, 3vw, 32px);
 }
 
-/* Remaining case-study narratives share Object Translations' wide left edge. */
+/* Case-study narratives share a wide left edge. */
 .case--prince-of-egypt .flow > *,
 .case--mindspace .flow > * {
   grid-column: wide;
@@ -752,6 +741,17 @@ main:has(.about) + .site-footer {
 }
 
 .works-directory summary::-webkit-details-marker { display: none; }
+.works-directory summary b::before { content: '+'; }
+.works-directory details[open] > summary b::before { content: '−'; }
+
+.works-directory--focused summary {
+  padding: 20px 0 16px;
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(28px, 3vw, 42px);
+  letter-spacing: 0;
+  text-transform: none;
+}
 
 .works-directory__piece {
   display: grid;
@@ -849,49 +849,6 @@ main:has(.about) + .site-footer {
   }
 
   .works-directory__piece > b { display: none; }
-}
-
-/* A quiet, all-at-once editorial teaser used before a deeper case-study link. */
-.preview-gallery {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: clamp(8px, 1.2vw, 14px);
-}
-
-.preview-gallery .media {
-  margin: 0;
-  background: var(--paper-deep);
-}
-
-.preview-gallery .media img {
-  width: 100%;
-  height: clamp(210px, 26vw, 310px);
-  object-fit: contain;
-}
-
-/* Keep the Object Translations call-to-action aligned to its four-image teaser. */
-.preview-gallery + .page-link {
-  grid-column: wide;
-}
-
-@media (max-width: 560px) {
-  .preview-gallery {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-  }
-
-  .preview-gallery .media img {
-    height: 58vw;
-  }
-
-  .preview-gallery + .page-link a {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 42px;
-    padding: 8px 14px;
-    font-size: 11px;
-  }
 }
 
 .prose > * + * {
@@ -1727,6 +1684,8 @@ main:has(.about) + .site-footer {
   font-size: clamp(22px, 2.4vw, 30px);
   color: var(--ink-soft);
 }
+
+.detail__header > .tags { margin-top: 12px; }
 
 /* Choreographic work pages use a compact performance thumbnail and a shared wide left edge. */
 .detail--choreographic-work .flow {

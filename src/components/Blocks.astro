@@ -61,12 +61,6 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
         );
       case 'carousel':
         return <div class="wide"><Carousel label={block.label} images={block.images} /></div>;
-      case 'preview-gallery':
-        return (
-          <div class="preview-gallery wide" aria-label={block.label}>
-            {block.images.map((image) => <MediaImage image={image} showCaption={false} sizes="(min-width: 900px) 25vw, 50vw" />)}
-          </div>
-        );
       case 'role':
         return (
           <dl class="role-block">

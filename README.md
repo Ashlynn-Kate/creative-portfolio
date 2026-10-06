@@ -64,7 +64,7 @@ Lab ideas stay on your computer only: they're never published and never uploaded
 
 **Adding a new project:** for now, ask Codex, for example: "Add a new case study called ___ with these photos," and drop the photos into the project folder or point Codex to them. Later, the plan is that you add the project in Notion and the site picks it up automatically.
 
-The home page introduces your areas of work. **Works** groups the projects by area, and each full case study opens on its own page. When adding a new area, ask Codex to update the Works directory too.
+The home page introduces your areas of work and opens each area's destination directly. **Works** is an overview of all areas. Categories with several projects, such as Live performance, have their own page with groups of work. When adding a new area, ask Codex to update the Works directory too.
 
 **Where the content lives (for reference):**
 - Words and layout for each case study: `src/content/cases/` (one file per case)

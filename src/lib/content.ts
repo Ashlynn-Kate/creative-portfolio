@@ -5,6 +5,9 @@ import { slugify } from './site';
 export type Case = CollectionEntry<'cases'>;
 export type DetailPage = CollectionEntry<'pages'>;
 
+/** The main destination for a case, whether it uses its own page or a detail page. */
+export const casePath = (entry: Case) => `work/${entry.data.landingPage ?? entry.id}`;
+
 /** Published full case studies, in editorial order. */
 export async function getCases(): Promise<Case[]> {
   const all = await getCollection('cases', (c) => c.data.published !== false && c.data.home !== false);

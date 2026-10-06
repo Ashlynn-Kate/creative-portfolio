@@ -2,7 +2,8 @@
 /** Detail pages that belong to a case, e.g. /work/prince-of-egypt/throne-inspiration/ */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Blocks from '../../components/Blocks.astro';
-import { getDetailPages, getCases, type DetailPage } from '../../lib/content';
+import DisciplineTags from '../../components/DisciplineTags.astro';
+import { casePath, getDetailPages, getCases, type DetailPage } from '../../lib/content';
 import { url } from '../../lib/site';
 
 export async function getStaticPaths() {
@@ -16,6 +17,7 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props as { page: DetailPage };
 const parent = (await getCases()).find((c) => c.id === page.data.case);
+const isLandingPage = parent?.data.landingPage === page.id;
 const siblings = await getDetailPages(page.data.case);
 const index = siblings.findIndex((p) => p.id === page.id);
 const prev = siblings[index - 1];
@@ -25,20 +27,19 @@ const next = siblings[index + 1];
 <BaseLayout title={page.data.title} description={page.data.summary} image={page.data.cover.src}>
   <article class="detail">
     <header class="detail__header">
-      {parent && (
-        <a class="back" href={url(`work/${parent.id}`)}>
-          <span aria-hidden="true">←</span> {parent.data.title}
-        </a>
-      )}
+      {parent && <a class="back" href={isLandingPage ? url('works') : url(casePath(parent))}>
+        <span aria-hidden="true">←</span> {isLandingPage ? 'All works' : parent.data.title}
+      </a>}
       <h1 class="detail__title">{page.data.title}</h1>
       {page.data.sub && <p class="detail__sub">{page.data.sub}</p>}
+      {isLandingPage && parent && <DisciplineTags disciplines={parent.data.disciplines} variant="metadata" />}
     </header>
 
     <div class="flow">
       <Blocks blocks={page.data.blocks} />
     </div>
 
-    <nav class="pager" aria-label="More from this project">
+    {(prev || next || (parent && !isLandingPage)) && <nav class="pager" aria-label="More from this project">
       {prev ? (
         <a class="pager__link" href={url(`work/${prev.id}`)}>
           <span class="pager__dir">← Previous</span>
@@ -50,12 +51,12 @@ const next = siblings[index + 1];
           <span class="pager__dir">Next →</span>
           <span class="pager__title">{next.data.title}</span>
         </a>
-      ) : parent && (
-        <a class="pager__link pager__link--next" href={url(`work/${parent.id}`)}>
+      ) : parent && !isLandingPage && (
+        <a class="pager__link pager__link--next" href={url(casePath(parent))}>
           <span class="pager__dir">Back to →</span>
           <span class="pager__title">{parent.data.title}</span>
         </a>
       )}
-    </nav>
+    </nav>}
   </article>
 </BaseLayout>

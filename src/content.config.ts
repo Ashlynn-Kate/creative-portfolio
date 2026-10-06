@@ -6,7 +6,7 @@
  *   - pages/  detail pages that belong to a case, e.g. pages/prince-of-egypt/throne-inspiration.yaml
  *
  * Every case and page is a list of "blocks" (heading, text, image, grid,
- * carousel, preview gallery, role, status line, details, video, pages, page-link). This mirrors how Notion structures content,
+ * carousel, role, status line, details, video, pages, page-link). This mirrors how Notion structures content,
  * so a future Notion sync can map Notion blocks straight onto these.
  *
  * Image paths are relative to src/assets/images/, e.g. "prince-of-egypt/palace.png".
@@ -84,14 +84,6 @@ const pages = z.object({
   layout: z.enum(['default', 'compact', 'compact-overlay']).default('default'),
 });
 
-/** A compact, static row of editorial images used as a visual teaser. */
-const previewGallery = z.object({
-  type: z.literal('preview-gallery'),
-  /** Read out by screen readers, e.g. "Object Translations portrait preview gallery". */
-  label: z.string(),
-  images: z.array(image).min(1),
-});
-
 /** A short, labeled responsibility statement placed within a case-study flow. */
 const role = z.object({
   type: z.literal('role'),
@@ -167,7 +159,6 @@ type Block =
   | z.infer<typeof imageBlock>
   | z.infer<typeof grid>
   | z.infer<typeof carousel>
-  | z.infer<typeof previewGallery>
   | z.infer<typeof role>
   | z.infer<typeof imageDetails>
   | z.infer<typeof imageFeature>
@@ -187,7 +178,6 @@ const block: z.ZodType<Block> = z.lazy(() =>
     imageBlock,
     grid,
     carousel,
-    previewGallery,
     role,
     imageDetails,
     imageFeature,
@@ -230,6 +220,8 @@ const cases = defineCollection({
     role: z.string().optional(),
     /** Used on discipline pages and in link previews. */
     summary: z.string(),
+    /** Optional detail page that serves as this case's main destination. */
+    landingPage: z.string().optional(),
     cover: image,
     /** Free-form list. New disciplines appear on the site automatically. */
     disciplines: z.array(z.string()).min(1),

@@ -7,11 +7,16 @@ import designLab from './src/lab/integration.mjs';
 // Environment variables keep it possible to build a project-path preview when needed.
 const site = process.env.SITE_URL ?? 'https://byashlynnkate.com';
 const base = process.env.SITE_BASE ?? '/';
+const basePrefix = base.replace(/\/$/, '');
 
 export default defineConfig({
   site,
   base,
   trailingSlash: 'always',
+  // Preserve existing links while the full collection becomes the main case page.
+  redirects: {
+    '/work/object-translations': `${basePrefix}/work/object-translations/all-concepts/`,
+  },
   // Design lab: /lab/ prototypes under `npm run dev` only; never built.
   integrations: [designLab()],
   vite: {

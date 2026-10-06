@@ -76,18 +76,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0020** · `design` · Object Translations inline portrait galleries
   Each Object Translations concept must show its inspiration object beside a light-background, peek-behind gallery whose first image is the primary portrait and whose remaining images are the additional portraits; it must not use a separate Additional Photos disclosure.
   → `docs/adr/0020-object-translations-inline-portrait-galleries.md`
-- **ADR-0021** · `design` · Object Translations portrait preview
-  The Object Translations summary page must place a compact, static four-portrait teaser between its introduction and the All Concepts link, showing all four images without scrolling.
-  → `docs/adr/0021-object-translations-portrait-preview.md`
-- **ADR-0022** · `design` · Object Translations all-concepts-only summary
-  The Object Translations summary page must introduce the series with its portrait preview and one All Concepts link; individual concept disclosures must appear only on the dedicated all-concepts page.
-  → `docs/adr/0022-object-translations-all-concepts-only.md`
 - **ADR-0024** · `design` · Prince of Egypt compact supporting materials
   The Prince of Egypt stage image must appear as a compact image beside its creative-process disclosures, and its Selected Materials links must use a compact four-across image-led layout.
   → `docs/adr/0024-prince-of-egypt-compact-materials.md`
-- **ADR-0028** · `design` · Object Translations wide introduction
-  The Object Translations introduction must align to the left edge of its portrait preview gallery and use a wider reading measure, while its existing numbered case header remains unchanged.
-  → `docs/adr/0028-object-translations-wide-introduction.md`
 - **ADR-0030** · `design` · Mindspace role after concept
   Post-tag narrative content in the home-page case studies must align to the wide content column used by Object Translations; Mindspace’s role statement must appear directly after its Concept paragraph in that narrative flow.
   → `docs/adr/0030-mindspace-role-after-concept.md`
@@ -112,9 +103,6 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0042** · `design` · Editorial interaction hierarchy
   The interface must reserve rounded pills for discipline filters, present project disciplines as plain linked metadata, use restrained rectangular labels for status, and reserve outlined controls for explicit actions.
   → `docs/adr/0042-editorial-interaction-hierarchy.md`
-- **ADR-0043** · `design` · Category-first home page with standalone case studies
-  The home page must introduce data-driven areas of work over the photographic hero and link each area into the Works directory; full case-study narratives must live on dedicated routes rather than inline on the home page. Home and Works must draw category order and labels from the same content entry. The former home-page Back to top control must not appear on the shorter category-first landing page.
-  → `docs/adr/0043-category-first-homepage.md`
 - **ADR-0044** · `design` · Photo-specific lower-edge feathering in the home hero
   High-contrast home-hero photographs must receive non-destructive, photo-specific lower-edge fades layered with their existing perimeter feathers. These fades must not change image aspect ratios, source pixels, collage positions, or transparency away from the edges.
   → `docs/adr/0044-photo-specific-hero-bottom-feathers.md`
@@ -127,6 +115,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0048** · `content` · Conceptual portrait category and curated role tags
   The site must identify Ashlynn as a creative director, artistic director, choreographer, and performer, and must credit sole and shared project work accurately. Her idea-led portrait work must be categorized as Conceptual portraits; Object Translations must credit her photography in its narrative but must not use Photography as a browse tag unless she chooses to invite photography commissions.
   → `docs/adr/0048-conceptual-portrait-category-and-role-tags.md`
+- **ADR-0049** · `design` · Direct destinations from areas of work
+  Home-page areas of work must link directly to their destination rather than through the Works overview. Object Translations must open on its complete concept collection without a separate four-portrait summary, and grouped areas such as Live performance must have focused pages that show their work groups and current projects immediately.
+  → `docs/adr/0049-direct-area-destinations.md`
 <!-- adr-registry:end -->
 
 ## Content scope

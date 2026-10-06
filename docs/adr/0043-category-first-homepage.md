@@ -1,7 +1,7 @@
 ---
 id: ADR-0043
 title: Category-first home page with standalone case studies
-status: accepted
+status: superseded
 date: 2026-10-04
 area: design
 constraint: >
@@ -10,6 +10,7 @@ constraint: >
   on dedicated routes rather than inline on the home page. Home and Works must draw
   category order and labels from the same content entry. The former home-page
   Back to top control must not appear on the shorter category-first landing page.
+superseded_by: ADR-0049
 ---
 
 # Category-first home page with standalone case studies
