@@ -115,9 +115,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0052** · `design` · Stable home navigation arrows
   The home page's Areas of work links and its adjacent portfolio links must use drawn arrow icons rather than Unicode arrow characters, so their appearance stays typographic and consistent across desktop and mobile platforms.
   → `docs/adr/0052-home-navigation-arrow-icons.md`
-- **ADR-0053** · `design` · Mobile Conceptual Portrait object presentation
-  Conceptual Portraits disclosures must retain the full-size object beside the portrait gallery on desktop. On phones, opening a concept must enlarge its compact object thumbnail to 112px beside the title and descriptor, then show the portrait gallery directly below without the separate full-size object image; carousel behavior remains as previously defined.
-  → `docs/adr/0053-mobile-concept-object-presentation.md`
+- **ADR-0054** · `design` · Portrait-led Conceptual Portrait gallery proportions
+  Open Conceptual Portraits disclosures on phones must show a 129px object thumbnail beside the title and descriptor, followed by the portrait gallery without a separate full-size object image. At 900px and above, the full-size object and portrait gallery must use a 35/65 column split favoring the portrait; intermediate widths retain the existing layout.
+  → `docs/adr/0054-portrait-led-concept-gallery-proportions.md`
 <!-- adr-registry:end -->
 
 ## Content scope

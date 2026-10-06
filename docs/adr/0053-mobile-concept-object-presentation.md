@@ -1,9 +1,10 @@
 ---
 id: ADR-0053
 title: Mobile Conceptual Portrait object presentation
-status: accepted
+status: superseded
 date: 2026-10-06
 area: design
+superseded_by: ADR-0054
 constraint: >
   Conceptual Portraits disclosures must retain the full-size object beside the portrait
   gallery on desktop. On phones, opening a concept must enlarge its compact object thumbnail
