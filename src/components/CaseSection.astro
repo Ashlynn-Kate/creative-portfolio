@@ -1,15 +1,17 @@
 ---
-/** One case study as it appears on the home page: header, then its blocks. */
+/** One case study, shared by its standalone page and any editorial previews. */
 import type { Case } from '../lib/content';
 import { pad } from '../lib/content';
+import { url } from '../lib/site';
 import Blocks from './Blocks.astro';
 import DisciplineTags from './DisciplineTags.astro';
 
 interface Props {
   entry: Case;
   number: number;
+  standalone?: boolean;
 }
-const { entry, number } = Astro.props;
+const { entry, number, standalone = false } = Astro.props;
 const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
 ---
 
@@ -17,8 +19,8 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
   class:list={[
     'case',
     {
+      'case--standalone': standalone,
       'case--prince-of-egypt': entry.id === 'prince-of-egypt',
-      'case--object-translations': entry.id === 'object-translations',
       'case--mindspace': entry.id === 'dance-film',
       'case--choreographic-works': entry.id === 'choreographic-works',
     },
@@ -27,20 +29,21 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
   aria-labelledby={`${entry.id}-title`}
 >
   <header class="case__header">
+    {standalone && <a class="back case__back" href={url('works')}><span aria-hidden="true">←</span> All works</a>}
     <p class="case__num" aria-hidden="true">{pad(number)}</p>
     <div class="case__heading">
       <p class="case__kicker">
         {kicker && <span>{kicker}</span>}
         {status && <span class="badge">{status}</span>}
       </p>
-      <h2 class="case__title" id={`${entry.id}-title`}>{title}</h2>
+      {standalone ? <h1 class="case__title" id={`${entry.id}-title`}>{title}</h1> : <h2 class="case__title" id={`${entry.id}-title`}>{title}</h2>}
       {meta ? (
         <div class="case__meta-row">
           <p class="case__meta">{meta}</p>
-          <DisciplineTags disciplines={disciplines} />
+          <DisciplineTags disciplines={disciplines} variant="metadata" />
         </div>
       ) : (
-        <DisciplineTags disciplines={disciplines} />
+        <DisciplineTags disciplines={disciplines} variant="metadata" />
       )}
     </div>
     {role && (

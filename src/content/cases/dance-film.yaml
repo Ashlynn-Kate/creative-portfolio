@@ -18,7 +18,7 @@ blocks:
 
   - type: role
     label: My role
-    body: Concept creator, creative lead, co-choreographer, and production coordinator.
+    body: Original concept, co-direction, co-choreography, lead performance, and production coordination.
 
   - type: heading
     text: Visual references
@@ -42,7 +42,7 @@ blocks:
     text: Creative Process
   - type: text
     body: |
-      I originated the concept and invited Breana to co-create the work. Together, we developed the choreography and visual direction, exploring how movement could reveal the central character’s inner life.
+      I originated the concept and invited Breana to co-create the work. We co-direct and co-choreograph the film, using movement and visual direction to reveal the central character’s inner life.
 
       Rehearsals and conversations with the visual team shape how the work translates to camera, from the choice of location to framing and camera movement.
   - type: status-line

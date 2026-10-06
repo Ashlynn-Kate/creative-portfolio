@@ -1,0 +1,62 @@
+---
+/** Home areas lead directly to a case or a focused group page. */
+import type { CollectionEntry } from 'astro:content';
+import { getEntry } from 'astro:content';
+import { casePath } from '../lib/content';
+import { slugify, url } from '../lib/site';
+
+interface Props {
+  categories: CollectionEntry<'workDirectories'>['data']['categories'];
+}
+
+const { categories } = Astro.props;
+const destinations = await Promise.all(categories.map(async (category) => {
+  if (category.type === 'group') return url(`area/${slugify(category.title)}`);
+  if (!category.item) throw new Error(`Missing case for ${category.title}.`);
+  const entry = await getEntry('cases', category.item.id);
+  if (!entry) throw new Error(`Missing case ${category.item.id}.`);
+  return url(casePath(entry));
+}));
+---
+
+<section class="home-areas" id="disciplines" aria-labelledby="home-areas-title">
+  <header class="home-areas__opening">
+    <h2 id="home-areas-title">Areas of work</h2>
+  </header>
+
+  <nav aria-label="Areas of work">
+    <ul class="home-areas__index">
+      {categories.map((category, index) => (
+        <li>
+          <a href={destinations[index]}>
+            <strong>{category.title}</strong>
+            {category.indexLabel && <span>{category.indexLabel}</span>}
+            <b aria-hidden="true">↗</b>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+
+  <nav class="home-areas__next" aria-label="More of the portfolio">
+    <a href={url('works')}>See all works <b aria-hidden="true">→</b></a>
+    <a href={url('about')}>About Ashlynn <b aria-hidden="true">→</b></a>
+  </nav>
+</section>
+
+<style>
+  .home-areas { position: relative; z-index: 2; max-width: calc(var(--wide) + 2 * var(--gutter)); margin: -240px auto 0; padding: 0 var(--gutter) clamp(70px, 10vw, 130px); scroll-margin-top: 90px; }
+  .home-areas__opening { padding: 40px 0 38px; }
+  .home-areas__opening h2 { font-size: clamp(50px, 5.74vw, 78px); font-weight: 400; line-height: .87; }
+  .home-areas__index { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .home-areas__index a { display: grid; grid-template-columns: minmax(0, 1fr) minmax(130px, 210px) 24px; gap: clamp(12px, 2vw, 26px); align-items: center; padding: clamp(14px, 1.36vw, 22px) 0; border-bottom: 1px solid var(--line); text-decoration: none; }
+  .home-areas__index a:hover strong, .home-areas__index a:focus-visible strong { color: var(--accent); }
+  .home-areas__index strong { font-family: var(--font-display); font-size: clamp(32px, 3.6vw, 51px); font-weight: 400; line-height: .9; transition: color .2s; }
+  .home-areas__index span { color: var(--muted); font-size: 11px; letter-spacing: .13em; text-align: right; text-transform: uppercase; }
+  .home-areas__index b { color: var(--accent); font-size: 20px; font-weight: 400; }
+  .home-areas__next { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 30px; margin-top: 36px; }
+  .home-areas__next a { color: var(--ink); font-size: 12px; letter-spacing: .16em; text-decoration: none; text-transform: uppercase; }
+  .home-areas__next a:hover { color: var(--accent); }
+  .home-areas__next b { padding-left: 12px; color: var(--accent); font-size: 18px; font-weight: 400; }
+  @media (max-width: 760px) { .home-areas { margin-top: -120px; } .home-areas__index a { grid-template-columns: minmax(0, 1fr) 22px; align-items: start; padding: 20px 0; } .home-areas__index span { grid-column: 1; grid-row: 2; text-align: left; } .home-areas__index b { grid-column: 2; grid-row: 1; } }
+</style>

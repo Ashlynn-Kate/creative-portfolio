@@ -8,7 +8,7 @@ const directory = await getEntry('workDirectories', 'works');
 if (!directory) throw new Error('Missing Works directory content.');
 ---
 
-<BaseLayout title="Works" description="Explore Ashlynn Kate's work in film, live performance, and photography.">
+<BaseLayout title="Works" description="Explore Ashlynn Kate's conceptual portraits, films, and live performance work.">
   <article class="works-directory-page">
     <header class="works-directory-page__header"><p class="eyebrow">Browse the portfolio</p><h1>Works</h1></header>
     <WorksDirectory categories={directory.data.categories} />

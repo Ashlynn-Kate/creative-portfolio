@@ -1,12 +1,13 @@
 ---
 id: ADR-0022
 title: Object Translations all-concepts-only summary
-status: accepted
+status: superseded
 date: 2026-10-01
 area: design
 constraint: >
   The Object Translations summary page must introduce the series with its portrait preview and one
   All Concepts link; individual concept disclosures must appear only on the dedicated all-concepts page.
+superseded_by: ADR-0049
 ---
 
 # Object Translations all-concepts-only summary

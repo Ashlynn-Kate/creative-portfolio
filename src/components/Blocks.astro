@@ -39,7 +39,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
           </div>
         );
       case 'text':
-        return <div class="prose" set:html={md(block.body)} />;
+        return <div class:list={['prose', { wide: block.size === 'wide' }]} set:html={md(block.body)} />;
       case 'image':
         return (
           <MediaImage
@@ -61,12 +61,6 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
         );
       case 'carousel':
         return <div class="wide"><Carousel label={block.label} images={block.images} /></div>;
-      case 'preview-gallery':
-        return (
-          <div class="preview-gallery wide" aria-label={block.label}>
-            {block.images.map((image) => <MediaImage image={image} showCaption={false} sizes="(min-width: 900px) 25vw, 50vw" />)}
-          </div>
-        );
       case 'role':
         return (
           <dl class="role-block">
@@ -113,7 +107,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
         const additionalCarousel = additionalPhotos?.blocks.find(isCarousel);
         const hasPortraitGallery = objectPortrait && additionalCarousel;
         return (
-          <details class="details">
+          <details class:list={['details', { 'details--concept': hasPortraitGallery }]}>
             <summary>
               {block.thumbnail && <MediaImage image={block.thumbnail} class="details__thumbnail" showCaption={false} sizes="64px" />}
               <span set:html={mdInline(block.summary)} />
@@ -129,7 +123,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
                     </div>
                     <div class="pair-gallery__portraits">
                       <p class="grid__label">Portraits</p>
-                      <Carousel label={`${block.summary} portraits`} images={[objectPortrait.images[1], ...additionalCarousel.images]} />
+                      <Carousel label={`${block.summary} portraits`} images={[objectPortrait.images[1], ...additionalCarousel.images]} autoplay />
                     </div>
                   </div>
                   <Astro.self blocks={block.blocks.filter((child) => child !== objectPortrait && child !== additionalPhotos)} />

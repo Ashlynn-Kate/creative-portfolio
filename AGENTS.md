@@ -43,9 +43,6 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0008** · `media` · Video — Drive thumbnail links now, YouTube embeds later
   Video is shown as a thumbnail image that links to the video file on Google Drive; no embedded players yet. All video markup lives in `src/components/VideoLink.astro` so the later switch to unlisted YouTube embeds is a one-file change. Never commit video files to the repo.
   → `docs/adr/0008-video-drive-thumbnail-now-youtube-later.md`
-- **ADR-0009** · `design` · Peek-behind carousel and mobile-first interaction baseline
-  Every layout must work mobile-first, with no horizontal page scroll at phone widths. The signature peek-behind carousel (`src/components/Carousel.astro`) must keep working with touch swipe, mouse drag, keyboard arrow keys, the prev/next buttons, and clicking a peeking image, and must respect `prefers-reduced-motion`. Any new motion or animation must also respect reduced motion.
-  → `docs/adr/0009-carousel-and-mobile-first-interaction.md`
 - **ADR-0010** · `stack` · ESM bridge for the local preview's picomatch dependency
   Astro's Vite configuration must route picomatch imports through the tracked ESM bridge while its CommonJS entry fails in the Windows module runner. Do not patch node_modules by hand or require the owner to run extra setup steps.
   → `docs/adr/0010-picomatch-windows-preview-bridge.md`
@@ -73,45 +70,54 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0019** · `design` · Object Translations concept thumbnails
   Closed disclosures on the Object Translations all-concepts page must show a compact, consistently sized inspiration-object thumbnail without changing the full-size images inside.
   → `docs/adr/0019-object-translations-concept-thumbnails.md`
-- **ADR-0020** · `design` · Object Translations inline portrait galleries
-  Each Object Translations concept must show its inspiration object beside a light-background, peek-behind gallery whose first image is the primary portrait and whose remaining images are the additional portraits; it must not use a separate Additional Photos disclosure.
-  → `docs/adr/0020-object-translations-inline-portrait-galleries.md`
-- **ADR-0021** · `design` · Object Translations portrait preview
-  The Object Translations summary page must place a compact, static four-portrait teaser between its introduction and the All Concepts link, showing all four images without scrolling.
-  → `docs/adr/0021-object-translations-portrait-preview.md`
-- **ADR-0022** · `design` · Object Translations all-concepts-only summary
-  The Object Translations summary page must introduce the series with its portrait preview and one All Concepts link; individual concept disclosures must appear only on the dedicated all-concepts page.
-  → `docs/adr/0022-object-translations-all-concepts-only.md`
 - **ADR-0024** · `design` · Prince of Egypt compact supporting materials
   The Prince of Egypt stage image must appear as a compact image beside its creative-process disclosures, and its Selected Materials links must use a compact four-across image-led layout.
   → `docs/adr/0024-prince-of-egypt-compact-materials.md`
-- **ADR-0025** · `content` · Home page case order
-  The home page and Selected Works index must present Object Translations first, Mindspace second, and The Prince of Egypt third.
-  → `docs/adr/0025-home-page-case-order.md`
-- **ADR-0028** · `design` · Object Translations wide introduction
-  The Object Translations introduction must align to the left edge of its portrait preview gallery and use a wider reading measure, while its existing numbered case header remains unchanged.
-  → `docs/adr/0028-object-translations-wide-introduction.md`
 - **ADR-0030** · `design` · Mindspace role after concept
   Post-tag narrative content in the home-page case studies must align to the wide content column used by Object Translations; Mindspace’s role statement must appear directly after its Concept paragraph in that narrative flow.
   → `docs/adr/0030-mindspace-role-after-concept.md`
 - **ADR-0032** · `design` · Choreographic work video narrative
   Individual Choreographic Works pages must begin their narrative with an uncropped half-width performance-video thumbnail floated left of the Behind the work section on desktop, with the copy wrapping beneath it when needed and stacking below it on mobile.
   → `docs/adr/0032-choreographic-work-video-narrative.md`
-- **ADR-0033** · `design` · Works directory navigation
-  The primary menu's Works link must open a dedicated, data-driven Works page organized into Film, Live Performance, and Photography; Live Performance must group full-length productions and individual pieces in closed disclosures, while the home page must retain only its three core case studies.
-  → `docs/adr/0033-works-directory-navigation.md`
 - **ADR-0034** · `design` · Prince artistic portfolio narrative
   The Prince of Egypt case study must open with an unheaded two-paragraph artistic introduction and understated credits, followed by an always-visible stage image and Shaping the Production narrative; it must not use role boxes or production-detail accordions.
   → `docs/adr/0034-prince-artistic-portfolio-narrative.md`
-- **ADR-0035** · `design` · Home back-to-top placement
-  The home page must place its centered Back to top link immediately after the final case-study content and before the footer; the shared footer must not contain a Back to top control.
-  → `docs/adr/0035-home-back-to-top-placement.md`
 - **ADR-0036** · `design` · Prince selected-material overlay tiles
   The Prince of Egypt selected-material links must use four evenly spaced, compact square image tiles with each material's identifying text overlaid on the image; the layout must stack to two columns on mobile.
   → `docs/adr/0036-prince-material-overlay-tiles.md`
 - **ADR-0037** · `design` · Home photographic hero sequence
   The home-page hero must present owner-approved photographs as a subtle, full-width asynchronous sequence behind the existing copy, with varied scale and placement, cream-feathered edges, offscreen pausing, and a static reduced-motion presentation.
   → `docs/adr/0037-home-photographic-hero-sequence.md`
+- **ADR-0039** · `design` · Home hero copy upper-center placement
+  The home-page hero copy must remain left aligned and sit slightly above the vertical center of the photographic collage, with a responsive upward offset.
+  → `docs/adr/0039-home-hero-copy-upper-center.md`
+- **ADR-0041** · `design` · Balanced neutral paper palette
+  The site background must use the balanced neutral-grey paper palette, with matching neutral surface, rule, and hero-feather colors rather than the superseded cool-grey palette.
+  → `docs/adr/0041-balanced-neutral-paper-palette.md`
+- **ADR-0042** · `design` · Editorial interaction hierarchy
+  The interface must reserve rounded pills for discipline filters, present project disciplines as plain linked metadata, use restrained rectangular labels for status, and reserve outlined controls for explicit actions.
+  → `docs/adr/0042-editorial-interaction-hierarchy.md`
+- **ADR-0044** · `design` · Photo-specific lower-edge feathering in the home hero
+  High-contrast home-hero photographs must receive non-destructive, photo-specific lower-edge fades layered with their existing perimeter feathers. These fades must not change image aspect ratios, source pixels, collage positions, or transparency away from the edges.
+  → `docs/adr/0044-photo-specific-hero-bottom-feathers.md`
+- **ADR-0045** · `design` · Feather the suspended dancer's upper image edge
+  The black-unitard suspended-dancer photo in the home hero must have a short, photo-specific top-edge feather that reaches full opacity before the raised hands, while retaining its bottom and perimeter masks and unchanged crop.
+  → `docs/adr/0045-suspended-photo-top-feather.md`
+- **ADR-0046** · `design` · Feather the black portrait's upper side edges
+  The black-turtleneck portrait in the home collage must have a photo-specific upper-side feather that removes visible wall boundaries near the head while preserving the face, lower arms, existing bottom fade, and image geometry.
+  → `docs/adr/0046-black-portrait-upper-side-feather.md`
+- **ADR-0048** · `content` · Conceptual portrait category and curated role tags
+  The site must identify Ashlynn as a creative director, artistic director, choreographer, and performer, and must credit sole and shared project work accurately. Her idea-led portrait work must be categorized as Conceptual portraits; Object Translations must credit her photography in its narrative but must not use Photography as a browse tag unless she chooses to invite photography commissions.
+  → `docs/adr/0048-conceptual-portrait-category-and-role-tags.md`
+- **ADR-0049** · `design` · Direct destinations from areas of work
+  Home-page areas of work must link directly to their destination rather than through the Works overview. Object Translations must open on its complete concept collection without a separate four-portrait summary, and grouped areas such as Live performance must have focused pages that show their work groups and current projects immediately.
+  → `docs/adr/0049-direct-area-destinations.md`
+- **ADR-0050** · `design` · Soft auto-scroll for Conceptual Portraits galleries
+  Layouts must remain mobile-first without phone-width horizontal scroll, and ordinary carousels must retain peek-behind navigation by swipe, drag, keyboard, buttons, and peeking-image click. Each Conceptual Portraits concept must keep its object beside a light-background gallery of its lead and additional portraits, but its outgoing left peek may fade away as the images scroll. These galleries must advance every 2.35 seconds only while open and visible, pause on hover or focus, stop after manual interaction until reopened, and disable autoplay for reduced motion.
+  → `docs/adr/0050-concept-portrait-gallery-autoplay.md`
+- **ADR-0051** · `design` · Conceptual Portraits introduction and index width
+  The Conceptual Portraits all-concepts page must place its series introduction after the title, subtitle, and disciplines but before the concept disclosures. The introduction and concept index must use wider editorial columns so each three-part concept descriptor stays on one line when space permits, without causing horizontal scroll on smaller screens.
+  → `docs/adr/0051-concept-series-intro-and-index-width.md`
 <!-- adr-registry:end -->
 
 ## Content scope
@@ -138,7 +144,7 @@ The site covers every creative discipline, now and in the future: dance and chor
 - **Local preview:** `npm run dev` (live, `http://localhost:4321/`); `npm run build` then `npm run preview` for the final check. Human-facing steps live in `README.md`.
 
 ### Project structure
-- `src/content/cases/*.yaml`: one case study each, shown on the home page by `order`. `src/content/pages/<case>/*.yaml`: detail pages under a case (`/work/<case>/<page>/`).
+- `src/content/cases/*.yaml`: one case study each; full narratives have their own `/work/<case>/` route, ordered by `order`. `src/content/pages/<case>/*.yaml`: detail pages under a case (`/work/<case>/<page>/`).
 - `src/content.config.ts`: the content schema and block types. `src/components/Blocks.astro`: renders the blocks.
 - `src/assets/images/<case>/`: original images, referenced from content by that relative path. `src/components/MediaImage.astro`: renders one image.
 - `src/lib/site.ts`: site name, tagline, and the `url()` link helper. `src/lib/content.ts`: shared content queries.

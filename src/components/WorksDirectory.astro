@@ -2,7 +2,8 @@
 /** Editorial directory for the portfolio's data-driven Works navigation page. */
 import { getEntry } from 'astro:content';
 import MediaImage from './MediaImage.astro';
-import { url } from '../lib/site';
+import { casePath } from '../lib/content';
+import { slugify, url } from '../lib/site';
 
 interface DirectoryItem {
   type: 'case' | 'page';
@@ -10,6 +11,7 @@ interface DirectoryItem {
 }
 
 interface Props {
+  focused?: boolean;
   categories: Array<{
     title: string;
     type: 'case' | 'group';
@@ -18,12 +20,12 @@ interface Props {
   }>;
 }
 
-const { categories } = Astro.props;
+const { categories, focused = false } = Astro.props;
 
 const resolveItem = async (item: DirectoryItem) => {
   if (item.type === 'case') {
     const entry = await getEntry('cases', item.id);
-    return entry && { title: entry.data.title, meta: entry.data.kicker ?? '', cover: entry.data.cover, href: url(`#${entry.id}`) };
+    return entry && { title: entry.data.title, meta: entry.data.kicker ?? '', cover: entry.data.cover, href: url(casePath(entry)) };
   }
 
   const entry = await getEntry('pages', item.id);
@@ -40,17 +42,17 @@ const groups = await Promise.all(categories.map(async (category) => ({
 })));
 ---
 
-<nav class="works-directory" aria-label="Works directory">
+<nav class:list={['works-directory', { 'works-directory--focused': focused }]} aria-label={focused ? `${categories[0]?.title} works` : 'Works directory'}>
   {groups.map((category, index) => category.type === 'case' && category.item ? (
-    <a class="works-directory__category" href={category.item.href}>
+    <a class="works-directory__category" id={slugify(category.title)} href={category.item.href}>
       <span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong><b aria-hidden="true">→</b>
     </a>
   ) : (
-    <section class="works-directory__live">
-      <p><span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong></p>
+    <section class="works-directory__live" id={slugify(category.title)}>
+      {!focused && <p><span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong></p>}
       {category.groups?.map((group) => (
-        <details>
-          <summary>{group.title}<b aria-hidden="true">+</b></summary>
+        <details open={focused}>
+          <summary>{group.title}<b aria-hidden="true"></b></summary>
           {group.items.map((item) => (
             <a class="works-directory__piece" href={item.href}>
               <MediaImage image={{ ...item.cover, highRes: undefined }} showCaption={false} sizes="(max-width: 680px) 100vw, 24vw" />

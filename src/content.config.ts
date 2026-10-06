@@ -2,11 +2,11 @@
  * Content definitions.
  *
  * All site content lives in YAML files under src/content/:
- *   - cases/  one file per case study (shown on the home page, in `order`)
+ *   - cases/  one file per case study (full narratives have dedicated routes)
  *   - pages/  detail pages that belong to a case, e.g. pages/prince-of-egypt/throne-inspiration.yaml
  *
  * Every case and page is a list of "blocks" (heading, text, image, grid,
- * carousel, preview gallery, role, status line, details, video, pages, page-link). This mirrors how Notion structures content,
+ * carousel, role, status line, details, video, pages, page-link). This mirrors how Notion structures content,
  * so a future Notion sync can map Notion blocks straight onto these.
  *
  * Image paths are relative to src/assets/images/, e.g. "prince-of-egypt/palace.png".
@@ -36,6 +36,10 @@ const text = z.object({
   type: z.literal('text'),
   /** Markdown: paragraphs, **bold**, *italic*, lists, links. */
   body: z.string(),
+  /** Optional position among sibling blocks, including numbered disclosures. */
+  order: z.number().optional(),
+  /** Allow an introduction to use the wider editorial column. */
+  size: z.enum(['text', 'wide']).default('text'),
 });
 
 const imageBlock = image.extend({
@@ -82,14 +86,6 @@ const pages = z.object({
   items: z.array(z.string()).min(1),
   /** Compact four-across presentation for short, image-led material links. */
   layout: z.enum(['default', 'compact', 'compact-overlay']).default('default'),
-});
-
-/** A compact, static row of editorial images used as a visual teaser. */
-const previewGallery = z.object({
-  type: z.literal('preview-gallery'),
-  /** Read out by screen readers, e.g. "Object Translations portrait preview gallery". */
-  label: z.string(),
-  images: z.array(image).min(1),
 });
 
 /** A short, labeled responsibility statement placed within a case-study flow. */
@@ -149,6 +145,8 @@ const workListing = z.object({
 const workDirectory = z.object({
   categories: z.array(z.object({
     title: z.string(),
+    /** Small descriptor shown beside this category in the home-page index. */
+    indexLabel: z.string().optional(),
     type: z.enum(['case', 'group']),
     item: z.object({ type: z.literal('case'), id: z.string() }).optional(),
     groups: z.array(z.object({
@@ -165,7 +163,6 @@ type Block =
   | z.infer<typeof imageBlock>
   | z.infer<typeof grid>
   | z.infer<typeof carousel>
-  | z.infer<typeof previewGallery>
   | z.infer<typeof role>
   | z.infer<typeof imageDetails>
   | z.infer<typeof imageFeature>
@@ -185,7 +182,6 @@ const block: z.ZodType<Block> = z.lazy(() =>
     imageBlock,
     grid,
     carousel,
-    previewGallery,
     role,
     imageDetails,
     imageFeature,
@@ -214,10 +210,10 @@ const block: z.ZodType<Block> = z.lazy(() =>
 const cases = defineCollection({
   loader: glob({ pattern: '**/*.yaml', base: './src/content/cases' }),
   schema: z.object({
-    /** Position on the home page (1 = first). */
+    /** Editorial order for the standalone case studies and discipline listings. */
     order: z.number(),
     title: z.string(),
-    /** Optional shorter or contextual title used only in the home-page index. */
+    /** Legacy home-index title, retained for existing content compatibility. */
     indexTitle: z.string().optional(),
     /** Short line above the title, e.g. "Full-length production". */
     kicker: z.string().optional(),
@@ -228,11 +224,13 @@ const cases = defineCollection({
     role: z.string().optional(),
     /** Used on discipline pages and in link previews. */
     summary: z.string(),
+    /** Optional detail page that serves as this case's main destination. */
+    landingPage: z.string().optional(),
     cover: image,
     /** Free-form list. New disciplines appear on the site automatically. */
     disciplines: z.array(z.string()).min(1),
     published: z.boolean().default(true),
-    /** Whether this case appears as a full section on the home page. */
+    /** Legacy visibility flag: false for collection-only cases without a full case-study route. */
     home: z.boolean().default(true),
     blocks: z.array(block),
   }),

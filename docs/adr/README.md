@@ -16,7 +16,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0006](0006-notion-as-content-source.md) | Notion as the content source; never hotlink Notion files | accepted | content | 2026-09-27 |
 | [ADR-0007](0007-image-pipeline.md) | Image pipeline — automatic web versions, full resolution on Google Drive | accepted | media | 2026-09-27 |
 | [ADR-0008](0008-video-drive-thumbnail-now-youtube-later.md) | Video — Drive thumbnail links now, YouTube embeds later | accepted | media | 2026-09-27 |
-| [ADR-0009](0009-carousel-and-mobile-first-interaction.md) | Peek-behind carousel and mobile-first interaction baseline | accepted | design | 2026-09-27 |
+| [ADR-0009](0009-carousel-and-mobile-first-interaction.md) | Peek-behind carousel and mobile-first interaction baseline | superseded by ADR-0050 | design | 2026-09-27 |
 | [ADR-0010](0010-picomatch-windows-preview-bridge.md) | ESM bridge for the local preview's picomatch dependency | accepted | stack | 2026-09-27 |
 | [ADR-0011](0011-publish-through-pull-requests.md) | Publish through branches and pull requests | accepted | hosting | 2026-09-27 |
 | [ADR-0012](0012-cli-for-repository-operations.md) | Use CLI commands for repository operations | accepted | workflow | 2026-09-27 |
@@ -27,24 +27,38 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0017](0017-object-translations-concept-disclosures.md) | Object Translations concepts begin as disclosures | accepted | design | 2026-09-29 |
 | [ADR-0018](0018-site-menu-and-about-page.md) | Site menu and About page | accepted | design | 2026-09-30 |
 | [ADR-0019](0019-object-translations-concept-thumbnails.md) | Object Translations concept thumbnails | accepted | design | 2026-10-01 |
-| [ADR-0020](0020-object-translations-inline-portrait-galleries.md) | Object Translations inline portrait galleries | accepted | design | 2026-10-01 |
-| [ADR-0021](0021-object-translations-portrait-preview.md) | Object Translations portrait preview | accepted | design | 2026-10-01 |
-| [ADR-0022](0022-object-translations-all-concepts-only.md) | Object Translations all-concepts-only summary | accepted | design | 2026-10-01 |
+| [ADR-0020](0020-object-translations-inline-portrait-galleries.md) | Object Translations inline portrait galleries | superseded by ADR-0050 | design | 2026-10-01 |
+| [ADR-0021](0021-object-translations-portrait-preview.md) | Object Translations portrait preview | superseded by ADR-0049 | design | 2026-10-01 |
+| [ADR-0022](0022-object-translations-all-concepts-only.md) | Object Translations all-concepts-only summary | superseded by ADR-0049 | design | 2026-10-01 |
 | [ADR-0023](0023-prince-of-egypt-text-led-opening.md) | Prince of Egypt text-led opening | superseded by ADR-0034 | design | 2026-10-01 |
 | [ADR-0024](0024-prince-of-egypt-compact-materials.md) | Prince of Egypt compact supporting materials | accepted | design | 2026-10-01 |
-| [ADR-0025](0025-home-page-case-order.md) | Home page case order | accepted | content | 2026-10-01 |
+| [ADR-0025](0025-home-page-case-order.md) | Home page case order | superseded by ADR-0043 | content | 2026-10-01 |
 | [ADR-0026](0026-footer-back-to-top-control.md) | Footer back-to-top control | superseded by ADR-0035 | design | 2026-10-01 |
 | [ADR-0027](0027-choreographic-works-collection.md) | Choreographic Works collection | superseded by ADR-0033 | design | 2026-10-02 |
-| [ADR-0028](0028-object-translations-wide-introduction.md) | Object Translations wide introduction | accepted | design | 2026-10-02 |
+| [ADR-0028](0028-object-translations-wide-introduction.md) | Object Translations wide introduction | superseded by ADR-0049 | design | 2026-10-02 |
 | [ADR-0029](0029-wide-case-narrative-alignment.md) | Wide case narrative alignment | superseded by ADR-0030 | design | 2026-10-02 |
 | [ADR-0030](0030-mindspace-role-after-concept.md) | Mindspace role after concept | accepted | design | 2026-10-02 |
 | [ADR-0031](0031-choreographic-work-detail-rhythm.md) | Choreographic work detail rhythm | superseded by ADR-0032 | design | 2026-10-02 |
 | [ADR-0032](0032-choreographic-work-video-narrative.md) | Choreographic work video narrative | accepted | design | 2026-10-02 |
-| [ADR-0033](0033-works-directory-navigation.md) | Works directory navigation | accepted | design | 2026-10-02 |
+| [ADR-0033](0033-works-directory-navigation.md) | Works directory navigation | superseded by ADR-0043 | design | 2026-10-02 |
 | [ADR-0034](0034-prince-artistic-portfolio-narrative.md) | Prince artistic portfolio narrative | accepted | design | 2026-10-02 |
-| [ADR-0035](0035-home-back-to-top-placement.md) | Home back-to-top placement | accepted | design | 2026-10-02 |
+| [ADR-0035](0035-home-back-to-top-placement.md) | Home back-to-top placement | superseded by ADR-0043 | design | 2026-10-02 |
 | [ADR-0036](0036-prince-material-overlay-tiles.md) | Prince selected-material overlay tiles | accepted | design | 2026-10-03 |
 | [ADR-0037](0037-home-photographic-hero-sequence.md) | Home photographic hero sequence | accepted | design | 2026-10-03 |
+| [ADR-0038](0038-home-hero-copy-alignment.md) | Home hero copy alignment | superseded by ADR-0039 | design | 2026-10-03 |
+| [ADR-0039](0039-home-hero-copy-upper-center.md) | Home hero copy upper-center placement | accepted | design | 2026-10-03 |
+| [ADR-0040](0040-cool-grey-paper-palette.md) | Cool grey paper palette | superseded by ADR-0041 | design | 2026-10-03 |
+| [ADR-0041](0041-balanced-neutral-paper-palette.md) | Balanced neutral paper palette | accepted | design | 2026-10-04 |
+| [ADR-0042](0042-editorial-interaction-hierarchy.md) | Editorial interaction hierarchy | accepted | design | 2026-10-04 |
+| [ADR-0043](0043-category-first-homepage.md) | Category-first home page with standalone case studies | superseded by ADR-0049 | design | 2026-10-04 |
+| [ADR-0044](0044-photo-specific-hero-bottom-feathers.md) | Photo-specific lower-edge feathering in the home hero | accepted | design | 2026-10-04 |
+| [ADR-0045](0045-suspended-photo-top-feather.md) | Feather the suspended dancer's upper image edge | accepted | design | 2026-10-04 |
+| [ADR-0046](0046-black-portrait-upper-side-feather.md) | Feather the black portrait's upper side edges | accepted | design | 2026-10-04 |
+| [ADR-0047](0047-role-language-and-project-attribution.md) | Role language and project attribution | superseded by ADR-0048 | content | 2026-10-05 |
+| [ADR-0048](0048-conceptual-portrait-category-and-role-tags.md) | Conceptual portrait category and curated role tags | accepted | content | 2026-10-05 |
+| [ADR-0049](0049-direct-area-destinations.md) | Direct destinations from areas of work | accepted | design | 2026-10-05 |
+| [ADR-0050](0050-concept-portrait-gallery-autoplay.md) | Soft auto-scroll for Conceptual Portraits galleries | accepted | design | 2026-10-05 |
+| [ADR-0051](0051-concept-series-intro-and-index-width.md) | Conceptual Portraits introduction and index width | accepted | design | 2026-10-06 |
 
 ## Adding or changing a decision
 

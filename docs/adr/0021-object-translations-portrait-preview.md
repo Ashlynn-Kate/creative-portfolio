@@ -1,12 +1,13 @@
 ---
 id: ADR-0021
 title: Object Translations portrait preview
-status: accepted
+status: superseded
 date: 2026-10-01
 area: design
 constraint: >
   The Object Translations summary page must place a compact, static four-portrait teaser between
   its introduction and the All Concepts link, showing all four images without scrolling.
+superseded_by: ADR-0049
 ---
 
 # Object Translations portrait preview

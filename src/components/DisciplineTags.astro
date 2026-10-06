@@ -4,11 +4,12 @@ import { slugify, url } from '../lib/site';
 
 interface Props {
   disciplines: string[];
+  variant?: 'filters' | 'metadata';
 }
-const { disciplines } = Astro.props;
+const { disciplines, variant = 'filters' } = Astro.props;
 ---
 
-<ul class="tags" aria-label="Disciplines">
+<ul class:list={['tags', `tags--${variant}`]} aria-label="Disciplines">
   {disciplines.map((d) => (
     <li><a href={url(`discipline/${slugify(d)}`)}>{d}</a></li>
   ))}

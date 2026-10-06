@@ -1,9 +1,10 @@
 ---
 id: ADR-0020
 title: Object Translations inline portrait galleries
-status: accepted
+status: superseded
 date: 2026-10-01
 area: design
+superseded_by: ADR-0050
 constraint: >
   Each Object Translations concept must show its inspiration object beside a light-background,
   peek-behind gallery whose first image is the primary portrait and whose remaining images are

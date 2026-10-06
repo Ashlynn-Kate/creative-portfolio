@@ -15,16 +15,24 @@ import dancePowder from '../assets/images/home-hero/dance-powder.png';
 import danceSuspended from '../assets/images/home-hero/dance-suspended.png';
 import danceVeilLeap from '../assets/images/home-hero/dance-veil-leap.png';
 
+interface Props {
+  headline?: string;
+  emphasis?: string;
+  description?: string;
+}
+
+const { headline = SITE.name, emphasis, description = SITE.tagline } = Astro.props;
+
 const photographs = [
-  { image: portraitBlack, kind: 'portrait' },
-  { image: danceVeilLeap, kind: 'movement' },
-  { image: danceSuspended, kind: 'movement' },
-  { image: portraitFront, kind: 'portrait' },
-  { image: danceLeap, kind: 'movement' },
-  { image: portraitProfile, kind: 'portrait' },
-  { image: dancePowder, kind: 'powder' },
-  { image: danceOutdoorVeil, kind: 'outdoor' },
-  { image: portraitSide, kind: 'portrait' },
+  { image: portraitBlack, kind: 'portrait', name: 'portrait-black' },
+  { image: danceVeilLeap, kind: 'movement', name: 'dance-veil-leap' },
+  { image: danceSuspended, kind: 'suspended', name: 'dance-suspended' },
+  { image: portraitFront, kind: 'portrait', name: 'portrait-front' },
+  { image: danceLeap, kind: 'movement', name: 'dance-leap' },
+  { image: portraitProfile, kind: 'portrait', name: 'portrait-profile' },
+  { image: dancePowder, kind: 'powder', name: 'dance-powder' },
+  { image: danceOutdoorVeil, kind: 'outdoor', name: 'dance-outdoor-veil' },
+  { image: portraitSide, kind: 'portrait', name: 'portrait-side' },
 ];
 
 const rotate = (offset: number) => photographs.map((_, index) => photographs[(index + offset) % photographs.length]);
@@ -36,15 +44,18 @@ const placement = (panel: number, index: number, kind: string) => {
   return { scale, width: kind === 'outdoor' ? 94 : width, x, y };
 };
 const imageOpacity = (kind: string) => {
-  if (kind === 'portrait') return '.31';
-  if (kind === 'movement') return '.28';
-  if (kind === 'outdoor') return '.27';
-  return '.25';
+  if (kind === 'portrait') return '.41';
+  if (kind === 'movement') return '.38';
+  if (kind === 'suspended') return '.38';
+  if (kind === 'outdoor') return '.37';
+  return '.35';
 };
 const imageMaxWidth = (kind: string) => {
   if (kind === 'portrait') return '420px';
   if (kind === 'movement') return '480px';
+  if (kind === 'suspended') return '480px';
   if (kind === 'outdoor') return '620px';
+  if (kind === 'powder') return '390px';
   return '440px';
 };
 const panels = [
@@ -54,7 +65,7 @@ const panels = [
 ];
 ---
 
-<section class="home-hero" data-home-hero>
+<section class:list={['home-hero', { 'home-hero--statement': Boolean(emphasis) }]} data-home-hero>
   <div class="home-hero__art" aria-hidden="true">
     {panels.map((panel, panelIndex) => (
       <figure class={`home-hero__panel home-hero__panel--${panel.position}`}>
@@ -62,7 +73,7 @@ const panels = [
           const position = placement(panelIndex, index, photo.kind);
           return (
             <Image
-              class={`home-hero__image home-hero__image--${photo.kind}`}
+              class={`home-hero__image home-hero__image--${photo.kind} home-hero__image--${photo.name}`}
               src={photo.image}
               alt=""
               widths={[480, 800]}
@@ -81,9 +92,9 @@ const panels = [
   </div>
   <div class="home-hero__wash" aria-hidden="true"></div>
   <div class="home-hero__copy">
-    <p class="eyebrow">Artistic director · Choreographer · Multidisciplinary performing artist</p>
-    <h1>{SITE.name}</h1>
-    <p>{SITE.tagline}</p>
+    <p class="eyebrow">Creative and artistic director · Choreographer · Performer</p>
+    <h1>{headline}{emphasis && <> <em>{emphasis}</em></>}</h1>
+    <p>{description}</p>
   </div>
 </section>
 
@@ -97,35 +108,78 @@ const panels = [
 <style>
   .home-hero { position: relative; min-height: clamp(580px, 76vw, 810px); overflow: hidden; background: var(--paper); isolation: isolate; }
   .home-hero__art, .home-hero__wash { position: absolute; inset: 0; }
-  .home-hero__panel { position: absolute; top: 0; bottom: 0; width: 44%; margin: 0; overflow: hidden; }
-  .home-hero__panel::after { content: ''; position: absolute; inset: -1px; z-index: 1; pointer-events: none; background: linear-gradient(to bottom, var(--paper) 0%, rgb(243 238 230 / .22) 30%, transparent 46%), linear-gradient(to bottom, transparent 54%, rgb(243 238 230 / .22) 70%, var(--paper) 100%), radial-gradient(ellipse 79% 86% at 50% 50%, transparent 21%, rgb(243 238 230 / .12) 48%, var(--paper) 100%); }
-  .home-hero__panel--left { left: 0; -webkit-mask-image: linear-gradient(90deg, #000 0 63%, transparent 100%); mask-image: linear-gradient(90deg, #000 0 63%, transparent 100%); }
-  .home-hero__panel--center { left: 25%; width: 50%; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 31%, #000 69%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, #000 31%, #000 69%, transparent 100%); }
-  .home-hero__panel--right { right: 0; -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 37%, #000 100%); mask-image: linear-gradient(90deg, transparent 0, #000 37%, #000 100%); }
-  .home-hero__image { position: absolute; top: 50%; left: 50%; display: block; width: min(var(--image-width), var(--image-max-width)); height: auto; max-height: 90%; opacity: 0; filter: grayscale(1); transform: translate(-50%, -50%) translate(var(--shift-x), var(--shift-y)) scale(var(--scale)); -webkit-mask-image: radial-gradient(ellipse 78% 82% at 50% 50%, #000 53%, rgb(0 0 0 / .75) 72%, transparent 100%); mask-image: radial-gradient(ellipse 78% 82% at 50% 50%, #000 53%, rgb(0 0 0 / .75) 72%, transparent 100%); animation: home-hero-crossfade 90s cubic-bezier(.45, 0, .55, 1) infinite; animation-delay: var(--delay); }
-  .home-hero__image--outdoor { -webkit-mask-image: radial-gradient(ellipse 82% 66% at 50% 50%, #000 42%, rgb(0 0 0 / .7) 68%, transparent 100%); mask-image: radial-gradient(ellipse 82% 66% at 50% 50%, #000 42%, rgb(0 0 0 / .7) 68%, transparent 100%); }
-  .home-hero__wash { z-index: 1; background: rgb(243 238 230 / 72%); }
-  .home-hero__copy { position: relative; z-index: 2; max-width: calc(var(--wide) + 2 * var(--gutter)); padding: clamp(90px, 14vw, 170px) var(--gutter); margin: 0 auto; }
-  .home-hero__copy h1 { margin: 18px 0 26px; font-size: clamp(62px, 12vw, 178px); font-weight: 400; line-height: .88; letter-spacing: -.03em; }
-  .home-hero__copy > p:last-child { max-width: 24em; font-family: var(--font-display); font-size: clamp(22px, 2.4vw, 32px); font-style: italic; line-height: 1.3; color: var(--ink-soft); }
+  .home-hero__panel { position: absolute; top: 0; bottom: 0; width: 58%; margin: 0; overflow: hidden; pointer-events: none; }
+  .home-hero__panel--left { left: -8%; -webkit-mask-image: linear-gradient(90deg, #000 0 50%, rgb(0 0 0 / .62) 72%, transparent 100%); mask-image: linear-gradient(90deg, #000 0 50%, rgb(0 0 0 / .62) 72%, transparent 100%); }
+  .home-hero__panel--center { left: 21%; -webkit-mask-image: linear-gradient(90deg, transparent 0, rgb(0 0 0 / .62) 24%, #000 43% 57%, rgb(0 0 0 / .62) 76%, transparent 100%); mask-image: linear-gradient(90deg, transparent 0, rgb(0 0 0 / .62) 24%, #000 43% 57%, rgb(0 0 0 / .62) 76%, transparent 100%); }
+  .home-hero__panel--right { right: -8%; -webkit-mask-image: linear-gradient(90deg, transparent 0, rgb(0 0 0 / .62) 28%, #000 50% 100%); mask-image: linear-gradient(90deg, transparent 0, rgb(0 0 0 / .62) 28%, #000 50% 100%); }
+  .home-hero__image { --perimeter-mask: radial-gradient(ellipse 78% 82% at 50% 50%, #000 49%, rgb(0 0 0 / .65) 68%, rgb(0 0 0 / .22) 82%, transparent 100%); position: absolute; top: 50%; left: 50%; display: block; width: min(var(--image-width), var(--image-max-width)); height: auto; max-height: 90%; opacity: 0; filter: grayscale(1) blur(.35px); transform: translate(-50%, -50%) translate(var(--shift-x), var(--shift-y)) scale(var(--scale)); -webkit-mask-image: var(--perimeter-mask); mask-image: var(--perimeter-mask); animation: home-hero-crossfade 90s cubic-bezier(.45, 0, .55, 1) infinite; animation-delay: var(--delay); }
+  .home-hero__image--suspended { height: min(72%, 576px); max-height: none; aspect-ratio: 5 / 6; object-fit: cover; object-position: center top; }
+  .home-hero__image--powder { --perimeter-mask: radial-gradient(ellipse 62% 66% at 50% 50%, #000 32%, rgb(0 0 0 / .45) 52%, rgb(0 0 0 / .12) 74%, transparent 100%); }
+  .home-hero__image--outdoor { --perimeter-mask: radial-gradient(ellipse 82% 66% at 50% 50%, #000 38%, rgb(0 0 0 / .6) 64%, rgb(0 0 0 / .18) 80%, transparent 100%); }
+  /* Intersect each existing all-edge mask with a bottom fade; the image box and pixels do not change. */
+  .home-hero__image--portrait-black,
+  .home-hero__image--portrait-side,
+  .home-hero__image--portrait-profile,
+  .home-hero__image--dance-suspended,
+  .home-hero__image--dance-outdoor-veil {
+    -webkit-mask-image: var(--perimeter-mask), linear-gradient(to bottom, #000 0 var(--bottom-fade-start), transparent 98%);
+    -webkit-mask-composite: source-in;
+    mask-image: var(--perimeter-mask), linear-gradient(to bottom, #000 0 var(--bottom-fade-start), transparent 98%);
+    mask-composite: intersect;
+  }
+  /* Fade the wall beside her head, then release that extra side fade before the arms. */
+  .home-hero__image--portrait-black {
+    --bottom-fade-start: 64%;
+    -webkit-mask-image:
+      var(--perimeter-mask),
+      linear-gradient(to bottom, #000 0 var(--bottom-fade-start), transparent 98%),
+      linear-gradient(to right, transparent, #000 18% 82%, transparent),
+      linear-gradient(to bottom, transparent 0 43%, #000 63%);
+    -webkit-mask-composite: source-in, source-in, source-over;
+    mask-image:
+      var(--perimeter-mask),
+      linear-gradient(to bottom, #000 0 var(--bottom-fade-start), transparent 98%),
+      linear-gradient(to right, transparent, #000 18% 82%, transparent),
+      linear-gradient(to bottom, transparent 0 43%, #000 63%);
+    mask-composite: intersect, intersect, add;
+  }
+  .home-hero__image--portrait-side { --bottom-fade-start: 68%; }
+  .home-hero__image--portrait-profile { --bottom-fade-start: 68%; }
+  /* Its raised hands begin just below the top edge, so finish this extra feather by 7%. */
+  .home-hero__image--dance-suspended {
+    -webkit-mask-image: var(--perimeter-mask), linear-gradient(to bottom, transparent 0, #000 7% 72%, transparent 98%);
+    mask-image: var(--perimeter-mask), linear-gradient(to bottom, transparent 0, #000 7% 72%, transparent 98%);
+  }
+  .home-hero__image--dance-outdoor-veil { --bottom-fade-start: 72%; }
+  .home-hero__wash { z-index: 1; background: linear-gradient(to bottom, rgb(var(--paper-rgb) / .08), transparent 14%, transparent 58%, rgb(var(--paper-rgb) / .24) 76%, rgb(var(--paper-rgb) / .58) 100%), linear-gradient(90deg, rgb(var(--paper-rgb) / .12), transparent 15% 85%, rgb(var(--paper-rgb) / .12)), rgb(var(--paper-rgb) / 66%); }
+  .home-hero__copy { position: relative; z-index: 2; display: grid; align-content: center; min-height: clamp(580px, 76vw, 810px); max-width: calc(var(--wide) + 2 * var(--gutter)); padding: 0 var(--gutter); margin: 0 auto; transform: translateY(clamp(-190px, -15vw, -110px)); }
+  .home-hero__copy h1 { margin: 18px 0 26px; font-size: clamp(62px, calc(12vw - 19px), 159px); font-weight: 400; line-height: .88; letter-spacing: -.03em; }
+  .home-hero--statement .home-hero__copy h1 { max-width: 1000px; font-size: clamp(68px, 9.4vw, 126px); }
+  .home-hero__copy h1 em { font-weight: 400; }
+  .home-hero__copy > p:last-child { max-width: 24em; font-family: var(--font-display); font-size: clamp(22px, calc(2.4vw - 2px), 30px); font-style: italic; line-height: 1.3; color: var(--ink-soft); }
   .is-paused .home-hero__image { animation-play-state: paused; }
 
   @keyframes home-hero-crossfade { 0% { opacity: 0; } 3.333%, 11.111% { opacity: var(--photo-opacity); } 14.444%, 100% { opacity: 0; } }
+
+  @media (min-width: 651px) {
+    .home-hero__image { top: calc(50% - clamp(72px, 10vw, 132px)); }
+  }
 
   @media (max-width: 650px) {
     .home-hero { min-height: 570px; }
     .home-hero__panel { display: none; width: 100%; }
     .home-hero__panel--center { display: block; left: 0; }
     .home-hero__panel--center .home-hero__image { width: min(var(--image-width), 92%, var(--image-max-width)); }
-    .home-hero__wash { background: linear-gradient(180deg, rgb(243 238 230 / 94%), rgb(243 238 230 / 76%)); }
-    .home-hero__copy { padding-top: 62px; }
+    .home-hero__wash { background: linear-gradient(180deg, rgb(var(--paper-rgb) / 90%), rgb(var(--paper-rgb) / 72%)); }
+    .home-hero__copy { min-height: 570px; padding: 0 var(--gutter); transform: translateY(-64px); }
     .home-hero__copy h1 { font-size: clamp(58px, 17vw, 96px); }
+    .home-hero--statement .home-hero__copy h1 { font-size: clamp(58px, 14vw, 86px); }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .home-hero__panel:not(.home-hero__panel--center) { display: none; }
     .home-hero__image { animation: none; }
     .home-hero__image:not(:first-child) { display: none; }
-    .home-hero__image:first-child { opacity: .31; }
+    .home-hero__image:first-child { opacity: .41; }
   }
 </style>

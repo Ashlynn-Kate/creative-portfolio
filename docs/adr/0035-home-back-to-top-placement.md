@@ -1,13 +1,14 @@
 ---
 id: ADR-0035
 title: Home back-to-top placement
-status: accepted
+status: superseded
 date: 2026-10-02
 area: design
 constraint: >
   The home page must place its centered Back to top link immediately after the
   final case-study content and before the footer; the shared footer must not
   contain a Back to top control.
+superseded_by: ADR-0043
 ---
 
 # Home back-to-top placement
