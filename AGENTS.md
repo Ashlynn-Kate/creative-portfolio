@@ -67,9 +67,6 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0018** · `design` · Site menu and About page
   The site header must use a three-line menu control that reveals links to Work, Disciplines, and About, and the About page must present Ashlynn Kate's biography with a primary portrait in an editorial layout.
   → `docs/adr/0018-site-menu-and-about-page.md`
-- **ADR-0019** · `design` · Object Translations concept thumbnails
-  Closed disclosures on the Object Translations all-concepts page must show a compact, consistently sized inspiration-object thumbnail without changing the full-size images inside.
-  → `docs/adr/0019-object-translations-concept-thumbnails.md`
 - **ADR-0024** · `design` · Prince of Egypt compact supporting materials
   The Prince of Egypt stage image must appear as a compact image beside its creative-process disclosures, and its Selected Materials links must use a compact four-across image-led layout.
   → `docs/adr/0024-prince-of-egypt-compact-materials.md`
@@ -112,15 +109,15 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0049** · `design` · Direct destinations from areas of work
   Home-page areas of work must link directly to their destination rather than through the Works overview. Object Translations must open on its complete concept collection without a separate four-portrait summary, and grouped areas such as Live performance must have focused pages that show their work groups and current projects immediately.
   → `docs/adr/0049-direct-area-destinations.md`
-- **ADR-0050** · `design` · Soft auto-scroll for Conceptual Portraits galleries
-  Layouts must remain mobile-first without phone-width horizontal scroll, and ordinary carousels must retain peek-behind navigation by swipe, drag, keyboard, buttons, and peeking-image click. Each Conceptual Portraits concept must keep its object beside a light-background gallery of its lead and additional portraits, but its outgoing left peek may fade away as the images scroll. These galleries must advance every 2.35 seconds only while open and visible, pause on hover or focus, stop after manual interaction until reopened, and disable autoplay for reduced motion.
-  → `docs/adr/0050-concept-portrait-gallery-autoplay.md`
 - **ADR-0051** · `design` · Conceptual Portraits introduction and index width
   The Conceptual Portraits all-concepts page must place its series introduction after the title, subtitle, and disciplines but before the concept disclosures. The introduction and concept index must use wider editorial columns so each three-part concept descriptor stays on one line when space permits, without causing horizontal scroll on smaller screens.
   → `docs/adr/0051-concept-series-intro-and-index-width.md`
 - **ADR-0052** · `design` · Stable home navigation arrows
   The home page's Areas of work links and its adjacent portfolio links must use drawn arrow icons rather than Unicode arrow characters, so their appearance stays typographic and consistent across desktop and mobile platforms.
   → `docs/adr/0052-home-navigation-arrow-icons.md`
+- **ADR-0053** · `design` · Mobile Conceptual Portrait object presentation
+  Conceptual Portraits disclosures must retain the full-size object beside the portrait gallery on desktop. On phones, opening a concept must enlarge its compact object thumbnail to 112px beside the title and descriptor, then show the portrait gallery directly below without the separate full-size object image; carousel behavior remains as previously defined.
+  → `docs/adr/0053-mobile-concept-object-presentation.md`
 <!-- adr-registry:end -->
 
 ## Content scope

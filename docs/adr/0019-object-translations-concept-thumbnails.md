@@ -1,9 +1,10 @@
 ---
 id: ADR-0019
 title: Object Translations concept thumbnails
-status: accepted
+status: superseded
 date: 2026-10-01
 area: design
+superseded_by: ADR-0053
 constraint: >
   Closed disclosures on the Object Translations all-concepts page must show a compact,
   consistently sized inspiration-object thumbnail without changing the full-size images inside.

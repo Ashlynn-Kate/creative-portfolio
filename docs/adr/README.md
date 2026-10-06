@@ -26,7 +26,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0016](0016-object-translations-all-concepts.md) | Object Translations uses a summary and all-concepts page | superseded by ADR-0022 | design | 2026-09-29 |
 | [ADR-0017](0017-object-translations-concept-disclosures.md) | Object Translations concepts begin as disclosures | accepted | design | 2026-09-29 |
 | [ADR-0018](0018-site-menu-and-about-page.md) | Site menu and About page | accepted | design | 2026-09-30 |
-| [ADR-0019](0019-object-translations-concept-thumbnails.md) | Object Translations concept thumbnails | accepted | design | 2026-10-01 |
+| [ADR-0019](0019-object-translations-concept-thumbnails.md) | Object Translations concept thumbnails | superseded by ADR-0053 | design | 2026-10-01 |
 | [ADR-0020](0020-object-translations-inline-portrait-galleries.md) | Object Translations inline portrait galleries | superseded by ADR-0050 | design | 2026-10-01 |
 | [ADR-0021](0021-object-translations-portrait-preview.md) | Object Translations portrait preview | superseded by ADR-0049 | design | 2026-10-01 |
 | [ADR-0022](0022-object-translations-all-concepts-only.md) | Object Translations all-concepts-only summary | superseded by ADR-0049 | design | 2026-10-01 |
@@ -57,9 +57,10 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0047](0047-role-language-and-project-attribution.md) | Role language and project attribution | superseded by ADR-0048 | content | 2026-10-05 |
 | [ADR-0048](0048-conceptual-portrait-category-and-role-tags.md) | Conceptual portrait category and curated role tags | accepted | content | 2026-10-05 |
 | [ADR-0049](0049-direct-area-destinations.md) | Direct destinations from areas of work | accepted | design | 2026-10-05 |
-| [ADR-0050](0050-concept-portrait-gallery-autoplay.md) | Soft auto-scroll for Conceptual Portraits galleries | accepted | design | 2026-10-05 |
+| [ADR-0050](0050-concept-portrait-gallery-autoplay.md) | Soft auto-scroll for Conceptual Portraits galleries | superseded by ADR-0053 | design | 2026-10-05 |
 | [ADR-0051](0051-concept-series-intro-and-index-width.md) | Conceptual Portraits introduction and index width | accepted | design | 2026-10-06 |
 | [ADR-0052](0052-home-navigation-arrow-icons.md) | Stable home navigation arrows | accepted | design | 2026-10-06 |
+| [ADR-0053](0053-mobile-concept-object-presentation.md) | Mobile Conceptual Portrait object presentation | accepted | design | 2026-10-06 |
 
 ## Adding or changing a decision
 

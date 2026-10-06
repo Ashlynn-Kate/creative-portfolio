@@ -1,9 +1,10 @@
 ---
 id: ADR-0050
 title: Soft auto-scroll for Conceptual Portraits galleries
-status: accepted
+status: superseded
 date: 2026-10-05
 area: design
+superseded_by: ADR-0053
 constraint: >
   Layouts must remain mobile-first without phone-width horizontal scroll, and ordinary carousels
   must retain peek-behind navigation by swipe, drag, keyboard, buttons, and peeking-image click.
