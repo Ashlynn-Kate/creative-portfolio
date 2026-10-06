@@ -112,6 +112,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0051** · `design` · Conceptual Portraits introduction and index width
   The Conceptual Portraits all-concepts page must place its series introduction after the title, subtitle, and disciplines but before the concept disclosures. The introduction and concept index must use wider editorial columns so each three-part concept descriptor stays on one line when space permits, without causing horizontal scroll on smaller screens.
   → `docs/adr/0051-concept-series-intro-and-index-width.md`
+- **ADR-0052** · `design` · Stable home navigation arrows
+  The home page's Areas of work links and its adjacent portfolio links must use drawn arrow icons rather than Unicode arrow characters, so their appearance stays typographic and consistent across desktop and mobile platforms.
+  → `docs/adr/0052-home-navigation-arrow-icons.md`
 - **ADR-0053** · `design` · Mobile Conceptual Portrait object presentation
   Conceptual Portraits disclosures must retain the full-size object beside the portrait gallery on desktop. On phones, opening a concept must enlarge its compact object thumbnail to 112px beside the title and descriptor, then show the portrait gallery directly below without the separate full-size object image; carousel behavior remains as previously defined.
   → `docs/adr/0053-mobile-concept-object-presentation.md`
