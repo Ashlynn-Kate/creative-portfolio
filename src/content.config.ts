@@ -36,6 +36,10 @@ const text = z.object({
   type: z.literal('text'),
   /** Markdown: paragraphs, **bold**, *italic*, lists, links. */
   body: z.string(),
+  /** Optional position among sibling blocks, including numbered disclosures. */
+  order: z.number().optional(),
+  /** Allow an introduction to use the wider editorial column. */
+  size: z.enum(['text', 'wide']).default('text'),
 });
 
 const imageBlock = image.extend({

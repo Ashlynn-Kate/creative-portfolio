@@ -58,6 +58,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0048](0048-conceptual-portrait-category-and-role-tags.md) | Conceptual portrait category and curated role tags | accepted | content | 2026-10-05 |
 | [ADR-0049](0049-direct-area-destinations.md) | Direct destinations from areas of work | accepted | design | 2026-10-05 |
 | [ADR-0050](0050-concept-portrait-gallery-autoplay.md) | Soft auto-scroll for Conceptual Portraits galleries | accepted | design | 2026-10-05 |
+| [ADR-0051](0051-concept-series-intro-and-index-width.md) | Conceptual Portraits introduction and index width | accepted | design | 2026-10-06 |
 
 ## Adding or changing a decision
 

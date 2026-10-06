@@ -115,6 +115,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0050** · `design` · Soft auto-scroll for Conceptual Portraits galleries
   Layouts must remain mobile-first without phone-width horizontal scroll, and ordinary carousels must retain peek-behind navigation by swipe, drag, keyboard, buttons, and peeking-image click. Each Conceptual Portraits concept must keep its object beside a light-background gallery of its lead and additional portraits, but its outgoing left peek may fade away as the images scroll. These galleries must advance every 2.35 seconds only while open and visible, pause on hover or focus, stop after manual interaction until reopened, and disable autoplay for reduced motion.
   → `docs/adr/0050-concept-portrait-gallery-autoplay.md`
+- **ADR-0051** · `design` · Conceptual Portraits introduction and index width
+  The Conceptual Portraits all-concepts page must place its series introduction after the title, subtitle, and disciplines but before the concept disclosures. The introduction and concept index must use wider editorial columns so each three-part concept descriptor stays on one line when space permits, without causing horizontal scroll on smaller screens.
+  → `docs/adr/0051-concept-series-intro-and-index-width.md`
 <!-- adr-registry:end -->
 
 ## Content scope

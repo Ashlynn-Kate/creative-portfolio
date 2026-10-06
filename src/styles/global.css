@@ -1127,6 +1127,13 @@ main:has(.about) + .site-footer {
   border-bottom: 1px solid var(--line);
 }
 
+/* Give concept titles and their three-part descriptors one calm editorial line. */
+.flow > .details--concept {
+  grid-column: wide;
+  width: min(100%, 980px);
+  justify-self: center;
+}
+
 .flow > .details + .details {
   margin-top: calc(-1 * clamp(28px, 4vw, 48px) - 1px);
 }
@@ -1179,6 +1186,16 @@ main:has(.about) + .site-footer {
   grid-template-columns: 64px minmax(0, 1fr) minmax(140px, .85fr) auto;
 }
 
+@media (min-width: 900px) {
+  .details--concept summary:has(.details__thumbnail) {
+    grid-template-columns: 64px minmax(0, 1fr) max-content auto;
+  }
+
+  .details--concept .details__sub {
+    white-space: nowrap;
+  }
+}
+
 .details__thumbnail {
   width: 64px;
   height: 64px;
@@ -1202,6 +1219,10 @@ main:has(.about) + .site-footer {
 @media (max-width: 560px) {
   .details__sub {
     display: none;
+  }
+
+  .details--concept summary:has(.details__thumbnail) {
+    grid-template-columns: 64px minmax(0, 1fr) auto;
   }
 }
 

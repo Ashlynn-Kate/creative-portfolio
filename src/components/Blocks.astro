@@ -39,7 +39,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
           </div>
         );
       case 'text':
-        return <div class="prose" set:html={md(block.body)} />;
+        return <div class:list={['prose', { wide: block.size === 'wide' }]} set:html={md(block.body)} />;
       case 'image':
         return (
           <MediaImage
@@ -107,7 +107,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
         const additionalCarousel = additionalPhotos?.blocks.find(isCarousel);
         const hasPortraitGallery = objectPortrait && additionalCarousel;
         return (
-          <details class="details">
+          <details class:list={['details', { 'details--concept': hasPortraitGallery }]}>
             <summary>
               {block.thumbnail && <MediaImage image={block.thumbnail} class="details__thumbnail" showCaption={false} sizes="64px" />}
               <span set:html={mdInline(block.summary)} />

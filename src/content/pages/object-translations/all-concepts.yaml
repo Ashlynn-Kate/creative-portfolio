@@ -9,6 +9,8 @@ cover:
   alt: A portrait inspired by a disco ball.
 blocks:
   - type: text
+    order: 0
+    size: wide
     body: >
       For this independent series, I start with an object and translate its color,
       shape, texture, or character into a portrait. I develop and direct each
