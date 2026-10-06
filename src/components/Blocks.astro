@@ -123,7 +123,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
                     </div>
                     <div class="pair-gallery__portraits">
                       <p class="grid__label">Portraits</p>
-                      <Carousel label={`${block.summary} portraits`} images={[objectPortrait.images[1], ...additionalCarousel.images]} />
+                      <Carousel label={`${block.summary} portraits`} images={[objectPortrait.images[1], ...additionalCarousel.images]} autoplay />
                     </div>
                   </div>
                   <Astro.self blocks={block.blocks.filter((child) => child !== objectPortrait && child !== additionalPhotos)} />

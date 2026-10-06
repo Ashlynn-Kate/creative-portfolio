@@ -1,9 +1,10 @@
 ---
 id: ADR-0009
 title: Peek-behind carousel and mobile-first interaction baseline
-status: accepted
+status: superseded
 date: 2026-09-27
 area: design
+superseded_by: ADR-0050
 constraint: >
   Every layout must work mobile-first, with no horizontal page scroll at phone widths. The
   signature peek-behind carousel (`src/components/Carousel.astro`) must keep working with

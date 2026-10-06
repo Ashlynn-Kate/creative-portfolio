@@ -16,7 +16,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0006](0006-notion-as-content-source.md) | Notion as the content source; never hotlink Notion files | accepted | content | 2026-09-27 |
 | [ADR-0007](0007-image-pipeline.md) | Image pipeline — automatic web versions, full resolution on Google Drive | accepted | media | 2026-09-27 |
 | [ADR-0008](0008-video-drive-thumbnail-now-youtube-later.md) | Video — Drive thumbnail links now, YouTube embeds later | accepted | media | 2026-09-27 |
-| [ADR-0009](0009-carousel-and-mobile-first-interaction.md) | Peek-behind carousel and mobile-first interaction baseline | accepted | design | 2026-09-27 |
+| [ADR-0009](0009-carousel-and-mobile-first-interaction.md) | Peek-behind carousel and mobile-first interaction baseline | superseded by ADR-0050 | design | 2026-09-27 |
 | [ADR-0010](0010-picomatch-windows-preview-bridge.md) | ESM bridge for the local preview's picomatch dependency | accepted | stack | 2026-09-27 |
 | [ADR-0011](0011-publish-through-pull-requests.md) | Publish through branches and pull requests | accepted | hosting | 2026-09-27 |
 | [ADR-0012](0012-cli-for-repository-operations.md) | Use CLI commands for repository operations | accepted | workflow | 2026-09-27 |
@@ -27,7 +27,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0017](0017-object-translations-concept-disclosures.md) | Object Translations concepts begin as disclosures | accepted | design | 2026-09-29 |
 | [ADR-0018](0018-site-menu-and-about-page.md) | Site menu and About page | accepted | design | 2026-09-30 |
 | [ADR-0019](0019-object-translations-concept-thumbnails.md) | Object Translations concept thumbnails | accepted | design | 2026-10-01 |
-| [ADR-0020](0020-object-translations-inline-portrait-galleries.md) | Object Translations inline portrait galleries | accepted | design | 2026-10-01 |
+| [ADR-0020](0020-object-translations-inline-portrait-galleries.md) | Object Translations inline portrait galleries | superseded by ADR-0050 | design | 2026-10-01 |
 | [ADR-0021](0021-object-translations-portrait-preview.md) | Object Translations portrait preview | superseded by ADR-0049 | design | 2026-10-01 |
 | [ADR-0022](0022-object-translations-all-concepts-only.md) | Object Translations all-concepts-only summary | superseded by ADR-0049 | design | 2026-10-01 |
 | [ADR-0023](0023-prince-of-egypt-text-led-opening.md) | Prince of Egypt text-led opening | superseded by ADR-0034 | design | 2026-10-01 |
@@ -57,6 +57,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0047](0047-role-language-and-project-attribution.md) | Role language and project attribution | superseded by ADR-0048 | content | 2026-10-05 |
 | [ADR-0048](0048-conceptual-portrait-category-and-role-tags.md) | Conceptual portrait category and curated role tags | accepted | content | 2026-10-05 |
 | [ADR-0049](0049-direct-area-destinations.md) | Direct destinations from areas of work | accepted | design | 2026-10-05 |
+| [ADR-0050](0050-concept-portrait-gallery-autoplay.md) | Soft auto-scroll for Conceptual Portraits galleries | accepted | design | 2026-10-05 |
 
 ## Adding or changing a decision
 

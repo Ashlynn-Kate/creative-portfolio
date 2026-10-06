@@ -14,9 +14,11 @@ import MediaImage from './MediaImage.astro';
 interface Props {
   label: string;
   images: { src: string; alt: string; caption?: string; highRes?: string }[];
+  /** Only concept portrait galleries advance automatically. */
+  autoplay?: boolean;
 }
 
-const { label, images } = Astro.props;
+const { label, images, autoplay = false } = Astro.props;
 const count = images.length;
 
 // Stage shape: follows the widest image, kept between square-ish and cinematic.
@@ -25,7 +27,7 @@ const ratio = Math.min(Math.max(widest, 1.25), 1.9).toFixed(3);
 const pad = (n: number) => String(n).padStart(2, '0');
 ---
 
-<section class="carousel" data-carousel aria-roledescription="carousel" aria-label={label} style={`--ratio: ${ratio}`}>
+<section class:list={['carousel', { 'carousel--autoplay': autoplay }]} data-carousel data-autoplay={autoplay ? '' : undefined} aria-roledescription="carousel" aria-label={label} style={`--ratio: ${ratio}`}>
   <div class="carousel__stage" data-stage tabindex="0" aria-label={`${label}. Use the left and right arrow keys to browse.`}>
     {images.map((image, i) => (
       <div
@@ -41,7 +43,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
   </div>
 
   <div class="carousel__bar">
-    <p class="carousel__caption" data-caption-text aria-live="polite" set:html={images[0]?.caption ? mdInline(images[0].caption) : ''} />
+    <p class="carousel__caption" data-caption-text aria-live={autoplay ? 'off' : 'polite'} set:html={images[0]?.caption ? mdInline(images[0].caption) : ''} />
     {count > 1 && (
       <div class="carousel__controls">
         <button type="button" class="carousel__btn" data-prev aria-label="Previous image">
@@ -64,7 +66,39 @@ const pad = (n: number) => String(n).padStart(2, '0');
     const caption = root.querySelector<HTMLElement>('[data-caption-text]')!;
     const indexLabel = root.querySelector<HTMLElement>('[data-index]');
     const n = slides.length;
+    const autoplay = root.hasAttribute('data-autoplay');
+    const concept = root.closest<HTMLDetailsElement>('details.details');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     let current = 0;
+    let manuallyControlled = false;
+    let visible = false;
+    let hovered = false;
+    let timer: number | undefined;
+    let outgoingFade: Animation | undefined;
+    let outgoingOnTop: HTMLElement | undefined;
+
+    function clearFade() {
+      outgoingFade?.cancel();
+      if (outgoingOnTop) outgoingOnTop.style.zIndex = '';
+      outgoingFade = undefined;
+      outgoingOnTop = undefined;
+    }
+
+    function updateTimer() {
+      window.clearInterval(timer);
+      timer = undefined;
+      if (!autoplay || n < 2 || !visible || !concept?.open || hovered ||
+          root.matches(':hover') || root.matches(':focus-within') ||
+          manuallyControlled || reducedMotion.matches || document.hidden) return;
+      timer = window.setInterval(() => go(1), 2350);
+    }
+
+    function takeControl() {
+      if (!autoplay) return;
+      manuallyControlled = true;
+      caption.setAttribute('aria-live', 'polite');
+      updateTimer();
+    }
 
     // Gives each slide a position: 0 = front, -1 = peeking left, 1 = peeking right.
     function render() {
@@ -84,19 +118,41 @@ const pad = (n: number) => String(n).padStart(2, '0');
       });
       caption.innerHTML = slides[current].dataset.caption ?? '';
       if (indexLabel) indexLabel.textContent = String(current + 1).padStart(2, '0');
+      // Load the next portrait before it scrolls into the front position.
+      if (autoplay) {
+        const nextImage = slides[(current + 1) % n].querySelector('img');
+        if (nextImage) nextImage.loading = 'eager';
+      }
     }
 
     function go(step: number) {
+      if (n < 2) return;
+      clearFade();
+      const outgoing = slides[current];
       current = (current + step + n) % n;
       render();
+      if (autoplay && !reducedMotion.matches) {
+        // Keep the old front above the incoming peek while they scroll together.
+        // Its fade stays at zero afterward, so it does not reappear on the left.
+        outgoingOnTop = outgoing;
+        outgoing.style.zIndex = '5';
+        outgoingFade = outgoing.animate(
+          [{ opacity: 1 }, { opacity: 0 }],
+          { duration: 1650, easing: 'cubic-bezier(0.45, 0, 0.55, 1)', fill: 'forwards' },
+        );
+        outgoingFade.onfinish = () => {
+          outgoing.style.zIndex = '';
+          outgoingOnTop = undefined;
+        };
+      }
     }
 
-    root.querySelector('[data-prev]')?.addEventListener('click', () => go(-1));
-    root.querySelector('[data-next]')?.addEventListener('click', () => go(1));
+    root.querySelector('[data-prev]')?.addEventListener('click', () => { takeControl(); go(-1); });
+    root.querySelector('[data-next]')?.addEventListener('click', () => { takeControl(); go(1); });
 
     stage.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
-      if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); takeControl(); go(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); takeControl(); go(1); }
     });
 
     // Swipe / drag. The front image follows the finger, then snaps.
@@ -107,6 +163,7 @@ const pad = (n: number) => String(n).padStart(2, '0');
 
     stage.addEventListener('pointerdown', (e) => {
       if (n < 2 || (e.pointerType === 'mouse' && e.button !== 0)) return;
+      takeControl();
       dragging = true;
       moved = false;
       startX = e.clientX;
@@ -145,10 +202,37 @@ const pad = (n: number) => String(n).padStart(2, '0');
         if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; return; }
         const slide = (e.target as HTMLElement).closest<HTMLElement>('[data-slide]');
         const pos = slide?.dataset.pos;
-        if (pos === '1' || pos === '-1') { e.preventDefault(); go(Number(pos)); }
+        if (pos === '1' || pos === '-1') { e.preventDefault(); takeControl(); go(Number(pos)); }
       },
       true,
     );
+
+    if (autoplay) {
+      const observer = new IntersectionObserver(([entry]) => {
+        visible = entry.isIntersecting;
+        updateTimer();
+      }, { threshold: 0.35 });
+      observer.observe(stage);
+      concept?.addEventListener('toggle', () => {
+        if (!concept.open) {
+          manuallyControlled = false;
+          caption.setAttribute('aria-live', 'off');
+          clearFade();
+        }
+        updateTimer();
+      });
+      root.addEventListener('pointerenter', (e) => {
+        if (e.pointerType === 'mouse') { hovered = true; updateTimer(); }
+      });
+      root.addEventListener('pointerleave', () => { hovered = false; updateTimer(); });
+      root.addEventListener('focusin', updateTimer);
+      root.addEventListener('focusout', updateTimer);
+      reducedMotion.addEventListener('change', () => {
+        if (reducedMotion.matches) clearFade();
+        updateTimer();
+      });
+      document.addEventListener('visibilitychange', updateTimer);
+    }
 
     render();
     root.classList.add('is-ready');

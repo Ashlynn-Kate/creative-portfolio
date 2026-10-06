@@ -43,9 +43,6 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0008** · `media` · Video — Drive thumbnail links now, YouTube embeds later
   Video is shown as a thumbnail image that links to the video file on Google Drive; no embedded players yet. All video markup lives in `src/components/VideoLink.astro` so the later switch to unlisted YouTube embeds is a one-file change. Never commit video files to the repo.
   → `docs/adr/0008-video-drive-thumbnail-now-youtube-later.md`
-- **ADR-0009** · `design` · Peek-behind carousel and mobile-first interaction baseline
-  Every layout must work mobile-first, with no horizontal page scroll at phone widths. The signature peek-behind carousel (`src/components/Carousel.astro`) must keep working with touch swipe, mouse drag, keyboard arrow keys, the prev/next buttons, and clicking a peeking image, and must respect `prefers-reduced-motion`. Any new motion or animation must also respect reduced motion.
-  → `docs/adr/0009-carousel-and-mobile-first-interaction.md`
 - **ADR-0010** · `stack` · ESM bridge for the local preview's picomatch dependency
   Astro's Vite configuration must route picomatch imports through the tracked ESM bridge while its CommonJS entry fails in the Windows module runner. Do not patch node_modules by hand or require the owner to run extra setup steps.
   → `docs/adr/0010-picomatch-windows-preview-bridge.md`
@@ -73,9 +70,6 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0019** · `design` · Object Translations concept thumbnails
   Closed disclosures on the Object Translations all-concepts page must show a compact, consistently sized inspiration-object thumbnail without changing the full-size images inside.
   → `docs/adr/0019-object-translations-concept-thumbnails.md`
-- **ADR-0020** · `design` · Object Translations inline portrait galleries
-  Each Object Translations concept must show its inspiration object beside a light-background, peek-behind gallery whose first image is the primary portrait and whose remaining images are the additional portraits; it must not use a separate Additional Photos disclosure.
-  → `docs/adr/0020-object-translations-inline-portrait-galleries.md`
 - **ADR-0024** · `design` · Prince of Egypt compact supporting materials
   The Prince of Egypt stage image must appear as a compact image beside its creative-process disclosures, and its Selected Materials links must use a compact four-across image-led layout.
   → `docs/adr/0024-prince-of-egypt-compact-materials.md`
@@ -118,6 +112,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0049** · `design` · Direct destinations from areas of work
   Home-page areas of work must link directly to their destination rather than through the Works overview. Object Translations must open on its complete concept collection without a separate four-portrait summary, and grouped areas such as Live performance must have focused pages that show their work groups and current projects immediately.
   → `docs/adr/0049-direct-area-destinations.md`
+- **ADR-0050** · `design` · Soft auto-scroll for Conceptual Portraits galleries
+  Layouts must remain mobile-first without phone-width horizontal scroll, and ordinary carousels must retain peek-behind navigation by swipe, drag, keyboard, buttons, and peeking-image click. Each Conceptual Portraits concept must keep its object beside a light-background gallery of its lead and additional portraits, but its outgoing left peek may fade away as the images scroll. These galleries must advance every 2.35 seconds only while open and visible, pause on hover or focus, stop after manual interaction until reopened, and disable autoplay for reduced motion.
+  → `docs/adr/0050-concept-portrait-gallery-autoplay.md`
 <!-- adr-registry:end -->
 
 ## Content scope
