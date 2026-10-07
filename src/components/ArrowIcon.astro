@@ -1,0 +1,38 @@
+---
+interface Props {
+  direction?: 'left' | 'right' | 'up-right';
+  class?: string;
+}
+
+const { direction = 'right', class: className } = Astro.props;
+---
+
+<svg
+  class:list={['arrow-icon', className]}
+  viewBox="0 0 24 24"
+  aria-hidden="true"
+  focusable="false"
+>
+  {direction === 'left' ? (
+    <path d="M21 12H3m6 6-6-6 6-6" />
+  ) : direction === 'up-right' ? (
+    <path d="M7 17 17 7M7 7h10v10" />
+  ) : (
+    <path d="M3 12h18m-6-6 6 6-6 6" />
+  )}
+</svg>
+
+<style>
+  .arrow-icon {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    flex: none;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
+    vertical-align: -0.12em;
+  }
+</style>

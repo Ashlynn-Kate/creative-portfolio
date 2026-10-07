@@ -6,6 +6,7 @@
 import { Image } from 'astro:assets';
 import { getImage } from '../lib/images';
 import { mdInline } from '../lib/site';
+import ArrowIcon from './ArrowIcon.astro';
 
 interface Props {
   thumbnail: { src: string; alt: string };
@@ -25,7 +26,7 @@ const widths = [...new Set([480, 800, 1200, maxWidth].filter((w) => w <= maxWidt
     <span class="video__play" aria-hidden="true">
       <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5.5v13l11-6.5z" fill="currentColor"></path></svg>
     </span>
-    <span class="video__label">Watch the clip <span aria-hidden="true">↗</span><span class="sr-only"> (opens Google Drive in a new tab)</span></span>
+    <span class="video__label">Watch the clip <ArrowIcon direction="up-right" /><span class="sr-only"> (opens Google Drive in a new tab)</span></span>
   </a>
   {caption && <figcaption set:html={mdInline(caption)} />}
 </figure>

@@ -7,6 +7,7 @@
  */
 import '../styles/global.css';
 import { url } from '../lib/site';
+import ArrowIcon from '../components/ArrowIcon.astro';
 
 type Proto = { topic: string; variant: string; Component: any };
 
@@ -75,7 +76,7 @@ const title = proto ? `${topic} / ${variant}` : topic ? `${topic} (compare)` : '
     {view === 'compare' && (
       <main class="lab-compare">
         <header class="lab-bar">
-          <a href={url('lab')}>← All prototypes</a>
+          <a href={url('lab')}><ArrowIcon direction="left" /> All prototypes</a>
           <h1>{topic}</h1>
           <div class="lab-sizes" role="group" aria-label="Preview size">
             <button type="button" data-size="1440" aria-pressed="true">Desktop</button>
@@ -85,7 +86,7 @@ const title = proto ? `${topic} / ${variant}` : topic ? `${topic} (compare)` : '
         <div class="lab-frames">
           {siblings.map((s) => (
             <figure class="lab-frame">
-              <figcaption><a href={url(`lab/${topic}/${s.variant}`)}>{s.variant} ↗</a></figcaption>
+              <figcaption><a href={url(`lab/${topic}/${s.variant}`)}>{s.variant} <ArrowIcon direction="up-right" /></a></figcaption>
               <div class="lab-frame__box" data-box>
                 <iframe src={`${url(`lab/${topic}/${s.variant}`)}?bare`} title={`${topic} ${s.variant}`} loading="lazy"></iframe>
               </div>

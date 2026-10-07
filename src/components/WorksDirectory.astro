@@ -4,6 +4,7 @@ import { getEntry } from 'astro:content';
 import MediaImage from './MediaImage.astro';
 import { casePath } from '../lib/content';
 import { slugify, url } from '../lib/site';
+import ArrowIcon from './ArrowIcon.astro';
 
 interface DirectoryItem {
   type: 'case' | 'page';
@@ -45,7 +46,7 @@ const groups = await Promise.all(categories.map(async (category) => ({
 <nav class:list={['works-directory', { 'works-directory--focused': focused }]} aria-label={focused ? `${categories[0]?.title} works` : 'Works directory'}>
   {groups.map((category, index) => category.type === 'case' && category.item ? (
     <a class="works-directory__category" id={slugify(category.title)} href={category.item.href}>
-      <span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong><b aria-hidden="true">→</b>
+      <span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong><b><ArrowIcon /></b>
     </a>
   ) : (
     <section class="works-directory__live" id={slugify(category.title)}>
@@ -56,7 +57,7 @@ const groups = await Promise.all(categories.map(async (category) => ({
           {group.items.map((item) => (
             <a class="works-directory__piece" href={item.href}>
               <MediaImage image={{ ...item.cover, highRes: undefined }} showCaption={false} sizes="(max-width: 680px) 100vw, 24vw" />
-              <span><em>{item.title}</em><small>{item.meta}</small></span><b aria-hidden="true">→</b>
+              <span><em>{item.title}</em><small>{item.meta}</small></span><b><ArrowIcon /></b>
             </a>
           ))}
         </details>
