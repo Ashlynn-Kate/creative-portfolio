@@ -5,6 +5,7 @@ import { pad } from '../lib/content';
 import { url } from '../lib/site';
 import Blocks from './Blocks.astro';
 import DisciplineTags from './DisciplineTags.astro';
+import ArrowIcon from './ArrowIcon.astro';
 
 interface Props {
   entry: Case;
@@ -29,7 +30,7 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
   aria-labelledby={`${entry.id}-title`}
 >
   <header class="case__header">
-    {standalone && <a class="back case__back" href={url('works')}><span aria-hidden="true">←</span> All works</a>}
+    {standalone && <a class="back case__back" href={url('works')}><ArrowIcon direction="left" /> All works</a>}
     <p class="case__num" aria-hidden="true">{pad(number)}</p>
     <div class="case__heading">
       <p class="case__kicker">

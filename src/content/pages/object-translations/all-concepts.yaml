@@ -12,11 +12,12 @@ blocks:
     order: 0
     size: wide
     body: >
-      For this independent series, I start with an object and translate its color,
-      shape, texture, or character into a portrait. I develop and direct each
-      concept, select and style the wardrobe, photograph and edit the images,
-      and appear in every portrait. Each group below shows the object that
-      sparked the concept alongside the final portrait.
+      I start with an object and translate its color, shape, texture, or
+      character into a portrait. I develop and direct each concept from the
+      first idea through the finished image, including planning the shoot,
+      selecting and styling the wardrobe, photographing and editing
+      each portrait, and appearing in every one. Each group below shows the
+      object that sparked the concept alongside the final portrait.
   - type: details
     summary: Feather bag
     order: 1
@@ -102,6 +103,8 @@ blocks:
                   the lamp.
               - src: object-translations/lamp-02.png
                 alt: Additional portrait from the Vintage Lamp concept.
+              - src: object-translations/lamp-03.png
+                alt: A woman in a white blouse and long olive-green trousers standing against a pale backdrop, casting a large shadow.
   - type: details
     summary: Sharpie Highlighter
     order: 5
@@ -198,8 +201,8 @@ blocks:
         images:
           - src: object-translations/bronze-heel-object.png
             alt: A low bronze slingback heel.
-          - src: object-translations/bronze-heel-portrait.jpeg
-            alt: A portrait in a draped dress inspired by a bronze slingback heel.
+          - src: object-translations/bronze-heel-dress-01.png
+            alt: A woman seated facing away in a bronze satin dress on a white cube.
       - type: details
         summary: Behind the translation
         blocks:
@@ -215,8 +218,12 @@ blocks:
           - type: carousel
             label: Additional Bronze Heel photos
             images:
-              - src: object-translations/bronze-heel-01.jpeg
-                alt: Additional portrait from the Bronze Heel concept.
+              - src: object-translations/bronze-heel-dress-02.png
+                alt: A side-profile portrait in a bronze satin dress, seated on a white cube.
+              - src: object-translations/bronze-heel-dress-03.png
+                alt: A woman in a bronze satin dress reclining sideways on a white cube.
+              - src: object-translations/bronze-heel-dress-04.png
+                alt: A rear-view portrait in a bronze satin dress, seated on a white cube.
   - type: details
     summary: Lemonade Pitcher
     order: 8
@@ -232,7 +239,7 @@ blocks:
         images:
           - src: object-translations/lemonade-pitcher-object.jpeg
             alt: A pale yellow lemonade pitcher with a curved green handle.
-          - src: object-translations/lemonade-pitcher-01.png
+          - src: object-translations/lemonade-pitcher-03.png
             alt: A portrait inspired by the soft curves of a lemonade pitcher.
       - type: details
         summary: Behind the translation
@@ -249,9 +256,9 @@ blocks:
           - type: carousel
             label: Additional Lemonade Pitcher photos
             images:
-              - src: object-translations/lemonade-pitcher-02.jpeg
+              - src: object-translations/lemonade-pitcher-01.png
                 alt: Additional portrait from the Lemonade Pitcher concept.
-              - src: object-translations/lemonade-pitcher-03.png
+              - src: object-translations/lemonade-pitcher-02.jpeg
                 alt: Additional portrait from the Lemonade Pitcher concept.
   - type: details
     summary: Floral Heel

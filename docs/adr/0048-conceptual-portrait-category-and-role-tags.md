@@ -8,9 +8,10 @@ constraint: >
   The site must identify Ashlynn as a creative director, artistic director,
   choreographer, and performer, and must credit sole and shared project work
   accurately. Her idea-led portrait work must be categorized as Conceptual
-  portraits; Object Translations must credit her photography in its narrative
-  but must not use Photography as a browse tag unless she chooses to invite
-  photography commissions.
+  portraits; Object Translations must frame photography as part of planning and
+  directing her own shoots from concept through final image, credit her
+  photography in its narrative, and must not use Photography as a browse tag
+  unless she chooses to invite photography commissions.
 ---
 
 # Conceptual portrait category and curated role tags
@@ -36,8 +37,10 @@ Live performance as the other areas of work.
 Use browse tags for meaningful contributions that Ashlynn would welcome
 visitors exploring as potential work, rather than every task performed. Keep
 Creative Direction and Styling on Object Translations, remove Photography from
-its browse tags, and explicitly retain her photography, editing, styling, and
-modeling credits in the project narrative.
+its browse tags, and explicitly retain her planning, direction, photography,
+editing, styling, and modeling credits in the project narrative. Frame
+photography as part of realizing her own concepts, not as a separate service
+offering.
 
 Continue the role language established in ADR-0047: the site-wide introduction
 names creative and artistic direction, choreography, and performance; the About

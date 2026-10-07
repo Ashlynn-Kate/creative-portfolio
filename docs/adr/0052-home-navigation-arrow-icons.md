@@ -1,9 +1,10 @@
 ---
 id: ADR-0052
 title: Stable home navigation arrows
-status: accepted
+status: superseded
 date: 2026-10-06
 area: design
+superseded_by: ADR-0055
 constraint: >
   The home page's Areas of work links and its adjacent portfolio links must use
   drawn arrow icons rather than Unicode arrow characters, so their appearance

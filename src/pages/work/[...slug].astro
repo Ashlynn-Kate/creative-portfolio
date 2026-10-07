@@ -5,6 +5,7 @@ import Blocks from '../../components/Blocks.astro';
 import DisciplineTags from '../../components/DisciplineTags.astro';
 import { casePath, getDetailPages, getCases, type DetailPage } from '../../lib/content';
 import { url } from '../../lib/site';
+import ArrowIcon from '../../components/ArrowIcon.astro';
 
 export async function getStaticPaths() {
   const pages = await getDetailPages();
@@ -28,7 +29,7 @@ const next = siblings[index + 1];
   <article class="detail">
     <header class="detail__header">
       {parent && <a class="back" href={isLandingPage ? url('works') : url(casePath(parent))}>
-        <span aria-hidden="true">←</span> {isLandingPage ? 'All works' : parent.data.title}
+        <ArrowIcon direction="left" /> {isLandingPage ? 'All works' : parent.data.title}
       </a>}
       <h1 class="detail__title">{page.data.title}</h1>
       {page.data.sub && <p class="detail__sub">{page.data.sub}</p>}
@@ -42,18 +43,18 @@ const next = siblings[index + 1];
     {(prev || next || (parent && !isLandingPage)) && <nav class="pager" aria-label="More from this project">
       {prev ? (
         <a class="pager__link" href={url(`work/${prev.id}`)}>
-          <span class="pager__dir">← Previous</span>
+          <span class="pager__dir"><ArrowIcon direction="left" /> Previous</span>
           <span class="pager__title">{prev.data.title}</span>
         </a>
       ) : <span />}
       {next ? (
         <a class="pager__link pager__link--next" href={url(`work/${next.id}`)}>
-          <span class="pager__dir">Next →</span>
+          <span class="pager__dir">Next <ArrowIcon /></span>
           <span class="pager__title">{next.data.title}</span>
         </a>
       ) : parent && !isLandingPage && (
         <a class="pager__link pager__link--next" href={url(casePath(parent))}>
-          <span class="pager__dir">Back to →</span>
+          <span class="pager__dir">Back to <ArrowIcon /></span>
           <span class="pager__title">{parent.data.title}</span>
         </a>
       )}

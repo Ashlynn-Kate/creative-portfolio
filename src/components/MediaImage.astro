@@ -6,6 +6,7 @@
 import { Image } from 'astro:assets';
 import { getImage } from '../lib/images';
 import { mdInline } from '../lib/site';
+import ArrowIcon from './ArrowIcon.astro';
 
 interface Props {
   image: { src: string; alt: string; caption?: string; highRes?: string };
@@ -42,7 +43,7 @@ const widths = [...new Set([480, 800, 1200, 1600, maxWidth].filter((w) => w <= m
         title="Open full-resolution image"
       >
         <Image src={meta} alt={image.alt} widths={widths} sizes={sizes} format="webp" quality={82} loading={eager ? 'eager' : 'lazy'} draggable="false" />
-        <span class="media__badge" aria-hidden="true">Full res ↗</span>
+        <span class="media__badge" aria-hidden="true">Full res <ArrowIcon direction="up-right" /></span>
       </a>
     ) : (
       <Image src={meta} alt={image.alt} widths={widths} sizes={sizes} format="webp" quality={82} loading={eager ? 'eager' : 'lazy'} draggable="false" />

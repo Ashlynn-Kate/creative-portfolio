@@ -5,6 +5,7 @@ import MediaImage from '../../components/MediaImage.astro';
 import DisciplineTags from '../../components/DisciplineTags.astro';
 import { casePath, getCases, getDisciplines, pad } from '../../lib/content';
 import { slugify, url } from '../../lib/site';
+import ArrowIcon from '../../components/ArrowIcon.astro';
 
 export async function getStaticPaths() {
   const disciplines = await getDisciplines();
@@ -19,7 +20,7 @@ const others = (await getDisciplines()).filter((d) => d.name !== name);
 
 <BaseLayout title={name} description={`${name} work by Ashlynn Kate.`}>
   <section class="detail__header discipline__header">
-    <a class="back" href={url('works')}><span aria-hidden="true">←</span> All work</a>
+    <a class="back" href={url('works')}><ArrowIcon direction="left" /> All work</a>
     <p class="eyebrow">Discipline</p>
     <h1 class="detail__title">{name}</h1>
   </section>
