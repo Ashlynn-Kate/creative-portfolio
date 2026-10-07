@@ -239,7 +239,7 @@ blocks:
         images:
           - src: object-translations/lemonade-pitcher-object.jpeg
             alt: A pale yellow lemonade pitcher with a curved green handle.
-          - src: object-translations/lemonade-pitcher-01.png
+          - src: object-translations/lemonade-pitcher-03.png
             alt: A portrait inspired by the soft curves of a lemonade pitcher.
       - type: details
         summary: Behind the translation
@@ -256,9 +256,9 @@ blocks:
           - type: carousel
             label: Additional Lemonade Pitcher photos
             images:
-              - src: object-translations/lemonade-pitcher-02.jpeg
+              - src: object-translations/lemonade-pitcher-01.png
                 alt: Additional portrait from the Lemonade Pitcher concept.
-              - src: object-translations/lemonade-pitcher-03.png
+              - src: object-translations/lemonade-pitcher-02.jpeg
                 alt: Additional portrait from the Lemonade Pitcher concept.
   - type: details
     summary: Floral Heel
