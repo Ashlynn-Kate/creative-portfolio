@@ -118,6 +118,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0055** · `design` · Consistent vector arrows across the interface
   Decorative arrows used for navigation, paging, action links, and external-link cues must be drawn vector icons rather than Unicode arrow characters, across production pages and design-lab navigation, so mobile platforms cannot render them as emoji. Keep meaningful accessible link text and hide decorative icons from assistive technology.
   → `docs/adr/0055-sitewide-vector-arrow-icons.md`
+- **ADR-0056** · `design` · Neutral-grey color for plus and arrow controls
+  Decorative plus/minus marks and arrow icons across the site must use a neutral grey rather than the desert-sienna accent, with a lighter neutral-grey variant on dark image surfaces to preserve contrast. Keep sienna for non-control accents.
+  → `docs/adr/0056-neutral-control-mark-color.md`
 <!-- adr-registry:end -->
 
 ## Content scope

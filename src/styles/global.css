@@ -2,8 +2,9 @@
  * Global styles.
  *
  * Look and feel: editorial and theatrical. Neutral-grey paper background, near-black
- * ink, a desert-sienna accent, a high-contrast serif for display type
- * (Cormorant Garamond), and a clean geometric sans for reading (Jost).
+ * ink, neutral-grey interaction marks, a desert-sienna accent, a high-contrast
+ * serif for display type (Cormorant Garamond), and a clean geometric sans for
+ * reading (Jost).
  *
  * To change the overall look, start with the tokens in :root below.
  */
@@ -17,6 +18,8 @@
   --ink-soft: #4a453e;
   --muted: #7a7166;
   --line: #cccac7;
+  --control-tone: #777777;
+  --control-tone-on-dark: #c9c9c9;
   --accent: #9c4a24;
   --stage: #141210; /* dark backdrop behind carousels and video */
 
@@ -719,7 +722,7 @@ main:has(.about) + .site-footer {
 
 .works-directory span { color: var(--accent); font-size: 12px; letter-spacing: 0.16em; }
 .works-directory strong { font-family: var(--font-display); font-size: clamp(34px, calc(4.5vw - 10px), 52px); font-weight: 400; line-height: 0.95; }
-.works-directory b { color: var(--accent); font-size: 18px; font-weight: 400; }
+.works-directory b { color: var(--control-tone); font-size: 18px; font-weight: 400; }
 .works-directory__category:hover { color: var(--accent); }
 .works-directory__live > p { border-bottom: 0; }
 .works-directory details { border-bottom: 1px solid var(--line); }
@@ -918,7 +921,7 @@ main:has(.about) + .site-footer {
 }
 
 .image-details__items summary span {
-  color: var(--accent);
+  color: var(--control-tone);
   font-size: 20px;
   font-weight: 300;
 }
@@ -1093,6 +1096,11 @@ main:has(.about) + .site-footer {
   transition: opacity 0.25s;
 }
 
+.media__badge .arrow-icon,
+.video__label .arrow-icon {
+  color: var(--control-tone-on-dark);
+}
+
 .media__link:hover .media__badge,
 .media__link:focus-visible .media__badge {
   opacity: 1;
@@ -1159,7 +1167,7 @@ main:has(.about) + .site-footer {
   font-family: var(--font-display);
   font-size: 28px;
   line-height: 1;
-  color: var(--accent);
+  color: var(--control-tone);
   transition: transform 0.3s var(--ease);
 }
 
@@ -1327,7 +1335,7 @@ main:has(.about) + .site-footer {
 
 .pair-gallery .carousel__btn {
   border-color: var(--line);
-  color: var(--ink);
+  color: var(--control-tone);
 }
 
 @media (max-width: 560px) {
@@ -1340,7 +1348,7 @@ main:has(.about) + .site-footer {
 
 .carousel {
   background: var(--stage);
-  color: var(--paper);
+  color: var(--control-tone-on-dark);
   padding: clamp(20px, 4vw, 48px) 0 clamp(16px, 2vw, 24px);
 }
 
