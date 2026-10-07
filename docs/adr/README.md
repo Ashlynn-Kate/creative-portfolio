@@ -63,6 +63,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0053](0053-mobile-concept-object-presentation.md) | Mobile Conceptual Portrait object presentation | superseded by ADR-0054 | design | 2026-10-06 |
 | [ADR-0054](0054-portrait-led-concept-gallery-proportions.md) | Portrait-led Conceptual Portrait gallery proportions | accepted | design | 2026-10-06 |
 | [ADR-0055](0055-sitewide-vector-arrow-icons.md) | Consistent vector arrows across the interface | accepted | design | 2026-10-06 |
+| [ADR-0056](0056-neutral-control-mark-color.md) | Neutral-grey color for plus and arrow controls | accepted | design | 2026-10-06 |
 
 ## Adding or changing a decision
 

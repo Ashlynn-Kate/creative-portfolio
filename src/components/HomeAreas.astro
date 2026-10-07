@@ -56,10 +56,10 @@ const destinations = await Promise.all(categories.map(async (category) => {
   .home-areas__index strong { font-family: var(--font-display); font-size: clamp(32px, 3.6vw, 51px); font-weight: 400; line-height: .9; transition: color .2s; }
   .home-areas__index span { color: var(--muted); font-size: 11px; letter-spacing: .13em; text-align: right; text-transform: uppercase; }
   .home-areas__arrow { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; }
-  .home-areas__index .home-areas__arrow { color: var(--accent); }
+  .home-areas__index .home-areas__arrow { color: var(--control-tone); }
   .home-areas__next { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 30px; margin-top: 36px; }
   .home-areas__next a { color: var(--ink); font-size: 12px; letter-spacing: .16em; text-decoration: none; text-transform: uppercase; }
   .home-areas__next a:hover { color: var(--accent); }
-  .home-areas__next .home-areas__arrow { display: inline-block; width: 18px; height: 18px; margin-left: 12px; color: var(--accent); vertical-align: middle; }
+  .home-areas__next .home-areas__arrow { display: inline-block; width: 18px; height: 18px; margin-left: 12px; color: var(--control-tone); vertical-align: middle; }
   @media (max-width: 760px) { .home-areas { margin-top: -120px; } .home-areas__index a { grid-template-columns: minmax(0, 1fr) 22px; align-items: start; padding: 20px 0; } .home-areas__index span { grid-column: 1; grid-row: 2; text-align: left; } .home-areas__index .home-areas__arrow { grid-column: 2; grid-row: 1; } }
 </style>
