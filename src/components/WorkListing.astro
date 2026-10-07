@@ -3,6 +3,7 @@
 import { getEntry } from 'astro:content';
 import MediaImage from './MediaImage.astro';
 import { url } from '../lib/site';
+import ArrowIcon from './ArrowIcon.astro';
 
 interface Props {
   items: string[];
@@ -25,10 +26,10 @@ const hrefFor = (id: string) => `${route}/${id.split('/').at(-1)}`;
           {work.data.sub && <p class="eyebrow">{work.data.sub}</p>}
           <h3>{work.data.title}</h3>
           <p>{work.data.summary}</p>
-          <a class="work-listing__link" href={url(hrefFor(work.id))}>View work <span aria-hidden="true">→</span></a>
+          <a class="work-listing__link" href={url(hrefFor(work.id))}>View work <ArrowIcon /></a>
         </div>
       </li>
     ))}
   </ul>
-  {linkLabel && <p class="page-link"><a href={url(route)}>{linkLabel}</a></p>}
+  {linkLabel && <p class="page-link"><a href={url(route)}>{linkLabel} <ArrowIcon /></a></p>}
 </section>

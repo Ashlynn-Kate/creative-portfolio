@@ -1,11 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { url } from '../lib/site';
+import ArrowIcon from '../components/ArrowIcon.astro';
 ---
 
 <BaseLayout title="Page not found">
   <section class="detail__header">
     <h1 class="detail__title">This page doesn’t exist.</h1>
-    <p><a class="back" href={url()}>← Back to the portfolio</a></p>
+    <p><a class="back" href={url()}><ArrowIcon direction="left" /> Back to the portfolio</a></p>
   </section>
 </BaseLayout>

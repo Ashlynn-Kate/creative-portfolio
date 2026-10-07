@@ -112,12 +112,12 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0051** · `design` · Conceptual Portraits introduction and index width
   The Conceptual Portraits all-concepts page must place its series introduction after the title, subtitle, and disciplines but before the concept disclosures. The introduction and concept index must use wider editorial columns so each three-part concept descriptor stays on one line when space permits, without causing horizontal scroll on smaller screens.
   → `docs/adr/0051-concept-series-intro-and-index-width.md`
-- **ADR-0052** · `design` · Stable home navigation arrows
-  The home page's Areas of work links and its adjacent portfolio links must use drawn arrow icons rather than Unicode arrow characters, so their appearance stays typographic and consistent across desktop and mobile platforms.
-  → `docs/adr/0052-home-navigation-arrow-icons.md`
 - **ADR-0054** · `design` · Portrait-led Conceptual Portrait gallery proportions
   Open Conceptual Portraits disclosures on phones must show a 129px object thumbnail beside the title and descriptor, followed by the portrait gallery without a separate full-size object image. At 900px and above, the full-size object and portrait gallery must use a 35/65 column split favoring the portrait; intermediate widths retain the existing layout.
   → `docs/adr/0054-portrait-led-concept-gallery-proportions.md`
+- **ADR-0055** · `design` · Consistent vector arrows across the interface
+  Decorative arrows used for navigation, paging, action links, and external-link cues must be drawn vector icons rather than Unicode arrow characters, across production pages and design-lab navigation, so mobile platforms cannot render them as emoji. Keep meaningful accessible link text and hide decorative icons from assistive technology.
+  → `docs/adr/0055-sitewide-vector-arrow-icons.md`
 <!-- adr-registry:end -->
 
 ## Content scope

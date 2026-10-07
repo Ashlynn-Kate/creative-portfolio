@@ -10,6 +10,7 @@
 import { getImage as optimize } from 'astro:assets';
 import { getImage } from '../lib/images';
 import { SITE, url } from '../lib/site';
+import ArrowIcon from '../components/ArrowIcon.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -64,9 +65,9 @@ const previewUrl = new URL(preview.src, Astro.site);
           <span class="sr-only">Open menu</span>
         </summary>
         <nav aria-label="Main">
-          <a href={url('works')}><span>01</span> Works <b aria-hidden="true">↗</b></a>
-          <a href={url('#disciplines')}><span>02</span> Areas of work <b aria-hidden="true">↗</b></a>
-          <a href={url('about')}><span>03</span> About <b aria-hidden="true">↗</b></a>
+          <a href={url('works')}><span>01</span> Works <b><ArrowIcon direction="up-right" /></b></a>
+          <a href={url('#disciplines')}><span>02</span> Areas of work <b><ArrowIcon direction="up-right" /></b></a>
+          <a href={url('about')}><span>03</span> About <b><ArrowIcon direction="up-right" /></b></a>
         </nav>
       </details>
     </header>

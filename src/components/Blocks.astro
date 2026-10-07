@@ -14,6 +14,7 @@ import ImageFeature from './ImageFeature.astro';
 import PageCards from './PageCards.astro';
 import WorkListing from './WorkListing.astro';
 import { url } from '../lib/site';
+import ArrowIcon from './ArrowIcon.astro';
 
 interface Props {
   blocks: Block[];
@@ -95,7 +96,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
       case 'pages':
         return <div class="wide"><PageCards items={block.items} layout={block.layout} /></div>;
       case 'page-link':
-        return <p class="page-link"><a href={url(`work/${block.item}`)}>{block.label}</a></p>;
+        return <p class="page-link"><a href={url(`work/${block.item}`)}>{block.label} <ArrowIcon /></a></p>;
       case 'work-listing':
         return <WorkListing items={block.items} route={block.route} linkLabel={block.linkLabel} />;
       case 'details':
