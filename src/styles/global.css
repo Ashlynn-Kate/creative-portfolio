@@ -433,6 +433,20 @@ main:has(.about) + .site-footer {
   background: linear-gradient(var(--ink), var(--ink)) no-repeat top / calc(100% - 2 * var(--gutter)) 1px;
 }
 
+/* A production cover can sit alongside its title and context, as in an editorial feature. */
+.case--cover-in-header .case__header {
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  margin-bottom: clamp(28px, 5vw, 64px);
+}
+
+.case--cover-in-header .case__num { display: none; }
+.case--cover-in-header .case__cover { grid-column: 1; grid-row: 2; width: 100%; margin: 0; }
+.case--cover-in-header .case__cover img { width: 100%; height: auto; }
+.case--cover-in-header .case__heading { grid-column: 2; grid-row: 2; }
+.case--cover-in-header .case__role { grid-column: 2; grid-row: 3; margin-top: 0; }
+.case__summary { max-width: 38em; color: var(--ink-soft); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; }
+
 .case__back {
   grid-column: 1 / -1;
   margin-bottom: 0;
@@ -447,6 +461,11 @@ main:has(.about) + .site-footer {
 
 .case--prince-of-egypt .case__header {
   margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.case--cover-in-header .flow > .wide:has(.video) {
+  max-width: 480px;
+  justify-self: start;
 }
 
 /* Case-study narratives share a wide left edge. */
@@ -576,6 +595,10 @@ main:has(.about) + .site-footer {
   .case__header {
     grid-template-columns: 1fr;
   }
+  .case--cover-in-header .case__header { grid-template-columns: 1fr; }
+  .case--cover-in-header .case__cover,
+  .case--cover-in-header .case__heading,
+  .case--cover-in-header .case__role { grid-column: 1; grid-row: auto; }
   .case__role {
     grid-column: 1;
   }

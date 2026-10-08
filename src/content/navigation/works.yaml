@@ -19,6 +19,8 @@ categories:
         items:
           - type: case
             id: prince-of-egypt
+          - type: case
+            id: gift-of-athens
       - title: Individual pieces
         items:
           - type: page

@@ -110,6 +110,41 @@ const imageFeature = z.object({
   body: z.string(),
 });
 
+/** A visual chapter index that links to chapter IDs in a case-study narrative. */
+const chapterIndex = z.object({
+  type: z.literal('chapter-index'),
+  eyebrow: z.string(),
+  heading: z.string(),
+  intro: z.string(),
+  items: z.array(z.object({
+    id: z.string(),
+    number: z.string(),
+    character: z.string(),
+    title: z.string(),
+    image,
+    summary: z.string(),
+  })).min(1),
+});
+
+const storyChapter = z.object({
+  type: z.literal('story-chapter'),
+  id: z.string(),
+  number: z.string(),
+  character: z.string(),
+  title: z.string(),
+  image,
+  intro: z.string(),
+  sections: z.array(z.object({
+    heading: z.string().optional(),
+    body: z.string().optional(),
+    video: z.object({
+      thumbnail: image,
+      url: z.url(),
+      caption: z.string().optional(),
+    }).optional(),
+  })).min(1),
+});
+
 /** Small project-credit lines that follow an introduction. */
 const credits = z.object({
   type: z.literal('credits'),
@@ -166,6 +201,8 @@ type Block =
   | z.infer<typeof role>
   | z.infer<typeof imageDetails>
   | z.infer<typeof imageFeature>
+  | z.infer<typeof chapterIndex>
+  | z.infer<typeof storyChapter>
   | z.infer<typeof credits>
   | z.infer<typeof statusLine>
   | z.infer<typeof video>
@@ -185,6 +222,8 @@ const block: z.ZodType<Block> = z.lazy(() =>
     role,
     imageDetails,
     imageFeature,
+    chapterIndex,
+    storyChapter,
     credits,
     statusLine,
     video,
@@ -219,6 +258,8 @@ const cases = defineCollection({
     kicker: z.string().optional(),
     /** One-line facts, e.g. "Full-length contemporary ballet · Fuzion School of the Arts · May 2024". */
     meta: z.string().optional(),
+    /** Place the cover image beside the title and summary in the standalone page header. */
+    coverInHeader: z.boolean().default(false),
     /** e.g. "In production". Shown as a badge. */
     status: z.string().optional(),
     role: z.string().optional(),

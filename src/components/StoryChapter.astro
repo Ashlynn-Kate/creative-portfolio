@@ -1,0 +1,78 @@
+---
+/** A visible, image-led chapter within a long-form production case study. */
+import { md } from '../lib/site';
+import MediaImage from './MediaImage.astro';
+import VideoLink from './VideoLink.astro';
+
+interface StorySection {
+  heading?: string;
+  body?: string;
+  video?: { thumbnail: { src: string; alt: string }; url: string; caption?: string };
+}
+
+interface Props {
+  id: string;
+  number: string;
+  character: string;
+  title: string;
+  image: { src: string; alt: string };
+  intro: string;
+  sections: StorySection[];
+}
+
+const { id, number, character, title, image, intro, sections } = Astro.props;
+---
+
+<article class="story-chapter" id={id} aria-labelledby={`${id}-title`}>
+  <p class="eyebrow">{number} <span>·</span> {character}</p>
+  <div class="story-chapter__layout">
+    <MediaImage image={image} showCaption={false} class="story-chapter__image" sizes="(min-width: 900px) 36vw, 100vw" />
+    <div class="story-chapter__copy">
+      <h2 id={`${id}-title`}>{title}</h2>
+      <div class="prose" set:html={md(intro)} />
+      {sections.map((section) => (
+        <section class="story-chapter__section">
+          {section.heading && <h3>{section.heading}</h3>}
+          {section.body && <div class="prose" set:html={md(section.body)} />}
+          {section.video && <VideoLink {...section.video} />}
+        </section>
+      ))}
+    </div>
+  </div>
+</article>
+
+<style>
+  .story-chapter {
+    grid-column: wide;
+    padding: clamp(42px, 6vw, 64px) 0;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 28px;
+  }
+  .story-chapter > .eyebrow { margin-bottom: 16px; }
+  .story-chapter__layout {
+    display: grid;
+    grid-template-columns: minmax(190px, .68fr) minmax(0, 1.32fr);
+    gap: clamp(30px, 6vw, 80px);
+    align-items: start;
+  }
+  .story-chapter__image { margin: 0; }
+  .story-chapter__image img { width: 100%; height: auto; }
+  .story-chapter__copy h2 {
+    margin: 0 0 16px;
+    font: 400 clamp(34px, 4.4vw, 58px)/.98 var(--font-display);
+  }
+  .story-chapter__copy > .prose,
+  .story-chapter__section > .prose { max-width: 700px; color: var(--ink-soft); }
+  .story-chapter__section h3 {
+    margin: 26px 0 7px;
+    font: 400 26px/1.05 var(--font-display);
+  }
+  .story-chapter__section .video { width: min(100%, 480px); margin: 20px 0; }
+  @media (max-width: 780px) {
+    .story-chapter__layout { grid-template-columns: minmax(150px, .7fr) minmax(0, 1.3fr); gap: 26px; }
+  }
+  @media (max-width: 560px) {
+    .story-chapter__layout { grid-template-columns: 1fr; }
+    .story-chapter__image { width: min(100%, 310px); }
+  }
+</style>
