@@ -118,9 +118,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0054** · `design` · Portrait-led Conceptual Portrait gallery proportions
   Open Conceptual Portraits disclosures on phones must show a 129px object thumbnail beside the title and descriptor, followed by the portrait gallery without a separate full-size object image. At 900px and above, the full-size object and portrait gallery must use a 35/65 column split favoring the portrait; intermediate widths retain the existing layout.
   → `docs/adr/0054-portrait-led-concept-gallery-proportions.md`
-- **ADR-0057** · `design` · Gift of Athens chaptered production page
-  The Gift of Athens must appear as a full-length production with an illustrated two-column introduction, a visible image-led chapter index and philosopher narratives, Google Drive thumbnail links for rehearsal and scene footage, and a closing community section whose photographs retain their full image proportions.
-  → `docs/adr/0057-gift-of-athens-chaptered-production.md`
+- **ADR-0058** · `design` · Gift of Athens story-first order and community photographs
+  The Gift of Athens must retain its illustrated introduction and visible chapter index, followed by Socrates, Plato, Aristotle, Creating the production, and Giving back to the community in that order. The community story must wrap around a small dedication image on the left and an uncropped, captioned veterans award-ceremony photograph on the right.
+  → `docs/adr/0058-athens-story-first-community-wrap.md`
 <!-- adr-registry:end -->
 
 ## Content scope

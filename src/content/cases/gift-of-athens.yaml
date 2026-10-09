@@ -42,22 +42,6 @@ blocks:
           alt: The dancer portraying Aristotle in a blue costume among classical columns.
         summary: Observation, reason, and the motion of the universe.
 
-  - type: heading
-    text: Creating the production
-    sub: Story to stage | Rehearsal footage
-  - type: video-feature
-    compact: true
-    thumbnail:
-      src: gift-of-athens/title-card.png
-      alt: Original black-and-white title artwork for The Gift of Athens.
-    url: https://drive.google.com/file/d/1LTVoKo8ua4Ak65cUgm9VUqp0p1kikVhS/view
-    body: |
-      I wrote the original story and adapted it for the stage, selected all the music, choreographed every piece, and chose the costumes. I worked alongside the set team to develop the scenic design and bring each philosopher’s world to life.
-
-      The story and characters grew out of conversations with a historian specializing in Socrates, Plato, and Aristotle. Those discussions helped me translate their philosophies into movement and storytelling. He also attended rehearsals <span class="production-continuation">periodically, offering feedback on how clearly the choreography communicated the ideas.</span>
-
-      Their backgrounds and relationships to material life informed how each character moved and how his world looked. Socrates’ simplicity, Plato’s aristocratic upbringing, and Aristotle’s connections to the Macedonian court shaped choices in costumes, hairstyles, makeup, set design, and color. Each section had its own visual identity while remaining part of the same story.
-
   - type: story-chapter
     id: socrates
     character: Socrates
@@ -127,17 +111,33 @@ blocks:
           caption: The Unmoved Mover
 
   - type: heading
+    text: Creating the production
+    sub: Story to stage | Rehearsal footage
+  - type: video-feature
+    compact: true
+    thumbnail:
+      src: gift-of-athens/title-card.png
+      alt: Original black-and-white title artwork for The Gift of Athens.
+    url: https://drive.google.com/file/d/1LTVoKo8ua4Ak65cUgm9VUqp0p1kikVhS/view
+    body: |
+      I wrote the original story and adapted it for the stage, selected all the music, choreographed every piece, and chose the costumes. I worked alongside the set team to develop the scenic design and bring each philosopher’s world to life.
+
+      The story and characters grew out of conversations with a historian specializing in Socrates, Plato, and Aristotle. Those discussions helped me translate their philosophies into movement and storytelling. He also attended rehearsals <span class="production-continuation">periodically, offering feedback on how clearly the choreography communicated the ideas.</span>
+
+      Their backgrounds and relationships to material life informed how each character moved and how his world looked. Socrates’ simplicity, Plato’s aristocratic upbringing, and Aristotle’s connections to the Macedonian court shaped choices in costumes, hairstyles, makeup, set design, and color. Each section had its own visual identity while remaining part of the same story.
+
+  - type: heading
     text: Giving back to the community
     sub: The work beyond the stage
-  - type: text
-    size: wide
+  - type: image-story
+    leadingImage:
+      src: gift-of-athens/memorial.png
+      alt: Inscribed memorial stone dedicated to those who served during peace and war.
+    trailingImage:
+      src: gift-of-athens/veterans-community.jpeg
+      alt: Dancers, the mayor, and local veterans gather at the award ceremony beneath an American flag.
+      caption: Award ceremony with the mayor and local veterans group.
     body: |
       The Gift of Athens was created for a community with limited opportunities to experience live theater. I worked with local businesses and vendors to secure advertising and financial support and arrange transportation for veterans to and from the show.
 
       All ticket proceeds were donated to a local veterans group, a contribution recognized by the mayor. I took no personal payment, and the dancers and nearly everyone involved volunteered their time and skills so we could give back as much as possible. The production became a shared effort to bring the arts to the community and support the people within it.
-  - type: grid
-    images:
-      - src: gift-of-athens/memorial.png
-        alt: Inscribed memorial stone dedicated to those who served during peace and war.
-      - src: gift-of-athens/veterans-community.jpeg
-        alt: Dancers and community members gather with veterans beneath an American flag.

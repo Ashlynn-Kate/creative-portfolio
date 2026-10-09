@@ -1,7 +1,8 @@
 ---
 id: ADR-0057
 title: Gift of Athens chaptered production page
-status: accepted
+status: superseded
+superseded_by: ADR-0058
 date: 2026-10-08
 area: design
 constraint: >

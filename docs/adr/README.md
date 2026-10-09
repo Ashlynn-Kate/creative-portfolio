@@ -62,7 +62,8 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0052](0052-home-navigation-arrow-icons.md) | Stable home navigation arrows | accepted | design | 2026-10-06 |
 | [ADR-0053](0053-mobile-concept-object-presentation.md) | Mobile Conceptual Portrait object presentation | superseded by ADR-0054 | design | 2026-10-06 |
 | [ADR-0054](0054-portrait-led-concept-gallery-proportions.md) | Portrait-led Conceptual Portrait gallery proportions | accepted | design | 2026-10-06 |
-| [ADR-0057](0057-gift-of-athens-chaptered-production.md) | Gift of Athens chaptered production page | accepted | design | 2026-10-08 |
+| [ADR-0057](0057-gift-of-athens-chaptered-production.md) | Gift of Athens chaptered production page | superseded by ADR-0058 | design | 2026-10-08 |
+| [ADR-0058](0058-athens-story-first-community-wrap.md) | Gift of Athens story-first order and community photographs | accepted | design | 2026-10-09 |
 
 ## Adding or changing a decision
 

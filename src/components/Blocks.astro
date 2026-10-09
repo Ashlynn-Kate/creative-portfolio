@@ -11,6 +11,7 @@ import Carousel from './Carousel.astro';
 import VideoLink from './VideoLink.astro';
 import VideoFeature from './VideoFeature.astro';
 import ImageFeature from './ImageFeature.astro';
+import ImageStory from './ImageStory.astro';
 import ChapterIndex from './ChapterIndex.astro';
 import StoryChapter from './StoryChapter.astro';
 import PageCards from './PageCards.astro';
@@ -86,6 +87,8 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
         );
       case 'image-feature':
         return <ImageFeature image={block.image} heading={block.heading} body={block.body} />;
+      case 'image-story':
+        return <ImageStory leadingImage={block.leadingImage} trailingImage={block.trailingImage} body={block.body} />;
       case 'chapter-index':
         return <ChapterIndex eyebrow={block.eyebrow} heading={block.heading} intro={block.intro} items={block.items} />;
       case 'story-chapter':

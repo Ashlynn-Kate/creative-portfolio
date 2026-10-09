@@ -116,6 +116,14 @@ const imageFeature = z.object({
   body: z.string(),
 });
 
+/** Two uncropped photographs floated around an editorial story. */
+const imageStory = z.object({
+  type: z.literal('image-story'),
+  leadingImage: image,
+  trailingImage: image,
+  body: z.string(),
+});
+
 /** A visual chapter index that links to chapter IDs in a case-study narrative. */
 const chapterIndex = z.object({
   type: z.literal('chapter-index'),
@@ -207,6 +215,7 @@ type Block =
   | z.infer<typeof role>
   | z.infer<typeof imageDetails>
   | z.infer<typeof imageFeature>
+  | z.infer<typeof imageStory>
   | z.infer<typeof chapterIndex>
   | z.infer<typeof storyChapter>
   | z.infer<typeof credits>
@@ -228,6 +237,7 @@ const block: z.ZodType<Block> = z.lazy(() =>
     role,
     imageDetails,
     imageFeature,
+    imageStory,
     chapterIndex,
     storyChapter,
     credits,

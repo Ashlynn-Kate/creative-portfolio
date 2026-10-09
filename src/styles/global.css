@@ -455,7 +455,7 @@ main:has(.about) + .site-footer {
 }
 .case--gift-of-athens .flow > .block-heading { grid-column: wide; text-align: left; }
 
-/* Tighten the transition from the chapter index into the production process. */
+/* Tighten the transition from the chapter index into the story chapters. */
 .case--gift-of-athens .chapter-index { padding-bottom: clamp(32px, 5vw, 56px); }
 
 /* Let rehearsal footage sit beside the production story before the copy continues below. */
@@ -468,12 +468,6 @@ main:has(.about) + .site-footer {
 /* The owner's sentence transition resumes beneath the footage, without a paragraph gap. */
 @media (min-width: 641px) {
   .case--gift-of-athens .production-continuation { display: block; clear: both; }
-}
-
-/* Keep the community images uncropped, with the long veterans photograph at half scale. */
-.case--gift-of-athens .flow > .grid .grid__item:nth-child(2) .media {
-  width: 50%;
-  margin-inline: auto;
 }
 
 .case__back {
