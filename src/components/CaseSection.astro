@@ -44,7 +44,7 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
       {meta ? (
         <div class="case__meta-row">
           <p class="case__meta">{meta}</p>
-          <DisciplineTags disciplines={disciplines} variant="metadata" />
+          {!entry.data.coverInHeader && <DisciplineTags disciplines={disciplines} variant="metadata" />}
         </div>
       ) : (
         <DisciplineTags disciplines={disciplines} variant="metadata" />
@@ -52,10 +52,14 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
       {entry.data.coverInHeader && <p class="case__summary">{entry.data.summary}</p>}
     </div>
     {role && (
-      <dl class="case__role">
-        <dt>My role</dt>
-        <dd>{role}</dd>
-      </dl>
+      entry.data.coverInHeader ? (
+        <p class="case__credit">{role}</p>
+      ) : (
+        <dl class="case__role">
+          <dt>My role</dt>
+          <dd>{role}</dd>
+        </dl>
+      )
     )}
   </header>
 

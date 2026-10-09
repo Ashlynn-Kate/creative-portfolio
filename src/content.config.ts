@@ -68,6 +68,8 @@ const video = z.object({
   thumbnail: image,
   url: z.url(),
   caption: z.string().optional(),
+  /** A contained, compact thumbnail for video links embedded in a long case study. */
+  compact: z.boolean().optional(),
 });
 
 /** A performance-video thumbnail with its accompanying narrative alongside it. */
@@ -141,6 +143,7 @@ const storyChapter = z.object({
       thumbnail: image,
       url: z.url(),
       caption: z.string().optional(),
+      compact: z.boolean().optional(),
     }).optional(),
   })).min(1),
 });

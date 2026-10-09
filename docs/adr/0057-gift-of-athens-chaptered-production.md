@@ -17,10 +17,10 @@ constraint: >
 The Gift of Athens is a substantial full-length ballet with historical context, scene narratives, production-process details, video excerpts, and community impact. Hiding most of that material in disclosures would obscure Ashlynn's work, while presenting it as an uninterrupted wall of prose would make the long story difficult to navigate. The owner chose the chaptered Option B prototype as the preferred structure.
 
 ## Decision
-- Present the production photo beside its title, summary, credits, and disciplines at the top of the standalone case study.
+- Present the production photo beside the contemporary-ballet/location eyebrow, title, summary, company, and an unlabeled creative-credit line at the top of the standalone case study, matching Option B.
 - Follow the introduction with a visual index linking to the visible Socrates, Plato, and Aristotle chapters.
 - Keep the creation process and rehearsal footage together before the story chapters.
-- Keep scene videos with their relevant chapter narratives and use Google Drive thumbnail links, consistent with ADR-0008.
+- Keep scene videos with their relevant chapter narratives and use compact 16:9 Google Drive thumbnail tiles that contain (rather than crop) the full source image, consistent with ADR-0008.
 - Close with the community-impact story and the memorial and veterans-group photographs, displayed without cropping their source proportions.
 - List The Gift of Athens alongside The Prince of Egypt under Live performance → Full-length productions.
 

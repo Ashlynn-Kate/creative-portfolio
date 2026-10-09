@@ -1,7 +1,7 @@
 order: 4
 title: The Gift of Athens
-kicker: Stage production
-meta: Jefferson City, Tennessee · Artist’s in Motion Dancers
+kicker: Contemporary ballet · Jefferson City, Tennessee
+meta: Artist’s in Motion Dancers
 summary: An original contemporary ballet tracing the philosophical lineage of Socrates, Plato, and Aristotle through movement and storytelling.
 coverInHeader: true
 disciplines:
@@ -9,7 +9,7 @@ disciplines:
   - Choreography
   - Costume
   - Live Performance
-role: Story, stage adaptation, choreography, and creative direction.
+role: Story, stage adaptation, choreography and creative direction · Ashlynn Kate
 cover:
   src: gift-of-athens/three-philosophers.jpeg
   alt: Three dancers in blue, gold, and white costumes sit along a low stone wall outdoors.
@@ -57,6 +57,7 @@ blocks:
 
       Their backgrounds and relationships to material life informed how each character moved and how his world looked. Socrates’ simplicity, Plato’s aristocratic upbringing, and Aristotle’s connections to the Macedonian court shaped choices in costumes, hairstyles, makeup, set design, and color. Each section had its own visual identity while remaining part of the same story.
   - type: video
+    compact: true
     thumbnail:
       src: gift-of-athens/title-card.png
       alt: Original black-and-white title artwork for The Gift of Athens.
@@ -76,6 +77,7 @@ blocks:
       - heading: A final choice
         body: Condemned to death in Athens, Socrates faces the choice of escaping or accepting his sentence. Drawing on Plato’s account, this scene portrays his decision to drink hemlock rather than pursue an escape he believes would violate his principles. The dance explores the weight of that choice and his commitment to living by what he taught.
         video:
+          compact: true
           thumbnail:
             src: gift-of-athens/socrates.png
             alt: The dancer portraying Socrates; opens the scene excerpt on Google Drive.
@@ -93,6 +95,7 @@ blocks:
     intro: Socrates’ execution profoundly affected Plato, sharpening his concern with justice and political life. As Socrates’ student, he carried forward his teacher’s search for truth and virtue. After a period of travel, he founded the Academy in Athens, where Aristotle would later study under him.
     sections:
       - video:
+          compact: true
           thumbnail:
             src: gift-of-athens/plato.png
             alt: The dancer portraying Plato; opens the scene excerpt on Google Drive.
@@ -104,6 +107,7 @@ blocks:
 
           Prisoners in a cave mistake shadows on a wall for reality until one escapes and discovers the world outside. His journey into the light, and his return to those still imprisoned, explore the difficulty of questioning what we know and the responsibility that comes with understanding.
         video:
+          compact: true
           thumbnail:
             src: gift-of-athens/allegory-dancers.jpeg
             alt: Two dancers in white and blue costumes; opens the scene excerpt on Google Drive.
@@ -123,6 +127,7 @@ blocks:
       - heading: The Unmoved Mover
         body: Aristotle’s inquiry into motion led to the theory of the Unmoved Mover, an eternal, unchanging source of the universe’s motion that is not itself moved by anything else. The theory seeks to explain how eternal movement is sustained.
         video:
+          compact: true
           thumbnail:
             src: gift-of-athens/aristotle.jpeg
             alt: The dancer portraying Aristotle; opens the scene excerpt on Google Drive.

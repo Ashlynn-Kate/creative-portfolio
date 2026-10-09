@@ -95,7 +95,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
       case 'status-line':
         return <p class="status-line">{block.text}</p>;
       case 'video':
-        return <div class="wide"><VideoLink thumbnail={block.thumbnail} url={block.url} caption={block.caption} /></div>;
+        return <div class="wide"><VideoLink thumbnail={block.thumbnail} url={block.url} caption={block.caption} compact={block.compact} /></div>;
       case 'video-feature':
         return <VideoFeature thumbnail={block.thumbnail} url={block.url} caption={block.caption} heading={block.heading} body={block.body} />;
       case 'pages':
