@@ -448,6 +448,11 @@ main:has(.about) + .site-footer {
 .case__summary { max-width: 38em; color: var(--ink-soft); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; }
 
 /* Gift of Athens section titles align to the same wide edge as their story copy. */
+.case--gift-of-athens.case--standalone { padding-top: 0; }
+.case--gift-of-athens.case--standalone .case__header {
+  background: none;
+  padding-top: 20px;
+}
 .case--gift-of-athens .flow > .block-heading { grid-column: wide; text-align: left; }
 
 /* Tighten the transition from the chapter index into the production process. */
@@ -458,7 +463,11 @@ main:has(.about) + .site-footer {
 .case--gift-of-athens .video-feature .video--compact {
   float: left;
   width: min(42%, 360px);
-  margin: 0 clamp(24px, 4vw, 48px) 20px 0;
+  margin: 0 clamp(24px, 4vw, 48px) 0 0;
+}
+/* The owner's sentence transition resumes beneath the footage, without a paragraph gap. */
+@media (min-width: 641px) {
+  .case--gift-of-athens .production-continuation { display: block; clear: both; }
 }
 
 /* Keep the community images uncropped, with the long veterans photograph at half scale. */

@@ -24,6 +24,7 @@ The Gift of Athens is a substantial full-length ballet with historical context, 
 - Use the Socrates–Plato duet image for the Death of Socrates video and place its identifying caption directly on the thumbnail.
 - Align the creation and community section headings and subheads to the left edge of their wide story column.
 - Float the rehearsal thumbnail beside the production story with a moderate text gap modeled on the About portrait, letting the copy wrap beside and below it.
+  The desktop continuation begins beneath the thumbnail at “periodically,” without an extra paragraph gap; on phones the sentence flows normally beneath the stacked video. The standalone introduction omits the upper divider and excess opening space.
 - Close with the community-impact story and the memorial and veterans-group photographs, displayed without cropping their source proportions; show the long veterans-group photograph at half the width of its grid cell.
 - List The Gift of Athens alongside The Prince of Egypt under Live performance → Full-length productions.
 
