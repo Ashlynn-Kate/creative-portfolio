@@ -19,7 +19,7 @@ const { category } = Astro.props as { category: Category };
 ---
 
 <BaseLayout title={category.title} description={`Explore Ashlynn Kate's ${category.title.toLowerCase()} work.`}>
-  <article class="works-directory-page">
+  <article class="works-directory-page" data-area={slugify(category.title)}>
     <header class="works-directory-page__header">
       <p class="eyebrow">Areas of work</p>
       <h1>{category.title}</h1>

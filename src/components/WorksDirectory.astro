@@ -26,11 +26,11 @@ const { categories, focused = false } = Astro.props;
 const resolveItem = async (item: DirectoryItem) => {
   if (item.type === 'case') {
     const entry = await getEntry('cases', item.id);
-    return entry && { title: entry.data.title, meta: item.label ?? entry.data.kicker ?? '', cover: entry.data.cover, href: url(casePath(entry)) };
+    return entry && { id: item.id, title: entry.data.title, meta: item.label ?? entry.data.kicker ?? '', cover: entry.data.cover, href: url(casePath(entry)) };
   }
 
   const entry = await getEntry('pages', item.id);
-  return entry && { title: entry.data.title, meta: item.label ?? 'Original choreography', cover: entry.data.cover, href: url(`choreographic-works/${entry.id.split('/').at(-1)}`) };
+  return entry && { id: item.id, title: entry.data.title, meta: item.label ?? 'Original choreography', cover: entry.data.cover, href: url(`choreographic-works/${entry.id.split('/').at(-1)}`) };
 };
 
 const groups = await Promise.all(categories.map(async (category) => ({
@@ -55,7 +55,7 @@ const groups = await Promise.all(categories.map(async (category) => ({
         <details open={focused}>
           <summary>{group.title}<b aria-hidden="true"></b></summary>
           {group.items.map((item) => (
-            <a class="works-directory__piece" href={item.href}>
+            <a class="works-directory__piece" href={item.href} data-work={item.id}>
               <MediaImage image={{ ...item.cover, highRes: undefined }} showCaption={false} sizes="(max-width: 680px) 100vw, 24vw" />
               <span><em>{item.title}</em><small>{item.meta}</small></span><b aria-hidden="true">→</b>
             </a>

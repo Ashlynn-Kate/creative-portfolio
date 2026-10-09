@@ -818,6 +818,17 @@ main:has(.about) + .site-footer {
 .works-directory__piece em { color: var(--ink); font-family: var(--font-display); font-size: clamp(26px, 3vw, 40px); font-style: normal; line-height: 0.95; }
 .works-directory__piece small { color: var(--muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
 
+/* Owner's Live performance refinements, without resizing other directory pages. */
+.works-directory-page[data-area="live-performance"] .works-directory-page__header h1 {
+  font-size: clamp(44px, 7vw, 72px);
+}
+.works-directory-page[data-area="live-performance"] .works-directory--focused details:first-child > summary {
+  padding-top: 1px;
+}
+.works-directory-page[data-area="live-performance"] [data-work="gift-of-athens"] em {
+  font-size: clamp(26px, 3vw, 30px);
+}
+
 .work-listing__items {
   margin: 0;
   padding: 0;
