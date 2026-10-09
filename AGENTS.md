@@ -121,6 +121,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0058** · `design` · Gift of Athens story-first order and community photographs
   The Gift of Athens must retain its illustrated introduction and visible chapter index, followed by Socrates, Plato, Aristotle, Creating the production, and Giving back to the community in that order. The community story must wrap around a small dedication image on the left and an uncropped, captioned veterans award-ceremony photograph on the right.
   → `docs/adr/0058-athens-story-first-community-wrap.md`
+- **ADR-0059** · `content` · Contemporary ballet production listing
+  The full-length production directory must list The Gift of Athens before The Prince of Egypt and identify both as Contemporary ballet. Directory descriptors must be stored in content independently of the detailed production-page kickers.
+  → `docs/adr/0059-production-directory-order-and-labels.md`
 <!-- adr-registry:end -->
 
 ## Content scope

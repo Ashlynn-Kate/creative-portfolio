@@ -200,7 +200,12 @@ const workDirectory = z.object({
     item: z.object({ type: z.literal('case'), id: z.string() }).optional(),
     groups: z.array(z.object({
       title: z.string(),
-      items: z.array(z.object({ type: z.enum(['case', 'page']), id: z.string() })).min(1),
+      items: z.array(z.object({
+        type: z.enum(['case', 'page']),
+        id: z.string(),
+        /** Optional short descriptor used in the directory instead of the case-page kicker. */
+        label: z.string().optional(),
+      })).min(1),
     })).optional(),
   })).min(1),
 });

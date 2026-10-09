@@ -8,6 +8,7 @@ import { slugify, url } from '../lib/site';
 interface DirectoryItem {
   type: 'case' | 'page';
   id: string;
+  label?: string;
 }
 
 interface Props {
@@ -25,11 +26,11 @@ const { categories, focused = false } = Astro.props;
 const resolveItem = async (item: DirectoryItem) => {
   if (item.type === 'case') {
     const entry = await getEntry('cases', item.id);
-    return entry && { title: entry.data.title, meta: entry.data.kicker ?? '', cover: entry.data.cover, href: url(casePath(entry)) };
+    return entry && { title: entry.data.title, meta: item.label ?? entry.data.kicker ?? '', cover: entry.data.cover, href: url(casePath(entry)) };
   }
 
   const entry = await getEntry('pages', item.id);
-  return entry && { title: entry.data.title, meta: 'Original choreography', cover: entry.data.cover, href: url(`choreographic-works/${entry.id.split('/').at(-1)}`) };
+  return entry && { title: entry.data.title, meta: item.label ?? 'Original choreography', cover: entry.data.cover, href: url(`choreographic-works/${entry.id.split('/').at(-1)}`) };
 };
 
 const groups = await Promise.all(categories.map(async (category) => ({
