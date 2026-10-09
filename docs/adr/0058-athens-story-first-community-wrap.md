@@ -1,7 +1,8 @@
 ---
 id: ADR-0058
 title: Gift of Athens story-first order and community photographs
-status: accepted
+status: superseded
+superseded_by: ADR-0060
 date: 2026-10-09
 area: design
 constraint: >
