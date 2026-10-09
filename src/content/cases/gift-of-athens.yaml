@@ -1,0 +1,142 @@
+order: 4
+title: The Gift of Athens
+kicker: Contemporary ballet · Jefferson City, Tennessee
+meta: Artist’s in Motion Dancers
+summary: An original contemporary ballet tracing the philosophical lineage of Socrates, Plato, and Aristotle, bringing their ideas to life through movement and storytelling.
+coverInHeader: true
+disciplines:
+  - Creative Direction
+  - Choreography
+  - Costume
+  - Live Performance
+role: Story, stage adaptation, choreography and creative direction · Ashlynn Kate
+cover:
+  src: gift-of-athens/three-philosophers.jpeg
+  alt: Three dancers in blue, gold, and white costumes sit along a low stone wall outdoors.
+
+blocks:
+  - type: chapter-index
+    eyebrow: Three philosophers · Three worlds
+    heading: Follow the ideas
+    intro: Each chapter gathers the character, his philosophy, and the movement that gives it form.
+    items:
+      - id: socrates
+        character: Socrates
+        title: The unexamined life
+        image:
+          src: gift-of-athens/socrates.png
+          alt: The dancer portraying Socrates in a gold-toned costume, seated on stone steps.
+        summary: Questioning, justice, and the choice to live by principle.
+      - id: plato
+        character: Plato
+        title: Beyond appearance
+        image:
+          src: gift-of-athens/plato.png
+          alt: The dancer portraying Plato in a white costume on pale stone steps.
+        summary: Loss, truth, education, and the journey from the cave.
+      - id: aristotle
+        character: Aristotle
+        title: A path of his own
+        image:
+          src: gift-of-athens/aristotle.jpeg
+          alt: The dancer portraying Aristotle in a blue costume among classical columns.
+        summary: Observation, reason, and the motion of the universe.
+
+  - type: story-chapter
+    id: socrates
+    character: Socrates
+    title: The unexamined life
+    image:
+      src: gift-of-athens/socrates.png
+      alt: The dancer portraying Socrates in a gold-toned costume, seated on stone steps.
+    intro: Socrates encouraged people to examine their lives, question their assumptions, and seek wisdom through dialogue. He valued knowledge over wealth and believed that living justly mattered more than personal comfort or material possessions.
+    sections:
+      - heading: A final choice
+        body: Condemned to death in Athens, Socrates faces the choice of escaping or accepting his sentence. Drawing on Plato’s account, this scene portrays his decision to drink hemlock rather than pursue an escape he believes would violate his principles. The dance explores the weight of that choice and his commitment to living by what he taught.
+        video:
+          compact: true
+          thumbnail:
+            src: gift-of-athens/socrates-plato-duet.jpeg
+            alt: Socrates and Plato performing a duet outdoors; opens the Death of Socrates scene excerpt on Google Drive.
+          url: https://drive.google.com/file/d/1Bs83eNmkXv0BnIZ5B0NYK4FivgOGiKt5/view
+          caption: Death of Socrates
+
+  - type: story-chapter
+    id: plato
+    character: Plato
+    title: Beyond appearance
+    image:
+      src: gift-of-athens/plato.png
+      alt: The dancer portraying Plato in a white costume on pale stone steps.
+    intro: Socrates’ execution profoundly affected Plato, sharpening his concern with justice and political life. As Socrates’ student, he carried forward his teacher’s search for truth and virtue. After a period of travel, he founded the Academy in Athens, where Aristotle would later study under him.
+    sections:
+      - video:
+          compact: true
+          thumbnail:
+            src: gift-of-athens/socrates-plato-duet.jpeg
+            alt: Socrates and Plato performing a duet outdoors; opens the scene excerpt on Google Drive.
+          url: https://drive.google.com/file/d/1gjTVYO1I9x8tfQ37YQL2jMwfTEdRXpbS/view
+          caption: Plato Mourns
+      - heading: The Allegory of the Cave
+        body: |
+          Plato explored how reason and education could lead beyond appearances toward enduring truths, which he called Forms.
+
+          Prisoners in a cave mistake shadows on a wall for reality until one escapes and discovers the world outside. His journey into the light, and his return to those still imprisoned, explore the difficulty of questioning what we know and the responsibility that comes with understanding.
+        video:
+          compact: true
+          thumbnail:
+            src: gift-of-athens/allegory-dancers.jpeg
+            alt: Two dancers in white and blue costumes; opens the scene excerpt on Google Drive.
+          url: https://drive.google.com/file/d/17sQGyr9BmuArytQH5DNs5I2Mhub19nfS/view
+          caption: The Allegory of the Cave
+
+  - type: story-chapter
+    id: aristotle
+    character: Aristotle
+    title: A path of his own
+    image:
+      src: gift-of-athens/aristotle.jpeg
+      alt: The dancer portraying Aristotle in a blue costume among classical columns.
+    intro: Aristotle studied under Plato for nearly twenty years, developing his thinking through both his teacher’s influence and his questioning of Plato’s ideas. He used observation and reason to explore the natural world, asking how things change, develop, and fulfill their potential.
+    sections:
+      - heading: The Unmoved Mover
+        body: Aristotle’s inquiry into motion led to the theory of the Unmoved Mover, an eternal, unchanging source of the universe’s motion that is not itself moved by anything else. The theory seeks to explain how eternal movement is sustained.
+        video:
+          compact: true
+          thumbnail:
+            src: gift-of-athens/allegory-dancers.jpeg
+            alt: Plato and Aristotle in a white and blue duet; opens the scene excerpt on Google Drive.
+          url: https://drive.google.com/file/d/16rZQskqYLPCTbLpPwLJ4DRnpj5YaY9uS/view
+          caption: The Unmoved Mover
+
+  - type: heading
+    text: Creating the production
+    sub: Story to stage | Rehearsal footage
+  - type: video-feature
+    compact: true
+    thumbnail:
+      src: gift-of-athens/title-card.png
+      alt: Original black-and-white title artwork for The Gift of Athens.
+    url: https://drive.google.com/file/d/1LTVoKo8ua4Ak65cUgm9VUqp0p1kikVhS/view
+    body: |
+      I wrote the original story and adapted it for the stage, selected all the music, choreographed every piece, and chose the costumes. I worked alongside the set team to develop the scenic design and bring each philosopher’s world to life.
+
+      The story and characters grew out of conversations with a historian specializing in Socrates, Plato, and Aristotle. Those discussions helped me translate their philosophies into movement and storytelling. He also attended rehearsals <span class="production-continuation">periodically, offering feedback on how clearly the choreography communicated the ideas.</span>
+
+      Their backgrounds and relationships to material life informed how each character moved and how his world looked. Socrates’ simplicity, Plato’s aristocratic upbringing, and Aristotle’s connections to the Macedonian court shaped choices in costumes, hairstyles, makeup, set design, and color. Each section had its own visual identity while remaining part of the same story.
+
+  - type: heading
+    text: Giving back to the community
+    sub: The work beyond the stage
+  - type: image-story
+    leadingImage:
+      src: gift-of-athens/memorial.png
+      alt: Inscribed memorial stone dedicated to those who served during peace and war.
+    trailingImage:
+      src: gift-of-athens/veterans-community.jpeg
+      alt: Dancers, the mayor, and local veterans gather at the award ceremony beneath an American flag.
+      caption: Award ceremony with the mayor and local veterans group.
+    body: |
+      The Gift of Athens was created for a community with limited opportunities to experience live theater. I worked with local businesses and vendors to secure advertising and financial support and arrange transportation for veterans to and from the show.
+
+      All ticket proceeds were donated to a local veterans group, a contribution recognized by the mayor. I took no personal payment, and the dancers and nearly everyone involved volunteered their time and skills so we could give back as much as possible. The production became a shared effort to bring the arts to the community and support the people within it.

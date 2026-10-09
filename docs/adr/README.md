@@ -64,6 +64,10 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0054](0054-portrait-led-concept-gallery-proportions.md) | Portrait-led Conceptual Portrait gallery proportions | accepted | design | 2026-10-06 |
 | [ADR-0055](0055-sitewide-vector-arrow-icons.md) | Consistent vector arrows across the interface | accepted | design | 2026-10-06 |
 | [ADR-0056](0056-neutral-control-mark-color.md) | Neutral-grey color for plus and arrow controls | accepted | design | 2026-10-06 |
+| [ADR-0057](0057-gift-of-athens-chaptered-production.md) | Gift of Athens chaptered production page | superseded by ADR-0058 | design | 2026-10-08 |
+| [ADR-0058](0058-athens-story-first-community-wrap.md) | Gift of Athens story-first order and community photographs | superseded by ADR-0060 | design | 2026-10-09 |
+| [ADR-0059](0059-production-directory-order-and-labels.md) | Contemporary ballet production listing | accepted | content | 2026-10-09 |
+| [ADR-0060](0060-athens-scene-captions-below.md) | Gift of Athens scene captions below thumbnails | accepted | design | 2026-10-09 |
 
 ## Adding or changing a decision
 

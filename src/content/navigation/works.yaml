@@ -18,7 +18,11 @@ categories:
       - title: Full-length productions
         items:
           - type: case
+            id: gift-of-athens
+            label: Contemporary ballet
+          - type: case
             id: prince-of-egypt
+            label: Contemporary ballet
       - title: Individual pieces
         items:
           - type: page

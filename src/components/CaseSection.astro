@@ -5,6 +5,7 @@ import { pad } from '../lib/content';
 import { url } from '../lib/site';
 import Blocks from './Blocks.astro';
 import DisciplineTags from './DisciplineTags.astro';
+import MediaImage from './MediaImage.astro';
 import ArrowIcon from './ArrowIcon.astro';
 
 interface Props {
@@ -21,6 +22,8 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
     'case',
     {
       'case--standalone': standalone,
+      'case--cover-in-header': entry.data.coverInHeader,
+      'case--gift-of-athens': entry.id === 'gift-of-athens',
       'case--prince-of-egypt': entry.id === 'prince-of-egypt',
       'case--mindspace': entry.id === 'dance-film',
       'case--choreographic-works': entry.id === 'choreographic-works',
@@ -31,6 +34,7 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
 >
   <header class="case__header">
     {standalone && <a class="back case__back" href={url('works')}><ArrowIcon direction="left" /> All works</a>}
+    {entry.data.coverInHeader && <MediaImage image={entry.data.cover} class="case__cover" showCaption={false} eager={standalone} sizes="(min-width: 900px) 44vw, 100vw" />}
     <p class="case__num" aria-hidden="true">{pad(number)}</p>
     <div class="case__heading">
       <p class="case__kicker">
@@ -41,17 +45,22 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
       {meta ? (
         <div class="case__meta-row">
           <p class="case__meta">{meta}</p>
-          <DisciplineTags disciplines={disciplines} variant="metadata" />
+          {!entry.data.coverInHeader && <DisciplineTags disciplines={disciplines} variant="metadata" />}
         </div>
       ) : (
         <DisciplineTags disciplines={disciplines} variant="metadata" />
       )}
+      {entry.data.coverInHeader && <p class="case__summary">{entry.data.summary}</p>}
     </div>
     {role && (
-      <dl class="case__role">
-        <dt>My role</dt>
-        <dd>{role}</dd>
-      </dl>
+      entry.data.coverInHeader ? (
+        <p class="case__credit">{role}</p>
+      ) : (
+        <dl class="case__role">
+          <dt>My role</dt>
+          <dd>{role}</dd>
+        </dl>
+      )
     )}
   </header>
 

@@ -436,6 +436,45 @@ main:has(.about) + .site-footer {
   background: linear-gradient(var(--ink), var(--ink)) no-repeat top / calc(100% - 2 * var(--gutter)) 1px;
 }
 
+/* A production cover can sit alongside its title and context, as in an editorial feature. */
+.case--cover-in-header .case__header {
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  margin-bottom: clamp(28px, 5vw, 64px);
+}
+
+.case--cover-in-header .case__num { display: none; }
+.case--cover-in-header .case__cover { grid-column: 1; grid-row: 2; width: 100%; margin: 0; }
+.case--cover-in-header .case__cover img { width: 100%; height: auto; }
+.case--cover-in-header .case__heading { grid-column: 2; grid-row: 2; }
+.case--cover-in-header .case__credit { grid-column: 2; grid-row: 3; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; letter-spacing: .05em; }
+.case__summary { max-width: 38em; color: var(--ink-soft); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; }
+
+/* Gift of Athens section titles align to the same wide edge as their story copy. */
+.case--gift-of-athens.case--standalone { padding-top: 0; }
+.case--gift-of-athens.case--standalone .case__header {
+  background: none;
+  padding-top: 20px;
+}
+.case--gift-of-athens .flow > .block-heading { grid-column: wide; text-align: left; }
+
+/* Tighten the transition from the chapter index into the story chapters. */
+.case--gift-of-athens .flow > .chapter-index { padding-bottom: 8px; }
+/* The flow already supplies separation; avoid adding another large gap below each chapter. */
+.case--gift-of-athens .flow > .story-chapter { padding-bottom: 8px; }
+
+/* Let rehearsal footage sit beside the production story before the copy continues below. */
+.case--gift-of-athens .video-feature { grid-column: wide; max-width: 100%; }
+.case--gift-of-athens .video-feature .video--compact {
+  float: left;
+  width: min(42%, 360px);
+  margin: 0 clamp(24px, 4vw, 48px) 0 0;
+}
+/* The owner's sentence transition resumes beneath the footage, without a paragraph gap. */
+@media (min-width: 641px) {
+  .case--gift-of-athens .production-continuation { display: block; clear: both; }
+}
+
 .case__back {
   grid-column: 1 / -1;
   margin-bottom: 0;
@@ -450,6 +489,11 @@ main:has(.about) + .site-footer {
 
 .case--prince-of-egypt .case__header {
   margin-bottom: clamp(20px, 3vw, 32px);
+}
+
+.case--cover-in-header .flow > .wide:has(.video) {
+  max-width: 480px;
+  justify-self: start;
 }
 
 /* Case-study narratives share a wide left edge. */
@@ -579,6 +623,11 @@ main:has(.about) + .site-footer {
   .case__header {
     grid-template-columns: 1fr;
   }
+  .case--cover-in-header .case__header { grid-template-columns: 1fr; }
+  .case--cover-in-header .case__cover,
+  .case--cover-in-header .case__heading,
+  .case--cover-in-header .case__credit { grid-column: 1; grid-row: auto; }
+  .case--gift-of-athens .video-feature .video--compact { float: none; width: min(100%, 360px); margin: 0 0 20px; }
   .case__role {
     grid-column: 1;
   }
@@ -767,6 +816,17 @@ main:has(.about) + .site-footer {
 .works-directory__piece > span { display: grid; gap: 8px; }
 .works-directory__piece em { color: var(--ink); font-family: var(--font-display); font-size: clamp(26px, 3vw, 40px); font-style: normal; line-height: 0.95; }
 .works-directory__piece small { color: var(--muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* Owner's Live performance refinements, without resizing other directory pages. */
+.works-directory-page[data-area="live-performance"] .works-directory-page__header h1 {
+  font-size: clamp(44px, 7vw, 72px);
+}
+.works-directory-page[data-area="live-performance"] .works-directory--focused details:first-child > summary {
+  padding-top: 1px;
+}
+.works-directory-page[data-area="live-performance"] .works-directory__piece em {
+  font-size: clamp(26px, 3vw, 30px);
+}
 
 .work-listing__items {
   margin: 0;

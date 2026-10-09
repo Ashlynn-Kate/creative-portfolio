@@ -7,19 +7,19 @@ interface Props {
   thumbnail: { src: string; alt: string };
   url: string;
   caption?: string;
-  heading: string;
+  compact?: boolean;
+  thumbnailFocus?: 'center' | 'top';
+  heading?: string;
   body: string;
 }
 
-const { thumbnail, url, caption, heading, body } = Astro.props;
+const { thumbnail, url, caption, compact, thumbnailFocus, heading, body } = Astro.props;
 ---
 
 <section class="video-feature">
-  <VideoLink thumbnail={thumbnail} url={url} caption={caption} />
+  <VideoLink thumbnail={thumbnail} url={url} caption={caption} compact={compact} thumbnailFocus={thumbnailFocus} />
   <div class="video-feature__copy">
-    <div class="block-heading">
-      <h3 set:html={mdInline(heading)} />
-    </div>
+    {heading && <div class="block-heading"><h3 set:html={mdInline(heading)} /></div>}
     <div class="prose" set:html={md(body)} />
   </div>
 </section>

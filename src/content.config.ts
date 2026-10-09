@@ -68,6 +68,10 @@ const video = z.object({
   thumbnail: image,
   url: z.url(),
   caption: z.string().optional(),
+  captionOnImage: z.boolean().optional(),
+  /** A consistently sized, cropped thumbnail for video links embedded in a long case study. */
+  compact: z.boolean().optional(),
+  thumbnailFocus: z.enum(['center', 'top']).optional(),
 });
 
 /** A performance-video thumbnail with its accompanying narrative alongside it. */
@@ -76,7 +80,9 @@ const videoFeature = z.object({
   thumbnail: image,
   url: z.url(),
   caption: z.string().optional(),
-  heading: z.string(),
+  compact: z.boolean().optional(),
+  thumbnailFocus: z.enum(['center', 'top']).optional(),
+  heading: z.string().optional(),
   body: z.string(),
 });
 
@@ -108,6 +114,50 @@ const imageFeature = z.object({
   image,
   heading: z.string(),
   body: z.string(),
+});
+
+/** Two uncropped photographs floated around an editorial story. */
+const imageStory = z.object({
+  type: z.literal('image-story'),
+  leadingImage: image,
+  trailingImage: image,
+  body: z.string(),
+});
+
+/** A visual chapter index that links to chapter IDs in a case-study narrative. */
+const chapterIndex = z.object({
+  type: z.literal('chapter-index'),
+  eyebrow: z.string(),
+  heading: z.string(),
+  intro: z.string(),
+  items: z.array(z.object({
+    id: z.string(),
+    character: z.string(),
+    title: z.string(),
+    image,
+    summary: z.string(),
+  })).min(1),
+});
+
+const storyChapter = z.object({
+  type: z.literal('story-chapter'),
+  id: z.string(),
+  character: z.string(),
+  title: z.string(),
+  image,
+  intro: z.string(),
+  sections: z.array(z.object({
+    heading: z.string().optional(),
+    body: z.string().optional(),
+    video: z.object({
+      thumbnail: image,
+      url: z.url(),
+      caption: z.string().optional(),
+      captionOnImage: z.boolean().optional(),
+      compact: z.boolean().optional(),
+      thumbnailFocus: z.enum(['center', 'top']).optional(),
+    }).optional(),
+  })).min(1),
 });
 
 /** Small project-credit lines that follow an introduction. */
@@ -151,7 +201,12 @@ const workDirectory = z.object({
     item: z.object({ type: z.literal('case'), id: z.string() }).optional(),
     groups: z.array(z.object({
       title: z.string(),
-      items: z.array(z.object({ type: z.enum(['case', 'page']), id: z.string() })).min(1),
+      items: z.array(z.object({
+        type: z.enum(['case', 'page']),
+        id: z.string(),
+        /** Optional short descriptor used in the directory instead of the case-page kicker. */
+        label: z.string().optional(),
+      })).min(1),
     })).optional(),
   })).min(1),
 });
@@ -166,6 +221,9 @@ type Block =
   | z.infer<typeof role>
   | z.infer<typeof imageDetails>
   | z.infer<typeof imageFeature>
+  | z.infer<typeof imageStory>
+  | z.infer<typeof chapterIndex>
+  | z.infer<typeof storyChapter>
   | z.infer<typeof credits>
   | z.infer<typeof statusLine>
   | z.infer<typeof video>
@@ -185,6 +243,9 @@ const block: z.ZodType<Block> = z.lazy(() =>
     role,
     imageDetails,
     imageFeature,
+    imageStory,
+    chapterIndex,
+    storyChapter,
     credits,
     statusLine,
     video,
@@ -219,6 +280,8 @@ const cases = defineCollection({
     kicker: z.string().optional(),
     /** One-line facts, e.g. "Full-length contemporary ballet · Fuzion School of the Arts · May 2024". */
     meta: z.string().optional(),
+    /** Place the cover image beside the title and summary in the standalone page header. */
+    coverInHeader: z.boolean().default(false),
     /** e.g. "In production". Shown as a badge. */
     status: z.string().optional(),
     role: z.string().optional(),
