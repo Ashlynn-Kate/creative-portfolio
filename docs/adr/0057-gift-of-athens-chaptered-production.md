@@ -18,9 +18,10 @@ The Gift of Athens is a substantial full-length ballet with historical context, 
 
 ## Decision
 - Present the production photo beside the contemporary-ballet/location eyebrow, title, summary, company, and an unlabeled creative-credit line at the top of the standalone case study, matching Option B.
-- Follow the introduction with a visual index linking to the visible Socrates, Plato, and Aristotle chapters.
-- Keep the creation process and rehearsal footage together before the story chapters.
-- Keep scene videos with their relevant chapter narratives and use compact 16:9 Google Drive thumbnail tiles that contain (rather than crop) the full source image, consistent with ADR-0008.
+- Follow the introduction with a visual index linking to the visible Socrates, Plato, and Aristotle chapters; keep its portrait crops uniform and omit chapter numbers from both the index and chapter labels. Use “Beyond appearance” as the Plato chapter title.
+- Keep the creation process and rehearsal footage together before the story chapters, with the compact rehearsal image floated beside and the text wrapping around it.
+- Keep scene videos with their relevant chapter narratives and use consistently sized, compact 16:9 Google Drive thumbnail tiles with controlled crops and subject positioning, consistent with ADR-0008.
+- Align the creation and community section headings and subheads to the left edge of their wide story column.
 - Close with the community-impact story and the memorial and veterans-group photographs, displayed without cropping their source proportions.
 - List The Gift of Athens alongside The Prince of Egypt under Live performance → Full-length productions.
 

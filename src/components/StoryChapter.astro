@@ -7,12 +7,11 @@ import VideoLink from './VideoLink.astro';
 interface StorySection {
   heading?: string;
   body?: string;
-  video?: { thumbnail: { src: string; alt: string }; url: string; caption?: string };
+  video?: { thumbnail: { src: string; alt: string }; url: string; caption?: string; compact?: boolean; thumbnailFocus?: 'center' | 'top' };
 }
 
 interface Props {
   id: string;
-  number: string;
   character: string;
   title: string;
   image: { src: string; alt: string };
@@ -20,11 +19,11 @@ interface Props {
   sections: StorySection[];
 }
 
-const { id, number, character, title, image, intro, sections } = Astro.props;
+const { id, character, title, image, intro, sections } = Astro.props;
 ---
 
 <article class="story-chapter" id={id} aria-labelledby={`${id}-title`}>
-  <p class="eyebrow">{number} <span>·</span> {character}</p>
+  <p class="eyebrow">{character}</p>
   <div class="story-chapter__layout">
     <MediaImage image={image} showCaption={false} class="story-chapter__image" sizes="(min-width: 900px) 36vw, 100vw" />
     <div class="story-chapter__copy">

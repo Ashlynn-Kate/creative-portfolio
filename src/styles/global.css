@@ -447,6 +447,17 @@ main:has(.about) + .site-footer {
 .case--cover-in-header .case__credit { grid-column: 2; grid-row: 3; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.8; letter-spacing: .05em; }
 .case__summary { max-width: 38em; color: var(--ink-soft); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; }
 
+/* Gift of Athens section titles align to the same wide edge as their story copy. */
+.case--gift-of-athens .flow > .block-heading { grid-column: wide; text-align: left; }
+
+/* Let rehearsal footage sit beside the production story before the copy continues below. */
+.case--gift-of-athens .video-feature { grid-column: wide; max-width: 100%; }
+.case--gift-of-athens .video-feature .video--compact {
+  float: left;
+  width: min(42%, 360px);
+  margin: 0 32px 20px 0;
+}
+
 .case__back {
   grid-column: 1 / -1;
   margin-bottom: 0;
@@ -599,6 +610,7 @@ main:has(.about) + .site-footer {
   .case--cover-in-header .case__cover,
   .case--cover-in-header .case__heading,
   .case--cover-in-header .case__credit { grid-column: 1; grid-row: auto; }
+  .case--gift-of-athens .video-feature .video--compact { float: none; width: min(100%, 360px); margin: 0 0 20px; }
   .case__role {
     grid-column: 1;
   }

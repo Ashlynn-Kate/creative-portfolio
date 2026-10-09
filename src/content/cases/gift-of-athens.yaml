@@ -2,7 +2,7 @@ order: 4
 title: The Gift of Athens
 kicker: Contemporary ballet · Jefferson City, Tennessee
 meta: Artist’s in Motion Dancers
-summary: An original contemporary ballet tracing the philosophical lineage of Socrates, Plato, and Aristotle through movement and storytelling.
+summary: An original contemporary ballet tracing the philosophical lineage of Socrates, Plato, and Aristotle, bringing their ideas to life through movement and storytelling.
 coverInHeader: true
 disciplines:
   - Creative Direction
@@ -21,7 +21,6 @@ blocks:
     intro: Each chapter gathers the character, his philosophy, and the movement that gives it form.
     items:
       - id: socrates
-        number: '01'
         character: Socrates
         title: The unexamined life
         image:
@@ -29,7 +28,6 @@ blocks:
           alt: The dancer portraying Socrates in a gold-toned costume, seated on stone steps.
         summary: Questioning, justice, and the choice to live by principle.
       - id: plato
-        number: '02'
         character: Plato
         title: Beyond appearance
         image:
@@ -37,7 +35,6 @@ blocks:
           alt: The dancer portraying Plato in a white costume on pale stone steps.
         summary: Loss, truth, education, and the journey from the cave.
       - id: aristotle
-        number: '03'
         character: Aristotle
         title: A path of his own
         image:
@@ -48,25 +45,22 @@ blocks:
   - type: heading
     text: Creating the production
     sub: Story to stage
-  - type: text
-    size: wide
-    body: |
-      I wrote the original story and adapted it for the stage, selected all the music, choreographed every piece, and chose the costumes. I worked alongside the set team to develop the scenic design and bring each philosopher’s world to life.
-
-      The story and characters grew out of conversations with a historian specializing in Socrates, Plato, and Aristotle. Those discussions helped me translate their philosophies into movement and storytelling. He also attended rehearsals periodically, offering feedback on how clearly the choreography communicated the ideas.
-
-      Their backgrounds and relationships to material life informed how each character moved and how his world looked. Socrates’ simplicity, Plato’s aristocratic upbringing, and Aristotle’s connections to the Macedonian court shaped choices in costumes, hairstyles, makeup, set design, and color. Each section had its own visual identity while remaining part of the same story.
-  - type: video
+  - type: video-feature
     compact: true
     thumbnail:
       src: gift-of-athens/title-card.png
       alt: Original black-and-white title artwork for The Gift of Athens.
     url: https://drive.google.com/file/d/1LTVoKo8ua4Ak65cUgm9VUqp0p1kikVhS/view
     caption: Rehearsal footage
+    body: |
+      I wrote the original story and adapted it for the stage, selected all the music, choreographed every piece, and chose the costumes. I worked alongside the set team to develop the scenic design and bring each philosopher’s world to life.
+
+      The story and characters grew out of conversations with a historian specializing in Socrates, Plato, and Aristotle. Those discussions helped me translate their philosophies into movement and storytelling. He also attended rehearsals periodically, offering feedback on how clearly the choreography communicated the ideas.
+
+      Their backgrounds and relationships to material life informed how each character moved and how his world looked. Socrates’ simplicity, Plato’s aristocratic upbringing, and Aristotle’s connections to the Macedonian court shaped choices in costumes, hairstyles, makeup, set design, and color. Each section had its own visual identity while remaining part of the same story.
 
   - type: story-chapter
     id: socrates
-    number: '01'
     character: Socrates
     title: The unexamined life
     image:
@@ -78,6 +72,7 @@ blocks:
         body: Condemned to death in Athens, Socrates faces the choice of escaping or accepting his sentence. Drawing on Plato’s account, this scene portrays his decision to drink hemlock rather than pursue an escape he believes would violate his principles. The dance explores the weight of that choice and his commitment to living by what he taught.
         video:
           compact: true
+          thumbnailFocus: top
           thumbnail:
             src: gift-of-athens/socrates.png
             alt: The dancer portraying Socrates; opens the scene excerpt on Google Drive.
@@ -86,9 +81,8 @@ blocks:
 
   - type: story-chapter
     id: plato
-    number: '02'
     character: Plato
-    title: Learning to see
+    title: Beyond appearance
     image:
       src: gift-of-athens/plato.png
       alt: The dancer portraying Plato in a white costume on pale stone steps.
@@ -97,8 +91,8 @@ blocks:
       - video:
           compact: true
           thumbnail:
-            src: gift-of-athens/plato.png
-            alt: The dancer portraying Plato; opens the scene excerpt on Google Drive.
+            src: gift-of-athens/socrates-plato-duet.jpeg
+            alt: Socrates and Plato performing a duet outdoors; opens the scene excerpt on Google Drive.
           url: https://drive.google.com/file/d/1gjTVYO1I9x8tfQ37YQL2jMwfTEdRXpbS/view
           caption: Plato Mourns
       - heading: The Allegory of the Cave
@@ -116,7 +110,6 @@ blocks:
 
   - type: story-chapter
     id: aristotle
-    number: '03'
     character: Aristotle
     title: A path of his own
     image:
@@ -129,8 +122,8 @@ blocks:
         video:
           compact: true
           thumbnail:
-            src: gift-of-athens/aristotle.jpeg
-            alt: The dancer portraying Aristotle; opens the scene excerpt on Google Drive.
+            src: gift-of-athens/allegory-dancers.jpeg
+            alt: Plato and Aristotle in a white and blue duet; opens the scene excerpt on Google Drive.
           url: https://drive.google.com/file/d/16rZQskqYLPCTbLpPwLJ4DRnpj5YaY9uS/view
           caption: The Unmoved Mover
 

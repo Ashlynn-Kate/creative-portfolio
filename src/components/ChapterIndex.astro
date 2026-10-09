@@ -4,7 +4,6 @@ import MediaImage from './MediaImage.astro';
 
 interface Item {
   id: string;
-  number: string;
   character: string;
   title: string;
   image: { src: string; alt: string };
@@ -30,8 +29,10 @@ const { eyebrow, heading, intro, items } = Astro.props;
   <nav class="chapter-index__cards" aria-label="Jump to a production chapter">
     {items.map((item) => (
       <a href={`#${item.id}`}>
-        <span class="chapter-index__number">{item.number} / {item.title}</span>
-        <MediaImage image={item.image} showCaption={false} sizes="(min-width: 900px) 24vw, 30vw" />
+        <span class="chapter-index__title">{item.title}</span>
+        <span class="chapter-index__image-frame">
+          <MediaImage image={item.image} showCaption={false} sizes="(min-width: 900px) 24vw, 30vw" />
+        </span>
         <strong>{item.character}</strong>
         <span class="chapter-index__summary">{item.summary}</span>
       </a>
@@ -69,18 +70,20 @@ const { eyebrow, heading, intro, items } = Astro.props;
     color: inherit;
     text-decoration: none;
   }
-  .chapter-index__number {
+  .chapter-index__title {
     min-height: 28px;
     color: var(--muted);
     font-size: 9px;
     letter-spacing: .12em;
     text-transform: uppercase;
   }
-  .chapter-index__cards .media { width: 100%; margin: 0; background: var(--paper-deep); }
-  .chapter-index__cards .media img {
+  .chapter-index__image-frame { display: block; width: 100%; aspect-ratio: 3 / 4; overflow: hidden; background: var(--paper-deep); }
+  .chapter-index__image-frame :global(.media) { width: 100%; height: 100%; margin: 0; }
+  .chapter-index__image-frame :global(img) {
     width: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: contain;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
   }
   .chapter-index__cards strong { font: 400 27px/1 var(--font-display); }
   .chapter-index__summary { color: var(--ink-soft); font-size: 12px; line-height: 1.45; }
@@ -91,7 +94,7 @@ const { eyebrow, heading, intro, items } = Astro.props;
   }
   @media (max-width: 560px) {
     .chapter-index__cards { gap: 9px; }
-    .chapter-index__number { font-size: 8px; }
+    .chapter-index__title { font-size: 8px; }
     .chapter-index__cards strong { font-size: 21px; }
     .chapter-index__summary { font-size: 11px; }
   }

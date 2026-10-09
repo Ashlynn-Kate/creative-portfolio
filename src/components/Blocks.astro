@@ -89,7 +89,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
       case 'chapter-index':
         return <ChapterIndex eyebrow={block.eyebrow} heading={block.heading} intro={block.intro} items={block.items} />;
       case 'story-chapter':
-        return <StoryChapter id={block.id} number={block.number} character={block.character} title={block.title} image={block.image} intro={block.intro} sections={block.sections} />;
+        return <StoryChapter id={block.id} character={block.character} title={block.title} image={block.image} intro={block.intro} sections={block.sections} />;
       case 'credits':
         return <div class="project-credits">{block.lines.map((line) => <p>{line}</p>)}</div>;
       case 'status-line':
@@ -97,7 +97,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
       case 'video':
         return <div class="wide"><VideoLink thumbnail={block.thumbnail} url={block.url} caption={block.caption} compact={block.compact} /></div>;
       case 'video-feature':
-        return <VideoFeature thumbnail={block.thumbnail} url={block.url} caption={block.caption} heading={block.heading} body={block.body} />;
+        return <VideoFeature thumbnail={block.thumbnail} url={block.url} caption={block.caption} compact={block.compact} thumbnailFocus={block.thumbnailFocus} heading={block.heading} body={block.body} />;
       case 'pages':
         return <div class="wide"><PageCards items={block.items} layout={block.layout} /></div>;
       case 'page-link':

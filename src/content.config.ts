@@ -68,8 +68,9 @@ const video = z.object({
   thumbnail: image,
   url: z.url(),
   caption: z.string().optional(),
-  /** A contained, compact thumbnail for video links embedded in a long case study. */
+  /** A consistently sized, cropped thumbnail for video links embedded in a long case study. */
   compact: z.boolean().optional(),
+  thumbnailFocus: z.enum(['center', 'top']).optional(),
 });
 
 /** A performance-video thumbnail with its accompanying narrative alongside it. */
@@ -78,7 +79,9 @@ const videoFeature = z.object({
   thumbnail: image,
   url: z.url(),
   caption: z.string().optional(),
-  heading: z.string(),
+  compact: z.boolean().optional(),
+  thumbnailFocus: z.enum(['center', 'top']).optional(),
+  heading: z.string().optional(),
   body: z.string(),
 });
 
@@ -120,7 +123,6 @@ const chapterIndex = z.object({
   intro: z.string(),
   items: z.array(z.object({
     id: z.string(),
-    number: z.string(),
     character: z.string(),
     title: z.string(),
     image,
@@ -131,7 +133,6 @@ const chapterIndex = z.object({
 const storyChapter = z.object({
   type: z.literal('story-chapter'),
   id: z.string(),
-  number: z.string(),
   character: z.string(),
   title: z.string(),
   image,
@@ -144,6 +145,7 @@ const storyChapter = z.object({
       url: z.url(),
       caption: z.string().optional(),
       compact: z.boolean().optional(),
+      thumbnailFocus: z.enum(['center', 'top']).optional(),
     }).optional(),
   })).min(1),
 });

@@ -12,15 +12,16 @@ interface Props {
   url: string;
   caption?: string;
   compact?: boolean;
+  thumbnailFocus?: 'center' | 'top';
 }
 
-const { thumbnail, url, caption, compact = false } = Astro.props;
+const { thumbnail, url, caption, compact = false, thumbnailFocus = 'center' } = Astro.props;
 const meta = getImage(thumbnail.src);
 const maxWidth = Math.min(meta.width, 2000);
 const widths = [...new Set([480, 800, 1200, maxWidth].filter((w) => w <= maxWidth))];
 ---
 
-<figure class:list={['video', { 'video--compact': compact }]}>
+<figure class:list={['video', { 'video--compact': compact, 'video--focus-top': thumbnailFocus === 'top' }]}>
   <a class="video__link" href={url} target="_blank" rel="noopener">
     <Image src={meta} alt={thumbnail.alt} widths={widths} sizes="(min-width: 1240px) 1160px, 100vw" format="webp" quality={82} loading="lazy" />
     <span class="video__play" aria-hidden="true">
@@ -32,10 +33,11 @@ const widths = [...new Set([480, 800, 1200, maxWidth].filter((w) => w <= maxWidt
 </figure>
 
 <style>
-  /* Compact chapter links echo the lab's 16:9 tile while keeping the full source visible. */
+  /* Compact chapter links echo the lab's small 16:9 tile with a deliberate subject crop. */
   .video--compact { width: min(100%, 420px); margin: 20px 0; }
   .video--compact .video__link { aspect-ratio: 16 / 9; display: grid; place-items: center; }
-  .video--compact .video__link img { width: 100%; height: 100%; object-fit: contain; opacity: 1; }
+  .video--compact .video__link img { width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 1; }
+  .video--compact.video--focus-top .video__link img { object-position: center top; }
   .video--compact .video__play { width: 56px; height: 56px; }
   .video--compact .video__label { font-size: 10px; }
 </style>
