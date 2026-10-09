@@ -450,6 +450,9 @@ main:has(.about) + .site-footer {
 /* Gift of Athens section titles align to the same wide edge as their story copy. */
 .case--gift-of-athens .flow > .block-heading { grid-column: wide; text-align: left; }
 
+/* Tighten the transition from the chapter index into the production process. */
+.case--gift-of-athens .chapter-index { padding-bottom: clamp(32px, 5vw, 56px); }
+
 /* Let rehearsal footage sit beside the production story before the copy continues below. */
 .case--gift-of-athens .video-feature { grid-column: wide; max-width: 100%; }
 .case--gift-of-athens .video-feature .video--compact {
