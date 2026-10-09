@@ -104,7 +104,7 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
   The black-turtleneck portrait in the home collage must have a photo-specific upper-side feather that removes visible wall boundaries near the head while preserving the face, lower arms, existing bottom fade, and image geometry.
   → `docs/adr/0046-black-portrait-upper-side-feather.md`
 - **ADR-0048** · `content` · Conceptual portrait category and curated role tags
-  The site must identify Ashlynn as a creative director, artistic director, choreographer, and performer, and must credit sole and shared project work accurately. Her idea-led portrait work must be categorized as Conceptual portraits; Object Translations must credit her photography in its narrative but must not use Photography as a browse tag unless she chooses to invite photography commissions.
+  The site must identify Ashlynn as a creative director, artistic director, choreographer, and performer, and must credit sole and shared project work accurately. Her idea-led portrait work must be categorized as Conceptual portraits; Object Translations must frame photography as part of planning and directing her own shoots from concept through final image, credit her photography in its narrative, and must not use Photography as a browse tag unless she chooses to invite photography commissions.
   → `docs/adr/0048-conceptual-portrait-category-and-role-tags.md`
 - **ADR-0049** · `design` · Direct destinations from areas of work
   Home-page areas of work must link directly to their destination rather than through the Works overview. Object Translations must open on its complete concept collection without a separate four-portrait summary, and grouped areas such as Live performance must have focused pages that show their work groups and current projects immediately.
@@ -112,12 +112,15 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0051** · `design` · Conceptual Portraits introduction and index width
   The Conceptual Portraits all-concepts page must place its series introduction after the title, subtitle, and disciplines but before the concept disclosures. The introduction and concept index must use wider editorial columns so each three-part concept descriptor stays on one line when space permits, without causing horizontal scroll on smaller screens.
   → `docs/adr/0051-concept-series-intro-and-index-width.md`
-- **ADR-0052** · `design` · Stable home navigation arrows
-  The home page's Areas of work links and its adjacent portfolio links must use drawn arrow icons rather than Unicode arrow characters, so their appearance stays typographic and consistent across desktop and mobile platforms.
-  → `docs/adr/0052-home-navigation-arrow-icons.md`
 - **ADR-0054** · `design` · Portrait-led Conceptual Portrait gallery proportions
   Open Conceptual Portraits disclosures on phones must show a 129px object thumbnail beside the title and descriptor, followed by the portrait gallery without a separate full-size object image. At 900px and above, the full-size object and portrait gallery must use a 35/65 column split favoring the portrait; intermediate widths retain the existing layout.
   → `docs/adr/0054-portrait-led-concept-gallery-proportions.md`
+- **ADR-0055** · `design` · Consistent vector arrows across the interface
+  Decorative arrows used for navigation, paging, action links, and external-link cues must be drawn vector icons rather than Unicode arrow characters, across production pages and design-lab navigation, so mobile platforms cannot render them as emoji. Keep meaningful accessible link text and hide decorative icons from assistive technology.
+  → `docs/adr/0055-sitewide-vector-arrow-icons.md`
+- **ADR-0056** · `design` · Neutral-grey color for plus and arrow controls
+  Decorative plus/minus marks and arrow icons across the site must use a neutral grey rather than the desert-sienna accent, with a lighter neutral-grey variant on dark image surfaces to preserve contrast. Keep sienna for non-control accents.
+  → `docs/adr/0056-neutral-control-mark-color.md`
 - **ADR-0058** · `design` · Gift of Athens story-first order and community photographs
   The Gift of Athens must retain its illustrated introduction and visible chapter index, followed by Socrates, Plato, Aristotle, Creating the production, and Giving back to the community in that order. The community story must wrap around a small dedication image on the left and an uncropped, captioned veterans award-ceremony photograph on the right.
   → `docs/adr/0058-athens-story-first-community-wrap.md`

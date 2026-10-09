@@ -153,6 +153,7 @@ const storyChapter = z.object({
       thumbnail: image,
       url: z.url(),
       caption: z.string().optional(),
+      captionOnImage: z.boolean().optional(),
       compact: z.boolean().optional(),
       thumbnailFocus: z.enum(['center', 'top']).optional(),
     }).optional(),

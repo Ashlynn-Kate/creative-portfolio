@@ -23,6 +23,10 @@ Live performance destination reached from the homepage. Give both items the desc
 renderer so the standalone pages can retain their fuller context. This is consistent with
 ADR-0005's data-driven content and ADR-0049's shared navigation directory.
 
+On the focused Live performance page, production and individual-piece titles share the
+same responsive size, capped at 30px. The page heading remains left aligned with its list
+and capped at 72px.
+
 ## Options considered
 - Change production-page kickers globally: would remove useful context outside the listing.
 - Content-driven directory labels (chosen): keeps the requested browse wording explicit.

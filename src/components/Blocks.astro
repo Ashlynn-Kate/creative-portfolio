@@ -17,6 +17,7 @@ import StoryChapter from './StoryChapter.astro';
 import PageCards from './PageCards.astro';
 import WorkListing from './WorkListing.astro';
 import { url } from '../lib/site';
+import ArrowIcon from './ArrowIcon.astro';
 
 interface Props {
   blocks: Block[];
@@ -98,13 +99,13 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
       case 'status-line':
         return <p class="status-line">{block.text}</p>;
       case 'video':
-        return <div class="wide"><VideoLink thumbnail={block.thumbnail} url={block.url} caption={block.caption} compact={block.compact} /></div>;
+        return <div class="wide"><VideoLink thumbnail={block.thumbnail} url={block.url} caption={block.caption} captionOnImage={block.captionOnImage} compact={block.compact} thumbnailFocus={block.thumbnailFocus} /></div>;
       case 'video-feature':
         return <VideoFeature thumbnail={block.thumbnail} url={block.url} caption={block.caption} compact={block.compact} thumbnailFocus={block.thumbnailFocus} heading={block.heading} body={block.body} />;
       case 'pages':
         return <div class="wide"><PageCards items={block.items} layout={block.layout} /></div>;
       case 'page-link':
-        return <p class="page-link"><a href={url(`work/${block.item}`)}>{block.label}</a></p>;
+        return <p class="page-link"><a href={url(`work/${block.item}`)}>{block.label} <ArrowIcon /></a></p>;
       case 'work-listing':
         return <WorkListing items={block.items} route={block.route} linkLabel={block.linkLabel} />;
       case 'details':
