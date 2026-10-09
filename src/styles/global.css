@@ -455,7 +455,13 @@ main:has(.about) + .site-footer {
 .case--gift-of-athens .video-feature .video--compact {
   float: left;
   width: min(42%, 360px);
-  margin: 0 32px 20px 0;
+  margin: 0 clamp(24px, 4vw, 48px) 20px 0;
+}
+
+/* Keep the community images uncropped, with the long veterans photograph at half scale. */
+.case--gift-of-athens .flow > .grid .grid__item:nth-child(2) .media {
+  width: 50%;
+  margin-inline: auto;
 }
 
 .case__back {

@@ -72,10 +72,10 @@ blocks:
         body: Condemned to death in Athens, Socrates faces the choice of escaping or accepting his sentence. Drawing on Plato’s account, this scene portrays his decision to drink hemlock rather than pursue an escape he believes would violate his principles. The dance explores the weight of that choice and his commitment to living by what he taught.
         video:
           compact: true
-          thumbnailFocus: top
+          captionOnImage: true
           thumbnail:
-            src: gift-of-athens/socrates.png
-            alt: The dancer portraying Socrates; opens the scene excerpt on Google Drive.
+            src: gift-of-athens/socrates-plato-duet.jpeg
+            alt: Socrates and Plato performing a duet outdoors; opens the Death of Socrates scene excerpt on Google Drive.
           url: https://drive.google.com/file/d/1Bs83eNmkXv0BnIZ5B0NYK4FivgOGiKt5/view
           caption: Death of Socrates
 

@@ -11,11 +11,12 @@ interface Props {
   thumbnail: { src: string; alt: string };
   url: string;
   caption?: string;
+  captionOnImage?: boolean;
   compact?: boolean;
   thumbnailFocus?: 'center' | 'top';
 }
 
-const { thumbnail, url, caption, compact = false, thumbnailFocus = 'center' } = Astro.props;
+const { thumbnail, url, caption, captionOnImage = false, compact = false, thumbnailFocus = 'center' } = Astro.props;
 const meta = getImage(thumbnail.src);
 const maxWidth = Math.min(meta.width, 2000);
 const widths = [...new Set([480, 800, 1200, maxWidth].filter((w) => w <= maxWidth))];
@@ -27,9 +28,9 @@ const widths = [...new Set([480, 800, 1200, maxWidth].filter((w) => w <= maxWidt
     <span class="video__play" aria-hidden="true">
       <svg viewBox="0 0 24 24" width="28" height="28"><path d="M8 5.5v13l11-6.5z" fill="currentColor"></path></svg>
     </span>
-    <span class="video__label">Watch the clip <span aria-hidden="true">↗</span><span class="sr-only"> (opens Google Drive in a new tab)</span></span>
+    <span class="video__label">{captionOnImage && caption ? caption : <>Watch the clip <span aria-hidden="true">↗</span><span class="sr-only"> (opens Google Drive in a new tab)</span></>}</span>
   </a>
-  {caption && <figcaption set:html={mdInline(caption)} />}
+  {caption && !captionOnImage && <figcaption set:html={mdInline(caption)} />}
 </figure>
 
 <style>

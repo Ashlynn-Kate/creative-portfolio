@@ -21,8 +21,10 @@ The Gift of Athens is a substantial full-length ballet with historical context, 
 - Follow the introduction with a visual index linking to the visible Socrates, Plato, and Aristotle chapters; keep its portrait crops uniform and omit chapter numbers from both the index and chapter labels. Use “Beyond appearance” as the Plato chapter title.
 - Keep the creation process and rehearsal footage together before the story chapters, with the compact rehearsal image floated beside and the text wrapping around it.
 - Keep scene videos with their relevant chapter narratives and use consistently sized, compact 16:9 Google Drive thumbnail tiles with controlled crops and subject positioning, consistent with ADR-0008.
+- Use the Socrates–Plato duet image for the Death of Socrates video and place its identifying caption directly on the thumbnail.
 - Align the creation and community section headings and subheads to the left edge of their wide story column.
-- Close with the community-impact story and the memorial and veterans-group photographs, displayed without cropping their source proportions.
+- Float the rehearsal thumbnail beside the production story with a moderate text gap modeled on the About portrait, letting the copy wrap beside and below it.
+- Close with the community-impact story and the memorial and veterans-group photographs, displayed without cropping their source proportions; show the long veterans-group photograph at half the width of its grid cell.
 - List The Gift of Athens alongside The Prince of Egypt under Live performance → Full-length productions.
 
 ## Options considered

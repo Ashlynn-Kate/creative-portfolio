@@ -68,6 +68,7 @@ const video = z.object({
   thumbnail: image,
   url: z.url(),
   caption: z.string().optional(),
+  captionOnImage: z.boolean().optional(),
   /** A consistently sized, cropped thumbnail for video links embedded in a long case study. */
   compact: z.boolean().optional(),
   thumbnailFocus: z.enum(['center', 'top']).optional(),
