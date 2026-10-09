@@ -11,7 +11,7 @@ const { leadingImage, trailingImage, body } = Astro.props;
 ---
 <section class="image-story wide">
   <MediaImage image={trailingImage} class="image-story__trailing" sizes="220px" />
-  <MediaImage image={leadingImage} class="image-story__leading" sizes="176px" />
+  <MediaImage image={leadingImage} class="image-story__leading" sizes="194px" />
   <div class="prose" set:html={md(body)} />
 </section>
 <style>
@@ -23,7 +23,7 @@ const { leadingImage, trailingImage, body } = Astro.props;
   }
   .image-story :global(.image-story__leading) {
     float: left;
-    width: min(17.6%, 176px);
+    width: min(19.36%, 194px);
     margin: 0 24px 12px 0;
   }
   .image-story :global(figcaption) { font-size: 13px; line-height: 1.5; margin-top: 10px; }
@@ -31,6 +31,6 @@ const { leadingImage, trailingImage, body } = Astro.props;
     /* Stack the tall photo after the story so the two images cannot squeeze the copy. */
     .image-story { display: flex; flex-direction: column; }
     .image-story :global(.image-story__trailing) { order: 3; float: none; width: min(50%, 210px); margin: 24px 0 0 auto; }
-    .image-story :global(.image-story__leading) { float: none; width: min(44%, 176px); margin: 0 0 20px; }
+    .image-story :global(.image-story__leading) { float: none; width: min(48.4%, 194px); margin: 0 0 20px; }
   }
 </style>
