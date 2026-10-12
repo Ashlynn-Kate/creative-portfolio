@@ -31,7 +31,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0021](0021-object-translations-portrait-preview.md) | Object Translations portrait preview | superseded by ADR-0049 | design | 2026-10-01 |
 | [ADR-0022](0022-object-translations-all-concepts-only.md) | Object Translations all-concepts-only summary | superseded by ADR-0049 | design | 2026-10-01 |
 | [ADR-0023](0023-prince-of-egypt-text-led-opening.md) | Prince of Egypt text-led opening | superseded by ADR-0034 | design | 2026-10-01 |
-| [ADR-0024](0024-prince-of-egypt-compact-materials.md) | Prince of Egypt compact supporting materials | accepted | design | 2026-10-01 |
+| [ADR-0024](0024-prince-of-egypt-compact-materials.md) | Prince of Egypt compact supporting materials | superseded by ADR-0064 | design | 2026-10-01 |
 | [ADR-0025](0025-home-page-case-order.md) | Home page case order | superseded by ADR-0043 | content | 2026-10-01 |
 | [ADR-0026](0026-footer-back-to-top-control.md) | Footer back-to-top control | superseded by ADR-0035 | design | 2026-10-01 |
 | [ADR-0027](0027-choreographic-works-collection.md) | Choreographic Works collection | superseded by ADR-0033 | design | 2026-10-02 |
@@ -41,7 +41,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0031](0031-choreographic-work-detail-rhythm.md) | Choreographic work detail rhythm | superseded by ADR-0032 | design | 2026-10-02 |
 | [ADR-0032](0032-choreographic-work-video-narrative.md) | Choreographic work video narrative | accepted | design | 2026-10-02 |
 | [ADR-0033](0033-works-directory-navigation.md) | Works directory navigation | superseded by ADR-0043 | design | 2026-10-02 |
-| [ADR-0034](0034-prince-artistic-portfolio-narrative.md) | Prince artistic portfolio narrative | accepted | design | 2026-10-02 |
+| [ADR-0034](0034-prince-artistic-portfolio-narrative.md) | Prince artistic portfolio narrative | superseded by ADR-0064 | design | 2026-10-02 |
 | [ADR-0035](0035-home-back-to-top-placement.md) | Home back-to-top placement | superseded by ADR-0043 | design | 2026-10-02 |
 | [ADR-0036](0036-prince-material-overlay-tiles.md) | Prince selected-material overlay tiles | accepted | design | 2026-10-03 |
 | [ADR-0037](0037-home-photographic-hero-sequence.md) | Home photographic hero sequence | accepted | design | 2026-10-03 |
@@ -71,6 +71,8 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0061](0061-mindspace-and-prince-unnumbered-headers.md) | Unnumbered Mindspace and Prince headers | accepted | design | 2026-10-11 |
 | [ADR-0062](0062-works-live-performance-destination.md) | Works links to the expanded Live performance page | accepted | design | 2026-10-11 |
 | [ADR-0063](0063-windows-preview-dependency-bridges.md) | Native dependency bridges for Windows preview | accepted | stack | 2026-10-11 |
+| [ADR-0064](0064-prince-alternating-story-and-process.md) | Prince alternating story and process | accepted | design | 2026-10-11 |
+| [ADR-0065](0065-mindspace-narrative-contribution-and-reference-note.md) | Mindspace narrative contribution and reference note | accepted | content | 2026-10-11 |
 
 ## Adding or changing a decision
 

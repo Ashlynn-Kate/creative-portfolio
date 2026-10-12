@@ -18,6 +18,8 @@ import PageCards from './PageCards.astro';
 import WorkListing from './WorkListing.astro';
 import { url } from '../lib/site';
 import ArrowIcon from './ArrowIcon.astro';
+import EditorialChapter from './EditorialChapter.astro';
+import PerformanceGallery from './PerformanceGallery.astro';
 
 interface Props {
   blocks: Block[];
@@ -64,7 +66,13 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
           </div>
         );
       case 'carousel':
-        return <div class="wide"><Carousel label={block.label} images={block.images} /></div>;
+        return <div class="wide"><Carousel label={block.label} images={block.images} />{block.note && <p class="gallery-note">{block.note}</p>}</div>;
+      case 'editorial-chapter':
+        return <EditorialChapter chapter={block} />;
+      case 'performance-gallery':
+        return <PerformanceGallery heading={block.heading} eyebrow={block.eyebrow} page={block.page} />;
+      case 'editorial-introduction':
+        return <section class="editorial-introduction wide"><p class="eyebrow">{block.eyebrow}</p><div><p class="editorial-introduction__lead">{block.lead}</p><div class="editorial-introduction__body" set:html={md(block.body)} /></div></section>;
       case 'role':
         return (
           <dl class="role-block">

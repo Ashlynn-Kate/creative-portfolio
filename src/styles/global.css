@@ -454,8 +454,8 @@ main:has(.about) + .site-footer {
 .case__summary { max-width: 38em; color: var(--ink-soft); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.55; }
 
 /* Gift of Athens section titles align to the same wide edge as their story copy. */
-.case--gift-of-athens.case--standalone { padding-top: 0; }
-.case--gift-of-athens.case--standalone .case__header {
+.case--cover-in-header.case--standalone { padding-top: 0; }
+.case--cover-in-header.case--standalone .case__header {
   background: none;
   padding-top: 20px;
 }
@@ -494,7 +494,23 @@ main:has(.about) + .site-footer {
   margin-bottom: clamp(20px, 3vw, 32px);
 }
 
-.case--cover-in-header .flow > .wide:has(.video) {
+.gallery-note { margin: 10px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.editorial-introduction { width: 100%; max-width: 1280px; justify-self: center; display: grid; grid-template-columns: .45fr 1.55fr; gap: 56px; padding: clamp(56px, 7vw, 100px) clamp(24px, 6vw, 86px); }
+.editorial-introduction > .eyebrow { padding-top: 8px; }
+.editorial-introduction__lead { max-width: 820px; margin: 0 0 24px; font: 400 clamp(25px, 3vw, 40px)/1.24 var(--font-display); }
+.editorial-introduction__body { max-width: 760px; color: var(--ink-soft); font-size: 16px; line-height: 1.8; }
+@media (max-width: 720px) {
+  .editorial-introduction { grid-template-columns: 1fr; gap: 20px; padding-block: 42px 54px; }
+  .editorial-introduction > .eyebrow { padding-top: 0; }
+  .editorial-introduction__body { font-size: 15px; }
+}
+
+/* The approved Prince chapters provide their own close, consistent spacing. */
+.case--prince-of-egypt .flow { row-gap: 0; }
+.case--prince-of-egypt .flow > .prose:first-child { margin-block: 36px 48px; }
+.case--prince-of-egypt .flow > .block-heading { margin-top: 66px; }
+
+.case--cover-in-header .flow > .wide:has(> .video) {
   max-width: 480px;
   justify-self: start;
 }

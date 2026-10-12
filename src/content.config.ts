@@ -60,6 +60,35 @@ const carousel = z.object({
   /** Read out by screen readers, e.g. "Performance photos". */
   label: z.string(),
   images: z.array(image).min(1),
+  note: z.string().optional(),
+});
+
+/** An editorial production chapter, with imagery close to its narrative. */
+const editorialChapter = z.object({
+  type: z.literal('editorial-chapter'),
+  id: z.string(),
+  heading: z.string(),
+  eyebrow: z.string(),
+  body: z.string(),
+  imageSide: z.enum(['left', 'right']).default('left'),
+  ratio: z.number().positive().default(1.5),
+  images: z.array(image).min(1).optional(),
+  video: z.object({ thumbnail: image, url: z.url(), caption: z.string().optional() }).optional(),
+  references: z.object({ heading: z.string(), body: z.string(), images: z.array(image).min(1) }).optional(),
+}).refine((chapter) => Boolean(chapter.images || chapter.video), 'A chapter needs photographs or a video.');
+
+/** Reuses the photographs from a detail page rather than duplicating content. */
+const performanceGallery = z.object({
+  type: z.literal('performance-gallery'),
+  heading: z.string(),
+  eyebrow: z.string(),
+  page: z.string(),
+});
+const editorialIntroduction = z.object({
+  type: z.literal('editorial-introduction'),
+  eyebrow: z.string(),
+  lead: z.string(),
+  body: z.string(),
 });
 
 const video = z.object({
@@ -218,6 +247,9 @@ type Block =
   | z.infer<typeof imageBlock>
   | z.infer<typeof grid>
   | z.infer<typeof carousel>
+  | z.infer<typeof editorialChapter>
+  | z.infer<typeof performanceGallery>
+  | z.infer<typeof editorialIntroduction>
   | z.infer<typeof role>
   | z.infer<typeof imageDetails>
   | z.infer<typeof imageFeature>
@@ -240,6 +272,9 @@ const block: z.ZodType<Block> = z.lazy(() =>
     imageBlock,
     grid,
     carousel,
+    editorialChapter,
+    performanceGallery,
+    editorialIntroduction,
     role,
     imageDetails,
     imageFeature,

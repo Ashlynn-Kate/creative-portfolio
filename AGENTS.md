@@ -67,18 +67,12 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0018** · `design` · Site menu and About page
   The site header must use a three-line menu control that reveals links to Work, Disciplines, and About, and the About page must present Ashlynn Kate's biography with a primary portrait in an editorial layout.
   → `docs/adr/0018-site-menu-and-about-page.md`
-- **ADR-0024** · `design` · Prince of Egypt compact supporting materials
-  The Prince of Egypt stage image must appear as a compact image beside its creative-process disclosures, and its Selected Materials links must use a compact four-across image-led layout.
-  → `docs/adr/0024-prince-of-egypt-compact-materials.md`
 - **ADR-0030** · `design` · Mindspace role after concept
   Post-tag narrative content in the home-page case studies must align to the wide content column used by Object Translations; Mindspace’s role statement must appear directly after its Concept paragraph in that narrative flow.
   → `docs/adr/0030-mindspace-role-after-concept.md`
 - **ADR-0032** · `design` · Choreographic work video narrative
   Individual Choreographic Works pages must begin their narrative with an uncropped half-width performance-video thumbnail floated left of the Behind the work section on desktop, with the copy wrapping beneath it when needed and stacking below it on mobile.
   → `docs/adr/0032-choreographic-work-video-narrative.md`
-- **ADR-0034** · `design` · Prince artistic portfolio narrative
-  The Prince of Egypt case study must open with an unheaded two-paragraph artistic introduction and understated credits, followed by an always-visible stage image and Shaping the Production narrative; it must not use role boxes or production-detail accordions.
-  → `docs/adr/0034-prince-artistic-portfolio-narrative.md`
 - **ADR-0036** · `design` · Prince selected-material overlay tiles
   The Prince of Egypt selected-material links must use four evenly spaced, compact square image tiles with each material's identifying text overlaid on the image; the layout must stack to two columns on mobile.
   → `docs/adr/0036-prince-material-overlay-tiles.md`
@@ -136,6 +130,12 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0063** · `stack` · Native dependency bridges for Windows preview
   While Astro's Windows module runner misloads eventemitter3 and esbuild, Vite must route them through tracked ESM bridges that use Node's native CommonJS loader, without manual node_modules patches or additional setup.
   → `docs/adr/0063-windows-preview-dependency-bridges.md`
+- **ADR-0064** · `design` · Prince alternating story and process
+  The Prince of Egypt must use the Gift of Athens opening-header layout with the approved reaching-dancers photograph, understated credits, and artistic introduction, followed by alternating, closely paired Throne, Landscape, and Opening chapters. Reference galleries must cycle smoothly forward with a three-second settled viewing time, without backing rectangles; Performance Photos must retain arrows and a logical photo count.
+  → `docs/adr/0064-prince-alternating-story-and-process.md`
+- **ADR-0065** · `content` · Mindspace narrative contribution and reference note
+  Mindspace's contribution must read as a first-person narrative sentence directly after its Concept paragraph, without a My role label or box. Its visual references must carry an understated note that they are inspiration, not images created or photographed by Ashlynn.
+  → `docs/adr/0065-mindspace-narrative-contribution-and-reference-note.md`
 <!-- adr-registry:end -->
 
 ## Content scope
