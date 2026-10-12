@@ -73,6 +73,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0063](0063-windows-preview-dependency-bridges.md) | Native dependency bridges for Windows preview | accepted | stack | 2026-10-11 |
 | [ADR-0064](0064-prince-alternating-story-and-process.md) | Prince alternating story and process | accepted | design | 2026-10-11 |
 | [ADR-0065](0065-mindspace-narrative-contribution-and-reference-note.md) | Mindspace narrative contribution and reference note | accepted | content | 2026-10-11 |
+| [ADR-0066](0066-prince-introduction-heading-and-alignment.md) | Prince introduction heading and alignment | accepted | design | 2026-10-11 |
 
 ## Adding or changing a decision
 

@@ -86,7 +86,7 @@ const performanceGallery = z.object({
 });
 const editorialIntroduction = z.object({
   type: z.literal('editorial-introduction'),
-  eyebrow: z.string(),
+  heading: z.string(),
   lead: z.string(),
   body: z.string(),
 });

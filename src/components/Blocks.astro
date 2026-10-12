@@ -72,7 +72,7 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
       case 'performance-gallery':
         return <PerformanceGallery heading={block.heading} eyebrow={block.eyebrow} page={block.page} />;
       case 'editorial-introduction':
-        return <section class="editorial-introduction wide"><p class="eyebrow">{block.eyebrow}</p><div><p class="editorial-introduction__lead">{block.lead}</p><div class="editorial-introduction__body" set:html={md(block.body)} /></div></section>;
+        return <section class="editorial-introduction wide"><h2>{block.heading}</h2><div><p class="editorial-introduction__lead">{block.lead}</p><div class="editorial-introduction__body" set:html={md(block.body)} /></div></section>;
       case 'role':
         return (
           <dl class="role-block">
