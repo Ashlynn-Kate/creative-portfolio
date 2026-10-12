@@ -137,7 +137,7 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
   Mindspace's contribution must read as a first-person narrative sentence directly after its Concept paragraph, without a My role label or box. Its visual references must carry an understated note that they are inspiration, not images created or photographed by Ashlynn.
   → `docs/adr/0065-mindspace-narrative-contribution-and-reference-note.md`
 - **ADR-0066** · `design` · Prince introduction heading and alignment
-  The Prince of Egypt introduction must present From story to stage as a section heading above both left-aligned paragraphs, not as a separate side label.
+  The Prince of Egypt introduction must present From story to stage as a section heading above both left-aligned paragraphs, not as a separate side label; its copy must share the opening photograph's wide-column left edge.
   → `docs/adr/0066-prince-introduction-heading-and-alignment.md`
 <!-- adr-registry:end -->
 

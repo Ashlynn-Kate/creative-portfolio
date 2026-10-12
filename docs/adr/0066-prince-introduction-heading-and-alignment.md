@@ -6,7 +6,8 @@ date: 2026-10-11
 area: design
 constraint: >
   The Prince of Egypt introduction must present From story to stage as a section
-  heading above both left-aligned paragraphs, not as a separate side label.
+  heading above both left-aligned paragraphs, not as a separate side label;
+  its copy must share the opening photograph's wide-column left edge.
 ---
 
 # Prince introduction heading and alignment
@@ -17,7 +18,8 @@ lead and a section heading above copy sharing a single left edge.
 
 ## Decision
 Use a semantic section heading and one left-aligned narrative column within the
-existing responsive introduction container. Reduce the lead by approximately 10px
+existing wide narrative column, without a second inset inside its responsive gutters.
+Tighten the vertical space above and below this aligned introduction. Reduce the lead by approximately 10px
 at the annotated desktop width, with a readable 21px minimum on phones.
 This refines the artistic introduction of ADR-0064 without changing its page sequence.
 

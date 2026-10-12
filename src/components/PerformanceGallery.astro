@@ -12,7 +12,7 @@ if (!gallery || gallery.type !== 'carousel') throw new Error(`Missing photograph
   <AutoGallery label={heading} softScroll images={gallery.images} />
 </section>
 <style>
-  .performance-gallery { width: 100%; max-width: 1440px; justify-self: center; text-align: center; padding-top: 12px; }
+  .performance-gallery { width: 100%; max-width: 1440px; justify-self: center; text-align: center; border-top: 1px solid var(--line); padding-top: clamp(28px, 4vw, 48px); }
   h2 { font: 400 clamp(38px, 4.7vw, 66px)/.98 var(--font-display); letter-spacing: -.025em; margin: 16px 0 42px; }
   .performance-gallery :global(.carousel) { background: transparent; padding: 0; color: var(--ink); }
   .performance-gallery :global(.carousel__stage) { aspect-ratio: 2.5; min-height: 0; max-height: none; }

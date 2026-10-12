@@ -16,12 +16,12 @@ const { chapter } = Astro.props;
   <div class="chapter-visuals">
     {chapter.images && <div class="chapter-gallery" style={`--photo-ratio: ${chapter.ratio}`}><AutoGallery label={`${chapter.heading} inspiration and stage result`} softScroll hideArrows images={chapter.images} /></div>}
     {chapter.video && <VideoLink {...chapter.video} />}
-    {chapter.references && <div class="chapter-references">
+  </div>
+  {chapter.references && <div class="chapter-references">
       <p class="eyebrow">{chapter.references.heading}</p>
       <div class="reference-note" set:html={md(chapter.references.body)} />
       <div class="chapter-gallery chapter-gallery--references" style="--photo-ratio: 1.5"><AutoGallery label={chapter.references.heading} softScroll hideControls images={chapter.references.images} /></div>
-    </div>}
-  </div>
+  </div>}
 </section>
 
 <style>
@@ -47,9 +47,10 @@ const { chapter } = Astro.props;
   .chapter-visuals :global(.video) { margin: 0; }
   .chapter-visuals :global(.video img) { width: 100%; height: auto; }
   .chapter-visuals :global(.video figcaption) { font-size: 11px; }
-  .chapter-references { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 18px; align-items: start; }
+  /* References share a full chapter row so the note has longer, calmer lines. */
+  .chapter-references { grid-column: 1/-1; width: min(100%, 820px); display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 12px 24px; align-items: start; }
   .chapter-references > .eyebrow { grid-column: 1/-1; font-size: 9px; margin: 0; }
-  .reference-note { grid-column: 2; grid-row: 2; align-self: center; color: var(--ink-soft); font-size: 14px; line-height: 1.75; }
+  .reference-note { grid-column: 2; grid-row: 2; align-self: center; color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
   .reference-note :global(p) { margin: 0; }
   .chapter-gallery--references { grid-column: 1; grid-row: 2; width: 100%; }
   @media (max-width: 720px) {

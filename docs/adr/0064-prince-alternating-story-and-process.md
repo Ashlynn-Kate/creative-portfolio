@@ -23,6 +23,9 @@ Use the owner-approved combined story-and-process draft, with section option C.
 Keep references before finished-stage images. The Opening image links to its existing
 Drive video through VideoLink. Its reference paragraph sits beside, vertically centered
 with, the reference gallery on desktop; the pair stacks on phones.
+The reference pair occupies a full chapter row, giving its 17px note a wider measure
+while keeping the reference photographs compact. Performance Photos begins below
+a thin neutral-grey rule matching the other section separators.
 Small chapter galleries have no arrow buttons, and the opening references have no controls.
 Performance Photos includes every photograph from its existing content page, arrows,
 and a counter, with controls immediately below the image.
