@@ -127,6 +127,15 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0060** · `design` · Gift of Athens scene captions below thumbnails
   The Gift of Athens must retain the story-first order and community layout of ADR-0058, with all scene-video titles, including Death of Socrates, displayed below their thumbnails.
   → `docs/adr/0060-athens-scene-captions-below.md`
+- **ADR-0061** · `design` · Unnumbered Mindspace and Prince headers
+  Mindspace and The Prince of Egypt must use unnumbered case-study headers. Mindspace must omit the separate Creative Process section from its current presentation.
+  → `docs/adr/0061-mindspace-and-prince-unnumbered-headers.md`
+- **ADR-0062** · `design` · Works links to the expanded Live performance page
+  Grouped categories on the Works overview must link to their focused area page. Live performance must open with Full-length productions and Individual pieces expanded, retaining their images and individual work links.
+  → `docs/adr/0062-works-live-performance-destination.md`
+- **ADR-0063** · `stack` · Native dependency bridges for Windows preview
+  While Astro's Windows module runner misloads eventemitter3 and esbuild, Vite must route them through tracked ESM bridges that use Node's native CommonJS loader, without manual node_modules patches or additional setup.
+  → `docs/adr/0063-windows-preview-dependency-bridges.md`
 <!-- adr-registry:end -->
 
 ## Content scope

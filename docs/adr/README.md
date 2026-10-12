@@ -68,6 +68,9 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0058](0058-athens-story-first-community-wrap.md) | Gift of Athens story-first order and community photographs | superseded by ADR-0060 | design | 2026-10-09 |
 | [ADR-0059](0059-production-directory-order-and-labels.md) | Contemporary ballet production listing | accepted | content | 2026-10-09 |
 | [ADR-0060](0060-athens-scene-captions-below.md) | Gift of Athens scene captions below thumbnails | accepted | design | 2026-10-09 |
+| [ADR-0061](0061-mindspace-and-prince-unnumbered-headers.md) | Unnumbered Mindspace and Prince headers | accepted | design | 2026-10-11 |
+| [ADR-0062](0062-works-live-performance-destination.md) | Works links to the expanded Live performance page | accepted | design | 2026-10-11 |
+| [ADR-0063](0063-windows-preview-dependency-bridges.md) | Native dependency bridges for Windows preview | accepted | stack | 2026-10-11 |
 
 ## Adding or changing a decision
 

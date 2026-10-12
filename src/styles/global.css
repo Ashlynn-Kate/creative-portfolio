@@ -436,6 +436,9 @@ main:has(.about) + .site-footer {
   background: linear-gradient(var(--ink), var(--ink)) no-repeat top / calc(100% - 2 * var(--gutter)) 1px;
 }
 
+/* Let unnumbered case headings occupy the full editorial width. */
+.case--unnumbered .case__header { grid-template-columns: 1fr; }
+
 /* A production cover can sit alongside its title and context, as in an editorial feature. */
 .case--cover-in-header .case__header {
   grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);

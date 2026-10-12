@@ -276,6 +276,8 @@ const cases = defineCollection({
     title: z.string(),
     /** Legacy home-index title, retained for existing content compatibility. */
     indexTitle: z.string().optional(),
+    /** Whether to show the decorative sequence number in the case heading. */
+    showNumber: z.boolean().default(true),
     /** Short line above the title, e.g. "Full-length production". */
     kicker: z.string().optional(),
     /** One-line facts, e.g. "Full-length contemporary ballet · Fuzion School of the Arts · May 2024". */

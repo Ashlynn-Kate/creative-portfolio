@@ -21,9 +21,17 @@ export default defineConfig({
   integrations: [designLab()],
   vite: {
     resolve: {
-      // Astro's content loader imports picomatch through Vite. Its CommonJS entry
-      // can fail in Vite's module runner on Windows, so load the local ESM bridge.
+      // Astro's Windows module runner can evaluate these CommonJS dependencies
+      // as ESM. The tracked bridges preserve Node's native package loading.
       alias: [
+        {
+          find: 'esbuild',
+          replacement: fileURLToPath(new URL('./scripts/esbuild-esm.mjs', import.meta.url)),
+        },
+        {
+          find: 'eventemitter3',
+          replacement: fileURLToPath(new URL('./scripts/eventemitter3-esm.mjs', import.meta.url)),
+        },
         {
           find: 'picomatch',
           replacement: fileURLToPath(new URL('./scripts/picomatch-esm.mjs', import.meta.url)),

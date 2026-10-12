@@ -1,5 +1,6 @@
 order: 2
 title: Mindspace
+showNumber: false
 kicker: Dance film
 status: In production
 meta: Filming October 24, 2026
@@ -37,9 +38,3 @@ blocks:
       - src: dance-film/chair-movement.png
         alt: A grid of black-and-white photos of a dancer moving over, under, and around a wooden chair.
         caption: Unusual ways of moving with a chair, turning a familiar object into part of the character’s inner, empty world.
-
-  - type: heading
-    text: Creative Process
-  - type: text
-    body: |
-      In rehearsals with Breana and conversations with the visual team, we shape the film’s movement, location, framing, and camera language to reveal the central character’s inner life.
