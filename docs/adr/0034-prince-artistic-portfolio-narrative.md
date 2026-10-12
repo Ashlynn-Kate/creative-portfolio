@@ -1,7 +1,8 @@
 ---
 id: ADR-0034
 title: Prince artistic portfolio narrative
-status: accepted
+status: superseded
+superseded_by: ADR-0064
 date: 2026-10-02
 area: design
 constraint: >

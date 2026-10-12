@@ -22,6 +22,7 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
     'case',
     {
       'case--standalone': standalone,
+      'case--unnumbered': !entry.data.showNumber,
       'case--cover-in-header': entry.data.coverInHeader,
       'case--gift-of-athens': entry.id === 'gift-of-athens',
       'case--prince-of-egypt': entry.id === 'prince-of-egypt',
@@ -35,7 +36,7 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
   <header class="case__header">
     {standalone && <a class="back case__back" href={url('works')}><ArrowIcon direction="left" /> All works</a>}
     {entry.data.coverInHeader && <MediaImage image={entry.data.cover} class="case__cover" showCaption={false} eager={standalone} sizes="(min-width: 900px) 44vw, 100vw" />}
-    <p class="case__num" aria-hidden="true">{pad(number)}</p>
+    {entry.data.showNumber && <p class="case__num" aria-hidden="true">{pad(number)}</p>}
     <div class="case__heading">
       <p class="case__kicker">
         {kicker && <span>{kicker}</span>}

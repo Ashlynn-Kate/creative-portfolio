@@ -1,43 +1,85 @@
 order: 3
 title: The Prince of Egypt
+showNumber: false
+coverInHeader: true
+role: Creation, Direction, & Choreography · Ashlynn Kate
 kicker: Stage production
 meta: Full-length contemporary ballet
 summary: A full-length contemporary ballet of 28 pieces, created and directed from story and early concepts through the finished stage production.
 disciplines: [Direction, Choreography, Visual Direction, Costume, Live Performance]
 cover:
-  src: prince-of-egypt/palace.png
-  alt: Dancers in white on a palace set lit in pale blue, with a golden throne at stage left.
+  src: prince-of-egypt/deliver-us-image-3.png
+  alt: Dancers in earth-toned costumes reach forward before tall desert panels glowing in amber light.
 
 blocks:
-  - type: text
+  - type: editorial-introduction
+    heading: From story to stage
+    lead: The Prince of Egypt brings its story to the stage through contemporary ballet, combining an ensemble of young dancers with professional guest artists.
     body: |
-      The Prince of Egypt brings its story to the stage through contemporary ballet, combining an ensemble of young dancers with professional guest artists.
-
       As creator and director, I developed the production’s storyline and flow, led casting, selected and edited the music, developed costumes, and choreographed 23 of its 28 pieces.
 
-  - type: credits
-    lines:
-      - Creation, Direction, & Choreography · Ashlynn Kate
-
-  - type: image-feature
-    image:
-      src: prince-of-egypt/deliver-us-image-3.png
-      alt: Dancers in earth-toned costumes reaching forward onstage before a desert backdrop.
-    heading: Shaping the Production
+  - type: editorial-chapter
+    id: throne
+    heading: The Throne
+    eyebrow: Scale · power · movement
+    ratio: 1.25
     body: |
-      Movement, music, costumes, makeup, and the stage environment developed together around the story. I gave the set team visual references and direction for where elements would be placed onstage, and worked with the lighting team to shape the look of each scene.
+      The throne’s scale and shape helped establish the palace world and convey the power of the person seated in it. I chose a visual reference to guide the creation of a piece of scenery that would command the stage and work with the choreography.
 
-      The throne, sandy backdrop, and opening scene shown below trace that process from reference images and early concepts to the finished stage.
+      It was mounted on a wheeled platform so it could move around the stage and be repositioned for different scenes.
+    images:
+      - src: prince-of-egypt/throne-inspiration.png
+        alt: An Egyptian queen seated on an ornate, towering golden throne.
+        caption: Visual reference
+      - src: prince-of-egypt/throne-closeup.png
+        alt: Three performers gathered around the finished golden throne onstage.
+        caption: The throne onstage
 
-      I also guided the rehearsal process and coordinated the production’s evolving details with the studio and creative team.
+  - type: editorial-chapter
+    id: landscape
+    heading: The Landscape
+    eyebrow: One landscape · many moments
+    imageSide: right
+    ratio: 1.9
+    body: |
+      A single painted landscape changed with the lighting, suggesting different places and times of day as different colors came forward.
 
-  - type: heading
-    text: Selected materials
+      In lower light, its warm sunset tones created the feeling of a hot desert—a backdrop for scenes in which the characters found themselves far from home, out in the wilderness.
+    images:
+      - src: prince-of-egypt/desert-mockup.png
+        alt: A scenic mockup of a sandy desert under a sunset sky, divided into vertical panels.
+        caption: The scenic mockup
+      - src: prince-of-egypt/desert-onstage.png
+        alt: The painted desert onstage, with the sand glowing beneath the lighting.
+        caption: The landscape under stage lighting
 
-  - type: pages
-    layout: compact-overlay
-    items:
-      - prince-of-egypt/throne-inspiration
-      - prince-of-egypt/desert-backdrop
-      - prince-of-egypt/opening-scene
-      - prince-of-egypt/performance-photos
+  - type: editorial-chapter
+    id: opening
+    heading: The Opening
+    eyebrow: Darkness · repetition · endurance
+    body: |
+      The opening scene sets the tone for the world our main character is born into: hard work, suffering, and seemingly endless bondage. It depicts the building of the pyramids, with large stones, rope pulleys, and scaffolding giving the labor a monumental scale.
+    video:
+      url: https://drive.google.com/file/d/1MjcR0QJEARC-q0XQT0gGWDhp1KWGepoh
+      caption: The opening scene onstage
+      thumbnail:
+        src: prince-of-egypt/deliver-us.png
+        alt: Dancers bent low under dim light before tall panels, with scaffolding at stage right.
+    references:
+      heading: The visual starting points
+      body: I gathered visual references for stone, scaffolding, and heavy rope to help shape this stage environment and convey the weight and repetition of the work.
+      images:
+        - src: prince-of-egypt/stone-blocks.png
+          alt: Rows of weathered sandstone blocks.
+          caption: Stone
+        - src: prince-of-egypt/scaffolding.jpg
+          alt: Tall frames of construction scaffolding.
+          caption: Scaffolding
+        - src: prince-of-egypt/rope.png
+          alt: A thick coil of natural fiber rope.
+          caption: Rope
+
+  - type: performance-gallery
+    heading: Performance Photos
+    eyebrow: Scenes from the production
+    page: prince-of-egypt/performance-photos

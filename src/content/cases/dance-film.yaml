@@ -1,5 +1,6 @@
 order: 2
 title: Mindspace
+showNumber: false
 kicker: Dance film
 status: In production
 meta: Filming October 24, 2026
@@ -16,14 +17,14 @@ blocks:
     body: |
       Set to a soft acoustic cover, the film follows a woman as she discovers and eventually accepts the unpredictable world inside her mind. It asks what may be happening behind someone’s eyes that others cannot see.
 
-  - type: role
-    label: My role
-    body: Original concept, co-direction, co-choreography, lead performance, and production coordination.
+  - type: text
+    body: I developed the original concept and am co-directing and co-choreographing the film, alongside performing the lead role and coordinating production.
 
   - type: heading
     text: Visual references
   - type: carousel
     label: Dance film visual references
+    note: Visual inspiration for the film; these images were not created or photographed by me.
     images:
       - src: dance-film/empty-chairs.png
         alt: Dozens of black bentwood chairs scattered across a white space, one figure seated among them.
@@ -37,9 +38,3 @@ blocks:
       - src: dance-film/chair-movement.png
         alt: A grid of black-and-white photos of a dancer moving over, under, and around a wooden chair.
         caption: Unusual ways of moving with a chair, turning a familiar object into part of the character’s inner, empty world.
-
-  - type: heading
-    text: Creative Process
-  - type: text
-    body: |
-      In rehearsals with Breana and conversations with the visual team, we shape the film’s movement, location, framing, and camera language to reveal the central character’s inner life.

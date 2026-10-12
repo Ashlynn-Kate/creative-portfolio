@@ -49,11 +49,14 @@ const groups = await Promise.all(categories.map(async (category) => ({
     <a class="works-directory__category" id={slugify(category.title)} href={category.item.href}>
       <span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong><b><ArrowIcon /></b>
     </a>
+  ) : !focused ? (
+    <a class="works-directory__category" id={slugify(category.title)} href={url(`area/${slugify(category.title)}`)}>
+      <span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong><b><ArrowIcon /></b>
+    </a>
   ) : (
     <section class="works-directory__live" id={slugify(category.title)}>
-      {!focused && <p><span>{String(index + 1).padStart(2, '0')}</span><strong>{category.title}</strong></p>}
       {category.groups?.map((group) => (
-        <details open={focused}>
+        <details open>
           <summary>{group.title}<b aria-hidden="true"></b></summary>
           {group.items.map((item) => (
             <a class="works-directory__piece" href={item.href} data-work={item.id}>

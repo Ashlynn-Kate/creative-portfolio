@@ -1,0 +1,27 @@
+---
+import { getEntry } from 'astro:content';
+import AutoGallery from './AutoGallery.astro';
+import { slugify } from '../lib/site';
+interface Props { heading: string; eyebrow: string; page: string }
+const { heading, eyebrow, page } = Astro.props;
+const entry = await getEntry('pages', page);
+const gallery = entry?.data.blocks.find((block) => block.type === 'carousel');
+if (!gallery || gallery.type !== 'carousel') throw new Error(`Missing photographs in ${page}`);
+---
+<section id={slugify(heading)} class="performance-gallery wide" aria-label={heading}>
+  <header><p class="eyebrow">{eyebrow}</p><h2>{heading}</h2></header>
+  <AutoGallery label={heading} softScroll images={gallery.images} />
+</section>
+<style>
+  .performance-gallery { width: 100%; max-width: 1440px; justify-self: center; text-align: center; border-top: 1px solid var(--line); padding-top: clamp(28px, 4vw, 48px); }
+  h2 { font: 400 clamp(38px, 4.7vw, 66px)/.98 var(--font-display); letter-spacing: -.025em; margin: 16px 0 42px; }
+  .performance-gallery :global(.carousel) { background: transparent; padding: 0; color: var(--ink); }
+  .performance-gallery :global(.carousel__stage) { aspect-ratio: 2.5; min-height: 0; max-height: none; }
+  .performance-gallery :global(.carousel__slide) { inset: 0 9%; }
+  .performance-gallery :global(.carousel__slide img) { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; box-shadow: none; }
+  .performance-gallery :global(.carousel__bar) { justify-content: center; padding: 8px 9% 0; }
+  .performance-gallery :global(.carousel__caption) { color: var(--muted); font-size: 12px; }
+  .performance-gallery :global(.carousel__btn) { border-color: var(--line); color: var(--control-tone); }
+  .performance-gallery :global(.carousel__btn:hover) { background: var(--paper-deep); }
+  @media (max-width: 720px) { h2 { margin-bottom: 28px; } }
+</style>

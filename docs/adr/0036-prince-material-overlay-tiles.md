@@ -1,7 +1,8 @@
 ---
 id: ADR-0036
 title: Prince selected-material overlay tiles
-status: accepted
+status: superseded
+superseded_by: ADR-0067
 date: 2026-10-03
 area: design
 constraint: >

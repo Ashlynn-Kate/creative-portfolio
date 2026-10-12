@@ -9,7 +9,7 @@ Quick, throwaway layout ideas that you can see in the browser before anything is
 
 1. Start the preview (`npm run dev`), or ask Codex to "show me the design lab".
 2. Ask for ideas, for example: "In the design lab, make three versions of the home page opening: one full-screen photo, one split layout, one with the carousel first." A photo of a pencil sketch helps.
-3. Open **http://localhost:4321/creative-portfolio/lab/**:
+3. Open **http://localhost:4321/lab/**:
    - Click a topic to see all its versions **side by side**, at desktop or phone size.
    - Click a version to see it full size. The badge in the corner switches between versions.
 4. React and adjust: "B, but bigger type and the photo on the left." The page updates as soon as the file changes.

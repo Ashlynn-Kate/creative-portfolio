@@ -1,7 +1,8 @@
 ---
 id: ADR-0024
 title: Prince of Egypt compact supporting materials
-status: accepted
+status: superseded
+superseded_by: ADR-0064
 date: 2026-10-01
 area: design
 constraint: >

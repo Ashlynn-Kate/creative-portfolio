@@ -1,0 +1,63 @@
+---
+import type { Block } from '../content.config';
+import { md } from '../lib/site';
+import AutoGallery from './AutoGallery.astro';
+import VideoLink from './VideoLink.astro';
+interface Props { chapter: Extract<Block, { type: 'editorial-chapter' }> }
+const { chapter } = Astro.props;
+---
+
+<section id={chapter.id} class:list={['editorial-chapter', 'wide', { 'editorial-chapter--right': chapter.imageSide === 'right' }]} aria-labelledby={`${chapter.id}-heading`}>
+  <div class="chapter-copy">
+    <p class="eyebrow">{chapter.eyebrow}</p>
+    <h2 id={`${chapter.id}-heading`}>{chapter.heading}</h2>
+    <div class="chapter-body" set:html={md(chapter.body)} />
+  </div>
+  <div class="chapter-visuals">
+    {chapter.images && <div class="chapter-gallery" style={`--photo-ratio: ${chapter.ratio}`}><AutoGallery label={`${chapter.heading} inspiration and stage result`} softScroll hideArrows images={chapter.images} /></div>}
+    {chapter.video && <VideoLink {...chapter.video} />}
+  </div>
+  {chapter.references && <div class="chapter-references">
+      <p class="eyebrow">{chapter.references.heading}</p>
+      <div class="reference-note" set:html={md(chapter.references.body)} />
+      <div class="chapter-gallery chapter-gallery--references" style="--photo-ratio: 1.5"><AutoGallery label={chapter.references.heading} softScroll hideControls images={chapter.references.images} /></div>
+  </div>}
+</section>
+
+<style>
+  .editorial-chapter { width: 100%; max-width: 1120px; justify-self: center; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: 28px; align-items: start; border-top: 1px solid var(--line); padding: 40px clamp(22px, 4vw, 48px) 48px; }
+  .chapter-copy, .chapter-visuals { min-width: 0; }
+  .chapter-copy { grid-column: 2; grid-row: 1; }
+  .chapter-visuals { grid-column: 1; grid-row: 1; }
+  .editorial-chapter--right { grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); }
+  .editorial-chapter--right .chapter-copy { grid-column: 1; }
+  .editorial-chapter--right .chapter-visuals { grid-column: 2; }
+  h2 { font: 400 clamp(36px, 4.7vw, 60px)/1 var(--font-display); letter-spacing: -.02em; margin: 14px 0 22px; }
+  .chapter-copy .eyebrow { font-size: 10px; line-height: 1.6; }
+  .chapter-body :global(p) { color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+  .chapter-body :global(p + p) { margin-top: 16px; }
+  .chapter-gallery :global(.carousel) { background: transparent; padding: 0; color: var(--ink); }
+  .chapter-gallery :global(.carousel__stage) { aspect-ratio: var(--photo-ratio); min-height: 0; max-height: none; }
+  .chapter-gallery :global(.carousel__slide) { inset: 0; }
+  .chapter-gallery :global(.carousel__slide img) { width: 100%; height: 100%; object-fit: contain; object-position: right bottom; box-shadow: none; }
+  .editorial-chapter--right .chapter-gallery :global(.carousel__slide img) { object-position: left bottom; }
+  .chapter-gallery :global(.carousel__bar) { padding: 10px 0 0; gap: 12px; }
+  .chapter-gallery :global(.carousel__caption), .chapter-gallery :global(.carousel__count) { font-size: 11px; }
+  .chapter-gallery :global(.carousel__caption) { color: var(--muted); }
+  .chapter-visuals :global(.video) { margin: 0; }
+  .chapter-visuals :global(.video img) { width: 100%; height: auto; }
+  .chapter-visuals :global(.video figcaption) { font-size: 11px; }
+  /* References share a full chapter row so the note has longer, calmer lines. */
+  .chapter-references { grid-column: 1/-1; width: min(100%, 820px); display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 12px 24px; align-items: start; }
+  .chapter-references > .eyebrow { grid-column: 1/-1; font-size: 9px; margin: 0; }
+  .reference-note { grid-column: 2; grid-row: 2; align-self: center; color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
+  .reference-note :global(p) { margin: 0; }
+  .chapter-gallery--references { grid-column: 1; grid-row: 2; width: 100%; }
+  @media (max-width: 720px) {
+    .editorial-chapter, .editorial-chapter--right { grid-template-columns: 1fr; gap: 24px; padding-block: 32px 40px; }
+    .chapter-copy, .chapter-visuals, .editorial-chapter--right .chapter-copy, .editorial-chapter--right .chapter-visuals { grid-column: 1; grid-row: auto; }
+    .chapter-references { grid-template-columns: 1fr; }
+    .reference-note { grid-column: 1; grid-row: 2; }
+    .chapter-gallery--references { grid-column: 1; grid-row: 3; width: min(100%, 300px); }
+  }
+</style>

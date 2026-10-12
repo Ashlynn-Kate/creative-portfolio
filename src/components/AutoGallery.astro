@@ -1,0 +1,134 @@
+---
+/** Smooth production galleries; the concept carousel remains unchanged. */
+import Carousel from './Carousel.astro';
+
+interface Props {
+  label: string;
+  images: { src: string; alt: string; caption?: string }[];
+  interval?: number;
+  softScroll?: boolean;
+  hideArrows?: boolean;
+  hideControls?: boolean;
+}
+const { label, images, interval = 3000, softScroll = false, hideArrows = false, hideControls = false } = Astro.props;
+// Separate incoming/outgoing copies let two photographs cycle in one direction,
+// exactly as the concept carousel does with a larger collection.
+const renderedImages = images.length === 2 ? [...images, ...images] : images;
+// The interval is the still viewing time; transitions get their own time.
+const transition = Math.min(1650, interval * .8);
+---
+
+<div class:list={{ 'soft-scroll': softScroll, 'hide-arrows': hideArrows, 'hide-controls': hideControls }} data-auto-gallery data-interval={interval} data-image-count={images.length} data-soft-scroll={softScroll ? '' : undefined} data-transition={transition} style={`--gallery-transition: ${transition}ms`}>
+  <Carousel label={label} images={renderedImages} />
+</div>
+
+<script>
+  // Reuse the existing carousel's swipe, arrows, captions, and slide rendering.
+  // These galleries advance automatically while visible, including after a
+  // visitor uses a control. Offscreen/hidden pages and reduced motion pause it.
+  document.querySelectorAll<HTMLElement>('[data-auto-gallery]').forEach((root) => {
+    if (root.dataset.autoReady) return;
+    root.dataset.autoReady = 'true';
+    const stage = root.querySelector<HTMLElement>('[data-stage]')!;
+    const next = root.querySelector<HTMLButtonElement>('[data-next]');
+    const caption = root.querySelector<HTMLElement>('[data-caption-text]');
+    if (!next) return;
+    const slides = [...stage.querySelectorAll<HTMLElement>('[data-slide]')];
+    const imageCount = Number(root.dataset.imageCount);
+    const indexLabel = root.querySelector<HTMLElement>('[data-index]');
+    const counter = root.querySelector<HTMLElement>('.carousel__count');
+    // Copies are an animation detail; visitors still see two photographs.
+    slides.forEach((slide, i) => slide.setAttribute('aria-label', `${i % imageCount + 1} of ${imageCount}`));
+    if (counter?.lastChild) counter.lastChild.textContent = ` / ${String(imageCount).padStart(2, '0')}`;
+    const updateCounter = () => {
+      const front = slides.findIndex((slide) => slide.dataset.pos === '0');
+      if (indexLabel && front >= 0) indexLabel.textContent = String(front % imageCount + 1).padStart(2, '0');
+    };
+    caption?.setAttribute('aria-live', 'off');
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+    let visible = false;
+    let dragging = false;
+    let hovered = false;
+    let userPaused = false;
+    let timer: number | undefined;
+    let outgoingFade: Animation | undefined;
+    let outgoingOnTop: HTMLElement | undefined;
+    const clearFade = () => {
+      outgoingFade?.cancel();
+      if (outgoingOnTop) outgoingOnTop.style.zIndex = '';
+      outgoingFade = undefined;
+      outgoingOnTop = undefined;
+    };
+    const advance = () => {
+      clearFade();
+      const outgoing = stage.querySelector<HTMLElement>('[data-slide][data-pos="0"]');
+      caption?.setAttribute('aria-live', 'off');
+      next.click();
+      updateCounter();
+      if (!root.hasAttribute('data-soft-scroll') || !outgoing || reducedMotion.matches) return;
+      // Same handoff as the Conceptual Portraits carousel: the outgoing image
+      // stays above the incoming peek as it slides away and fades to zero.
+      outgoingOnTop = outgoing;
+      outgoing.style.zIndex = '5';
+      outgoingFade = outgoing.animate([{ opacity: 1 }, { opacity: 0 }], {
+        duration: Number(root.dataset.transition),
+        easing: 'cubic-bezier(0.45, 0, 0.55, 1)',
+        fill: 'forwards',
+      });
+      outgoingFade.onfinish = () => { outgoing.style.zIndex = ''; };
+    };
+    const pause = () => { window.clearTimeout(timer); timer = undefined; };
+    const restart = () => {
+      pause();
+      updateCounter();
+      if (!visible || dragging || hovered || userPaused || root.matches(':focus-within') || document.hidden || reducedMotion.matches) return;
+      const hold = Number(root.dataset.interval) || 3000;
+      const motionTime = root.hasAttribute('data-soft-scroll') ? Number(root.dataset.transition) : 700;
+      const tick = () => {
+        advance();
+        // Allow the fade to finish, then hold the settled photograph for 3s.
+        timer = window.setTimeout(tick, motionTime + hold);
+      };
+      timer = window.setTimeout(tick, hold);
+    };
+    new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      restart();
+    }, { threshold: .2 }).observe(stage);
+    stage.addEventListener('pointerdown', () => { dragging = true; pause(); clearFade(); });
+    const finishDrag = () => { dragging = false; restart(); };
+    stage.addEventListener('pointerup', finishDrag);
+    stage.addEventListener('pointercancel', finishDrag);
+    stage.setAttribute('aria-label', `${root.querySelector('[data-carousel]')?.getAttribute('aria-label')}. Use arrow keys to browse; press Space to pause or resume automatic cycling.`);
+    stage.addEventListener('keydown', (event) => {
+      if (event.code === 'Space') { event.preventDefault(); userPaused = !userPaused; }
+      restart();
+    });
+    root.addEventListener('pointerenter', (event) => { if (event.pointerType === 'mouse') { hovered = true; restart(); } });
+    root.addEventListener('pointerleave', () => { hovered = false; restart(); });
+    root.addEventListener('focusin', restart);
+    root.addEventListener('focusout', () => window.setTimeout(restart, 0));
+    root.addEventListener('click', (event) => { if (event.isTrusted) { clearFade(); restart(); } });
+    document.addEventListener('visibilitychange', restart);
+    reducedMotion.addEventListener('change', () => { clearFade(); restart(); });
+  });
+</script>
+
+<style>
+  .hide-arrows :global(.carousel__btn) { display: none; }
+  .hide-controls :global(.carousel__controls) { display: none; }
+  .soft-scroll :global(.carousel__slide) {
+    transition:
+      transform var(--gallery-transition) cubic-bezier(0.45, 0, 0.55, 1),
+      opacity var(--gallery-transition) cubic-bezier(0.45, 0, 0.55, 1),
+      filter var(--gallery-transition) cubic-bezier(0.45, 0, 0.55, 1);
+  }
+  /* Keep only the active photograph visible between transitions. The outgoing
+     slide's fade animation remains visible while it hands off to the next. */
+  .soft-scroll :global(.carousel__slide[data-pos='-1']),
+  .soft-scroll :global(.carousel__slide[data-pos='1']) {
+    opacity: 0;
+    filter: none;
+    pointer-events: none;
+  }
+</style>
