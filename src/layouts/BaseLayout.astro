@@ -37,6 +37,7 @@ const previewUrl = new URL(preview.src, Astro.site);
 
     <!-- Keep this site out of search results. Do not remove. -->
     <meta name="robots" content="noindex, nofollow" />
+    <slot name="head" />
 
     <!-- Link previews (Messages, Instagram, email, etc.) -->
     <meta property="og:type" content="website" />

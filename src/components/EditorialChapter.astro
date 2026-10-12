@@ -7,7 +7,7 @@ interface Props { chapter: Extract<Block, { type: 'editorial-chapter' }> }
 const { chapter } = Astro.props;
 ---
 
-<section class:list={['editorial-chapter', 'wide', { 'editorial-chapter--right': chapter.imageSide === 'right' }]} aria-labelledby={`${chapter.id}-heading`}>
+<section id={chapter.id} class:list={['editorial-chapter', 'wide', { 'editorial-chapter--right': chapter.imageSide === 'right' }]} aria-labelledby={`${chapter.id}-heading`}>
   <div class="chapter-copy">
     <p class="eyebrow">{chapter.eyebrow}</p>
     <h2 id={`${chapter.id}-heading`}>{chapter.heading}</h2>
@@ -34,7 +34,7 @@ const { chapter } = Astro.props;
   .editorial-chapter--right .chapter-visuals { grid-column: 2; }
   h2 { font: 400 clamp(36px, 4.7vw, 60px)/1 var(--font-display); letter-spacing: -.02em; margin: 14px 0 22px; }
   .chapter-copy .eyebrow { font-size: 10px; line-height: 1.6; }
-  .chapter-body :global(p) { color: var(--ink-soft); font-size: 15px; line-height: 1.75; }
+  .chapter-body :global(p) { color: var(--ink-soft); font-size: 17px; line-height: 1.75; }
   .chapter-body :global(p + p) { margin-top: 16px; }
   .chapter-gallery :global(.carousel) { background: transparent; padding: 0; color: var(--ink); }
   .chapter-gallery :global(.carousel__stage) { aspect-ratio: var(--photo-ratio); min-height: 0; max-height: none; }

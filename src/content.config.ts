@@ -353,6 +353,8 @@ const detailPages = defineCollection({
     cover: image,
     published: z.boolean().default(true),
     blocks: z.array(block),
+    /** Retired pages can redirect old bookmarks to a main-page section. */
+    redirectTo: z.string().optional(),
   }),
 });
 

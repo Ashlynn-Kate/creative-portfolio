@@ -6,9 +6,10 @@ import DisciplineTags from '../../components/DisciplineTags.astro';
 import { casePath, getDetailPages, getCases, type DetailPage } from '../../lib/content';
 import { url } from '../../lib/site';
 import ArrowIcon from '../../components/ArrowIcon.astro';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const pages = await getDetailPages();
+  const pages = await getCollection('pages', (page) => page.data.published !== false || Boolean(page.data.redirectTo));
   // Choreographic Works has its own root-level routes so it does not appear
   // as both /work/choreographic-works/... and /choreographic-works/....
   return pages
@@ -26,6 +27,10 @@ const next = siblings[index + 1];
 ---
 
 <BaseLayout title={page.data.title} description={page.data.summary} image={page.data.cover.src}>
+  {page.data.redirectTo && <meta slot="head" http-equiv="refresh" content={`0;url=${url(page.data.redirectTo)}`} />}
+  {page.data.redirectTo ? (
+    <p class="prose"><a href={url(page.data.redirectTo)}>Continue to {parent?.data.title ?? 'the production'}</a></p>
+  ) : (
   <article class="detail">
     <header class="detail__header">
       {parent && <a class="back" href={isLandingPage ? url('works') : url(casePath(parent))}>
@@ -60,4 +65,5 @@ const next = siblings[index + 1];
       )}
     </nav>}
   </article>
+  )}
 </BaseLayout>

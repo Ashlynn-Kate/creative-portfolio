@@ -1,13 +1,14 @@
 ---
 import { getEntry } from 'astro:content';
 import AutoGallery from './AutoGallery.astro';
+import { slugify } from '../lib/site';
 interface Props { heading: string; eyebrow: string; page: string }
 const { heading, eyebrow, page } = Astro.props;
 const entry = await getEntry('pages', page);
 const gallery = entry?.data.blocks.find((block) => block.type === 'carousel');
 if (!gallery || gallery.type !== 'carousel') throw new Error(`Missing photographs in ${page}`);
 ---
-<section class="performance-gallery wide" aria-label={heading}>
+<section id={slugify(heading)} class="performance-gallery wide" aria-label={heading}>
   <header><p class="eyebrow">{eyebrow}</p><h2>{heading}</h2></header>
   <AutoGallery label={heading} softScroll images={gallery.images} />
 </section>

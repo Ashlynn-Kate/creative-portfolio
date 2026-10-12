@@ -1,7 +1,8 @@
 ---
 id: ADR-0064
 title: Prince alternating story and process
-status: accepted
+status: superseded
+superseded_by: ADR-0067
 date: 2026-10-11
 area: design
 constraint: >

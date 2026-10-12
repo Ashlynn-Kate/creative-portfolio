@@ -84,13 +84,3 @@ blocks:
     eyebrow: Scenes from the production
     page: prince-of-egypt/performance-photos
 
-  - type: heading
-    text: Selected materials
-
-  - type: pages
-    layout: compact-overlay
-    items:
-      - prince-of-egypt/throne-inspiration
-      - prince-of-egypt/desert-backdrop
-      - prince-of-egypt/opening-scene
-      - prince-of-egypt/performance-photos
