@@ -76,6 +76,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0066](0066-prince-introduction-heading-and-alignment.md) | Prince introduction heading and alignment | accepted | design | 2026-10-11 |
 | [ADR-0067](0067-prince-complete-production-page.md) | Prince complete production page | accepted | design | 2026-10-11 |
 | [ADR-0068](0068-knock-on-wood-averted-consequences.md) | Knock on Wood averted consequences | accepted | content | 2026-10-12 |
+| [ADR-0069](0069-owner-narrative-punctuation.md) | Owner narrative punctuation | accepted | content | 2026-10-12 |
 
 ## Adding or changing a decision
 

@@ -139,6 +139,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0068** · `content` · Knock on Wood averted consequences
   Knock on Wood must explain the protective superstition before describing the second character embodying approaching misfortune, which the main character averts by finally knocking on wood. Its narrative and choreography description must not imply that the threatened misfortune actually occurs.
   → `docs/adr/0068-knock-on-wood-averted-consequences.md`
+- **ADR-0069** · `content` · Owner narrative punctuation
+  New or revised portfolio narrative copy in Ashlynn's voice must avoid em and en dashes as sentence punctuation, using commas, periods, or rephrasing instead.
+  → `docs/adr/0069-owner-narrative-punctuation.md`
 <!-- adr-registry:end -->
 
 ## Content scope
