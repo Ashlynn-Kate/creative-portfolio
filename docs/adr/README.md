@@ -39,7 +39,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0029](0029-wide-case-narrative-alignment.md) | Wide case narrative alignment | superseded by ADR-0030 | design | 2026-10-02 |
 | [ADR-0030](0030-mindspace-role-after-concept.md) | Mindspace role after concept | accepted | design | 2026-10-02 |
 | [ADR-0031](0031-choreographic-work-detail-rhythm.md) | Choreographic work detail rhythm | superseded by ADR-0032 | design | 2026-10-02 |
-| [ADR-0032](0032-choreographic-work-video-narrative.md) | Choreographic work video narrative | accepted | design | 2026-10-02 |
+| [ADR-0032](0032-choreographic-work-video-narrative.md) | Choreographic work video narrative | superseded by ADR-0072 | design | 2026-10-02 |
 | [ADR-0033](0033-works-directory-navigation.md) | Works directory navigation | superseded by ADR-0043 | design | 2026-10-02 |
 | [ADR-0034](0034-prince-artistic-portfolio-narrative.md) | Prince artistic portfolio narrative | superseded by ADR-0064 | design | 2026-10-02 |
 | [ADR-0035](0035-home-back-to-top-placement.md) | Home back-to-top placement | superseded by ADR-0043 | design | 2026-10-02 |
@@ -79,6 +79,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0069](0069-owner-narrative-punctuation.md) | Owner narrative punctuation | accepted | content | 2026-10-12 |
 | [ADR-0070](0070-forward-choreographic-work.md) | Forward choreographic work | superseded by ADR-0071 | content | 2026-10-12 |
 | [ADR-0071](0071-live-performance-return-navigation.md) | Live performance return navigation | accepted | design | 2026-10-12 |
+| [ADR-0072](0072-individual-work-editorial-columns.md) | Individual work editorial columns | accepted | design | 2026-10-12 |
 
 ## Adding or changing a decision
 

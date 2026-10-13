@@ -1,7 +1,8 @@
 ---
 id: ADR-0032
 title: Choreographic work video narrative
-status: accepted
+status: superseded
+superseded_by: ADR-0072
 date: 2026-10-02
 area: design
 constraint: >

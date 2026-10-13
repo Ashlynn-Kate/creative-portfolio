@@ -1,4 +1,5 @@
 case: choreographic-works
+layout: editorial-columns
 order: 2
 title: Forward
 summary: A study of persistence, building through effort and repeated setbacks toward an exhausted but triumphant finish.
@@ -24,7 +25,9 @@ blocks:
       The ensemble expands and contracts throughout the piece, moving between a solo dancer, duets, trios, and larger groups. These repeated builds and resets represent a cyclical rhythm, with moments of retreat followed by another push forward. Intensity and numbers accumulate toward the final sense of breakthrough.
   - type: heading
     text: Presentation details
+    placement: support
   - type: text
+    placement: support
     body: |
       Choreography by Ashlynn Kate.
 
