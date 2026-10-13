@@ -1,7 +1,7 @@
 case: choreographic-works
 order: 1
 title: Knock on Wood
-summary: A cautionary tale exploring superstition and the fragility of good fortune.
+summary: A cautionary tale in which looming misfortune is narrowly avoided through the ritual of knocking on wood.
 cover:
   src: choreographic-works/knock-on-wood.jpg
   alt: Dancers performing Knock on Wood on a blue-lit stage.
@@ -10,24 +10,24 @@ blocks:
     thumbnail:
       src: choreographic-works/knock-on-wood.jpg
       alt: Dancers performing Knock on Wood on a blue-lit stage.
-    url: https://drive.google.com/file/d/1uP8NmEGIM9x9x9Cf0ARwIT6B0niOHSVZ/view?usp=sharing
-    caption: Full performance video.
+    url: https://drive.google.com/file/d/15m89VWHEPKhWZ-zdekQ0-66acR1Qhw4O/view?usp=drive_link
+    caption: Abbreviated performance video.
     heading: Behind the work
-    body: >
-      Knock on Wood draws on the superstition of knocking on wood to protect
-      good fortune after expressing a positive outcome. The piece explores what
-      happens when that ritual is overlooked, forming a cautionary tale about
-      good fortune and its reversal.
+    body: |
+      “Knock on wood” is an expression and superstition used after mentioning good fortune or hoping for a positive outcome, or rather, hoping to avoid the inverse of that fortune. People say the phrase, often tapping a wooden surface, to avoid “tempting fate,” the belief that speaking confidently about something good could invite bad luck.
+
+      My piece imagines the consequences of forgetting this protective ritual. A second character embodies the misfortune that awaits, drawing increasingly closer to the main character as the story unfolds. The looming threat is only averted when he finally knocks on wood, turning a familiar superstition into a visible encounter between impending consequences and the gesture believed to keep them at bay.
   - type: heading
     text: Choreographic approach
   - type: text
     body: >
       Retrogradation, or movement performed in reverse order, shapes individual
-      sequences and the work as a whole, connecting the choreography to the
-      narrative’s reversal of fortune.
+      sequences and the work as a whole. This use of reversal connects the
+      choreography to the story’s turning point, when the main character finally
+      knocks on wood and averts the misfortune approaching him.
   - type: heading
     text: Presentation details
   - type: text
     body: >
-      Presented at The Ailey School’s Global Harmony Showcase in February 2020.
+      Presented at The Ailey School’s Global Harmony Showcase.
       Selected as one of 10 works from 45 submissions.
