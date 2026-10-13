@@ -154,6 +154,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0075** · `design` · Mindspace story and mood board
   Mindspace must pair its Concept and contribution narrative with a Mood board in fixed desktop columns, stacking the narrative before the gallery on phones. Its reference images must be described as inspiration for the intended look and feel, not exact scenes or images created or photographed by Ashlynn.
   → `docs/adr/0075-mindspace-story-and-mood-board.md`
+- **ADR-0076** · `design` · Compact natural-image Live performance directory
+  Live performance must use a compact editorial directory with natural-ratio, uncropped photographs beside titles and metadata on desktop. Both work groups must remain visible; phones must stack each photograph above its title and arrow.
+  → `docs/adr/0076-compact-natural-image-performance-directory.md`
 <!-- adr-registry:end -->
 
 ## Content scope

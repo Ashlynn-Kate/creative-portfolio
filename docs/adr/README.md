@@ -83,6 +83,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0073](0073-about-steady-editorial-split.md) | About steady editorial split | accepted | design | 2026-10-13 |
 | [ADR-0074](0074-about-uncropped-portrait.md) | About uncropped portrait | accepted | design | 2026-10-13 |
 | [ADR-0075](0075-mindspace-story-and-mood-board.md) | Mindspace story and mood board | accepted | design | 2026-10-13 |
+| [ADR-0076](0076-compact-natural-image-performance-directory.md) | Compact natural-image Live performance directory | accepted | design | 2026-10-13 |
 
 ## Adding or changing a decision
 
