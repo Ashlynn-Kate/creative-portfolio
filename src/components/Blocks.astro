@@ -20,6 +20,7 @@ import { url } from '../lib/site';
 import ArrowIcon from './ArrowIcon.astro';
 import EditorialChapter from './EditorialChapter.astro';
 import PerformanceGallery from './PerformanceGallery.astro';
+import NarrativeGallery from './NarrativeGallery.astro';
 
 interface Props {
   blocks: Block[];
@@ -67,6 +68,8 @@ const isCarousel = (block: Block): block is CarouselBlock => block.type === 'car
         );
       case 'carousel':
         return <div class="wide"><Carousel label={block.label} images={block.images} />{block.note && <p class="gallery-note">{block.note}</p>}</div>;
+      case 'narrative-gallery':
+        return <NarrativeGallery content={block} />;
       case 'editorial-chapter':
         return <EditorialChapter chapter={block} />;
       case 'performance-gallery':

@@ -151,6 +151,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0074** · `design` · About uncropped portrait
   The About portrait must show the full original image at its natural aspect ratio, including the visible top of Ashlynn's jeans, without a fixed-ratio crop.
   → `docs/adr/0074-about-uncropped-portrait.md`
+- **ADR-0075** · `design` · Mindspace story and mood board
+  Mindspace must pair its Concept and contribution narrative with a Mood board in fixed desktop columns, stacking the narrative before the gallery on phones. Its reference images must be described as inspiration for the intended look and feel, not exact scenes or images created or photographed by Ashlynn.
+  → `docs/adr/0075-mindspace-story-and-mood-board.md`
 <!-- adr-registry:end -->
 
 ## Content scope

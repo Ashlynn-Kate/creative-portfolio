@@ -66,6 +66,17 @@ const carousel = z.object({
   note: z.string().optional(),
 });
 
+/** A narrative column paired with a clearly labelled reference gallery. */
+const narrativeGallery = z.object({
+  type: z.literal('narrative-gallery'),
+  heading: z.string(),
+  body: z.string(),
+  galleryHeading: z.string(),
+  label: z.string(),
+  note: z.string().optional(),
+  images: z.array(image).min(1),
+});
+
 /** An editorial production chapter, with imagery close to its narrative. */
 const editorialChapter = z.object({
   type: z.literal('editorial-chapter'),
@@ -250,6 +261,7 @@ type Block =
   | z.infer<typeof imageBlock>
   | z.infer<typeof grid>
   | z.infer<typeof carousel>
+  | z.infer<typeof narrativeGallery>
   | z.infer<typeof editorialChapter>
   | z.infer<typeof performanceGallery>
   | z.infer<typeof editorialIntroduction>
@@ -275,6 +287,7 @@ const block: z.ZodType<Block> = z.lazy(() =>
     imageBlock,
     grid,
     carousel,
+    narrativeGallery,
     editorialChapter,
     performanceGallery,
     editorialIntroduction,

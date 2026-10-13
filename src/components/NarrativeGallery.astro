@@ -1,0 +1,33 @@
+---
+/** Two editorial columns. Text and images remain content-defined. */
+import type { Block } from '../content.config';
+import { md } from '../lib/site';
+import Carousel from './Carousel.astro';
+interface Props { content: Extract<Block, { type: 'narrative-gallery' }> }
+const { content } = Astro.props;
+---
+<div class="narrative-gallery wide">
+  <section class="narrative-gallery__story" aria-label={content.heading}>
+    <h2>{content.heading}</h2>
+    <div set:html={md(content.body)} />
+  </section>
+  <section class="narrative-gallery__references" aria-label={content.galleryHeading}>
+    <h2>{content.galleryHeading}</h2>
+    <Carousel label={content.label} images={content.images} />
+    {content.note && <p class="narrative-gallery__note">{content.note}</p>}
+  </section>
+</div>
+<style>
+  .narrative-gallery { width: 100%; display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(28px, 4vw, 48px); align-items: start; }
+  .narrative-gallery__story, .narrative-gallery__references { min-width: 0; }
+  h2 { font: 400 clamp(32px, 4vw, 48px)/1.05 var(--font-display); margin: 0 0 14px; }
+  .narrative-gallery__story { color: var(--ink-soft); }
+  .narrative-gallery__story :global(p + p) { margin-top: 18px; }
+  .narrative-gallery__references :global(.carousel__stage) { min-height: 0; max-height: none; aspect-ratio: 1.5; }
+  .narrative-gallery__references :global(.carousel__bar) { padding: 18px 20px 22px; gap: 14px; }
+  .narrative-gallery__references :global(.carousel__caption) { font-size: 13px; }
+  .narrative-gallery__note { margin: 12px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; max-width: 720px; }
+  @media (max-width: 720px) {
+    .narrative-gallery { grid-template-columns: 1fr; gap: 30px; }
+  }
+</style>
