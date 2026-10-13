@@ -312,8 +312,9 @@ main:has(.about) + .site-footer {
 
 .about__portrait img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .about__lead {
