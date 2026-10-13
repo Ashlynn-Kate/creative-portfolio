@@ -1,19 +1,16 @@
 ---
-/** The index for original choreographic works. Content remains data-driven in src/content/pages. */
+/** Retired directory: old bookmarks lead to the works' focused area instead. */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import WorkListing from '../../components/WorkListing.astro';
-import { getDetailPages } from '../../lib/content';
+import { getDetailPages, getWorkArea } from '../../lib/content';
+import { url } from '../../lib/site';
 
 const works = await getDetailPages('choreographic-works');
+const area = works.length ? await getWorkArea('page', works[0].id) : undefined;
+const destination = url(area?.path ?? 'works');
+const title = area?.title ?? 'Works';
 ---
 
-<BaseLayout title="Choreographic Works" description="Original choreography exploring narrative, concept, and movement.">
-  <section class="works-page">
-    <header class="works-page__header">
-      <p class="eyebrow">Choreography</p>
-      <h1>Choreographic Works</h1>
-      <p>Original choreography exploring narrative, concept, and movement.</p>
-    </header>
-    <WorkListing items={works.map((work) => work.id)} route="choreographic-works" />
-  </section>
+<BaseLayout title={title} description={`Continue to ${title}.`}>
+  <meta slot="head" http-equiv="refresh" content={`0;url=${destination}`} />
+  <p class="prose"><a href={destination}>Continue to {title}</a></p>
 </BaseLayout>

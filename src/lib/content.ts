@@ -1,5 +1,5 @@
 /** Shared queries for cases, detail pages, and disciplines. */
-import { getCollection, type CollectionEntry } from 'astro:content';
+import { getCollection, getEntry, type CollectionEntry } from 'astro:content';
 import { slugify } from './site';
 
 export type Case = CollectionEntry<'cases'>;
@@ -7,6 +7,18 @@ export type DetailPage = CollectionEntry<'pages'>;
 
 /** The main destination for a case, whether it uses its own page or a detail page. */
 export const casePath = (entry: Case) => `work/${entry.data.landingPage ?? entry.id}`;
+
+/** Return a work to its focused group directory, using the same navigation data
+ * that places it there. Works outside a group retain the all-works destination. */
+export async function getWorkArea(type: 'case' | 'page', id: string) {
+  const directory = await getEntry('workDirectories', 'works');
+  const category = directory?.data.categories.find((category) =>
+    category.type === 'group' && category.groups?.some((group) =>
+      group.items.some((item) => item.type === type && item.id === id),
+    ),
+  );
+  return category ? { title: category.title, path: `area/${slugify(category.title)}` } : undefined;
+}
 
 /** Published full case studies, in editorial order. */
 export async function getCases(): Promise<Case[]> {

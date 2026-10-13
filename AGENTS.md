@@ -142,9 +142,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0069** · `content` · Owner narrative punctuation
   New or revised portfolio narrative copy in Ashlynn's voice must avoid em and en dashes as sentence punctuation, using commas, periods, or rephrasing instead.
   → `docs/adr/0069-owner-narrative-punctuation.md`
-- **ADR-0070** · `content` · Forward choreographic work
-  Forward must appear among Individual pieces and Choreographic Works, using the Knock on Wood video-narrative layout, the owner-provided performance image, and an accurately labelled abbreviated video. Its narrative must frame persistence through cyclical builds and resets, and credit Ashlynn's choreography and the company dancers.
-  → `docs/adr/0070-forward-choreographic-work.md`
+- **ADR-0071** · `design` · Live performance return navigation
+  Projects listed in Live performance must use Live performance as their page-level return destination. The separate Choreographic Works directory must redirect to Live performance, while individual-piece URLs remain unchanged. Forward must retain its approved video-narrative layout, abbreviated clip, persistence narrative, owner-provided image, and accurate choreography and company credits.
+  → `docs/adr/0071-live-performance-return-navigation.md`
 <!-- adr-registry:end -->
 
 ## Content scope
