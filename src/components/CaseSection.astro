@@ -1,7 +1,7 @@
 ---
 /** One case study, shared by its standalone page and any editorial previews. */
 import type { Case } from '../lib/content';
-import { pad } from '../lib/content';
+import { pad, getWorkArea } from '../lib/content';
 import { url } from '../lib/site';
 import Blocks from './Blocks.astro';
 import DisciplineTags from './DisciplineTags.astro';
@@ -15,6 +15,7 @@ interface Props {
 }
 const { entry, number, standalone = false } = Astro.props;
 const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
+const returnArea = standalone ? await getWorkArea('case', entry.id) : undefined;
 ---
 
 <article
@@ -34,7 +35,7 @@ const { title, kicker, meta, status, role, disciplines, blocks } = entry.data;
   aria-labelledby={`${entry.id}-title`}
 >
   <header class="case__header">
-    {standalone && <a class="back case__back" href={url('works')}><ArrowIcon direction="left" /> All works</a>}
+    {standalone && <a class="back case__back" href={url(returnArea?.path ?? 'works')}><ArrowIcon direction="left" /> {returnArea?.title ?? 'All works'}</a>}
     {entry.data.coverInHeader && <MediaImage image={entry.data.cover} class="case__cover" showCaption={false} eager={standalone} sizes="(min-width: 900px) 44vw, 100vw" />}
     {entry.data.showNumber && <p class="case__num" aria-hidden="true">{pad(number)}</p>}
     <div class="case__heading">

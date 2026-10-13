@@ -1,7 +1,8 @@
 ---
 id: ADR-0070
 title: Forward choreographic work
-status: accepted
+status: superseded
+superseded_by: ADR-0071
 date: 2026-10-12
 area: content
 constraint: >
