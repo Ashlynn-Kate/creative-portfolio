@@ -368,7 +368,7 @@ const detailPages = defineCollection({
     conceptTiles: z.array(z.object({
       concept: z.string(),
       area: z.enum(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']),
-      offset: z.enum(['raised', 'right-down', 'left-down']).optional(),
+      offset: z.enum(['raised', 'right-down', 'left-down', 'lowered']).optional(),
       brighten: z.boolean().optional(),
     })).optional(),
     order: z.number(),
