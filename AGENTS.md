@@ -145,6 +145,12 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0072** · `design` · Individual work editorial columns
   Knock on Wood and Forward must use fixed editorial columns on desktop, with the uncropped video thumbnail and presentation details on the left and the work narrative and choreographic approach on the right. On phones the order must be video, presentation details, narrative, then choreographic approach.
   → `docs/adr/0072-individual-work-editorial-columns.md`
+- **ADR-0073** · `design` · About steady editorial split
+  About must use the approved steady editorial split, with portrait and contact information in a supporting left column and the biography in a continuous right column. On phones the order must be portrait, biography, then contact.
+  → `docs/adr/0073-about-steady-editorial-split.md`
+- **ADR-0074** · `design` · About uncropped portrait
+  The About portrait must show the full original image at its natural aspect ratio, including the visible top of Ashlynn's jeans, without a fixed-ratio crop.
+  → `docs/adr/0074-about-uncropped-portrait.md`
 <!-- adr-registry:end -->
 
 ## Content scope

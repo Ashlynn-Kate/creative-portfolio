@@ -285,29 +285,36 @@ main:has(.about) + .site-footer {
 }
 
 .about__content {
-  max-width: 1000px;
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  /* The first row hugs the image; any extra biography height belongs to row two. */
+  grid-template-rows: max-content 1fr;
+  gap: 30px clamp(30px, 5vw, 64px);
+  align-items: start;
   font-size: clamp(18px, 1.4vw, 23px);
   line-height: 1.55;
   color: var(--ink-soft);
 }
 
-.about__content::after {
-  display: block;
-  clear: both;
-  content: '';
+.about__biography {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  min-width: 0;
 }
 
 .about__portrait,
 .about__portrait.media {
-  float: left;
-  width: min(42%, 430px);
-  margin: 0 clamp(32px, 6vw, 96px) 0 0;
+  grid-column: 1;
+  grid-row: 1;
+  width: 100%;
+  margin: 0;
 }
 
 .about__portrait img {
   width: 100%;
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
+  height: auto;
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .about__lead {
@@ -316,14 +323,17 @@ main:has(.about) + .site-footer {
   line-height: 1.18;
 }
 
-.about__content p {
-  margin-bottom: 1.3em;
+.about__biography p + p {
+  margin-top: 1.3em;
 }
 
 .about__contact {
-  margin-top: clamp(28px, 4.5vw, 64px);
-  padding: 18px 0 40px;
-  border-top: 1px solid var(--ink);
+  grid-column: 1;
+  grid-row: 2;
+  min-width: 0;
+  margin: 0;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
 }
 
 .about__contact .eyebrow {
@@ -2052,10 +2062,11 @@ main:has(.about) + .site-footer {
   }
   .about__portrait,
   .about__portrait.media {
-    float: none;
-    width: 100%;
-    margin: 0 0 32px;
+    width: min(100%, 360px);
+    margin: 0;
   }
+  .about__content { display: flex; flex-direction: column; gap: 28px; }
+  .about__contact { width: 100%; }
   .discipline__item {
     grid-template-columns: 1fr;
   }

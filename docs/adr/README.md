@@ -80,6 +80,8 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0070](0070-forward-choreographic-work.md) | Forward choreographic work | superseded by ADR-0071 | content | 2026-10-12 |
 | [ADR-0071](0071-live-performance-return-navigation.md) | Live performance return navigation | accepted | design | 2026-10-12 |
 | [ADR-0072](0072-individual-work-editorial-columns.md) | Individual work editorial columns | accepted | design | 2026-10-12 |
+| [ADR-0073](0073-about-steady-editorial-split.md) | About steady editorial split | accepted | design | 2026-10-13 |
+| [ADR-0074](0074-about-uncropped-portrait.md) | About uncropped portrait | accepted | design | 2026-10-13 |
 
 ## Adding or changing a decision
 
