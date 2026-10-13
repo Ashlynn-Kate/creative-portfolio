@@ -1,0 +1,31 @@
+case: choreographic-works
+order: 2
+title: Forward
+summary: A study of persistence, building through effort and repeated setbacks toward an exhausted but triumphant finish.
+cover:
+  src: choreographic-works/forward.jpg
+  alt: Four dancers in magenta tops and dark trousers perform low, driving movements on a purple-lit stage.
+blocks:
+  - type: video-feature
+    thumbnail:
+      src: choreographic-works/forward.jpg
+      alt: Four dancers in magenta tops and dark trousers perform low, driving movements on a purple-lit stage.
+    url: https://drive.google.com/file/d/1lTq9YRM7A6AjYbVl6yQezVq7m7XeAy6N/view?usp=drive_link
+    caption: Abbreviated performance video.
+    heading: Behind the work
+    body: |
+      *Forward* explores the determination to keep moving, even when progress becomes difficult. Soft music carries a driving rhythm that subtly propels the dancers, giving the piece a persistent sense of forward momentum. Rather than following a literal story, the work builds toward an ending that feels exhausted but triumphant, inviting the audience to leave with renewed motivation to keep pushing.
+  - type: heading
+    text: Choreographic approach
+  - type: text
+    body: |
+      The movement grows from walking, low chugs, and small jumps into running and expansive jumping sequences. A recurring knee crawl embodies the effort of moving forward when the body must work harder to continue.
+
+      The ensemble expands and contracts throughout the piece, moving between a solo dancer, duets, trios, and larger groups. These repeated builds and resets give progress a cyclical rhythm, with moments of retreat followed by another push forward. Intensity and numbers accumulate toward the final sense of breakthrough.
+  - type: heading
+    text: Presentation details
+  - type: text
+    body: |
+      Choreography by Ashlynn Kate.
+
+      Created for freshman and sophomore dancers in the senior company of GO! Contemporary Dance Works, based at Studio Arts for Dancers in Knoxville, Tennessee.

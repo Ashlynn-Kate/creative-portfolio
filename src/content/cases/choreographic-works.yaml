@@ -16,4 +16,5 @@ blocks:
     route: choreographic-works
     items:
       - choreographic-works/knock-on-wood
+      - choreographic-works/forward
     linkLabel: Explore more Choreographic Works
