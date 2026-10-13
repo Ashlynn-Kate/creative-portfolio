@@ -559,6 +559,10 @@ main:has(.about) + .site-footer {
   margin-bottom: 0;
 }
 
+/* Standalone Mindspace needs an opening gutter, not the gap between case studies. */
+.case--mindspace.case--standalone { padding-top: clamp(24px, 2.5vw, 32px); }
+.case--mindspace.case--standalone .case__header { padding-top: 24px; }
+
 .case--mindspace .flow > .block-heading:first-child {
   margin-top: 0;
 }
