@@ -1,0 +1,40 @@
+---
+/** Fixed editorial columns selected in the reading-rhythm lab. Content stays in YAML. */
+import type { Block } from '../content.config';
+import Blocks from './Blocks.astro';
+import VideoLink from './VideoLink.astro';
+interface Props { blocks: Block[] }
+const { blocks } = Astro.props;
+const feature = blocks.find(block => block.type === 'video-feature');
+if (!feature || feature.type !== 'video-feature') throw new Error('Editorial work layout requires a video-feature block.');
+const isSupport = (block: Block) => 'placement' in block && block.placement === 'support';
+const support = blocks.filter(isSupport);
+const story: Block[] = [
+  ...(feature.heading ? [{ type: 'heading' as const, text: feature.heading }] : []),
+  { type: 'text', body: feature.body, size: 'text' },
+  ...blocks.filter(block => block !== feature && !isSupport(block)),
+];
+---
+<div class="work-editorial wide">
+  <aside class="work-editorial__support" aria-label="Performance video and presentation details">
+    <div class="work-editorial__media"><VideoLink thumbnail={feature.thumbnail} url={feature.url} caption={feature.caption} compact={feature.compact} thumbnailFocus={feature.thumbnailFocus} /></div>
+    {support.length > 0 && <div class="work-editorial__details"><Blocks blocks={support} /></div>}
+  </aside>
+  <div class="work-editorial__story"><Blocks blocks={story} /></div>
+</div>
+<style>
+  .work-editorial { width: 100%; max-width: 1080px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 4vw, 48px); align-items: start; }
+  .work-editorial__support, .work-editorial__story { min-width: 0; }
+  .work-editorial__media :global(.video) { float: none; width: 100%; max-width: none; margin: 0; }
+  .work-editorial__details { margin-top: 30px; padding-top: 22px; border-top: 1px solid var(--line); }
+  .work-editorial :global(.block-heading) { margin: 0; }
+  .work-editorial :global(.block-heading h3) { font-size: clamp(32px, 4vw, 48px); font-weight: 400; line-height: 1.05; }
+  .work-editorial :global(.prose) { max-width: none; }
+  .work-editorial :global(.block-heading + .prose) { margin-top: 8px; }
+  .work-editorial :global(.prose + .block-heading) { margin-top: 34px; }
+  @media (max-width: 640px) {
+    .work-editorial { grid-template-columns: 1fr; gap: 30px; }
+    .work-editorial__details { margin-top: 22px; }
+    .work-editorial :global(.prose + .block-heading) { margin-top: 28px; }
+  }
+</style>

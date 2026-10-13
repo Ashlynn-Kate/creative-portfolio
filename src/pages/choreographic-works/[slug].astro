@@ -2,6 +2,7 @@
 /** Individual original choreography pages, e.g. /choreographic-works/knock-on-wood/. */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Blocks from '../../components/Blocks.astro';
+import WorkEditorial from '../../components/WorkEditorial.astro';
 import { getDetailPages, getWorkArea, type DetailPage } from '../../lib/content';
 import { url } from '../../lib/site';
 import ArrowIcon from '../../components/ArrowIcon.astro';
@@ -24,7 +25,9 @@ const returnTitle = returnArea?.title ?? 'All works';
       <h1 class="detail__title">{work.data.title}</h1>
       {work.data.sub && <p class="detail__sub">{work.data.sub}</p>}
     </header>
-    <div class="flow"><Blocks blocks={work.data.blocks} /></div>
+    <div class="flow">
+      {work.data.layout === 'editorial-columns' ? <WorkEditorial blocks={work.data.blocks} /> : <Blocks blocks={work.data.blocks} />}
+    </div>
     <nav class="pager" aria-label="Choreographic works navigation">
       <span />
       <a class="pager__link pager__link--next" href={url(returnPath)}>

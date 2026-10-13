@@ -70,9 +70,6 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0030** · `design` · Mindspace role after concept
   Post-tag narrative content in the home-page case studies must align to the wide content column used by Object Translations; Mindspace’s role statement must appear directly after its Concept paragraph in that narrative flow.
   → `docs/adr/0030-mindspace-role-after-concept.md`
-- **ADR-0032** · `design` · Choreographic work video narrative
-  Individual Choreographic Works pages must begin their narrative with an uncropped half-width performance-video thumbnail floated left of the Behind the work section on desktop, with the copy wrapping beneath it when needed and stacking below it on mobile.
-  → `docs/adr/0032-choreographic-work-video-narrative.md`
 - **ADR-0037** · `design` · Home photographic hero sequence
   The home-page hero must present owner-approved photographs as a subtle, full-width asynchronous sequence behind the existing copy, with varied scale and placement, cream-feathered edges, offscreen pausing, and a static reduced-motion presentation.
   → `docs/adr/0037-home-photographic-hero-sequence.md`
@@ -145,6 +142,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0071** · `design` · Live performance return navigation
   Projects listed in Live performance must use Live performance as their page-level return destination. The separate Choreographic Works directory must redirect to Live performance, while individual-piece URLs remain unchanged. Forward must retain its approved video-narrative layout, abbreviated clip, persistence narrative, owner-provided image, and accurate choreography and company credits.
   → `docs/adr/0071-live-performance-return-navigation.md`
+- **ADR-0072** · `design` · Individual work editorial columns
+  Knock on Wood and Forward must use fixed editorial columns on desktop, with the uncropped video thumbnail and presentation details on the left and the work narrative and choreographic approach on the right. On phones the order must be video, presentation details, narrative, then choreographic approach.
+  → `docs/adr/0072-individual-work-editorial-columns.md`
 <!-- adr-registry:end -->
 
 ## Content scope

@@ -28,12 +28,15 @@ const image = z.object({
 const heading = z.object({
   type: z.literal('heading'),
   text: z.string(),
+  /** Optional supporting-column placement in editorial work pages. */
+  placement: z.enum(['story', 'support']).optional(),
   /** Smaller line under the heading, e.g. "Volume · Texture · Gold". */
   sub: z.string().optional(),
 });
 
 const text = z.object({
   type: z.literal('text'),
+  placement: z.enum(['story', 'support']).optional(),
   /** Markdown: paragraphs, **bold**, *italic*, lists, links. */
   body: z.string(),
   /** Optional position among sibling blocks, including numbered disclosures. */
@@ -346,6 +349,8 @@ const detailPages = defineCollection({
   schema: z.object({
     /** The case this page belongs to (its file name, e.g. "prince-of-egypt"). */
     case: z.string(),
+    /** Opt into a two-column work narrative with supporting details beside it. */
+    layout: z.enum(['default', 'editorial-columns']).default('default'),
     order: z.number(),
     title: z.string(),
     sub: z.string().optional(),
