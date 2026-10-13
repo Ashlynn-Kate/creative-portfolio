@@ -1844,6 +1844,12 @@ main:has(.about) + .site-footer {
   padding: clamp(48px, 9vw, 120px) var(--gutter) clamp(40px, 6vw, 72px);
 }
 
+/* Compact spacing for the concept browser, without changing other project headers. */
+.detail--concept-browser .detail__header {
+  padding-top: clamp(12px, 1.32vw, 20px);
+  padding-bottom: clamp(20px, 2.2vw, 28px);
+}
+
 .back {
   display: inline-flex;
   align-items: center;

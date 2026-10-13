@@ -32,7 +32,7 @@ const next = siblings[index + 1];
   {page.data.redirectTo ? (
     <p class="prose"><a href={url(page.data.redirectTo)}>Continue to {parent?.data.title ?? 'the production'}</a></p>
   ) : (
-  <article class="detail">
+  <article class:list={['detail', { 'detail--concept-browser': page.data.layout === 'concept-browser' }]}>
     <header class="detail__header">
       {parent && <a class="back" href={isLandingPage ? url('works') : url(casePath(parent))}>
         <ArrowIcon direction="left" /> {isLandingPage ? 'All works' : parent.data.title}
