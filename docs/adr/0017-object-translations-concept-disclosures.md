@@ -1,7 +1,8 @@
 ---
 id: ADR-0017
 title: Object Translations concepts begin as disclosures
-status: accepted
+status: superseded
+superseded_by: ADR-0077
 date: 2026-09-29
 area: design
 constraint: >
