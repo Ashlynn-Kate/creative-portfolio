@@ -56,16 +56,38 @@ const groups = await Promise.all(categories.map(async (category) => ({
   ) : (
     <section class="works-directory__live" id={slugify(category.title)}>
       {category.groups?.map((group) => (
-        <details open>
-          <summary>{group.title}<b aria-hidden="true"></b></summary>
+        <section class="works-directory__group" aria-label={group.title}>
+          <h2>{group.title}</h2>
+          <div class="works-directory__items">
           {group.items.map((item) => (
             <a class="works-directory__piece" href={item.href} data-work={item.id}>
-              <MediaImage image={{ ...item.cover, highRes: undefined }} showCaption={false} sizes="(max-width: 680px) 100vw, 24vw" />
+              <MediaImage image={{ ...item.cover, highRes: undefined }} showCaption={false} sizes="(max-width: 680px) 100vw, 260px" />
               <span><em>{item.title}</em><small>{item.meta}</small></span><b><ArrowIcon /></b>
             </a>
           ))}
-        </details>
+          </div>
+        </section>
       ))}
     </section>
   ))}
 </nav>
+
+<style>
+  /* The focused directory follows the approved compact, natural-image study. */
+  .works-directory--focused { border-top: 0; }
+  .works-directory__group { border-top: 1px solid var(--line); padding-top: 20px; }
+  .works-directory__group + .works-directory__group { margin-top: 46px; }
+  .works-directory__group h2 { margin: 0 0 24px; font: 400 clamp(28px, 3vw, 42px)/1.05 var(--font-display); }
+  .works-directory__items { display: grid; gap: 28px; }
+  .works-directory--focused .works-directory__piece { grid-template-columns: minmax(160px, 260px) minmax(0, 1fr) 20px; gap: 24px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .works-directory__piece > span { min-width: 0; letter-spacing: 0; }
+  .works-directory--focused .works-directory__piece :global(img) { width: 100%; height: auto; aspect-ratio: auto; object-fit: contain; }
+  .works-directory--focused .works-directory__piece em { font-size: clamp(26px, 3vw, 32px); line-height: 1.05; }
+  .works-directory__piece:hover em, .works-directory__piece:focus-visible em { color: var(--accent); }
+  @media (max-width: 680px) {
+    .works-directory--focused .works-directory__piece { grid-template-columns: minmax(0, 1fr) 20px; gap: 16px; }
+    .works-directory__piece :global(.media) { grid-column: 1/-1; }
+    .works-directory--focused .works-directory__piece > b { display: block; }
+    .works-directory__group + .works-directory__group { margin-top: 36px; }
+  }
+</style>
