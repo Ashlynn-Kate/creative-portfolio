@@ -1,4 +1,15 @@
 case: object-translations
+layout: concept-browser
+conceptTiles:
+  - { concept: Feather bag, area: a, offset: raised }
+  - { concept: Disco Ball, area: b }
+  - { concept: Tiffany & Co. Vintage Paperweight, area: c, offset: raised }
+  - { concept: Louboutin Floral Handbag, area: d, offset: right-down }
+  - { concept: Sharpie Highlighter, area: f, brighten: true }
+  - { concept: Floral Heel, area: e }
+  - { concept: Vintage lamp, area: g, offset: lowered }
+  - { concept: Lemonade Pitcher, area: h, offset: left-down }
+  - { concept: Bronze Heel, area: i, offset: lowered }
 order: 1
 title: Conceptual Portraits
 sub: Object Translations · Independent series

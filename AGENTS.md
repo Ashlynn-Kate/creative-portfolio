@@ -61,9 +61,6 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0015** · `content` · Mindspace is the title of the dance film
   The dance film case study must be titled “Mindspace” and presented as a dance film; it must not use the song title “Crazy” as the work's title.
   → `docs/adr/0015-mindspace-film-title.md`
-- **ADR-0017** · `design` · Object Translations concepts begin as disclosures
-  Each Object Translations concept must begin as a closed, named disclosure; opening it reveals its object-and-portrait pair, translation notes, and additional-photo gallery.
-  → `docs/adr/0017-object-translations-concept-disclosures.md`
 - **ADR-0018** · `design` · Site menu and About page
   The site header must use a three-line menu control that reveals links to Work, Disciplines, and About, and the About page must present Ashlynn Kate's biography with a primary portrait in an editorial layout.
   → `docs/adr/0018-site-menu-and-about-page.md`
@@ -157,6 +154,9 @@ If it touches a decision, say so and classify it: *consistent*, *amends*, or *co
 - **ADR-0076** · `design` · Compact natural-image Live performance directory
   Live performance must use a compact editorial directory with natural-ratio, uncropped photographs beside titles and metadata on desktop. Both work groups must remain visible; phones must stack each photograph above its title and arrow.
   → `docs/adr/0076-compact-natural-image-performance-directory.md`
+- **ADR-0077** · `design` · Concept collection tile and list views
+  Conceptual Portraits must offer an object-only tile mosaic and the existing named-disclosure list, with portraits hidden until a concept is selected. The mosaic must use unequal, uncropped image sizes on subtle grey backing, no hover titles, and restrained 2.5 percent hover enlargement without overlapping images.
+  → `docs/adr/0077-concept-collection-tile-and-list-views.md`
 <!-- adr-registry:end -->
 
 ## Content scope

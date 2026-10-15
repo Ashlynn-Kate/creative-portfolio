@@ -24,7 +24,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0014](0014-design-lab-explore-before-implementing.md) | Design lab — explore layouts in throwaway prototypes before implementing | accepted | workflow | 2026-09-27 |
 | [ADR-0015](0015-mindspace-film-title.md) | Mindspace is the title of the dance film | accepted | content | 2026-09-28 |
 | [ADR-0016](0016-object-translations-all-concepts.md) | Object Translations uses a summary and all-concepts page | superseded by ADR-0022 | design | 2026-09-29 |
-| [ADR-0017](0017-object-translations-concept-disclosures.md) | Object Translations concepts begin as disclosures | accepted | design | 2026-09-29 |
+| [ADR-0017](0017-object-translations-concept-disclosures.md) | Object Translations concepts begin as disclosures | superseded by ADR-0077 | design | 2026-09-29 |
 | [ADR-0018](0018-site-menu-and-about-page.md) | Site menu and About page | accepted | design | 2026-09-30 |
 | [ADR-0019](0019-object-translations-concept-thumbnails.md) | Object Translations concept thumbnails | superseded by ADR-0053 | design | 2026-10-01 |
 | [ADR-0020](0020-object-translations-inline-portrait-galleries.md) | Object Translations inline portrait galleries | superseded by ADR-0050 | design | 2026-10-01 |
@@ -84,6 +84,7 @@ trade-offs, and when to revisit it. Each one's one-line rule (`constraint`) is a
 | [ADR-0074](0074-about-uncropped-portrait.md) | About uncropped portrait | accepted | design | 2026-10-13 |
 | [ADR-0075](0075-mindspace-story-and-mood-board.md) | Mindspace story and mood board | accepted | design | 2026-10-13 |
 | [ADR-0076](0076-compact-natural-image-performance-directory.md) | Compact natural-image Live performance directory | accepted | design | 2026-10-13 |
+| [ADR-0077](0077-concept-collection-tile-and-list-views.md) | Concept collection tile and list views | accepted | design | 2026-10-13 |
 
 ## Adding or changing a decision
 

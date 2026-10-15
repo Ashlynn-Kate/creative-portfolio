@@ -363,7 +363,14 @@ const detailPages = defineCollection({
     /** The case this page belongs to (its file name, e.g. "prince-of-egypt"). */
     case: z.string(),
     /** Opt into a two-column work narrative with supporting details beside it. */
-    layout: z.enum(['default', 'editorial-columns']).default('default'),
+    layout: z.enum(['default', 'editorial-columns', 'concept-browser']).default('default'),
+    /** Optional art direction for an object-only concept mosaic, keyed by disclosure title. */
+    conceptTiles: z.array(z.object({
+      concept: z.string(),
+      area: z.enum(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']),
+      offset: z.enum(['raised', 'right-down', 'left-down', 'lowered']).optional(),
+      brighten: z.boolean().optional(),
+    })).optional(),
     order: z.number(),
     title: z.string(),
     sub: z.string().optional(),

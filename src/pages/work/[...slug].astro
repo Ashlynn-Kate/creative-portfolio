@@ -2,6 +2,7 @@
 /** Detail pages that belong to a case, e.g. /work/prince-of-egypt/throne-inspiration/ */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Blocks from '../../components/Blocks.astro';
+import ConceptBrowser from '../../components/ConceptBrowser.astro';
 import DisciplineTags from '../../components/DisciplineTags.astro';
 import { casePath, getDetailPages, getCases, type DetailPage } from '../../lib/content';
 import { url } from '../../lib/site';
@@ -31,7 +32,7 @@ const next = siblings[index + 1];
   {page.data.redirectTo ? (
     <p class="prose"><a href={url(page.data.redirectTo)}>Continue to {parent?.data.title ?? 'the production'}</a></p>
   ) : (
-  <article class="detail">
+  <article class:list={['detail', { 'detail--concept-browser': page.data.layout === 'concept-browser' }]}>
     <header class="detail__header">
       {parent && <a class="back" href={isLandingPage ? url('works') : url(casePath(parent))}>
         <ArrowIcon direction="left" /> {isLandingPage ? 'All works' : parent.data.title}
@@ -42,7 +43,7 @@ const next = siblings[index + 1];
     </header>
 
     <div class="flow">
-      <Blocks blocks={page.data.blocks} />
+      {page.data.layout === 'concept-browser' ? <ConceptBrowser blocks={page.data.blocks} tiles={page.data.conceptTiles} /> : <Blocks blocks={page.data.blocks} />}
     </div>
 
     {(prev || next || (parent && !isLandingPage)) && <nav class="pager" aria-label="More from this project">
